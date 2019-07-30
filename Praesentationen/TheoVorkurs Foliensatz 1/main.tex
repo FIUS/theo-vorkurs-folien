@@ -5,6 +5,7 @@
 \usepackage{appendixnumberbeamer}
 \usepackage[ngerman]{babel}
 \usepackage[utf8]{inputenc}
+\usepackage{t1enc}
 
 \usepackage{booktabs}
 \usepackage[scale=2]{ccicons}
@@ -409,7 +410,7 @@ Theoretische Informatik I ist Orientierungsprüfung für Informatik, Medieninfor
 $L_2 = \{a^n \alert{\mid} n \in \mathbb{N}\}$ \\
 
 \emph{Die Sprache $L_2$ enthält alle Wörter $a^n$, \alert{für die gilt}: n stammt aus der Menge der natürlichen Zahlen.}
-\vspace{5}
+\vspace{5mm}
 
 \metroset{block=fill}
 \begin{alertblock}{Achtung}
@@ -419,7 +420,7 @@ $L_2 = \{a^n \alert{\mid} n \in \mathbb{N}\}$ \\
 \end{frame}
 
 \begin{frame}[fragile]{Wie schreiben wir das?}
-    \begin{itemize}
+    %\begin{itemize}
         Viele Zeichen hintereinander (konkateniert) können auch einfacher geschrieben werden.
         \begin{align*}
             a^0 &= \epsilon\\
@@ -430,7 +431,7 @@ $L_2 = \{a^n \alert{\mid} n \in \mathbb{N}\}$ \\
             a^n &= \underbrace{a \cdot a \cdot ... \cdot a}_{\text{n-mal}}
         \end{align*}
         
-        \end{itemize}
+        %\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]{Wie schreiben wir das?}
@@ -554,7 +555,7 @@ $L_2 = \{a^n \alert{\mid} n \in \mathbb{N}\}$ \\
 \end{figure}
 \end{columns}
 \onslide<2>{\alert{\emph{Anmerkung:}} Kann auch geschrieben werden als $\Sigma^{*}\setminus A$. \\
-\hspace{2cm}(gesprochen $\Sigma^{*}$ \emph{\dq ohne"} $A$)}
+\hspace{2cm}(gesprochen $\Sigma^{*}$ \emph{''ohne''} $A$)}
 \end{frame}
 
 \begin{frame}{Mengenoperationen}
