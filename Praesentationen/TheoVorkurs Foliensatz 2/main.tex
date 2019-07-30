@@ -1,0 +1,763 @@
+\documentclass[10pt]{beamer}
+% Packages, new commands and other settings can be found in preamble.tex
+\input{preamble.tex}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}[fragile]{Übersicht}
+  \setbeamertemplate{section in toc}[sections numbered]
+  \tableofcontents
+  % [hideallsubsections]
+\end{frame}
+
+\section{Aussagenlogik}
+
+\begin{frame}[fragile]{Was ist Aussagenlogik? (Auffrischung)}
+    \begin{alertblock}{Aussagen}
+    \begin{itemize}
+        \item Paris ist die Hauptstadt von Frankreich
+        \item Mäuse jagen Elefanten
+        \item $5 \in \mathbb{N}$
+        \item 5 = 8
+        \item $u \in \{u, v, w\}$
+    \end{itemize}
+    \end{alertblock}
+    Eine Aussage A ist entweder \textbf{wahr} oder \textbf{falsch}.
+\end{frame}
+
+\begin{frame}[fragile]{Was ist Aussagenlogik? (Auffrischung)}
+    \begin{alertblock}{Das sind keine Aussagen}
+    \begin{itemize}
+        \item Macht theoretische Informatik Spaß?
+        \item Geh dein Zimmer aufräumen!
+        \item Wie viele Tiere wohnen in der Uni?
+        \item $(x+y)^2+1$
+        \item \{a,b,c\}
+        \item ...
+    \end{itemize}
+    \end{alertblock}
+    Diesen Sätzen können wir keinen eindeutigen Wahrheitswert \textbf{wahr} oder \textbf{falsch} zuordnen.
+\end{frame}
+
+\begin{frame}[fragile]{Was ist Aussagenlogik? (Auffrischung)}
+    \begin{alertblock}{Wozu brauchen wir das?}
+    \begin{itemize}
+        \item Wir untersuchen, wie wir Aussagen verknüpfen können.
+        \item Damit ziehen wir formale Schlüsse und führen Beweise.
+    \end{itemize}
+    \end{alertblock}
+\end{frame}
+
+\begin{frame}[fragile]{Logische Operationen (Auffrischung)}
+Wir können Aussagen verändern oder durch Operationen zu neuen Aussagen verbinden.
+\begin{itemize}
+    \item A: Fred möchte Schokolade.
+    \item B: Fred möchte Gummibärchen.
+\end{itemize}
+\metroset{block=fill}
+\begin{alertblock}{Grundoperationen}
+\begin{itemize}
+    \item<1-> \textbf{Und}: A \alert<1>{$\wedge$} B $\leadsto$ Fred möchte Schokolade \alert<1>{und} Gummibärchen.
+    \item<2-> \textbf{Oder}: A \alert<2>{$\vee$} B $\leadsto$ Fred möchte Schokolade \alert<2>{oder} Gummibärchen.\\
+    \only<2>{\emph{Anmerkung}: Inklusives \glqq oder", kein \glqq entweder oder" \\
+    Das heißt, es können auch beide Aussagen wahr sein.}
+    \item<3> \textbf{Nicht}: \alert<3>{$\neg$}A $\leadsto$ Fred möchte \alert<3>{keine} Schokolade.
+\end{itemize}
+\end{alertblock}
+\end{frame}
+
+\begin{frame}{Logische Operationen: Implikation}
+\begin{alertblock}{A$\implies$B}
+\begin{itemize}
+    \item "Wenn A wahr ist, dann muss auch B wahr sein."
+    \item kurz: "\textbf{Wenn} A, \textbf{dann} B."
+    \item Wenn A falsch ist können wir keine Aussage über B treffen.
+    \item A$\implies$B ist dieselbe Aussage wie $\neg A \vee B$
+\end{itemize}
+\end{alertblock}
+\end{frame}
+
+\begin{frame}{Logische Operationen: Äquivalenz}
+\begin{alertblock}{A$\iff$B}
+\begin{itemize}
+    \item \dq A ist wahr, \textbf{genau dann wenn} B wahr ist.\dq
+    \item kurz: \dq A gdw. B\dq
+    \item A und B müssen den selben Wahrheitswert haben.
+    \item A$\iff$B ist dieselbe Aussage wie $(A \implies B) \wedge (B \implies A)$
+\end{itemize}
+\end{alertblock}
+\end{frame}
+
+{\setbeamercolor{palette primary}{bg=ExColor}
+\begin{frame}[fragile]{Denkpause}
+    \begin{alertblock}{Aufgaben}
+      Berechne den Wahrheitswert folgender Aussagen. 
+    \end{alertblock}
+    \metroset{block=fill}
+    \begin{block}{Normal}
+    \begin{itemize}
+        \item $A_1$: $5 \in \mathbb{N} \wedge a \in \{a, b, c\}$
+        \item $A_2$: $0 \in \mathbb{N} \vee a \in \{a, b, c, d\}$
+        \item $A_3$: $A_1 \iff A_2$
+    \end{itemize}
+    \end{block}
+    \begin{block}{Etwas Schwerer}
+    \begin{itemize}
+        \item $A_4$: $(\emptyset=\emptyset^{*}) \implies (a \in \emptyset)$
+        \item $A_5$: $(a \notin \emptyset) \implies (\emptyset = \emptyset^{*})$
+        \item $A_6$: $A_4 \iff A_5$
+        \item $A_7$: Wenn mein Auto fliegen kann, hast du auch ein fliegendes Auto.
+    \end{itemize}
+    \end{block}
+\end{frame}
+}
+
+% {\setbeamercolor{palette primary}{bg=ExColor}
+% \begin{frame}[fragile]{Denkpause}
+%     \begin{alertblock}{Aufgaben}
+%       Löse folgende Zusatzaufgabe. 
+%     \end{alertblock}
+%     \metroset{block=fill}
+%     \begin{block}{Zusatz}
+%     \begin{itemize}
+%         \item $A_8$: Gegeben zwei Aussagen A, B.\\
+%         Formuliere die Aussage $A \iff B$ nur unter Verwendung der Junktoren $\wedge, \vee, \neg$
+%     \end{itemize}
+%     \end{block}
+% \end{frame}
+% }
+\subsubsection{Aufgaben}
+{\setbeamercolor{palette primary}{bg=ExColor}
+\begin{frame}{Lösungen}
+  \begin{itemize}[<+- | alert@+>]
+        \item 
+            $A_1$: wahr
+        \item
+            $A_2$: wahr
+        \item
+            $A_3$: wahr
+        \item
+            $A_4$: wahr 
+        \item
+            $A_5$: falsch
+        \item
+            $A_6$: falsch
+        \item
+            $A_7$: wahr
+    \end{itemize}
+\end{frame}
+}
+
+\begin{frame}[standout]
+    Murmelpause
+\end{frame}
+
+% {\setbeamercolor{palette primary}{bg=ExColor}
+% \begin{frame}{Lösungen}
+%     \metroset{block=fill}
+%     \begin{block}{Zusatz}
+%     \begin{itemize}
+%         \item $A_8$: Gegeben zwei Aussagen A, B.\\
+%         Formuliere die Aussage $A \iff B$ nur unter Verwendung der Junktoren $\wedge, \vee, \neg$
+%     \end{itemize}
+%     \end{block}
+%   \begin{alertblock}{Lösung}
+%         \begin{itemize}[<+- | alert@+>]
+%             \item Äquivalenz bedeutet intuitiv: Beide wahr oder beide falsch
+%             \item $A_8$: $(A \wedge B) \vee (\neg A \wedge \neg B)$
+%         \end{itemize}
+%   \end{alertblock}
+% \end{frame}
+% }
+
+
+
+
+\begin{frame}{Anwendung der Implikation}
+    Wir haben zwei Aussagen A und B. Wir nehmen nun an, A sei wahr. Wenn wir zeigen, dass A$\implies$B wahr ist, wissen wir auch, dass B wahr ist.
+\metroset{block=fill}
+\begin{exampleblock}{Beispiel}
+\begin{enumerate}
+    \item<1-> Wir zeigen, es gibt eine ganze Zahl x,\\sodass $3 = x - 2 \implies x = 5$ wahr ist.
+    \item<2-> Wir nehmen an, dass die linke Aussage wahr ist\dots
+    \item<3-> \dots und zeigen, dass dann die rechte Aussage gilt.
+    \item<4-> $(3 = x - 2) \implies (3 + 2 = x) \implies (5 = x) \implies (x = 5)$
+    \item<5> Also gilt die rechte Aussage \qed\;
+\end{enumerate}
+\end{exampleblock}
+\end{frame}
+
+% {\setbeamercolor{palette primary}{bg=ExColor}
+% \begin{frame}{Denkpause}
+%     \begin{alertblock}{Aufgaben}
+%       Welche der folgenden Schlüsse sind richtig? 
+%     \end{alertblock}
+%     \metroset{block=fill}
+%     \begin{block}{Normal bis Schwer}
+%     \begin{itemize}
+%         \item $S_1$: Lukas ist im Vorkurs oder schläft noch. Im Vorkurs ist er nicht. Also schläft er noch.
+%         \item $S_2$: Wenn Anne nicht rennt, bekommt sie die Bahn nicht. Sie bekommt die Bahn. Also ist sie gerannt.
+%         \item $S_3$: Wenn Tobi nicht lernt, besteht er nicht. Tobi hat gelernt. Also besteht er.
+%     \end{itemize}
+%     \end{block}
+% \end{frame}
+% }
+
+% {\setbeamercolor{palette primary}{bg=ExColor}
+% \begin{frame}{Lösungen}
+%   \begin{itemize}[<+- | alert@+>]
+%         \item 
+%             $S_1$: Richtig.
+%         \item
+%             $S_2$: Richtig. Begründung: Die zweite Aussage ist die Kontraposition der ersten Aussage. Wie gezeigt wurde, ist die Kontraposition einer Aussage wahr gdw. die Aussage selbst wahr ist.
+%         \item
+%             $S_3$: Falsch. Beispiel: Tobi lernt, und besteht trotzdem nicht. \Frowny
+%     \end{itemize}
+% \end{frame}
+% }
+
+\section{Beweisen}
+
+\begin{frame}{Einführung}
+\begin{alertblock}{Was ist ein Beweis?}
+\begin{itemize}
+        \item lückenlose Folge von logischen Schlüssen,\\welche zur zu beweisenden Behauptung führen
+        \item nicht nur einleuchtend, sondern zweifelsfrei korrekt
+    \end{itemize}
+\end{alertblock}
+\end{frame}
+
+\subsubsection{Beweisbeispiel: Transitivität der Teilmenge}
+\begin{frame}[fragile]{Beispielbeweis}
+\begin{exampleblock}{Zeigen sie, Teilmengen sind transitiv.}
+\begin{enumerate}
+    \item<1->\alert<1>{
+        \only<1>{zu zeigen: }\onslide<2->{z.z. }$A\subseteq B\wedge B\subseteq C \alert<3>{\implies} A\subseteq C$
+        }
+    \item<2->\alert<2>{
+        \only<2>{Umschreiben:\\}
+        $\iff \alert<4,5>{(\alert<9>{(\alert<6>{\forall x}: x \in A \implies x \in B)} \wedge \alert<10>{(\alert<6>{\forall x}: x \in B \implies x \in C)})}\\
+        \qquad\alert<3>{\implies}\;(\alert<6>{\forall x}\ : \alert<7>{x \in A} \implies x \in C)$
+        }
+    \item<3->\alert<3>{
+        \only<3>{\emph{Implikation}\\
+        linke Seite wahr $\implies$ rechte Seite muss wahr sein.\\
+        linke Seite falsch $\implies$ beliebiges kann folgen\\
+        $\implies$ uns interessiert also nur der Fall \emph{links ist wahr}}
+        \alert<4>{\only<4,5>{Wir machen uns also \emph{\textquotedbl die linke Seite ist wahr\textquotedbl} zur Voraussetzung}\alert<5>{\only<5>{:\\Angenommen, $A \subseteq B \wedge B \subseteq C$ gilt.}}}
+        \onslide<6->{Ang., $A \subseteq B \wedge B \subseteq C$.}
+        }
+    \item<6->\alert<6>{
+        \only<6>{Jetzt geht der Beweis richtig los.\\Wähle beliebiges x um Allgemeinheit zu wahren\dots\\}
+        \onslide<6->{Sei $x$ beliebig}\alert<7>{\onslide<7->{, mit \alert<9>{$x\in A$.}}}
+        }
+    \item<8->\alert<8-9>{
+        \only<8>{Wir können jetzt unsere Voraussetzungen ausnutzen,\\um $x\in C$ zu folgern.}
+        \onslide<9->$\implies x\in B$
+        \alert<10>{\onslide<10->$\implies x\in C$}
+        \onslide<11>\qed
+    }
+  \end{enumerate}
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}[standout]
+    Verdauungspause
+\end{frame}
+
+\subsubsection{Beweistechnik: Direkter Beweis}
+\begin{frame}[fragile]{Direkter Beweis}
+    \begin{alertblock}{Zeige A$\implies$B direkt}
+    Setze A voraus und folgere dann schrittweise B.\\
+    Durch jede korrekte Folgerung, vergrößert sich die Menge der als wahr bekannten Aussagen (sog. Annahmen).
+    \end{alertblock}
+    \metroset{block=fill}
+    \begin{exampleblock}{Beispiel}
+    Z.z.: \alert<2>{$\forall a\in\mathbb{Z}$}: \alert<3>{a ist gerade} $\implies$ \alert<6>{$a^2$ gerade.}
+    \begin{enumerate}
+        \item \alert<2>{Sei $a\in\mathbb{Z}$ beliebig.}
+        \item \alert<3>{Angenommen, a ist gerade.}
+        \item \alert<4>{$\implies \exists n\in\mathbb{Z} : a = 2n$}
+        \item \alert<5>{$\implies a^2 = (2n)^2 = 4n^2 = 2 \cdot 2n^2$}
+        \item \alert<6>{$\implies a^2$ ist gerade}\qed\;
+    \end{enumerate}
+    \end{exampleblock}
+    \small{\emph{\alert<4>{Anmerkung:}} Zahl $n\in\mathbb{Z}$ heißt gerade, wenn es ein $k\in\mathbb{Z}$ gibt mit $n=2k$.}
+\end{frame}
+
+\subsubsection{Beweistechnik: Kontraposition}
+\begin{frame}[fragile]{Beweis durch Kontraposition}
+    \begin{alertblock}{Zeige A$\implies$B, indem man stattdessen $\neg$B$\implies\neg$A zeigt.}
+    \end{alertblock}
+    \metroset{block=fill}
+    \begin{exampleblock}{Beispiel}
+    Z.z.: \alert<7>{\alert<1>{$\forall n\in\mathbb{N}$:} $n^2$ gerade $\implies$\alert<2>{ $n$ gerade}}
+    \begin{enumerate}
+        \item\alert<1>{Sei $n \in \mathbb{N}$ beliebig.}
+        \item\alert<2>{Angenommen, $n$ ist \emph{nicht} gerade.}
+        \item\alert<3>{$\implies n=2k+1$, für ein $k \in \mathbb{Z}$}
+        \item $\only<4>{\overset{\alert{quadrieren}}}{\; \leadsto \;} n^2 = (2k+1)^2 = 4k^2+4k+1 = 2\alert<5>{(2k^2+2k)}+1$
+        \item $\implies n^2= \alert<6>{2\alert<5>{m}+1}$, für $m=2k^2+2k$
+        \item $\implies n^2$ ist \alert<6>{ungerade}.
+        \item Da ($\forall n\in\mathbb{N}$: $n$ ungerade $\implies n^2$ ungerade) gilt, \\
+        $\leadsto$ \alert<7>{($\forall n\in\mathbb{N}$: $n^2$ gerade $\implies n$ gerade)}, was zu beweisen war.\qed\;
+    \end{enumerate}
+    \end{exampleblock}
+    \footnotesize{\alert<3,6>{\emph{Anmerkung:}} Zahl $n\in\mathbb{Z}$ heißt ungerade, wenn es ein $k\in\mathbb{Z}$ gibt mit $n=2k+1$.}
+\end{frame}
+
+\begin{frame}[fragile]{Beweis durch Kontraposition}
+%Work in progress
+\begin{alertblock}{Wieso dürfen wir das so machen?}.
+\end{alertblock}
+\metroset{block=fill}
+\begin{exampleblock}{Beweis}
+Z.z.: ($\neg$A$\implies\neg$B)$\iff$(B$\implies$A)
+    \begin{flalign*}
+        \;(\neg A\implies\neg B) \iff & (\neg (\neg A) \vee \neg B)&\\
+        \iff & (A \vee \neg B)&\\
+        \iff & (\neg B \vee A)&\\
+        \iff & (B \implies A)&\qed\;
+    \end{flalign*}
+\end{exampleblock}
+\small\emph{Erinnerung:} $A\implies B$ kann man auch $\neg A\vee B$ schreiben.
+\end{frame}
+
+\begin{frame}[standout]
+    Verdauungspause
+\end{frame}
+
+\subsubsection{Beweistechnik: Widerspruch}
+\begin{frame}[fragile]{Beweis durch Widerspruch}
+\small{
+    \begin{alertblock}{Zeige, dass A gilt, indem man zeigt dass $\neg$A falsch ist.}
+    %Spezialfall der Kontraposition: $A\text{ ist wahr}\implies A \iff \neg A\implies \text{falsch}$
+    \emph{Erinnerung:} Eine Aussage ist entweder wahr oder falsch.\\
+    Wenn $\neg$A falsch ist, muss A wahr sein.
+    \end{alertblock}
+    \metroset{block=fill}
+    \begin{exampleblock}{Beispiel}
+        Z. z. $\sqrt{2}$ ist irrational.
+        \begin{enumerate}
+            \item<1-> \alert<1>{Ang. $\sqrt{2}$ ist rational.}
+            \item<2-> \alert<2>{Dann $\exists p, q \in \mathbb{Z} : \sqrt{2} = \frac{p}{q}$} $\wedge$ \alert<3,11>{$p, q$ sind teilerfremd.}
+            \only<2,3>{\alert<2>{{\\\emph{Anmerkung:}}} $r\in\mathbb{Q}\iff\exists p,q\in\mathbb{Z}:r=\frac{p}{q}$}.
+            \only<2,3>{\alert<3>{{\\\emph{Anmerkung:}}} $\frac{p}{q}$ kann man immer soweit kürzen, dass $p,q$ teilerfremd sind.}
+            \item<4-> \only<4>{Quadrieren und Umformen:\\}$\leadsto(\sqrt{2})^2 = (\frac{p}{q})^2 \iff 2 = \frac{p^2}{q^2} \iff \alert<5,8>{2q^2=p^2}$
+            \item<5-> \alert<5>{$\leadsto p^2$ ist gerade.} \alert<6,10>{$\leadsto p$ ist gerade.}\only<5,6>{\alert<5>{{\\\emph{Erinnerung:}}} $\forall n\in\mathbb{Z}:n$ gerade $\iff\exists k\in\mathbb{Z}:2k=n$.}\only<5,6>{\alert<6>{{\\\emph{Erinnerung:}}} $\forall n\in\mathbb{N}$: $n^2$ gerade $\implies n$ gerade \\\qquad\qquad\quad(siehe Beispiel Kontraposition)}
+            \item<7-> \alert<7>{Also ist $p^2$ durch 4 teilbar.} \alert<8>{$\leadsto 2q^2$ ist durch 4 teilbar.}\only<7>{\\\alert<7>{\emph{Herleitung:}} $p^2=p\cdot p\overset{\text{p gerade}}{=\joinrel=\joinrel=\joinrel=}(2k)\cdot(2k)=\alert<7>{4}k^2,$ mit $k\in\mathbb{Z}$}
+            \item<9-> $\leadsto q^2$ ist gerade. \alert<10>{$\leadsto q$ ist gerade.}
+            \item<10-> \alert<10>{$\leadsto p,q$ nicht teilerfremd.} \alert<11>{$\leadsto$ Widerspruch}\only<11>{\qed\;}
+        \end{enumerate}
+    \end{exampleblock}
+}
+\end{frame}
+
+\begin{frame}[standout]
+    Verdauungspause
+\end{frame}
+
+%\subsubsection{Tricks}
+\begin{frame}[fragile]{Tricks: Fallunterscheidung}
+    \begin{alertblock}{Hilfe! Der Beweis ist zu komplex! Was nun?}
+        Manchmal lässt sich ein Beweis in kleinere Aussagen zerlegen. Wenn wir alle Teilaussagen beweisen, haben wir die Gesamtaussage gezeigt.
+    \end{alertblock}
+    \metroset{block=fill}
+    \small\begin{exampleblock}{Beispiel}
+        Z.z. für alle $n\in\mathbb{N}$ gilt, dass der Rest von $n^2 \div 4$ entweder 0 oder 1 ist.
+        \footnotesize\begin{itemize}
+            \item 
+                \alert{Fall 1:} n ist gerade\\
+                $n^2=n\cdot n\overset{\text{n gerade}}{=\joinrel=\joinrel=\joinrel=\joinrel=}(2k)\cdot(2k) = 4k^2$,  mit $k\in\mathbb{Z}$\\
+                $\implies 4k^2 \div 4 = k^2$ Rest: 0
+            \item \alert{Fall 2:} n ist ungerade\\
+                $n^2=n\cdot n\overset{\text{n ungerade}}{=\joinrel=\joinrel=\joinrel=\joinrel=\joinrel=}(2k+1)\cdot(2k+1)=(2k)^2+2(2k)+1=4(k^2+k)+1$, \\mit $k\in\mathbb{Z}$\\
+                $\implies (4(k^2+k)+1) \div 4= k^2+k$ Rest: 1
+        \end{itemize}
+        Da $n$ nur gerade oder ungerade sein kann, ist der Rest von $n^2\div4$ \\entweder 0 oder 1. \qed\;
+    \end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]{Tricks: Beispiele und Gegenbeispiele}
+    \begin{alertblock}{Reicht nicht auch ein Beispiel als Beweis?}
+      % Manchmal\dots
+    \end{alertblock}
+    \metroset{block=fill}
+    \begin{block}{Wann ein Beispiel \emph{nicht} ausreicht:}
+        Zeige allgemeine Aussagen, also Aussagen der Form:\\$\forall n\in\mathbb{N}$ gilt \dots, $\neg\exists n\in\mathbb{N}$\dots, $\exists!n\in\mathbb{N}$\dots, etc.\\
+        \alert{Warum nicht?}\\
+        Beispiele zeigen uns nur endlich viele Möglichkeiten.\\
+        "für Alle gilt\dots", \dq es existiert kein\dots", es existiert genau ein\dots, etc. \\sind meist zu allgemeine Aussagen um sie mit endlich vielen Beispielen lückenlos zu beweisen.
+    \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Tricks: Beispiele und Gegenbeispiele}
+    \begin{alertblock}{Reicht nicht auch ein Beispiel als Beweis?}
+      % Manchmal\dots
+    \end{alertblock}
+    \metroset{block=fill}
+    \begin{block}{Wann ein Beispiel ausreichen kann:}
+        Zeige nicht allgemeine Aussagen der Form:\\
+        $\exists n\in\mathbb{N}$, $\neg\forall n\in\mathbb{N}$ gilt, \dots\\
+        \alert{Warum?}\\
+        \dq es gibt ein Element, sodass\dots", "für nicht alle Element gilt\dots"\\wären durch Angabe eines solchen Elements gezeigt.
+    \end{block}
+        $\leadsto$ will man zeigen, dass eine Aussage falsch ist, sind die Formen entsprechend negiert.
+\end{frame}
+
+%\subsubsection{Aufgaben}
+{\setbeamercolor{palette primary}{bg=ExColor}
+\begin{frame}[fragile]{Denkpause}
+    \begin{alertblock}{Aufgaben}
+    Welche Beweistechnik könnte sich für die folgenden Aussagen eignen? Warum?
+    \end{alertblock}
+    
+    \metroset{block=fill}
+    \begin{block}{Normal}
+        \begin{itemize}
+            \item Für jede Primzahl $p$ ist $2^p-1$ eine Primzahl.
+        \end{itemize}
+    \end{block}
+    \metroset{block=fill}
+    \begin{block}{Etwas schwerer}
+    \begin{itemize}
+            \item Es gibt eine ganze Zahl x, sodass $x\equiv 1\bmod 4 \implies x\equiv 1\bmod 2$ 
+    \end{itemize}
+        
+    \end{block}
+\end{frame}
+}
+
+{\setbeamercolor{palette primary}{bg=ExColor}
+\begin{frame}[fragile]{Lösungen}
+    \begin{alertblock}{Aufgaben}
+    Welche Beweistechnik könnte sich für die folgenden Aussagen eignen? Warum?
+    \end{alertblock}
+    
+    \metroset{block=fill}
+    \begin{block}{Normal}
+        \begin{itemize}
+            \item Für jede Primzahl $p$ ist $2^p-1$ eine Primzahl.\\
+            $\rightarrow$ Gegenbeispiel (sei $p\defeq11$)
+        \end{itemize}
+    \end{block}
+    \metroset{block=fill}
+    \begin{block}{Etwas schwerer}
+        \begin{itemize}
+            \item[] $\rightarrow$Direkter Beweis
+            \item $x\equiv 1\bmod 4\iff\exists z\in\mathbb{Z} : 4 \cdot z + 1 = x$
+            \item $\iff\exists z\in\mathbb{Z}: (2 \cdot 2) \cdot z + 1 = x$
+            \item $\implies\exists u,z\in\mathbb{Z}: u = 2z\wedge 2u + 1 = x$
+            \item $\implies x\equiv 1\bmod 2$
+        \end{itemize}
+    \end{block}
+\end{frame}
+}
+
+\begin{frame}[standout]
+  Induktion folgt Übermorgen
+\end{frame}
+
+\begin{frame}[standout]
+    Murmelpause
+\end{frame}
+
+
+\section{Mengenbeweise}
+
+\begin{frame}{einfacher Einstieg}
+        \onslide
+            Zu zeigen: Schnitt ist Kommutativ, d.h. $A \cap B = B \cap A$
+        \begin{columns}
+        \column{0.5\textwidth}
+        \onslide{
+            \begin{align*}
+                \text{\quotedblbase}\implies\text{\textquotedblright}:\\
+                x\in A \cap B &\implies x\in A \wedge x \in B\\
+                &\implies x\in B \wedge x \in A\\
+                &\implies x\in B \cap A
+            \end{align*}
+            }
+        \column{0.5\textwidth}
+        \onslide{
+            \begin{align*}
+                \text{\quotedblbase}\impliedby\text{\textquotedblright}:\\
+                x\in B \cap A &\implies x\in B \wedge x \in A\\
+                &\implies x\in A \wedge x \in B\\
+                &\implies x\in A \cap B
+            \end{align*}
+            }
+        \end{columns}
+        \qed\\
+    \small{\emph{Anmerkung:} $\wedge$ ist kommutativ}
+\end{frame}
+
+\begin{frame}{einfacher Einstieg}
+        \onslide
+            Zu zeigen: $A \setminus (B \cup C) = (A \setminus B) \cap (A \setminus C)$
+        \onslide{
+            \begin{align*}
+                x\in A \setminus (B \cup C) &\iff x\in A \wedge \neg (x \in B \cup C)\\
+                &\iff x\in A \wedge \neg (x \in B \vee x \in C)\\
+                &\iff x \in A \wedge \neg (x \in B) \wedge \neg (x \in C)\\
+                &\iff x \in A \wedge \neg (x \in B) \wedge x \in A \wedge \neg (x \in C)\\
+                &\iff (x \in A \wedge \neg (x \in B)) \wedge (x \in A \wedge \neg (x \in C))\\
+                &\iff (x \in A \setminus B) \wedge (x \in A \setminus C)\\
+                &\iff x \in (A \setminus B) \cap (A \setminus C)
+            \end{align*}\qed
+            }
+        \\
+    \small{\emph{Rechenregel:} $\neg (A \wedge B) \iff \neg A \vee \neg B$, \\ \hspace{1.9cm}$\neg (A \vee B) \iff \neg A \wedge \neg B$}
+\end{frame}
+
+
+
+\subsubsection{Aufgaben}
+{\setbeamercolor{palette primary}{bg=ExColor}
+\begin{frame}[fragile]{Denkpause}
+    \begin{alertblock}{Aufgaben}
+    Versuche dich an den folgenden Mengenbeweisen.
+    \end{alertblock}
+    
+    \metroset{block=fill}
+    \begin{block}{Normal}
+        \begin{itemize}
+            \item $\overline{\overline{A}} = A$
+        \end{itemize}
+    \end{block}
+    \metroset{block=fill}
+    \begin{block}{Etwas schwerer}
+        \begin{itemize}
+            \item $A\cap B=\overline{(\overline{A}\cup\overline{B})}$
+        \end{itemize}
+    \end{block}
+\end{frame}
+}
+
+{\setbeamercolor{palette primary}{bg=ExColor}
+\begin{frame}[fragile]{Lösungen}
+\onslide Zu zeigen: $A=\overline{\overline{A}}$
+    \onslide{
+    \begin{align*}
+        x\in\overline{\overline{A}}
+        &\iff\neg(x\in\overline{A})\\
+        &\iff\neg(\neg (x\in A))\\
+        &\iff x\in A
+    \end{align*}\qed
+    }
+\end{frame}
+}
+
+{\setbeamercolor{palette primary}{bg=ExColor}
+\begin{frame}[fragile]{Lösungen}
+    \onslide Zu zeigen: $B\cap A=\overline{(\overline{A}\cup\overline{B})}$
+    \onslide{
+    \begin{align*}
+        x \in \overline{(\overline{A} \cup \overline{B})}
+        &\iff \neg(x \in \overline{A} \cup \overline{B})
+        \\&\iff \neg(x \in \overline{A} \vee x \in \overline{B})
+        \\&\iff \neg(\neg(x \in A) \vee \neg(x \in B))
+        \\&\iff x \in A \wedge x \in B
+        \\&\iff x \in A \cap B
+        \\&\iff x \in B \cap A
+    \end{align*}\qed
+    }
+\end{frame}
+}
+
+
+%\section{Wiederholung} 
+%\begin{frame}[fragile]{Das können wir jetzt beantworten}
+%    \begin{alertblock}{Logik}
+%    \begin{itemize}
+%        \item bla
+%    \end{itemize}
+%    \end{alertblock}
+%\end{frame}
+
+\begin{frame}[standout]
+  Noch Fragen?
+\end{frame}
+
+\begin{frame}[standout]
+  Wunschdenken:\\falls noch Zeit ist
+\end{frame}
+
+\begin{frame}[fragile]{Quantoren}
+    Oft wollen wir Aussagen nicht nur für ein Element, sondern für viele Elemente treffen.
+    \metroset{block=fill}
+    \begin{exampleblock}{Beispiel}
+        $A_1$: Für die Zahl 5 gilt: Sie hat einen Nachfolger\\
+        \emph{Allgemeiner:}\\
+        $A_2$: Für jede natürliche Zahl n gilt: n hat einen Nachfolger
+    \end{exampleblock}
+    \begin{exampleblock}{Beispiel}
+        $A_3$: Für die Zahl 5 gilt: Sie ist eine Primzahl\\
+        \emph{Allgemeiner:}\\
+        $A_4$: Es gibt eine natürliche Zahl n, so dass gilt: n ist eine Primzahl
+    \end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]{Quantoren}
+    Mithilfe von \textbf{Quantoren} vereinfachen wir uns die Schreibweise dieser Aussagen.\\
+    \vspace{0.5cm}
+    Quantor \alert{$\forall$}: Die Aussage gilt für alle Elemente.\\
+    \metroset{block=fill}
+    \begin{exampleblock}{Beispiel}
+        $A_1$: $\forall k \in \mathbb{N}:$ 2k ist gerade
+    \end{exampleblock}
+    Quantor \alert{$\exists$}: Die Aussage gilt für mindestens ein Element.\\
+    \metroset{block=fill}
+    \begin{exampleblock}{Beispiel}
+        $A_2$: $\exists k \in \mathbb{N}:$ k ist Primzahl
+    \end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]{Quantoren}
+    In einer Aussage können mehrere Quantoren vorkommen.\\
+    Wir lesen dann von links nach rechts.
+    \metroset{block=fill}
+    \begin{exampleblock}{Beispiel}
+        $A_1$: $\forall x,y \in \mathbb{N}: \exists z \in \mathbb{N}: x+y = z$\\
+        Bedeutung: Für zwei beliebige Zahlen x und y aus $\mathbb{N}$ gibt es eine weitere natürliche Zahl z, so dass $x+y=z$ gilt.
+    \end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]{Quantoren}
+    \alert{Achtung!}\\
+    Die Reihenfolge von zwei Quantoren zu vertauschen, kann die Bedeutung einer Aussage deutlich verändern.
+    \metroset{block=fill}
+    \begin{exampleblock}{Beispiel}
+        x,y $\in$ Studenten\\
+        \textbf{$A_1$: $\forall x \exists y:$ x schlägt y\\
+        $A_2$: $\exists x \forall y:$ x schlägt y\\ }
+        Was ist der Unterschied zwischen beiden Aussagen?
+    \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Quantoren}
+    \begin{alertblock}{Aufgabe}
+      Wir formulieren folgende Aussage mithilfe von Quantoren und den Symbolen der Aussagenlogik (Junktoren).
+    \end{alertblock}
+    \metroset{block=fill}
+    \begin{block}{Beispiel}
+    \begin{itemize}
+        \item $A_1$: Eine ganze Zahl ist eine natürliche Zahl, wenn sie positiv oder null ist.
+    \end{itemize}
+    \end{block}
+    \begin{block}{Hinführung}
+    \begin{itemize}
+        \item $A_1$: Für alle ganzen Zahlen x gilt: Wenn x positiv oder null ist, ist x eine natürliche Zahl.
+    \end{itemize}
+    \end{block}
+    \begin{block}{\alert{Lösung}}
+    \begin{itemize}
+        \item $A_1$: $\forall x \in \mathbb{Z}: x \geq 0 \implies x \in \mathbb{N}$
+    \end{itemize}
+    \end{block}
+\end{frame}
+
+{\setbeamercolor{palette primary}{bg=ExColor}
+\begin{frame}{Denkpause}
+    \begin{alertblock}{Aufgaben}
+      Formuliere folgende Aussagen mithilfe von Quantoren und den Symbolen der Aussagenlogik (Junktoren). 
+    \end{alertblock}
+    \metroset{block=fill}
+    \begin{block}{Normal}
+    \begin{itemize}
+        \item $A_1$: Die Differenz zweier ganzer Zahlen ist wieder eine ganze Zahl.
+    \end{itemize}
+    \end{block}
+    \begin{block}{Schwer}
+    \begin{itemize}
+        \item $A_2$: Jede natürliche Zahl lässt sich als Summe von vier Quadratzahlen darstellen.
+    \end{itemize}
+    \end{block}
+    \begin{block}{Da haben selbst wir keinen Bock drauf}
+    \begin{itemize}
+        \item $A_3$: Eine natürliche Zahl, die von einer von ihr verschiedenen natürlichen Zahl größer als 1 geteilt wird, ist nicht prim.
+    \end{itemize}
+    \end{block}
+\end{frame}
+}
+
+{\setbeamercolor{palette primary}{bg=ExColor}
+\begin{frame}{Lösungen}
+  \begin{itemize}[<+- | alert@+>]
+        \item 
+            $A_1$: $\forall x,y \in \mathbb{Z}: x-y \in \mathbb{Z}$
+        \item
+            $A_2$: $\forall x \in \mathbb{N}: \exists a, b, c, d \in \mathbb{N}: x = a^2 + b^2 + c^2 + d^2$
+        \item
+            $A_3$: $\forall x \in \mathbb{N}: \exists y \in \mathbb{N}: (y>1) \wedge (y \neq x) \wedge (y \mid x) \implies x\ \text{ist keine Primzahl}$.
+    \end{itemize}
+\end{frame}
+}
+
+ \begin{frame}[fragile]{Glossar}
+     \small
+     \begin{tabular}{p{0.2\textwidth} p{0.25\textwidth} p{0.4\textwidth}}
+     \toprule
+     Abk.&Bedeutung&Was?!\\
+     \midrule
+         z.z. & zu zeigen & Was zu beweisen ist\\
+         Sei&&bereits bekannte Objekte werden eingeführt und benannt\\
+         $\exists$&es gibt ein&\\
+         $\exists !$&es gibt genau ein&\\
+         x ist genau y&x = y&\emph{genau} wird verwendet bei Äquivalenz\\
+         x ist eindeutig&$\exists ! x$&\\
+         der, die, das&&bestimmte Artikel weisen auf Eindeutigkeit hin\\
+         gdw.&genau dann wenn&Äquivalenz zwischen Aussagen\\
+     \bottomrule
+     \end{tabular}
+ \end{frame}
+\begin{frame}[fragile]{Glossar}
+    \small
+    \begin{tabular}{p{0.33\textwidth} p{0.12\textwidth} p{0.4\textwidth}}
+    \toprule
+    Abk.&Bedeutung&Was?!\\
+    \midrule
+        A ist notwendig für B&B$\implies$A&A muss wahr sein,\\
+        &&wenn B wahr ist\\
+        A ist hinreichend für B&A$\implies$B&B muss wahr sein,\\
+        &&wenn A wahr ist\\
+        notwendig und hinreichend&A$\iff$B&genau dann wenn\\
+    \bottomrule
+    \end{tabular}
+\end{frame}
+
+\begin{frame}[fragile]{Glossar}
+    \small
+    \begin{tabular}{p{0.1\textwidth} p{0.33\textwidth} p{0.45\textwidth}}
+    \toprule
+    Abk.&Bedeutung&Was?!\\
+    \midrule
+        \OE & ohne Einschränkung & die Allgemeinheit der Aussage wird nicht durch getroffene Aussagen eingeschränkt\\
+        o.B.d.A. & ohne Beschränkung der Allgemeinheit & wie \OE\\
+        trivial&offensichtlich&Beweisschritte, welche keine weiter Begründung brauchen. (nicht verwenden!)\\
+        $\qed$&Mic Drop&Kommt am Ende eines erfolgreichen Beweises\\
+        q.e.d&quod erat demonstrandum&Was zu beweisen war\\
+    \bottomrule
+    \end{tabular}
+\end{frame}
+
+ \begin{frame}[fragile]{Cheatsheet}
+     \small
+     \begin{tabular}{p{0.2\textwidth} p{0.7\textwidth}}
+     \toprule
+     Gestalt&mögliches Vorgehen\\
+     \midrule
+         nicht F&Zeige, dass F nicht gilt.\\
+         F und G&Zeige F und G in zwei getrennten Beweisen.\\
+         F $\implies$ G&Füge F in die Menge der Annahmen hinzu und zeige G.\\
+         F oder G&Zeige: nicht F $\implies$ G. \\&(Alternativ zeige: nicht G $\implies$ F.)\\
+         F $\iff$ G&Zeige: F $\implies$ G und G $\implies$ F.\\
+         $\forall x \in A : F$&Sei x ein beliebiges Element aus A. Zeige dann F.\\
+         $\exists x \in A : F$&Sei x ein konkretes Element aus A. Zeige dann F.\\
+     \bottomrule
+     \end{tabular}
+ \end{frame}
+
+\end{document}
