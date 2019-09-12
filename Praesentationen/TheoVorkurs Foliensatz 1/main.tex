@@ -45,7 +45,7 @@
 
 \title{Vorkurs Theoretische Informatik}
 \subtitle{Einführung in die Grundideen und in die Mengenlehre}
-\date{Montag, 01.10.2018}
+\date{Montag, 30.09.2019}
 \author{Arbeitskreis Theoretische Informatik}
 \institute{Fachgruppe Informatik}
 % \titlegraphic{\hfill\includegraphics[height=1.5cm]{logo.pdf}}
@@ -89,8 +89,8 @@
                 \item Fachgruppe Informatik:\\
                 \url{https://fius.informatik.uni-stuttgart.de/}
                 \item Foliensätze:\\ \url{https://fius.informatik.uni-stuttgart.de/dienste/theo-vorkurs/}
-                 \item Ergänzung Theoretische Informatik 1 (Wintersemester 17/18): \\
-                 \url{www.fmi.uni-stuttgart.de/ti/teaching/w17/eti1/}
+                 \item Ergänzung Theoretische Informatik 1 (Wintersemester 18/19): \\
+                 \url{www.fmi.uni-stuttgart.de/ti/teaching/w18/eti1/}
             \end{itemize}
         \item E-Mail der Fachgruppe: fius@informatik.uni-stuttgart.de
             
@@ -170,7 +170,7 @@ Theoretische Informatik I ist Orientierungsprüfung für Informatik, Medieninfor
             \vspace*{0.5cm}
                 Eine Menge
                 \begin{itemize}
-                    \item ist eine \alert{Sammlung von Zeug}
+                    \item ist eine \alert{Sammlung von Zeugs}
                     \item ist unsortiert
                     \item enthält keine Duplikate
                     \item wird mit geschweiften Klammern notiert
@@ -181,7 +181,8 @@ Theoretische Informatik I ist Orientierungsprüfung für Informatik, Medieninfor
                 \begin{exampleblock}{Beispiel}
                     $\mathbb{N} = \{0, 1, 2, 3, \dots \}$ = Menge der Natürlichen Zahlen\\
                     Studenten = \{Janette, Julian, Joel, Fabian, $\dots$\}\\
-                    $\{1,2\} = \{2,1\} = \{1,1,2,1,1,1\}$
+                    $\{1,2\} = \{2,1\} = \{1,1,2,1,1,1\}$\\
+                    $\emptyset = \{\} =$ leere Menge
                 \end{exampleblock}}
             \uncover<3->{
             Was ist ein \alert<3,4>{Element}?}
@@ -268,7 +269,7 @@ Theoretische Informatik I ist Orientierungsprüfung für Informatik, Medieninfor
     \only<1>{Wir schreiben \alert<1>{$\absval{w}$} um \alert<1>{Länge des Wortes $w$} abzukürzen.\\}
     \only<2>{$\emptyWord$ \emph{(\textquotedbl Epsilon\textquotedbl)} nennen wir das "leere Wort".
     \begin{itemize}
-        \item \alert{Vergleich:} Es ist vergleichbar mit einem leerem String,\\ \qquad\qquad also: $\dq\dq=\epsilon$
+        \item \alert{Vergleich:} Es ist vergleichbar mit einem leerem String,\\ \qquad\qquad \,\, also: $\dq\dq=\emptyWord$
         \item \alert{Achtung:} Das leere Wort kann kein Teil eines Alphabets sein,\\\qquad\qquad da es nicht einstellig ist.
     \end{itemize}}
 \end{frame}
@@ -276,7 +277,7 @@ Theoretische Informatik I ist Orientierungsprüfung für Informatik, Medieninfor
 \begin{frame}{neutrales Element der Konkatenation}
     \begin{alertblock}{Achtung}
         Wir können bei der Konkatenation auch das leere Wort anhängen. Es verhält sich hierbei als das neutrale Element.\\
-        d.h. für ein beliebiges Wort $a$, ist $a\cdot\epsilon = \epsilon\cdot a=a$
+        d.h. für ein beliebiges Wort $a$, ist $a\cdot\emptyWord = \emptyWord\cdot a=a$
         \begin{exampleblock}{Vergleich}
         \begin{itemize}
             \item Bei der Addition von Zahlen ist die 0 das neutrale Element\\
@@ -303,7 +304,7 @@ Theoretische Informatik I ist Orientierungsprüfung für Informatik, Medieninfor
     %\metroset{block=fill}
     \begin{exampleblock}{Das heißt\dots}
     Sei $\Sigma = \{a,b\}$ unser \alert{Alphabet}.\\
-    Wir beschreiben die Menge, die alle Möglichkeiten enthält Elemente aus $\Sigma$ zu \emph{konkatenieren} mit $\Sigma^\ast=\{\emptyWord,a,b,ab,ba,aab,aba,\dots\}$.
+    Wir beschreiben die Menge, die alle Möglichkeiten enthält Elemente aus $\Sigma$ zu \emph{konkatenieren} mit $\Sigma^\ast=\{\emptyWord,a,b,aa,ab,ba,bb,aba,\dots\}$.
     \end{exampleblock}\pause
     
     \begin{alertblock}{Achtung}
@@ -423,7 +424,7 @@ $L_2 = \{a^n \alert{\mid} n \in \mathbb{N}\}$ \\
     %\begin{itemize}
         Viele Zeichen hintereinander (konkateniert) können auch einfacher geschrieben werden.
         \begin{align*}
-            a^0 &= \epsilon\\
+            a^0 &= \emptyWord\\
             a^1 &= a\\
             a^2 &= a \cdot a = aa\\
             a^3 &= a \cdot a \cdot a = aaa\\
@@ -435,13 +436,13 @@ $L_2 = \{a^n \alert{\mid} n \in \mathbb{N}\}$ \\
 \end{frame}
 
 \begin{frame}[fragile]{Wie schreiben wir das?}
-    \begin{itemize}
+    \begin{itemize}[<+- | alert@+>]
         \item $L_1 = \{0,2,4,6,8,\dots\} = \{x \mid \text{x ist gerade}\}$\\
         $L_1 = \{x \mid$ Es gibt eine Zahl $k \in \mathbb{N} : 2k = x\}$\\
         
-        \item $L_2 = \{a^n \mid n \in \mathbb{N}\} = \{\epsilon, a,aa,aaa,aaaa, \dots\}$
+        \item $L_2 = \{a^n \mid n \in \mathbb{N}\} = \{\emptyWord, a,aa,aaa,aaaa, \dots\}$
         
-        \item $L_3 = \{a^nb^n \mid n \in \mathbb{N}\} = \{\epsilon, ab ,aabb,aaabbb,aaaabbbb, \dots\}$
+        \item $L_3 = \{a^nb^n \mid n \in \mathbb{N}\} = \{\emptyWord, ab ,aabb,aaabbb,aaaabbbb, \dots\}$
         
         \item $L_4 = \{a^nw \mid n \in \mathbb{N}, w = bccb\} = \{bccb, abccb, aabccb, \dots\}$\\
         $L_4$ endet nach einer beliebigen Anzahl von a's immer mit bccb
@@ -592,7 +593,7 @@ $L_2 = \{a^n \alert{\mid} n \in \mathbb{N}\}$ \\
         \item
             $M_5 = \{a\}$
         \item
-            $M_6 = \{u \mid |u|=$0 mod 2$, u \in \{a, b\}^{*}\}$
+            $M_6 = \{u \mid |u| \equiv$ 0 mod 2$, u \in \{a, b\}^{*}\}$
         \item
             $M_7$: $\{a^{n} | n \ \text{ist ungerade}\} \cup\{w | w\in\{a,b\}, |w|_b>1\}$ 
     \end{itemize}
