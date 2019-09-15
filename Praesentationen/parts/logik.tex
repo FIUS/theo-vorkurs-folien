@@ -1,0 +1,203 @@
+\begin{frame}[fragile]{Was ist Aussagenlogik? (Auffrischung)}
+    \begin{alertblock}{Aussagen}
+    \begin{itemize}
+        \item Paris ist die Hauptstadt von Frankreich
+        \item Mäuse jagen Elefanten
+        \item $5 \in \mathbb{N}$
+        \item 5 = 8
+        \item $u \in \{u, v, w\}$
+    \end{itemize}
+    \end{alertblock}
+    Eine Aussage A ist entweder \textbf{wahr} oder \textbf{falsch}.
+\end{frame}
+
+\begin{frame}[fragile]{Was ist Aussagenlogik? (Auffrischung)}
+    \begin{alertblock}{Das sind keine Aussagen}
+    \begin{itemize}
+        \item Macht theoretische Informatik Spaß?
+        \item Geh dein Zimmer aufräumen!
+        \item Wie viele Tiere wohnen in der Uni?
+        \item $(x+y)^2+1$
+        \item \{a,b,c\}
+        \item ...
+    \end{itemize}
+    \end{alertblock}
+    Diesen Sätzen können wir keinen eindeutigen Wahrheitswert \textbf{wahr} oder \textbf{falsch} zuordnen.
+\end{frame}
+
+\begin{frame}[fragile]{Was ist Aussagenlogik? (Auffrischung)}
+    \begin{alertblock}{Wozu brauchen wir das?}
+    \begin{itemize}
+        \item Wir untersuchen, wie wir Aussagen verknüpfen können.
+        \item Damit ziehen wir formale Schlüsse und führen Beweise.
+    \end{itemize}
+    \end{alertblock}
+\end{frame}
+
+\begin{frame}[fragile]{Logische Operationen (Auffrischung)}
+Wir können Aussagen verändern oder durch Operationen zu neuen Aussagen verbinden.
+\begin{itemize}
+    \item A: Fred möchte Schokolade.
+    \item B: Fred möchte Gummibärchen.
+\end{itemize}
+\metroset{block=fill}
+\begin{alertblock}{Grundoperationen}
+\begin{itemize}
+    \item<1-> \textbf{Und}: A \alert<1>{$\wedge$} B $\leadsto$ Fred möchte Schokolade \alert<1>{und} Gummibärchen.
+    \item<2-> \textbf{Oder}: A \alert<2>{$\vee$} B $\leadsto$ Fred möchte Schokolade \alert<2>{oder} Gummibärchen.\\
+    \only<2>{\emph{Anmerkung}: Inklusives \glqq oder", kein \glqq entweder oder" \\
+    Das heißt, es können auch beide Aussagen wahr sein.}
+    \item<3> \textbf{Nicht}: \alert<3>{$\neg$}A $\leadsto$ Fred möchte \alert<3>{keine} Schokolade.
+\end{itemize}
+\end{alertblock}
+\end{frame}
+
+\begin{frame}{Logische Operationen: Implikation}
+\begin{alertblock}{A$\implies$B}
+\begin{itemize}
+    \item "Wenn A wahr ist, dann muss auch B wahr sein."
+    \item kurz: "\textbf{Wenn} A, \textbf{dann} B."
+    \item Wenn A falsch ist können wir keine Aussage über B treffen.
+    \item A$\implies$B ist dieselbe Aussage wie $\neg A \vee B$
+\end{itemize}
+\end{alertblock}
+\end{frame}
+
+\begin{frame}{Logische Operationen: Äquivalenz}
+\begin{alertblock}{A$\iff$B}
+\begin{itemize}
+    \item \dq A ist wahr, \textbf{genau dann wenn} B wahr ist.\dq
+    \item kurz: \dq A gdw. B\dq
+    \item A und B müssen den selben Wahrheitswert haben.
+    \item A$\iff$B ist dieselbe Aussage wie $(A \implies B) \wedge (B \implies A)$
+\end{itemize}
+\end{alertblock}
+\end{frame}
+
+{\setbeamercolor{palette primary}{bg=ExColor}
+\begin{frame}[fragile]{Denkpause}
+    \begin{alertblock}{Aufgaben}
+      Berechne den Wahrheitswert folgender Aussagen. 
+    \end{alertblock}
+    \metroset{block=fill}
+    \begin{block}{Normal}
+    \begin{itemize}
+        \item $A_1$: $5 \in \mathbb{N} \wedge a \in \{a, b, c\}$
+        \item $A_2$: $0 \in \mathbb{N} \vee a \in \{a, b, c, d\}$
+        \item $A_3$: $A_1 \iff A_2$
+    \end{itemize}
+    \end{block}
+    \begin{block}{Etwas Schwerer}
+    \begin{itemize}
+        \item $A_4$: $(\emptyset=\emptyset^{*}) \implies (a \in \emptyset)$
+        \item $A_5$: $(a \notin \emptyset) \implies (\emptyset = \emptyset^{*})$
+        \item $A_6$: $A_4 \iff A_5$
+        \item $A_7$: Wenn mein Auto fliegen kann, hast du auch ein fliegendes Auto.
+    \end{itemize}
+    \end{block}
+\end{frame}
+}
+
+% {\setbeamercolor{palette primary}{bg=ExColor}
+% \begin{frame}[fragile]{Denkpause}
+%     \begin{alertblock}{Aufgaben}
+%       Löse folgende Zusatzaufgabe. 
+%     \end{alertblock}
+%     \metroset{block=fill}
+%     \begin{block}{Zusatz}
+%     \begin{itemize}
+%         \item $A_8$: Gegeben zwei Aussagen A, B.\\
+%         Formuliere die Aussage $A \iff B$ nur unter Verwendung der Junktoren $\wedge, \vee, \neg$
+%     \end{itemize}
+%     \end{block}
+% \end{frame}
+% }
+\subsubsection{Aufgaben}
+{\setbeamercolor{palette primary}{bg=ExColor}
+\begin{frame}{Lösungen}
+  \begin{itemize}[<+- | alert@+>]
+        \item 
+            $A_1$: wahr
+        \item
+            $A_2$: wahr
+        \item
+            $A_3$: wahr
+        \item
+            $A_4$: wahr 
+        \item
+            $A_5$: falsch
+        \item
+            $A_6$: falsch
+        \item
+            $A_7$: wahr
+    \end{itemize}
+\end{frame}
+}
+
+\begin{frame}[standout]
+    Murmelpause
+\end{frame}
+
+% {\setbeamercolor{palette primary}{bg=ExColor}
+% \begin{frame}{Lösungen}
+%     \metroset{block=fill}
+%     \begin{block}{Zusatz}
+%     \begin{itemize}
+%         \item $A_8$: Gegeben zwei Aussagen A, B.\\
+%         Formuliere die Aussage $A \iff B$ nur unter Verwendung der Junktoren $\wedge, \vee, \neg$
+%     \end{itemize}
+%     \end{block}
+%   \begin{alertblock}{Lösung}
+%         \begin{itemize}[<+- | alert@+>]
+%             \item Äquivalenz bedeutet intuitiv: Beide wahr oder beide falsch
+%             \item $A_8$: $(A \wedge B) \vee (\neg A \wedge \neg B)$
+%         \end{itemize}
+%   \end{alertblock}
+% \end{frame}
+% }
+
+
+
+
+\begin{frame}{Anwendung der Implikation}
+    Wir haben zwei Aussagen A und B. Wir nehmen nun an, A sei wahr. Wenn wir zeigen, dass A$\implies$B wahr ist, wissen wir auch, dass B wahr ist.
+\metroset{block=fill}
+\begin{exampleblock}{Beispiel}
+\begin{enumerate}
+    \item<1-> Wir zeigen, es gibt eine ganze Zahl x,\\sodass $3 = x - 2 \implies x = 5$ wahr ist.
+    \item<2-> Wir nehmen an, dass die linke Aussage wahr ist\dots
+    \item<3-> \dots und zeigen, dass dann die rechte Aussage gilt.
+    \item<4-> $(3 = x - 2) \implies (3 + 2 = x) \implies (5 = x) \implies (x = 5)$
+    \item<5> Also gilt die rechte Aussage \qed\;
+\end{enumerate}
+\end{exampleblock}
+\end{frame}
+
+% {\setbeamercolor{palette primary}{bg=ExColor}
+% \begin{frame}{Denkpause}
+%     \begin{alertblock}{Aufgaben}
+%       Welche der folgenden Schlüsse sind richtig? 
+%     \end{alertblock}
+%     \metroset{block=fill}
+%     \begin{block}{Normal bis Schwer}
+%     \begin{itemize}
+%         \item $S_1$: Lukas ist im Vorkurs oder schläft noch. Im Vorkurs ist er nicht. Also schläft er noch.
+%         \item $S_2$: Wenn Anne nicht rennt, bekommt sie die Bahn nicht. Sie bekommt die Bahn. Also ist sie gerannt.
+%         \item $S_3$: Wenn Tobi nicht lernt, besteht er nicht. Tobi hat gelernt. Also besteht er.
+%     \end{itemize}
+%     \end{block}
+% \end{frame}
+% }
+
+% {\setbeamercolor{palette primary}{bg=ExColor}
+% \begin{frame}{Lösungen}
+%   \begin{itemize}[<+- | alert@+>]
+%         \item 
+%             $S_1$: Richtig.
+%         \item
+%             $S_2$: Richtig. Begründung: Die zweite Aussage ist die Kontraposition der ersten Aussage. Wie gezeigt wurde, ist die Kontraposition einer Aussage wahr gdw. die Aussage selbst wahr ist.
+%         \item
+%             $S_3$: Falsch. Beispiel: Tobi lernt, und besteht trotzdem nicht. \Frowny
+%     \end{itemize}
+% \end{frame}
+% }

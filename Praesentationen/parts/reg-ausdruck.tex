@@ -1,0 +1,113 @@
+\begin{frame}[fragile]{mehr Möglichkeiten reguläre Sprachen zu beschreiben}
+Graphen und \glqq Bilder\grqq\ sind oft nicht das optimale Mittel eine Sprache zu beschreiben.\\
+Die \alert{regulären Ausdrücke} bieten uns eine Möglichkeit Sprachen schnell und intuitiv zu beschreiben.
+\begin{alertblock}{Funktionsweise}
+\begin{enumerate}
+    \item Wörter können mit einem angegebenen Muster abgeglichen werden.
+    \item Lässt sich ein Wort durch das Muster beschreiben, ist es in der davon beschriebenen Sprache. 
+\end{enumerate}
+\end{alertblock}
+\end{frame}
+
+\begin{frame}{Reguläre Ausdrücke verwenden}
+    \begin{alertblock}{Induktive Definition der Syntax}
+    \begin{itemize}
+       \item \alert{$\emptyset$} und \alert{$\emptyWord$} sind reguläre Ausdrücke.
+       \item \alert{a} ist ein regulärer Ausdruck (für alle a $\in \Sigma$).
+       \item Wenn \alert{$\alpha$} und \alert{$\beta$} reguläre Ausdrücke sind,\\dann sind \alert{$\alpha \beta$}, \alert{($\alpha \mid \beta$)} und \alert{$(\alpha)^*$} auch reguläre Ausdrücke.
+   \end{itemize}
+   \end{alertblock}
+   \metroset{block=fill}
+   \begin{exampleblock}{Beispiel}
+   $\gamma = ((a|b)^* \mid \emptyWord) \implies aba \in L(\gamma)$
+   \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Reguläre Ausdrücke verwenden}
+    \begin{exampleblock}{Wie Sprachen und reguläre Ausdrücke zusammenhängen}
+    \footnotesize
+    \begin{itemize}[<+- | alert@+>]
+        \item Wenn $\gamma = \emptyset$, beschreibt es die leere Sprache: $L(\gamma) = \{\}$
+        \item Wenn $\gamma$ ein einzelnes Wort ist, ist genau dieses Wort in der Sprache enthalten.\\
+        $\gamma = \emptyWord$: $L(\gamma)=\{\emptyWord\}$,\quad$\gamma = a$: $L(\gamma)=\{a\}$
+        \item Wenn $\gamma$ aus zwei hintereinandergeschrieben Ausdrücken besteht, repräsentiert Konkatenation.\\
+        $\gamma = (a)^*(b)^*: L(\gamma)=\{a^nb^m|n,m\in\mathbb{N}\}$
+        \item Wenn $\gamma$ aus zwei mit \glqq oder\grqq\ verknüpften Ausdrücken besteht, sind beide Seiten in der Sprache enthalten.\\
+        $\gamma = (a \mid bc)$: $L(\gamma)=\{a, bc\}$
+        \item Wenn $\gamma$ ein Ausdruck mit einem Stern ist, kann dieser innere Ausdruck beliebig oft wiederholt werden (auch null mal).\\
+        $\gamma = (a)^*$: $L(\gamma)=\{\emptyWord, a, aa, aaa, ...\}=\{a\}^*$
+        \item Alles zusammen --- $\gamma = ((a)^* \mid (bc)^*)$: $L(\gamma)=\{\emptyWord, a, bc, aa, bcbc, aaa, ...\} = \{a\}^* \cup \{bc\}^*$
+    \end{itemize}
+    \end{exampleblock}
+\end{frame}
+
+{\setbeamercolor{palette primary}{bg=ExColor}
+\begin{frame}{Reguläre Ausdrücke}
+    \begin{alertblock}{Aufgaben}
+    Finde einen regulären Ausdruck für die folgenden Sprachen
+    \end{alertblock}
+    \metroset{block=fill}
+    \begin{block}{Normal}
+    \begin{itemize}
+        \item $L(\gamma_1) = \{a^{2n} \mid n\in\naturals\}$
+        \item $L(\gamma_2) = \{a^nb^m \mid n, m\in\naturals\}$
+        \item $L(\gamma_3) = \{uv \mid u\in\{a,b\}^\ast,\ v\in\{c,d\}\}$
+        \item $L(\gamma_4) = \{w \mid |w| = 3, w\in \{a,b,c\}^*\}$
+    \end{itemize}
+    \end{block}
+    \begin{block}{Etwas Schwerer}
+    \begin{itemize}
+        \item $L(\gamma_5) = \{a^n \mid n \equiv 1 \mod 3\}$
+        \item $L(\gamma_6) = \{uv\mid u\in\{\text{\Rewind, \MoveUp, \Forward, \MoveDown}\}^\ast,\;v\in\{\text{\Stopsign}\}\}$
+        \item $L(\gamma_7) = \{w \mid |w|_a = 3, |w|_b = 1, w\in \{a,b,c\}^*\}$
+    \end{itemize}
+    \end{block}
+\end{frame}
+}
+
+{\setbeamercolor{palette primary}{bg=ExColor}
+\begin{frame}{Lösung}
+    Alle Lösungen sind Beispiellösungen, es sind auch andere möglich.\\
+    Klammern die nicht zur Bedeutung beitragen, dürfen wir für die Kurzschreibweise weglassen.
+    \begin{itemize}[<+- | alert@+>]
+        \item $\gamma_1 = (aa)^*$
+        \item $\gamma_2 = (a)^*(b)^*$
+        \item $\gamma_3 = (a|b)^*\ (c|d)$
+        \item formal: $\gamma_4 = ((a|b)|c)((a|b)|c)((a|b)|c)$, kurz: $\gamma_4 = (a|b|c)(a|b|c)(a|b|c)$
+        \item $\gamma_5 = a(aaa)^*$
+        \item formal: $\gamma_6 = ($((\Rewind | \MoveUp) | \Forward) | \MoveDown$)^*$\Stopsign, kurz: $\gamma_6 = ($\Rewind | \MoveUp | \Forward | \MoveDown$)^*$\Stopsign
+        \item formal: $\gamma_7 = (c)^*(a(c)^*a(c)^*a(c)^*b\mid a(c)^*a(c)^*b(c)^*a\mid a(c)^*b(c)^*a(c)^*a\mid b(c)^*a(c)^*a(c)^*a)(c)^*$,\\kurz: $\gamma_7 = c^*(ac^*ac^*ac^*b\mid ac^*ac^*bc^*a\mid ac^*bc^*ac^*a\mid bc^*ac^*ac^*a)c^*$ 
+    \end{itemize}
+\end{frame}
+}
+
+{\setbeamercolor{palette primary}{bg=ExColor}
+\begin{frame}{Reguläre Ausdrücke}
+\begin{columns}
+    \column{0.5\textwidth}
+\begin{alertblock} {Gegeben sei folgender DEA M:}
+    \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm,
+                            semithick]
+        \node [initial,state]   (0)              {$q_0$};
+        \node [state]           (1) [right of=0] {$q_1$};
+        \node [state,accepting] (2) [below of=1] {$q_2$};
+        \path   (0) edge               node {b} (1)
+                    edge               node {a} (2)
+                (1) edge               node {b} (2)
+                    edge [loop above]  node {a} (1)
+                (2) edge [loop below]  node {a,b} (2);
+        \end{tikzpicture}
+\end{alertblock}
+\column{0.5\textwidth}
+\metroset{block=fill}
+    \begin{block}{Welcher reguläre Ausdruck beschreibt $T(M)$?}
+        \begin{enumerate}
+            \item \alert<2>{$(a|b(a)^*b)(a|b)^*$}
+            \item $a(ab)^*$
+            \item $(a|b(a)^*b)(b)^*$
+            \item $(a|b)^*$
+        \end{enumerate}
+    \end{block}
+\end{columns}
+\end{frame}
+}

@@ -1,0 +1,47 @@
+%\subsubsection{Tricks}
+\begin{frame}[fragile]{Tricks: Fallunterscheidung}
+    \begin{alertblock}{Hilfe! Der Beweis ist zu komplex! Was nun?}
+        Manchmal lässt sich ein Beweis in kleinere Aussagen zerlegen. Wenn wir alle Teilaussagen beweisen, haben wir die Gesamtaussage gezeigt.
+    \end{alertblock}
+    \metroset{block=fill}
+    \small\begin{exampleblock}{Beispiel}
+        Z.z. für alle $n\in\mathbb{N}$ gilt, dass der Rest von $n^2 \div 4$ entweder 0 oder 1 ist.
+        \footnotesize\begin{itemize}
+            \item 
+                \alert{Fall 1:} n ist gerade\\
+                $n^2=n\cdot n\overset{\text{n gerade}}{=\joinrel=\joinrel=\joinrel=\joinrel=}(2k)\cdot(2k) = 4k^2$,  mit $k\in\mathbb{Z}$\\
+                $\implies 4k^2 \div 4 = k^2$ Rest: 0
+            \item \alert{Fall 2:} n ist ungerade\\
+                $n^2=n\cdot n\overset{\text{n ungerade}}{=\joinrel=\joinrel=\joinrel=\joinrel=\joinrel=}(2k+1)\cdot(2k+1)=(2k)^2+2(2k)+1=4(k^2+k)+1$, \\mit $k\in\mathbb{Z}$\\
+                $\implies (4(k^2+k)+1) \div 4= k^2+k$ Rest: 1
+        \end{itemize}
+        Da $n$ nur gerade oder ungerade sein kann, ist der Rest von $n^2\div4$ \\entweder 0 oder 1. \qed\;
+    \end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]{Tricks: Beispiele und Gegenbeispiele}
+    \begin{alertblock}{Reicht nicht auch ein Beispiel als Beweis?}
+      % Manchmal\dots
+    \end{alertblock}
+    \metroset{block=fill}
+    \begin{block}{Wann ein Beispiel \emph{nicht} ausreicht:}
+        Zeige allgemeine Aussagen, also Aussagen der Form:\\$\forall n\in\mathbb{N}$ gilt \dots, $\neg\exists n\in\mathbb{N}$\dots, $\exists!n\in\mathbb{N}$\dots, etc.\\
+        \alert{Warum nicht?}\\
+        Beispiele zeigen uns nur endlich viele Möglichkeiten.\\
+        "für Alle gilt\dots", \dq es existiert kein\dots", es existiert genau ein\dots, etc. \\sind meist zu allgemeine Aussagen um sie mit endlich vielen Beispielen lückenlos zu beweisen.
+    \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{Tricks: Beispiele und Gegenbeispiele}
+    \begin{alertblock}{Reicht nicht auch ein Beispiel als Beweis?}
+      % Manchmal\dots
+    \end{alertblock}
+    \metroset{block=fill}
+    \begin{block}{Wann ein Beispiel ausreichen kann:}
+        Zeige nicht allgemeine Aussagen der Form:\\
+        $\exists n\in\mathbb{N}$, $\neg\forall n\in\mathbb{N}$ gilt, \dots\\
+        \alert{Warum?}\\
+        \dq es gibt ein Element, sodass\dots", "für nicht alle Element gilt\dots"\\wären durch Angabe eines solchen Elements gezeigt.
+    \end{block}
+        $\leadsto$ will man zeigen, dass eine Aussage falsch ist, sind die Formen entsprechend negiert.
+\end{frame}

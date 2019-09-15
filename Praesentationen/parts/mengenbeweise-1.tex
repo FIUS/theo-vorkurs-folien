@@ -1,0 +1,99 @@
+\begin{frame}{einfacher Einstieg}
+        \onslide
+            Zu zeigen: Schnitt ist Kommutativ, d.h. $A \cap B = B \cap A$
+        \begin{columns}
+        \column{0.5\textwidth}
+        \onslide{
+            \begin{align*}
+                \text{\quotedblbase}\implies\text{\textquotedblright}:\\
+                x\in A \cap B &\implies x\in A \wedge x \in B\\
+                &\implies x\in B \wedge x \in A\\
+                &\implies x\in B \cap A
+            \end{align*}
+            }
+        \column{0.5\textwidth}
+        \onslide{
+            \begin{align*}
+                \text{\quotedblbase}\impliedby\text{\textquotedblright}:\\
+                x\in B \cap A &\implies x\in B \wedge x \in A\\
+                &\implies x\in A \wedge x \in B\\
+                &\implies x\in A \cap B
+            \end{align*}
+            }
+        \end{columns}
+        \qed\\
+    \small{\emph{Anmerkung:} $\wedge$ ist kommutativ}
+\end{frame}
+
+\begin{frame}{einfacher Einstieg}
+        \onslide
+            Zu zeigen: $A \setminus (B \cup C) = (A \setminus B) \cap (A \setminus C)$
+        \onslide{
+            \begin{align*}
+                x\in A \setminus (B \cup C) &\iff x\in A \wedge \neg (x \in B \cup C)\\
+                &\iff x\in A \wedge \neg (x \in B \vee x \in C)\\
+                &\iff x \in A \wedge \neg (x \in B) \wedge \neg (x \in C)\\
+                &\iff x \in A \wedge \neg (x \in B) \wedge x \in A \wedge \neg (x \in C)\\
+                &\iff (x \in A \wedge \neg (x \in B)) \wedge (x \in A \wedge \neg (x \in C))\\
+                &\iff (x \in A \setminus B) \wedge (x \in A \setminus C)\\
+                &\iff x \in (A \setminus B) \cap (A \setminus C)
+            \end{align*}\qed
+            }
+        \\
+    \small{\emph{Rechenregel:} $\neg (A \wedge B) \iff \neg A \vee \neg B$, \\ \hspace{1.9cm}$\neg (A \vee B) \iff \neg A \wedge \neg B$}
+\end{frame}
+
+
+
+\subsubsection{Aufgaben}
+{\setbeamercolor{palette primary}{bg=ExColor}
+\begin{frame}[fragile]{Denkpause}
+    \begin{alertblock}{Aufgaben}
+    Versuche dich an den folgenden Mengenbeweisen.
+    \end{alertblock}
+    
+    \metroset{block=fill}
+    \begin{block}{Normal}
+        \begin{itemize}
+            \item $\overline{\overline{A}} = A$
+        \end{itemize}
+    \end{block}
+    \metroset{block=fill}
+    \begin{block}{Etwas schwerer}
+        \begin{itemize}
+            \item $A\cap B=\overline{(\overline{A}\cup\overline{B})}$
+        \end{itemize}
+    \end{block}
+\end{frame}
+}
+
+{\setbeamercolor{palette primary}{bg=ExColor}
+\begin{frame}[fragile]{Lösungen}
+\onslide Zu zeigen: $A=\overline{\overline{A}}$
+    \onslide{
+    \begin{align*}
+        x\in\overline{\overline{A}}
+        &\iff\neg(x\in\overline{A})\\
+        &\iff\neg(\neg (x\in A))\\
+        &\iff x\in A
+    \end{align*}\qed
+    }
+\end{frame}
+}
+
+{\setbeamercolor{palette primary}{bg=ExColor}
+\begin{frame}[fragile]{Lösungen}
+    \onslide Zu zeigen: $B\cap A=\overline{(\overline{A}\cup\overline{B})}$
+    \onslide{
+    \begin{align*}
+        x \in \overline{(\overline{A} \cup \overline{B})}
+        &\iff \neg(x \in \overline{A} \cup \overline{B})
+        \\&\iff \neg(x \in \overline{A} \vee x \in \overline{B})
+        \\&\iff \neg(\neg(x \in A) \vee \neg(x \in B))
+        \\&\iff x \in A \wedge x \in B
+        \\&\iff x \in A \cap B
+        \\&\iff x \in B \cap A
+    \end{align*}\qed
+    }
+\end{frame}
+}

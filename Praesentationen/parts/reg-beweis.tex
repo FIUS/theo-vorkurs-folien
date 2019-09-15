@@ -1,0 +1,214 @@
+\begin{frame}{Automaten: Formal}
+    Ein \textbf{DEA M} lässt sich beschreiben durch ein geordnetes 5-Tupel\\
+    \alert{$M=(Z, \Sigma, \delta, z_0, E)$} mit:
+    \begin{itemize}
+        \item $Z$: Die Menge der Zustände
+        \item $\Sigma$: Das Alphabet
+        \item $\delta$: Die Überführungsfunktion
+        \item $z_0$: Der Startzustand
+        \item $E$: Die Menge der Endzustände
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Automaten: Formal}
+\begin{columns}
+    \column{0.5\textwidth}
+        \alert{$L_1=\{a^{n}b^{m} \mid n,m \in \mathbb{N}\}$}\\
+        \vspace{0.6cm}
+        \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=1.5cm,semithick]
+        \node [initial,state,accepting]   (0)              {$q_0$};
+        \node [state,accepting]           (1) [right of=0] {$q_1$};
+        \node [state]                     (2) [below of=0] {$F$};
+        
+        \path   (0) edge                    node {b}    (1)
+                    edge [loop above]       node {a}    (0)
+                (1) edge                    node {a}    (2)
+                    edge [loop above]       node {b}    (1)
+                (2) edge [loop right]       node {a,b}  (2);
+        \end{tikzpicture}
+
+    \column{0.5\textwidth}
+    \alert{$M=(Z, \Sigma, \delta, q_0, E)$} mit:
+    \begin{itemize}
+        \item<2-> \alert<2>{$Z=\{q_0, q_1, F\}$}
+        \item<3-> \alert<3>{$\Sigma=\{a, b\}$}
+        \item<4-> \alert<4>{$\delta$: 
+        \begin{itemize}
+            \item $\delta(q_0, a)=q_0$
+            \item $\delta(q_0, b)=q_1$
+            \item $\delta(q_1, a)=F$
+            \item $\delta(q_1, b)=q_1$
+            \item $\delta(F, a)=F$
+            \item $\delta(F, b)=F$
+        \end{itemize}}
+        \item<5-> \alert<5>{$E=\{q_0, q_1\}$}
+    \end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Kurz selbst denken...}
+\begin{columns}
+    \column{0.5\textwidth}
+        \alert{$L_2=\{w \in \{a, b\}^* \mid |w|=3\}$}\\
+        %TÖDÖ Töröööööt Benjamin der kleiner Elefant fragt Janette: Ey machst du automat amk!
+        
+        \vspace{0.6cm}
+        \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=1.5cm,semithick]
+        \node [initial,state]   (0)              {$q_0$};
+        \node [state]           (1) [below of=0] {$q_1$};
+        \node [state]           (2) [below of=1] {$q_2$};
+        \node [state,accepting] (3) [below of=2] {$q_E$};
+        \node [state]           (f) [right of=3] {$F$};
+        
+        \path   (0) edge                node {a,b}  (1)
+                (1) edge                node {a,b}  (2)
+                (2) edge                node {a,b}  (3)
+                (3) edge                node {a,b}  (f)
+                (f) edge [loop above]   node {a,b} (f);
+        \end{tikzpicture}
+
+    \column{0.5\textwidth}
+    \alert{$M=(Z, \Sigma, \delta, q_0, E)$} mit:
+    \begin{itemize}
+        \item<2-> \alert<2>{$Z=\{q_0, q_1, q_2, q_E, F\}$}
+        \item<3-> \alert<3>{$\Sigma=\{a, b\}$}
+        \item<4-> \alert<4>{$\delta$: 
+        \begin{itemize}
+            \item $\delta(q_0, a)=q_1$
+            \item $\delta(q_0, b)=q_1$
+            \item $\delta(q_1, a)=q_2$
+            \item $\delta(q_1, b)=q_2$
+            \item $\delta(q_2, a)=q_3$
+            \item $\delta(q_2, b)=q_3$
+            \item $\delta(q_E, a)=F$
+            \item $\delta(q_E, b)=F$
+            \item $\delta(F, a)=F$
+            \item $\delta(F, b)=F$
+        \end{itemize}}
+        \item<5-> \alert<5>{$E=\{q_E\}$}
+    \end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{Automaten und Grammatiken}
+    \metroset{block=fill}
+    \begin{exampleblock}{Satz}
+    Jede durch endliche Automaten erkennbare Sprache ist auch regulär (also Typ 3).
+    \end{exampleblock}
+   Sei \alert{$A \subseteq \SigmaStern$} eine Sprache und \alert{M ein Automat mit \textbf{T(M) = A}},\\ \emph{(d.h. M erkennt die Sprache A)}.\\
+   \vspace{0.3cm}
+   Wir definieren eine \alert{Typ 3-Grammatik G mit \textbf{L(G)=A}},\\ \emph{(d.h. die Grammatik G erzeugt die Sprache A)}.\\
+   \vspace{0.3cm}
+   Es ist $G=(V, \Sigma, P, S)$ mit:\\
+   V = Menge der Zustände des Automaten $(Z)$\\
+   S = Startzustand des Automaten $(z_0)$\\
+    \vspace{0.3cm}
+   \only<1>{\emph{Falls $\emptyWord \in A$, dann enthält P die Regel \glqq$z_0 \to \emptyWord$\grqq}}
+\end{frame}
+
+\begin{frame}[fragile]{Automaten und Grammatiken}
+    \begin{columns}
+        \column{0.5\textwidth}
+        Unsere Menge der Produktionsregeln P besteht aus folgenden Regeln:\\
+        \vspace{0.3cm}
+        Jeder \dq $\delta$-Anweisung\dq \alert{$\delta(z_1, a)=z_2$} ordnen wir folgende Regeln zu.
+        \begin{itemize}
+            \item \alert<2>{$z_1 \rightarrow a z_2$}
+            \item Und zusätzlich, falls \alert<3>{$z_2 \in E: z_1 \rightarrow a$}
+        \end{itemize}
+        \column{0.5\textwidth}
+        \centering
+            \only<2>{\alert<2>{            \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm,semithick]
+            \node [state] (1)  {$z_1$};
+            \node [state] (2) [right of=1]  {$z_2$};
+            \path (1) edge node {a} (2);
+            \end{tikzpicture}\\
+            \glqq$\delta (z_1,a) = z_2$\grqq}}
+            \only<3>{\alert<3>{
+            \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm,semithick]
+            \node [state] (1)  {$z_1$};
+            \node [state, accepting] (2) [right of=1]  {$z_2$};
+            \path (1) edge node {a} (2);
+            \end{tikzpicture}\\
+            \glqq$\delta (z_1,a) = z_2$\grqq}}
+            
+    \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{Automaten und Grammatiken}
+    \begin{alertblock}{Zu zeigen: $x \in T(M)$ gdw. $x \in L(G)$}
+    Dabei gilt: $x=a_1 a_2 ... a_n$\\
+    Die folgenden Aussagen sind äquivalent:
+        \begin{itemize}
+            \item x wird von Automat M erkannt \emph{$(x\in T(M))$}
+            \item Es gibt eine Folge von Zuständen $z_0, z_1, \dots, z_n$ mit: $z_0$ ist Startzustand, $z_n$ ist Endzustand \textbf{und}: $\forall i \in \{1, ..., n\}: \delta(z_{i-1}, a_i)=z_i$
+            \item Es gibt Folge an Variablen $z_0, z_1, \dots, z_n$ mit: $z_0$ ist Startvariable und x lässt sich von $z_0$ ausgehend ableiten.
+            \item x wird von der Grammatik G produziert \emph{$(x \in L(G))$}
+        \end{itemize}
+        \qed
+    \end{alertblock}
+\end{frame}
+
+% \begin{frame}[fragile]{Automaten und Grammatiken}
+%     \begin{columns}
+%         \column{0.5\textwidth}
+%         P besteht aus folgenden Regeln:\\
+%         \vspace{0.3cm}
+%         Jeder \dq $\delta$-Anweisung\dq \alert{$\delta(z_1, a)=z_2$} ordnen wir folgende Regeln zu.
+%         \begin{itemize}
+%             \item \alert<2>{$z_1 \rightarrow a z_2$}
+%             \item Und zusätzlich, falls \alert<3>{$z_2 \in E: z_1 \rightarrow a$}
+%         \end{itemize}
+%         \column{0.5\textwidth}
+%     \end{columns}
+% \end{frame}
+
+
+% \begin{frame}[fragile]{Grammatik zu Automaten}
+%     Eine reguläre Grammatik und eine endlicher Automat können die selben Sprachen beschreiben.
+%     \begin{exampleblock}{"$\implies$"}
+%     \only<1>{Aus $z_1 \to az_2 \in P$ wird:\\
+%     \begin{center}
+%     \vspace{0.3cm}
+%         \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm,
+%                         semithick]
+%         %\tikzstyle{every state}=[fill=ExColor,draw=none,text=white]
+        
+%         \node       [state]                 (1) [right of=1]  {$z_1$};
+%         \node       [state]                 (2) [right of=2]  {$z_2$};
+        
+%         \path
+%                 (1) edge                node {a}  (2);
+%         \end{tikzpicture}\\
+%         \glqq$\delta (z_1,a) = z_2$\grqq
+%     \end{center}}
+    
+%     \only<2>{
+%     Falls $z_2 \in F$ ($z_2$ ein Endzustand)\\
+%     Aus $z_1 \to a \in P$ wird:\\
+%     \begin{center}
+%     \vspace{0.3cm}
+%         \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm,
+%                         semithick]
+%         %\tikzstyle{every state}=[fill=ExColor,draw=none,text=white]
+        
+%         \node       [state]                 (1) [right of=1]  {$z_1$};
+%         \node       [state, accepting]      (2) [right of=2]  {$z_2$};
+        
+%         \path
+%                 (1) edge                node {a}  (2);
+%         \end{tikzpicture}\\
+%         \glqq$\delta (z_1,a) = z_2$\grqq
+%     \end{center}
+%     }
+%     \end{exampleblock}
+% \end{frame}
+
+
+% \begin{frame}[fragile]{Automaten zu Grammatik}
+%   Eine reguläre Grammatik und eine endlicher Automat können die selben Sprachen beschreiben.
+%   \begin{exampleblock}{"$\impliedby$"}
+%   bla
+%   \end{exampleblock}
+% \end{frame}

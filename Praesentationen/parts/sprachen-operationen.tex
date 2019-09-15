@@ -1,0 +1,93 @@
+\begin{frame}{Mengenoperationen - Schnitt}
+\begin{columns}
+\column{0.5\textwidth}
+    \begin{alertblock}{Schnitt - $A\cap B$}
+    Gegeben zwei Mengen A und B.\\
+    In der Schnittmenge liegt alles, das in Menge A \textbf{und} in Menge B ist.
+    \end{alertblock}
+\column{0.5\textwidth}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{../figures/AundB.png}
+    \caption{Veranschaulichung der Schnittmenge}
+    \label{fig:my_label}
+\end{figure}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Mengenoperationen - Vereinigung}
+\begin{columns}
+\column{0.5\textwidth}
+    \begin{alertblock}{Vereinigung - $A\cup B$}
+    Gegeben zwei Mengen A und B.\\
+    In der Vereinigung liegt alles, das nur in A, nur in B \textbf{oder} in beiden Mengen liegt.
+    \end{alertblock}
+\column{0.5\textwidth}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{../figures/AoderB.png}
+    \caption{Veranschaulichung der Vereinigung}
+    \label{fig:my_label}
+\end{figure}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Mengenoperationen - Komplement}
+    \begin{columns}
+\column{0.5\textwidth}
+    \begin{alertblock}{Komplement - $\Bar{A}$}
+    Gegeben sei eine Menge A.\\
+    Im Komplement der Menge A liegen alle Elemente, die in $\Sigma^{*}$, aber nicht in der Menge A selbst liegen.
+    \end{alertblock}
+\column{0.5\textwidth}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{../figures/Akomp.png}
+    \caption{Veranschaulichung des Komplements}
+    \label{fig:my_label}
+\end{figure}
+\end{columns}
+\onslide<2>{\alert{\emph{Anmerkung:}} Kann auch geschrieben werden als $\Sigma^{*}\setminus A$. \\
+\hspace{2cm}(gesprochen $\Sigma^{*}$ \emph{''ohne''} $A$)}
+\end{frame}
+
+\begin{frame}{Mengenoperationen}
+    Berechne folgende Mengen
+    \metroset{block=fill}
+    \begin{alertblock}{Normal}
+        \begin{itemize}
+            \item $M_1$: $\{a\}\cup \{b\}$
+            \item $M_2$: $\{\} \cap \{u, v, w\}$
+            \item $M_3$: $\mathbb{N} \cup \mathbb{Z}$
+            \item $M_4$: $\overline{\{a^{n} | n \ \text{ist gerade}\} }$ , über dem Alphabet $\{a\}$
+        \end{itemize}
+    \end{alertblock}
+        \begin{alertblock}{Schwer bis sehr schwer}
+        \begin{itemize}
+            \item $M_5$: $\{a, b, c\} \cap  \{a, \{b, c\}\}$
+            \item $M_6$: $\{u \mid |u| \equiv 0 \mod 2, u \in \{a, b\}^{*}\}$\\\hspace{0.65cm}$\cup$ $\{v \mid |v| \equiv 0 \mod 4, v \in \{a, b\}^{*}\}$
+            \item $M_7$: $\overline{\{a^{n} | n \ \text{ist gerade}\} }$ , über dem Alphabet $\{a,b\}$
+        \end{itemize}
+    \end{alertblock}
+\end{frame}
+
+{\setbeamercolor{palette primary}{bg=ExColor}
+\begin{frame}{Lösungen}
+  \begin{itemize}[<+- | alert@+>]
+        \item 
+            $M_1 = \{a, b\}$
+        \item
+            $M_2 = \emptyset$
+        \item
+            $M_3 = \mathbb{Z}$
+        \item
+            $M_4 = \{a^{n} \mid$ n ist ungerade$\}$, 
+        \item
+            $M_5 = \{a\}$
+        \item
+            $M_6 = \{u \mid |u| \equiv$ 0 mod 2$, u \in \{a, b\}^{*}\}$
+        \item
+            $M_7$: $\{a^{n} | n \ \text{ist ungerade}\} \cup\{w | w\in\{a,b\}, |w|_b>1\}$ 
+    \end{itemize}
+\end{frame}
+}

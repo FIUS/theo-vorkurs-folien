@@ -1,0 +1,129 @@
+\begin{frame}{Mengenbeweis}
+    Ein weiterer Mengenbeweis...
+    \metroset{block=fill}
+    \begin{block}{\alert{Aufgabe}}
+    $L_1=\{w^{n} \mid n \in \mathbb{N}, w \in \{aaaa\}\}$\\
+    $L_2=\{w \mid |w| \equiv 0 \bmod 4, w \in \{a\}^*\}$
+    \end{block}
+    Zu zeigen:\\
+    $L_1 = L_2$\\
+    d.h. $(\forall x: x \in L_1 \implies x \in L_2) \wedge (\forall x: x \in L_2 \implies x \in L_1)$
+
+\end{frame}
+
+\begin{frame}{Mengenbeweis}
+    \metroset{block=fill}
+    \only<1>{
+    \begin{block}{\alert{$\forall x: x \in L_1 \implies x \in L_2$}}
+    Sei $x$ beliebig.\\
+    Angenommen, $x \in L_1$.\\
+    Es gilt: $w \in \{aaaa\}$. Damit gilt $|w|=4$. Es folgt $|x| = |w^{n}| = |w| * n = 4 * n$ mit $n \in \mathbb{N}$. Daraus folgt $|x| \equiv 0 \bmod 4$. Weiterhin gilt $(aaaa)^n \in \{a\}^*$.\\
+    $\leadsto x \in L_2$
+    \end{block}
+    }
+    \only<2>{
+    \begin{block}{\alert{$\forall x: x \in L_2 \implies x \in L_1$}}
+    Sei $x$ beliebig.\\
+    Angenommen, $x \in L_2$.\\
+    Es gilt: $|x| \equiv 0 \bmod 4$. \\ Damit gilt $|x| = 4 * n = |w| * n = |w^n|$ mit $w \in\{aaaa\}$ und $n \in \mathbb{N}$. \\ Weiterhin gilt $w \in \{a\}^*$. \\
+    $\leadsto x \in L_1$
+    \end{block}
+    }
+    \only<3>{
+    Da gezeigt wurde:\\
+    \vspace{0.3cm}
+    $\forall x: x \in L_1 \implies x \in L_2$\\
+    \alert{und}\\
+    $\forall x: x \in L_2 \implies x \in L_1$\\
+    \vspace{0.3cm}
+    \textbf{gilt $L_1 = L_2$.}
+    }
+\end{frame}
+
+{\setbeamercolor{palette primary}{bg=ExColor}
+\begin{frame}[fragile]{Denkpause}
+    \begin{alertblock}{Aufgaben}
+    Versuche dich an folgenden Mengenbeweisen.
+    \end{alertblock}
+    
+    \metroset{block=fill}
+    \begin{block}{Etwas Schwerer}
+    $L_1=\{a^{n}b^{m} \mid n<m ,mit \; n,m\in \mathbb{N}\}$\\
+    $L_2=\{w \mid |w|_a < |w|_b, w \in \{a,b\}^*\}$\\
+    \vspace{0.3cm}
+    Zu zeigen: $L_1 \subsetneq L_2$
+    \end{block}
+    \metroset{block=fill}
+    \begin{block}{Schwer}
+    $L_1$: $\{w\mid |w|\equiv 0 \bmod 6\}$\\
+    $L_2$: $\{w\mid |w|\equiv 0 \bmod 2\}$\\
+    $L_3$: $\{w\mid |w|\equiv 0 \bmod 3\}$\\
+    \vspace{0.3cm}
+    Zu zeigen: $L_1 = L_2 \cap L_3$
+    \end{block}
+\end{frame}
+}
+
+{\setbeamercolor{palette primary}{bg=ExColor}
+\begin{frame}[fragile]{Lösung}
+    \begin{alertblock}{Aufgaben}
+    z.Z. $L_1 \subsetneq L_2$\\
+    d.h. $(\forall x: x \in L_1 \implies x \in L_2) \wedge (L_1 \neq L_2)$
+    \end{alertblock}
+    
+    \begin{columns}
+    \column{0.6\textwidth}
+    \metroset{block=fill}
+    \begin{alertblock}{$\forall x: x \in L_1 \implies x \in L_2$}
+        Sei x beliebig. Ang. $x \in L_1$.\\
+        Es gilt: $x=a^{n}b^{m}$,mit $n,m\in\mathbb{N}$.\\
+        Damit gilt $|x|_a=n, |x|_b=m$ mit $n<m$.\\
+        Also auch $|x|_a < |x|_b$.\\
+        $\leadsto x \in L_2$.
+    \end{alertblock}
+    
+    \column{0.4\textwidth}
+    \metroset{block=fill}
+    \begin{alertblock}{$L_1 \neq L_2$}
+        Beweis durch Angabe eines Gegenbeispiels:\\
+        $bba \in L_2$, aber $bba \notin L_1$\\
+        Also sind $L_1$ und $L_2$ nicht gleich.
+    \end{alertblock}
+    \end{columns}
+    \qed
+\end{frame}
+}
+
+{\setbeamercolor{palette primary}{bg=ExColor}
+\begin{frame}[fragile]{Lösung}
+    \begin{alertblock}{Aufgaben}
+    Z.z. $L_1 = L_2 \cap L_3$\\
+    d.h. $\forall x: x \in L_1 \iff x \in L_2 \wedge x \in L_3$
+    \end{alertblock}
+    \only<1>{
+    \metroset{block=fill}
+    \begin{alertblock}{"$\implies$"}
+        Sei x beliebig. Ang. $x \in L_1$.\\
+        Dann gilt $|x|\equiv 0 \bmod 6$. Also $\exists k \in \mathbb{N}: |x| = 6k = 3 * 2 * k$.\\
+        Somit gilt auch $\exists l \in \mathbb{N}: |x| = 3l$ mit $l=3*k$ und $\exists m \in \mathbb{N}: |x| = 2m$ mit $m=2*k$.\\
+        $\leadsto x \in L_2 \wedge x \in L_3$.
+    \end{alertblock}
+    }
+    \only<2>{
+    \metroset{block=fill}
+    \begin{alertblock}{"$\impliedby$"}
+        Sei x beliebig. Ang. $x \in L_2 \wedge x \in L_3$.\\
+        Dann $\exists k, l \in \mathbb{N}: |x| = 2 * k, |x| = 3 * l$.\\
+        Somit sind 2 und 3 Teil der Primfaktorzerlegung von $|x|$.\\
+        Dann gilt $\exists m \in \mathbb{N}: |x| = 6 * m$.\\
+        $\leadsto x \in L_1$.
+    \end{alertblock}
+    }
+    \only<3>{
+    \begin{alertblock}{"$\iff$"}
+     Da $\forall x: x \in L_1 \implies x \in L_2 \wedge x \in L_3$ und $\forall x: x \in L_2 \wedge x \in L_3 \implies x \in L_1$ gilt:\\
+    $\forall x: x \in L_1 \iff x \in L_2 \wedge x \in L_3$ \qed
+    \end{alertblock}
+    }
+\end{frame}
+}

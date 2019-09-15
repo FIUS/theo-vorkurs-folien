@@ -1,0 +1,93 @@
+\begin{frame}[fragile]{Wörter in Sprachen}
+Wir können inzwischen Sprachen in Mengenschreibweise darstellen.\\Aber welche Wörter sind enthalten?\\
+\vspace{0.3cm}
+Wir können weitere Regeln formulieren, mit denen wir von einenm gegebenen Startpunkt aus alle Wörter einer Sprache erzeugen können.
+\end{frame}
+
+\begin{frame}[fragile]{Beispiel Worterzeugung}
+    \small{Wir betrachten L = \{$ww^R\;|\;w^R\text{ ist w rückwärts, }w \in \{a, b\}^n, n>0, n\in \mathbb{N}$\}\\
+    Hier ist z.B. $\alert<1>{w}w^R$ = \alert<1>{ababb}bbaba $\in$ L.}\\
+    \begin{enumerate}
+    \item <2-> 
+            \alert<2,5>{Wir beginnen mit einer Variablen S}
+    \item <3-> 
+            \alert<3>{Wir formulieren Regeln um S umzuwandeln}
+            \alert<4>{\onslide<4->{
+            \begin{align*}\alert<6,8>{S \rightarrow aSa}&\text{ oder }\alert<7,9>{S \rightarrow bSb}\\\text{oder }S \rightarrow aa &\text{ oder }\alert<10>{S \rightarrow bb}\end{align*}}}\vspace{-0.3in}
+    \item <5->
+            \alert<5>{Damit können wir jetzt Wörter aus der Sprache beschreiben.}\\
+            z.B.: \alert<6>{a}\alert<7>{b}\alert<8>{a}\alert<9>{b}\alert<10>{bb}\alert<9>{b}\alert<8>{a}\alert<7>{b}\alert<6>{a} $\leadsto$ \only<5>{\alert<5>{S}}\only<6>{\alert<6>{aSa}}\only<7>{a\alert<7>{bSb}a}\only<8>{ab\alert<8>{aSa}ba}\only<9>{aba\alert<9>{bSb}aba}\only<10->{abab\alert<10>{bb}baba}
+    \item <11> \alert<11>{Wir nennen diese Umformungsregeln Produktionsregeln.}
+    \end{enumerate}
+\end{frame}
+
+\subsubsection{Produktionsregeln}
+\begin{frame}{Produktionsregeln}
+    \begin{alertblock}{Einschränkungen}
+    \begin{itemize}
+        \item \alert{\emph{Nichtterminale}} werden meist durch Großbuchstaben repräsentiert und müssen durch Produktionsregeln abgeändert werden
+        \item \alert{\emph{Terminale}} werden meist durch Kleinbuchstaben repräsentiert und sollten \emph{nicht} durch weitere Produktionsregeln abgeändert werden
+        \item Mehrere Symbole können auf einen Schlag überführt werden. Dabei sollten die Terminale nicht entfernt oder umsortiert werden.\\
+        z.B. $AB \rightarrow CD$ ist erlaubt.\\
+        Auch $abAB \rightarrow BbAa$, aber das gehört sich nicht.
+    \end{itemize}
+    \end{alertblock}
+\end{frame}
+
+\begin{frame}{Weitere Beispiele für Produktionen}
+    \begin{alertblock}{Aufgaben}
+    Gesucht: Produktionsregeln für die folgenden Sprachen.
+    \end{alertblock}
+    \metroset{block=fill}
+    \begin{exampleblock}{$L_1 = \{a\}^*$}
+    $\onslide<2->{P=\{S \rightarrow aS \only<3->{\mid \emptyWord}\}}$
+    \end{exampleblock}
+    \only<4->{
+    \begin{exampleblock}{$L_2 = \{a, b\}^*$}
+    $\onslide<5->{P=\{S \rightarrow  aS \only<6->{\mid bS}\only<7->{\mid \emptyWord}\}}$
+    \end{exampleblock}
+    }
+\end{frame}
+
+{\setbeamercolor{palette primary}{bg=ExColor}
+\begin{frame}{Denkpause}
+    \begin{alertblock}{Aufgaben}
+    Findet Produktionsregeln für die folgenden Sprachen.
+    \end{alertblock}
+    \metroset{block=fill}
+    \begin{block}{Normal}
+    \begin{itemize}
+        \item $L_1 = \{a^{2n}\;|\;n\in\mathbb{N}\}$
+        \item $L_2 = \{a^nb^nc^m\;|\;n, m\in\mathbb{N}\}$
+        \item $L_3 = \{uv\;|\;u\in\{a,b\}^\ast,\;v\in\{c,d\}\}$
+        \item $L_4 = \{w\;|\;|w| = 3, w\in \{a,b,c\}^*\}$
+    \end{itemize}
+    \end{block}
+    \begin{block}{Etwas Schwerer}
+    \begin{itemize}
+        \item $L_5 = \{a^n\;|\;n \equiv 1 \bmod 3\}$
+        \item $L_6 = \{w\;|\;|w|_a = 3, |w|_b = 1, w\in \{a,b,c\}^*\}$
+        \item $L_7 = \{uv\;|\;u\in\{\text{\Rewind, \MoveUp, \Forward, \MoveDown}\}^\ast,\;v\in\{\text{\Stopsign}\}\}$
+        \item $L_8 = \{w\mid |w|=2, w \in \{a, b\}\}$
+    \end{itemize}
+    \end{block}
+\end{frame}
+}
+
+{\setbeamercolor{palette primary}{bg=ExColor}
+\begin{frame}{Lösungen}
+Alle Lösungen sind Beispiellösungen, es sind auch andere möglich.
+    \begin{itemize}
+        \item<1-> \alert<1>{$P_1 = \{S\rightarrow aaS\;|\;\emptyWord$\}}
+        \item<2-> \alert<2>{$P_2 = \{S\rightarrow AB$, $A\rightarrow aAb \;|\; ab\; |\;\emptyWord$, $B\rightarrow cB \;|\; \emptyWord$\}}
+        \item<3-> \alert<3>{$P_3 = \{S\rightarrow UV$, $U\rightarrow aU \;|\; bU \; |\; \emptyWord$, $V\rightarrow c \;|\; d$\}}
+        \item<4-> \alert<4>{$P_4 = \{S\rightarrow XXX$, $X\rightarrow a \;|\; b \;|\; c$\}}
+        \item<5-> \alert<5>{$P_5 = \{S\rightarrow a \;|\; aaaS\}$}
+        \item<6-> \alert<6>{$P_6 = \{S\rightarrow AAAB$, $AB\rightarrow BA$, 
+        $A\rightarrow cA \;|\; Ac \;|\; a$, 
+        $B\rightarrow cB \;|\; Bc \;|\; b$\}}
+        \item<7-> \alert<7>{$P_7 = \{S\rightarrow U\text{\Stopsign} \;|\; \text{\Stopsign}$, $U\rightarrow \text{\Rewind} U \;|\; \text{\MoveUp} U \;|\; \text{\Forward} U \;|\; \text{\MoveDown} U \;|\;\emptyWord$\}}
+        \item<8-> \alert<8>{$P_8 = \{\} \leadsto$ Es gibt keine Produktionsregeln!}
+    \end{itemize}
+\end{frame}
+}  

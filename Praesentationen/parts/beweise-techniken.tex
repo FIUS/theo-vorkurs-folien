@@ -1,0 +1,91 @@
+\subsubsection{Beweistechnik: Direkter Beweis}
+\begin{frame}[fragile]{Direkter Beweis}
+    \begin{alertblock}{Zeige A$\implies$B direkt}
+    Setze A voraus und folgere dann schrittweise B.\\
+    Durch jede korrekte Folgerung, vergrößert sich die Menge der als wahr bekannten Aussagen (sog. Annahmen).
+    \end{alertblock}
+    \metroset{block=fill}
+    \begin{exampleblock}{Beispiel}
+    Z.z.: \alert<2>{$\forall a\in\mathbb{Z}$}: \alert<3>{a ist gerade} $\implies$ \alert<6>{$a^2$ gerade.}
+    \begin{enumerate}
+        \item \alert<2>{Sei $a\in\mathbb{Z}$ beliebig.}
+        \item \alert<3>{Angenommen, a ist gerade.}
+        \item \alert<4>{$\implies \exists n\in\mathbb{Z} : a = 2n$}
+        \item \alert<5>{$\implies a^2 = (2n)^2 = 4n^2 = 2 \cdot 2n^2$}
+        \item \alert<6>{$\implies a^2$ ist gerade}\qed\;
+    \end{enumerate}
+    \end{exampleblock}
+    \small{\emph{\alert<4>{Anmerkung:}} Zahl $n\in\mathbb{Z}$ heißt gerade, wenn es ein $k\in\mathbb{Z}$ gibt mit $n=2k$.}
+\end{frame}
+
+\subsubsection{Beweistechnik: Kontraposition}
+\begin{frame}[fragile]{Beweis durch Kontraposition}
+    \begin{alertblock}{Zeige A$\implies$B, indem man stattdessen $\neg$B$\implies\neg$A zeigt.}
+    \end{alertblock}
+    \metroset{block=fill}
+    \begin{exampleblock}{Beispiel}
+    Z.z.: \alert<7>{\alert<1>{$\forall n\in\mathbb{N}$:} $n^2$ gerade $\implies$\alert<2>{ $n$ gerade}}
+    \begin{enumerate}
+        \item\alert<1>{Sei $n \in \mathbb{N}$ beliebig.}
+        \item\alert<2>{Angenommen, $n$ ist \emph{nicht} gerade.}
+        \item\alert<3>{$\implies n=2k+1$, für ein $k \in \mathbb{Z}$}
+        \item $\only<4>{\overset{\alert{quadrieren}}}{\; \leadsto \;} n^2 = (2k+1)^2 = 4k^2+4k+1 = 2\alert<5>{(2k^2+2k)}+1$
+        \item $\implies n^2= \alert<6>{2\alert<5>{m}+1}$, für $m=2k^2+2k$
+        \item $\implies n^2$ ist \alert<6>{ungerade}.
+        \item Da ($\forall n\in\mathbb{N}$: $n$ ungerade $\implies n^2$ ungerade) gilt, \\
+        $\leadsto$ \alert<7>{($\forall n\in\mathbb{N}$: $n^2$ gerade $\implies n$ gerade)}, was zu beweisen war.\qed\;
+    \end{enumerate}
+    \end{exampleblock}
+    \footnotesize{\alert<3,6>{\emph{Anmerkung:}} Zahl $n\in\mathbb{Z}$ heißt ungerade, wenn es ein $k\in\mathbb{Z}$ gibt mit $n=2k+1$.}
+\end{frame}
+
+\begin{frame}[fragile]{Beweis durch Kontraposition}
+%Work in progress
+\begin{alertblock}{Wieso dürfen wir das so machen?}.
+\end{alertblock}
+\metroset{block=fill}
+\begin{exampleblock}{Beweis}
+Z.z.: ($\neg$A$\implies\neg$B)$\iff$(B$\implies$A)
+    \begin{flalign*}
+        \;(\neg A\implies\neg B) \iff & (\neg (\neg A) \vee \neg B)&\\
+        \iff & (A \vee \neg B)&\\
+        \iff & (\neg B \vee A)&\\
+        \iff & (B \implies A)&\qed\;
+    \end{flalign*}
+\end{exampleblock}
+\small\emph{Erinnerung:} $A\implies B$ kann man auch $\neg A\vee B$ schreiben.
+\end{frame}
+
+\begin{frame}[standout]
+    Verdauungspause
+\end{frame}
+
+\subsubsection{Beweistechnik: Widerspruch}
+\begin{frame}[fragile]{Beweis durch Widerspruch}
+\small{
+    \begin{alertblock}{Zeige, dass A gilt, indem man zeigt dass $\neg$A falsch ist.}
+    %Spezialfall der Kontraposition: $A\text{ ist wahr}\implies A \iff \neg A\implies \text{falsch}$
+    \emph{Erinnerung:} Eine Aussage ist entweder wahr oder falsch.\\
+    Wenn $\neg$A falsch ist, muss A wahr sein.
+    \end{alertblock}
+    \metroset{block=fill}
+    \begin{exampleblock}{Beispiel}
+        Z. z. $\sqrt{2}$ ist irrational.
+        \begin{enumerate}
+            \item<1-> \alert<1>{Ang. $\sqrt{2}$ ist rational.}
+            \item<2-> \alert<2>{Dann $\exists p, q \in \mathbb{Z} : \sqrt{2} = \frac{p}{q}$} $\wedge$ \alert<3,11>{$p, q$ sind teilerfremd.}
+            \only<2,3>{\alert<2>{{\\\emph{Anmerkung:}}} $r\in\mathbb{Q}\iff\exists p,q\in\mathbb{Z}:r=\frac{p}{q}$}.
+            \only<2,3>{\alert<3>{{\\\emph{Anmerkung:}}} $\frac{p}{q}$ kann man immer soweit kürzen, dass $p,q$ teilerfremd sind.}
+            \item<4-> \only<4>{Quadrieren und Umformen:\\}$\leadsto(\sqrt{2})^2 = (\frac{p}{q})^2 \iff 2 = \frac{p^2}{q^2} \iff \alert<5,8>{2q^2=p^2}$
+            \item<5-> \alert<5>{$\leadsto p^2$ ist gerade.} \alert<6,10>{$\leadsto p$ ist gerade.}\only<5,6>{\alert<5>{{\\\emph{Erinnerung:}}} $\forall n\in\mathbb{Z}:n$ gerade $\iff\exists k\in\mathbb{Z}:2k=n$.}\only<5,6>{\alert<6>{{\\\emph{Erinnerung:}}} $\forall n\in\mathbb{N}$: $n^2$ gerade $\implies n$ gerade \\\qquad\qquad\quad(siehe Beispiel Kontraposition)}
+            \item<7-> \alert<7>{Also ist $p^2$ durch 4 teilbar.} \alert<8>{$\leadsto 2q^2$ ist durch 4 teilbar.}\only<7>{\\\alert<7>{\emph{Herleitung:}} $p^2=p\cdot p\overset{\text{p gerade}}{=\joinrel=\joinrel=\joinrel=}(2k)\cdot(2k)=\alert<7>{4}k^2,$ mit $k\in\mathbb{Z}$}
+            \item<9-> $\leadsto q^2$ ist gerade. \alert<10>{$\leadsto q$ ist gerade.}
+            \item<10-> \alert<10>{$\leadsto p,q$ nicht teilerfremd.} \alert<11>{$\leadsto$ Widerspruch}\only<11>{\qed\;}
+        \end{enumerate}
+    \end{exampleblock}
+}
+\end{frame}
+
+\begin{frame}[standout]
+    Verdauungspause
+\end{frame}

@@ -1,0 +1,308 @@
+\begin{frame}[fragile]{Reguläre Sprachen anders beschreiben}
+    Wir können reguläre Sprachen auch graphisch beschreiben.\\
+    Dafür nutzen wir \alert{endliche Automaten}.\\
+    Ein Automat prüft Wörter und entscheidet, ob sie Teil der Sprache sind oder nicht.\\
+    $\leadsto$ Wir nennen das \alert{\emph{akzeptieren}}, bzw. nicht akzeptieren.
+    \begin{alertblock}{Funktionsweise}
+    \begin{enumerate}
+        \item Ein Wort wird in den Automat eingegeben
+        \item Wort wird zeichenweise abgearbeitet
+        \item Nach jedem Zeichen wird der Automat in einen Zustand überführt, der bestimmt, wie fortgefahren wird
+        \item Befindet sich der Automat in einem \emph{Endzustand}, sobald das Wort abgearbeitet wurde, akzeptiert der Automat das Wort.
+    \end{enumerate}
+    \end{alertblock}
+\end{frame}
+
+\subsection{NEA}
+\begin{frame}[fragile]{Bestandteile eines endlichen Automaten}
+    Der Automat kann als gerichteter Graph notiert werden.\\
+    Wir konstruieren ihn aus den folgenden Komponenten:
+    \only<1>{
+    \begin{alertblock}{Startzustand}
+        Im Startzustand wird das Wort eingegeben.\\
+        \begin{center}
+        \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm,semithick]
+        \node[initial,state](q0){$q_0$};
+        \end{tikzpicture}
+        \end{center}
+    \end{alertblock}
+    }
+    \only<2>{
+    \begin{alertblock}{Zustandsübergang}
+        Wird das Zeichen auf dem Übergang \emph{gelesen}, geht der Automat in den folgenden Zustand über.\\
+        \begin{center}
+        \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm,semithick]
+        \node[state](qi){$q_i$};
+        \node[state](qj)[right of=qi]{$q_j$};
+        \path (qi) edge node {$a$} (qj);
+        \end{tikzpicture}
+        \end{center}
+    \end{alertblock}
+    }
+    \only<3>{
+    \begin{alertblock}{Endzustand}
+        Falls sich der Automat in diesem Zustand befindet, und das Wort abgearbeitet ist, wird das Wort akzeptiert.\\
+        \begin{center}
+        \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm,semithick]
+        \node[accepting,state](qe){$q_E$};
+        \end{tikzpicture}
+        \end{center}
+        \emph{Anmerkung: }Unter Umständen sind mehrere hiervon nötig
+    \end{alertblock}
+    }
+\end{frame}
+
+\begin{frame}[fragile]{Beispiel}
+\begin{exampleblock}{$L=\{axb \mid x\in\{a,b\}^\ast\}$}
+\vspace{0.3cm}
+    \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm,
+                    semithick]
+    %\tikzstyle{every state}=[fill=ExColor,draw=none,text=white]
+    
+    \node<1,3-> [initial,state]         (1)               {$q_0$};
+    \node<2>    [initial,state,orange]  (1)               {$q_0$};
+    \node       [state]                 (2) [right of=1]  {$q_1$};
+    \node<1-8>  [state,accepting]       (3) [right of=2]  {$q_E$};
+    \node<9>    [state,accepting,orange](3) [right of=2]  {$q_E$};
+    
+    \path<1,2,9>
+            (1) edge                node {a}  (2)
+            (2) edge [loop above]   node {a,b}(2)
+                edge                node {b}  (3);
+    \path<3>
+            (1) edge [orange]       node {a}  (2)
+            (2) edge [loop above]   node {a,b}(2)
+                edge                node {b}  (3);
+    \path<4,5,6,7>
+            (1) edge                     node {a}  (2)
+            (2) edge [loop above,orange] node {a,b}(2)
+                edge                     node {b}  (3);
+    \path<8>
+            (1) edge                node {a}  (2)
+            (2) edge [loop above]   node {a,b}(2)
+                edge [orange]       node {b}  (3);
+    \end{tikzpicture}
+\end{exampleblock}
+\onslide<2->{
+    \begin{exampleblock}{Worteingabe:} \alert<3>{a}\alert<4>{a}\alert<5>{b}\alert<6>{a}\alert<7>{b}\alert<8>{b} $\in L$\only<1-8>{?} \only<9>{$\leadsto$ \alert{akzeptiert}
+}
+\end{exampleblock}}
+\end{frame}
+
+\begin{frame}{Beispiel: Automat}
+    Gegeben ist eine Sprache L. Gesucht ist ein Automat M, der \textbf{genau} die Wörter aus L akzeptiert.
+    \vspace{0.5cm}
+    % \only<1>{
+    % \begin{alertblock}{$L_1 = \{a^{2n} \mid n\in\naturals\}$}
+    % \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm,semithick]
+    %         \node   [initial,state,accepting]                   (1) {$q_0$};
+    %         \node   [state]                     [right of=1]    (2) {$q_1$};
+    %         \node   [state, accepting]          [right of=2]    (3) {$q_2$};
+            
+    %         \path
+    %                 (1) edge node {a} (2);
+            
+    %         \path
+    %                 (2) edge [bend left] node {a} (3);
+            
+    %         \path
+    %                 (3) edge [bend left] node {a} (2);
+    %     \end{tikzpicture}
+    % \end{alertblock}
+    % }
+    \only<1>{
+    \begin{alertblock}{$L_1 = \{uv \mid u\in\{a,b\}^\ast,\;v\in\{c,d\}\}$}
+    \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm,semithick]
+            \node   [initial,state]                             (1) {$q_0$};
+            \node   [state,accepting]           [right of=1]    (2) {$q_1$};
+            
+            \path   (1) edge node {c,d} (2)
+                    (1) edge [loop above] node {a,b} (1);
+        \end{tikzpicture}
+    \end{alertblock}
+    }
+    
+\end{frame}
+
+{\setbeamercolor{palette primary}{bg=ExColor}
+\begin{frame}{Denkpause}
+\begin{small}
+    \begin{alertblock}{knifflige Aufgabe}
+    Wir entwerfen einen Automat zur Aufzugskontrolle.
+    Der Aufzug hat folgende Möglichkeiten:\\
+    $\Sigma =\{$\begin{footnotesize}
+    \framebox{EG$\nearrow$1.OG} , \framebox{EG$\nearrow$2.OG} , \framebox{1.OG$\searrow$EG} , \framebox{1.OG$\nearrow$2.OG} , \framebox{2.OG$\searrow$EG} , \\\qquad\quad\;\framebox{2.OG$\searrow$1.OG} , \framebox{OFF}
+    \end{footnotesize}$\}$
+    \begin{itemize}
+        \item Der Aufzug startet vom Erdgeschoss und darf sich nur aus Stockwerken bewegen, in denen er sich befindet.
+        \item Der Aufzug kann nur im Erdgeschoss ausgeschaltet werden. Er kann dann keine Bewegung durchführen. Er muss ausgeschaltet werden.
+    \end{itemize}
+    \end{alertblock}
+    % \begin{footnotesize}
+    %     \framebox{EG$\nearrow$2.OG} \framebox{2.OG$\searrow$EG} \framebox{OFF} $\in L$\\
+    %     \framebox{2.OG$\searrow$EG} \framebox{OFF} \framebox{EG$\nearrow$1.OG} $\notin L$\\
+    % \end{footnotesize}
+    \alert{Zeichne einen Automaten an, dessen akzeptierte Sprache genau die Menge der korrekten Abläufe ist.}
+    \end{small}
+\end{frame}
+
+\begin{frame}{Lösung}
+\begin{center}
+    \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=3.2cm,semithick]
+        \node [initial,state]   (0)              {$q_0$};
+        \node [state]           (1) [above of=0] {$q_1$};
+        \node [state]           (2) [above of=1] {$q_2$};
+        \node [state,accepting] (E) [right of=0] {$q_E$};
+        
+        \path   (0) edge [bend left=20] node {\footnotesize\framebox{EG$\nearrow$1.OG}} (1)
+                    edge                node {\footnotesize\framebox{OFF}} (E)
+                    edge [bend left=85] node {\footnotesize\framebox{EG$\nearrow$2.OG}} (2)
+                (1) edge [bend left=20] node {\footnotesize\framebox{1.OG$\nearrow$2.OG}}(2)
+                    edge [bend left=20] node {\footnotesize\framebox{1.OG$\searrow$EG}} (0)
+                (2) edge [bend left=20] node {\footnotesize\framebox{2.OG$\searrow$1.OG}}(1)
+                    edge [bend left=85] node {\footnotesize\framebox{2.OG$\searrow$EG}} (0);
+    \end{tikzpicture}
+\end{center}
+\end{frame}
+}
+
+{\setbeamercolor{palette primary}{bg=ExColor}
+\begin{frame}{Denkpause}
+    \begin{alertblock}{Aufgaben}
+    Finde Automaten, die \textbf{genau} folgende Sprachen erkennen.
+    \end{alertblock}
+    \metroset{block=fill}
+    \begin{block}{Normal}
+    \begin{itemize}
+        \item $L_1 = \{a^nb^m \mid n, m\in\naturals\}$
+        \item $L_2 = \{w \mid |w| = 3, w\in \{a,b,c\}^*\}$
+        \item $L_3 = \{uv \mid u\in\{\text{\Rewind, \MoveUp, \Forward, \MoveDown}\}^\ast,\;v\in\{\text{\Stopsign}\}\}$
+    \end{itemize}
+    \end{block}
+    \begin{block}{Etwas Schwerer}
+    \begin{itemize}
+        \item $L_4 = \{a^n \mid n \equiv 1 \bmod 3\}$
+        \item $L_5 = \{w \in \{a,b,c\}^* \mid |w|_a = 3, |w|_b = 1\}$
+        \item $L_6=\{w \in \{a,b\}^* \mid |w|_a \equiv |w|_b \bmod 3\}$
+    \end{itemize}
+    \end{block}
+\end{frame}
+}
+
+
+
+{\setbeamercolor{palette primary}{bg=ExColor}
+\begin{frame}{Lösung}
+% \begin{itemize}[<+- | alert@+>]
+%     \item 
+    \onslide<1->{\alert<1>{
+    % \item
+        \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm,semithick]
+            \node   [initial,state,accepting]                   (1) {$q_0$};
+            \node   [state,accepting]           [right of=1]    (2) {$q_1$};
+            
+            \path   (1) edge node {b} (2)
+                    (1) edge [loop above] node {a} (1);
+            
+            \path   (2) edge [loop above] node {b} (2);
+        \end{tikzpicture}
+    }}
+    \vspace{0.2cm}
+    \onslide<2->{\alert<2>{
+        \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm,semithick]
+            \node   [initial,state]                             (1) {$q_0$};
+            \node   [state]             [right of=1]            (2) {$q_1$};
+            \node   [state]             [right of=2]            (3) {$q_2$};
+            \node   [state,accepting]   [right of=3]            (4) {$q_3$};
+            
+            \path   (1) edge node {a,b,c} (2);
+            \path   (2) edge node {a,b,c} (3);
+            \path   (3) edge node {a,b,c} (4);
+        \end{tikzpicture}
+    }}
+    \vspace{0.2cm}
+    \onslide<3->{\alert<3>{
+    \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm,semithick]
+            \node   [initial,state]         (1) {$q_0$};
+            \node   [state,accepting]   [right of=1]       (2) {$q_1$};
+            
+            \path   (1) edge    [loop above]    node    {\text{\Rewind, \MoveUp, \Forward, \MoveDown}} (1)
+                    (1) edge                    node    {$\text{\Stopsign}$}   (2);
+        \end{tikzpicture}}}
+        \vspace{0.2cm}
+    \onslide<4->{\alert<4>{
+        \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm,semithick]
+            \node   [initial,state]                             (1) {$q_0$};
+            \node   [state,accepting]   [right of=1]            (2) {$q_1$};
+            \node   [state]             [right of=2]            (3) {$q_2$};
+            
+            \path   (1) edge node {a} (2);
+            \path   (2) edge node {a} (3);
+            \path   (3) edge [bend left] node {a} (1);
+        \end{tikzpicture}
+    }}
+% \end{itemize}
+\end{frame}
+}
+
+{\setbeamercolor{palette primary}{bg=ExColor}
+\begin{frame}{Lösung}
+    \onslide<1->{\alert<1>{
+        \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=1.5cm,semithick]
+            \node   [initial,state]                             (1) {$q_0$};
+            \node   [state]             [right of=1]            (2) {$q_1$};
+            \node   [state]             [right of=2]            (3) {$q_2$};
+            \node   [state]             [right of=3]            (4) {$q_3$};
+            \node   [state]             [below of=1]             (5) {$q_4$};
+            \node   [state]             [below of=2]             (6) {$q_5$};
+            \node   [state]             [below of=3]             (7) {$q_6$};
+            \node   [state, accepting]  [below of=4]             (8) {$q_7$};
+            
+            \path   (1) edge node {a} (2)
+                    (1) edge node {b} (5)
+                    (1) edge [loop above] node {c} (1);
+                    
+            \path   (2) edge node {a} (3)
+                    (2) edge node {b} (6)
+                    (2) edge [loop above] node {c} (2);
+                    
+            \path   (3) edge node {a} (4)
+                    (3) edge node {b} (7)
+                    (3) edge [loop above] node {c} (3);
+                    
+            \path   (4) edge node {b} (8)
+                    (4) edge [loop above] node {c} (4);
+                    
+            \path   (5) edge node {a} (6)
+                    (5) edge [loop below] node {c} (5);
+                    
+            \path   (6) edge node {a} (7)
+                    (6) edge [loop below] node {c} (6);
+            
+            \path   (7) edge node {a} (8)
+                    (7) edge [loop below] node {c} (7);
+                    
+            \path   (8) edge [loop below] node {c} (8);
+        \end{tikzpicture}
+    }}
+\end{frame}
+}
+
+{\setbeamercolor{palette primary}{bg=ExColor}
+\begin{frame}{Lösung}
+    \onslide<1->{\alert<1>{
+        \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=4cm,semithick]
+            \node   [initial,state,accepting]                             (1) {$q_0$};
+            \node   [state]             [right of=1]            (2) {$q_1$};
+            \node   [state]             [below of=1]            (3) {$q_2$};
+            
+            \path   (1) edge [bend right] node {a} (2)
+                    (1) edge [bend right] node {b} (3);
+            \path   (2) edge node {a} (3)
+                    (2) edge [bend right] node {b} (1);
+            \path   (3) edge [bend right] node {a} (1)
+                    (3) edge [bend right=60] node {b} (2);
+        \end{tikzpicture}
+    }}
+\end{frame}
+}

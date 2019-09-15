@@ -1,0 +1,48 @@
+%\subsubsection{Aufgaben}
+{\setbeamercolor{palette primary}{bg=ExColor}
+\begin{frame}[fragile]{Denkpause}
+    \begin{alertblock}{Aufgaben}
+    Welche Beweistechnik könnte sich für die folgenden Aussagen eignen? Warum?
+    \end{alertblock}
+    
+    \metroset{block=fill}
+    \begin{block}{Normal}
+        \begin{itemize}
+            \item Für jede Primzahl $p$ ist $2^p-1$ eine Primzahl.
+        \end{itemize}
+    \end{block}
+    \metroset{block=fill}
+    \begin{block}{Etwas schwerer}
+    \begin{itemize}
+            \item Es gibt eine ganze Zahl x, sodass $x\equiv 1\bmod 4 \implies x\equiv 1\bmod 2$ 
+    \end{itemize}
+        
+    \end{block}
+\end{frame}
+}
+
+{\setbeamercolor{palette primary}{bg=ExColor}
+\begin{frame}[fragile]{Lösungen}
+    \begin{alertblock}{Aufgaben}
+    Welche Beweistechnik könnte sich für die folgenden Aussagen eignen? Warum?
+    \end{alertblock}
+    
+    \metroset{block=fill}
+    \begin{block}{Normal}
+        \begin{itemize}
+            \item Für jede Primzahl $p$ ist $2^p-1$ eine Primzahl.\\
+            $\rightarrow$ Gegenbeispiel (sei $p\defeq11$)
+        \end{itemize}
+    \end{block}
+    \metroset{block=fill}
+    \begin{block}{Etwas schwerer}
+        \begin{itemize}
+            \item[] $\rightarrow$Direkter Beweis
+            \item $x\equiv 1\bmod 4\iff\exists z\in\mathbb{Z} : 4 \cdot z + 1 = x$
+            \item $\iff\exists z\in\mathbb{Z}: (2 \cdot 2) \cdot z + 1 = x$
+            \item $\implies\exists u,z\in\mathbb{Z}: u = 2z\wedge 2u + 1 = x$
+            \item $\implies x\equiv 1\bmod 2$
+        \end{itemize}
+    \end{block}
+\end{frame}
+}

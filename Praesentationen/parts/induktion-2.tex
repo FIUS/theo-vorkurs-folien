@@ -1,0 +1,105 @@
+%Vollständige Induktion aus Tag 2
+% \section{Wiederholung: Vollständige Induktion}
+
+% \subsection{Definition}
+
+% \begin{frame}[fragile]{Definition}
+%     \begin{enumerate}
+%         \item \textbf{Induktionsanfang} (Gilt die Aussage für ein $n_0$) \\
+%         \item \textbf{Induktionsvoraussetzung} (wir nehmen dann an, die Aussage gilt tatsächlich)
+%         \item \textbf{Induktionsschritt} (Hier zeigen wir, dass für alle $n \in \mathbb{N}$ die Aussage gilt, unter Verwendung der IV)
+%     \end{enumerate}
+% \end{frame}
+
+\subsubsection{formalere Definition}
+\begin{frame}{Definition nochmal formaler}
+    \begin{equation*}
+        (\forall n \in \mathbb{N}_{n_0}: P(n)) \iff (P(n_0) \wedge \forall n \in \mathbb{N}_{n_0}: (P(n) \implies P(n+1)))
+    \end{equation*}    
+\end{frame}
+
+\begin{frame}{Definition nochmal formaler}
+    \onslide<1->$(\forall n \in \mathbb{N}_{n_0}: P(n)) \iff (\alert<2>{\underbrace{P(n_0)}_{\text{IA}}}\wedge \overbrace{\alert<3>{\forall n \in \mathbb{N}_{n_0}:} (\alert<4>{\underbrace{P(n)}_{\text{IV}}} \alert<5>{\implies P(n+1)})}^{\text{IS}})$
+    \begin{enumerate}
+        \item<2->\alert<2>{\textbf{IA:} $n = n_0$}
+        \item<3->\onslide<3->{\alert<3>{\textbf{IS:} Sei $n\in\mathbb{N}_{n_0}$ beliebig.}}
+        \onslide<4->{\alert<4>{Ang. es gilt P(n). \tiny{\textbf{(IV)}}}}    
+        \item<5->\alert{$\leadsto$ Zeigen, dass P(n+1) gilt, unter Verwendung von P(n) \tiny{\textbf{(IV)}}}
+    \end{enumerate}
+\end{frame}
+
+% \begin{frame}{Aufgabe zur Wiederholung}
+%     Warum das ganze nur für Summen.\\
+%     Angenommen $n^3-n$ ist durch 3 teilbar für alle natürlichen Zahlen.\\
+%     Wie gehen wir dann hier vor?
+% \end{frame}
+
+% \begin{frame}{Aufgabe zur Wiederholung}
+%     \begin{itemize}
+%         \item<1->
+%             Schreiben wir das ganze erst mal etwas Mathematischer.
+%         \item<2->
+%             $3 \mid n^3-n$, also 3 teilt $n^3-n$
+%         \item<3->
+%             Jetzt vollständige Induktion
+%     \end{itemize}
+% \end{frame}
+
+% \begin{frame}{Vollständige Induktion}
+%     \begin{enumerate}
+%         \item<1->
+%             \textbf{IA:} n = 1
+%                 \begin{equation*}
+%                     3 \mid 1^3 - 1 \iff 3 \mid 1 - 1 \iff 3 \mid 0 \qquad \checkmark
+%                 \end{equation*}
+%         \item<2->
+%             % \textbf{IV:}\\
+%             % Da $3 \mid n^3-n$ für 1 gilt, existiert also eine Zahl $n\in \mathbb{N}$ (beliebig aus den natürlichen Zahlen, hier 1 da wir es bereits dafür gezeigt haben), für welche die Aussage $3 \mid n^3 -n$ gilt.
+%              \textbf{IS:} Sei $n \in \mathbb{N}$ beliebig. Ang., es gilt $3\mid n^3-n$ (IV)
+%             \begin{align*}
+%                 3 \mid (n+1)^3-(n+1) &\iff 3\mid(n+1)^3 - n - 1\\
+%                 &\iff 3\mid n^3 + 3n^2 + 3n + 1 - n - 1\\
+%                 &\iff 3\mid \underbrace{n^3 - n}_{\text{Induktionsvoraussetzung}} + \underbrace{3n^2 + 3n}_{\text{vielfache von 3}} + \underbrace{1 - 1}_{= 0}\\
+%                 &\iff 3\mid(n^3 - n) + 3(n^2 + n)
+%             \end{align*}
+%         \item<3->
+%         \textbf{Fazit:}\\
+%             Nach Voraussetzung ist der erste Summand durch 3 teilbar, und der zweite Summand ist ein vielfaches von 3. Somit ist auch die Summe durch 3 teilbar.
+%     \end{enumerate}    
+% \end{frame}
+
+% \begin{frame}[fragile]{Ein Aufgabe zur Übung}
+%     \begin{itemize}
+%         \item Zeigen Sie, dass für alle natürlichen Zahlen $n \geq 4$ gilt: \\
+%         \begin{center}
+%             $n! > 2^n$\\
+%         \end{center}
+%     \end{itemize}
+% \end{frame}
+
+% {\setbeamercolor{palette primary}{bg=ExColor}
+% \begin{frame}{Lösung}
+%     \begin{enumerate}
+%         \item 
+%             \textbf{IA:} n = 4
+%             \begin{equation*}
+%                 4! = 4 \cdot 3 \cdot 2 \cdot 1 = 24 > 16 = 2^4
+%             \end{equation*}
+%         \item    
+%             \textbf{IV:}
+%             Die Aussage $n! > 2^n$ gilt für n=4, also existiert ein $x\in \mathbb{N}$, sodass diese Aussage gilt.
+%         \item    
+%             \textbf{IS:} Also gilt die Aussage für n+1
+%             \begin{align*}
+%                 (n+1)! &= (n+1) \cdot n!\\
+%                 &\overset{\text{nach IV.}}{>} \underbrace{(n+1)}_{\text{da n min. 4}} \cdot 2^n\\
+%                 &\overset{(n+1)>2}{>} 2 \cdot 2^n = 2^{n+1}
+%             \end{align*}
+%         \item
+%             \textbf{Fazit:}\\
+%             Somit ist für alle $n\in \mathbb{N}$(beliebige natürliche Zahl) gezeigt, dass $n! > 2^n$ für $n \geq 4$.
+%     \end{enumerate}
+% \end{frame}
+% }
+
+% %An der Tafel die Lösung besprechen 

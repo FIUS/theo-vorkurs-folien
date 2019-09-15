@@ -1,0 +1,129 @@
+\begin{frame}[fragile]{Mengen}
+    \begin{itemize}
+        
+        \item<1->
+            Was ist eine \alert<1,2>{Menge}?
+        \item<2->
+            \only<2>{
+            \vspace*{0.5cm}
+                Eine Menge
+                \begin{itemize}
+                    \item ist eine \alert{Sammlung von Zeugs}
+                    \item ist unsortiert
+                    \item enthält keine Duplikate
+                    \item wird mit geschweiften Klammern notiert
+                \end{itemize}
+                
+                \metroset{block=fill}
+                
+                \begin{exampleblock}{Beispiel}
+                    $\mathbb{N} = \{0, 1, 2, 3, \dots \}$ = Menge der Natürlichen Zahlen\\
+                    Studenten = \{Janette, Julian, Joel, Fabian, $\dots$\}\\
+                    $\{1,2\} = \{2,1\} = \{1,1,2,1,1,1\}$\\
+                    $\emptyset = \{\} =$ leere Menge
+                \end{exampleblock}}
+            \uncover<3->{
+            Was ist ein \alert<3,4>{Element}?}
+        \item<4->
+        \only<4>{
+            \vspace*{0.5cm}
+            Ein Element ist ein \alert{Ding aus einer Menge}.\\
+            
+            \metroset{block=fill}
+                
+            \begin{exampleblock}{Beispiel}
+                $\mathbf{1}$ ist ein Element der \textbf{Natürlichen Zahlen}\\
+                $\mathbf{1} \in \mathbb{N}$\\
+                \vspace*{0.5cm}
+                \textbf{Janette} ist ein Element aus der Menge der \textbf{Studenten}\\
+                \textbf{Janette} $\in$ \textbf{Studenten}\\
+                \vspace*{0.5cm}
+                $\mathbf{a}$ ist in der Menge $\mathbf{\{u, v, w\}}$ nicht enthalten\\
+                $\mathbf{a} \notin \mathbf{\{u, v, w\}}$
+            \end{exampleblock}
+        }
+        \uncover<5->{
+            Was ist eine \alert<5,6>{Teilmenge}?
+        }
+        \item<6>
+            \vspace*{0.5cm}
+            Eine Teilmenge ist eine \alert{spezielle Auswahl} von Elementen einer Menge.\\
+            
+            \metroset{block=fill}
+            
+            \begin{exampleblock}{Beispiel}
+                $\{1, 2, 3\}$ ist eine Teilmenge der Natürlichen Zahlen\\
+                $\{1,2,3\} \subseteq \mathbb{N}$\\
+                \vspace*{0.5cm}
+                \{\textbf{Janette}\} ist eine Teilmenge der \textbf{Studenten}\\
+                \{\textbf{Janette}\} $\subseteq$ \textbf{Studenten}
+            \end{exampleblock}
+            
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Mengen - Mal anders}
+    \begin{alertblock}{Ein paar Definitionen}
+    Eine nichtleere Menge einstelliger Symbole nennen wir \alert{Alphabet}.
+    Es wird oft dargestellt durch den Bezeichner $\Sigma$.\\
+    \end{alertblock}
+    \metroset{block=fill}
+    \begin{exampleblock}{Beispiele}
+    \begin{itemize}
+        \item $\Sigma = \{a,b\}$
+        \item $\Sigma = \{0,1\}$
+        \item $\Sigma = \{\text{Rechts, Links, Vorwärts, Rückwärts, Start, Stopp, Pause}\}$
+    \end{itemize}
+    \end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]{Mengen - Mal anders}
+    \begin{alertblock}{Ein paar Definitionen}
+    Auf einem Alphabet können wir die Operation $\cdot$\;, genannt \alert{Konkatenation}, ausüben.\\
+    $\rightarrow$ zum Beispiel ist dann $a \cdot b = ab$\\
+    Eine beliebig lange Kette an Symbolen aus dem Alphabet nennen wir ein \alert{Wort}.
+    \end{alertblock}
+    \metroset{block=fill}
+    \begin{exampleblock}{Beispiele}
+    \begin{itemize}
+        \item $abba$ ist ein \emph{Wort} über dem \emph{Alphabet} $\Sigma = \{a,b\}$
+        \item $10011101$ ist ein \emph{Wort} über dem \emph{Alphabet} $\Sigma = \{0,1\}$
+        \item StartVorwärtsRechtsVorwärtsStopp ist ein Wort über $\Sigma = \{\text{Rechts, Links, Vorwärts, Rückwärts, Start, Stopp, Pause}\}$
+    \end{itemize}
+    
+    \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Wortlängen}
+    \begin{alertblock}{Wortlänge und das leere Wort}
+        Eine endlich lange Kette an Symbolen aus dem Alphabet nennen wir ein Wort.
+    \end{alertblock}
+    \begin{itemize}
+        \item Wort der Länge 3: z.B. $aaa, abc, \dots$
+        \item Wort der Länge 2: z.B. $aa, ab, \dots$
+        \item Wort der Länge 1: z.B. $a, b, c, \dots$
+        \item Wort der Länge \alert<2>{0}: \alert<2>{$\emptyWord$}
+    \end{itemize}
+    \only<1>{Wir schreiben \alert<1>{$\absval{w}$} um \alert<1>{Länge des Wortes $w$} abzukürzen.\\}
+    \only<2>{$\emptyWord$ \emph{(\textquotedbl Epsilon\textquotedbl)} nennen wir das "leere Wort".
+    \begin{itemize}
+        \item \alert{Vergleich:} Es ist vergleichbar mit einem leerem String,\\ \qquad\qquad \,\, also: $\dq\dq=\emptyWord$
+        \item \alert{Achtung:} Das leere Wort kann kein Teil eines Alphabets sein,\\\qquad\qquad da es nicht einstellig ist.
+    \end{itemize}}
+\end{frame}
+
+\begin{frame}{neutrales Element der Konkatenation}
+    \begin{alertblock}{Achtung}
+        Wir können bei der Konkatenation auch das leere Wort anhängen. Es verhält sich hierbei als das neutrale Element.\\
+        d.h. für ein beliebiges Wort $a$, ist $a\cdot\emptyWord = \emptyWord\cdot a=a$
+        \begin{exampleblock}{Vergleich}
+        \begin{itemize}
+            \item Bei der Addition von Zahlen ist die 0 das neutrale Element\\
+            $a+0=0+a=a$
+            \item Bei der Multiplikation von Zahlen ist die 1 das neutrale Element\\
+            $a*1=1*a=a$
+        \end{itemize}
+        
+        \end{exampleblock}
+    \end{alertblock}
+\end{frame}

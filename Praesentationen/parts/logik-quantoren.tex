@@ -1,0 +1,110 @@
+\begin{frame}[fragile]{Quantoren}
+    Oft wollen wir Aussagen nicht nur für ein Element, sondern für viele Elemente treffen.
+    \metroset{block=fill}
+    \begin{exampleblock}{Beispiel}
+        $A_1$: Für die Zahl 5 gilt: Sie hat einen Nachfolger\\
+        \emph{Allgemeiner:}\\
+        $A_2$: Für jede natürliche Zahl n gilt: n hat einen Nachfolger
+    \end{exampleblock}
+    \begin{exampleblock}{Beispiel}
+        $A_3$: Für die Zahl 5 gilt: Sie ist eine Primzahl\\
+        \emph{Allgemeiner:}\\
+        $A_4$: Es gibt eine natürliche Zahl n, so dass gilt: n ist eine Primzahl
+    \end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]{Quantoren}
+    Mithilfe von \textbf{Quantoren} vereinfachen wir uns die Schreibweise dieser Aussagen.\\
+    \vspace{0.5cm}
+    Quantor \alert{$\forall$}: Die Aussage gilt für alle Elemente.\\
+    \metroset{block=fill}
+    \begin{exampleblock}{Beispiel}
+        $A_1$: $\forall k \in \mathbb{N}:$ 2k ist gerade
+    \end{exampleblock}
+    Quantor \alert{$\exists$}: Die Aussage gilt für mindestens ein Element.\\
+    \metroset{block=fill}
+    \begin{exampleblock}{Beispiel}
+        $A_2$: $\exists k \in \mathbb{N}:$ k ist Primzahl
+    \end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]{Quantoren}
+    In einer Aussage können mehrere Quantoren vorkommen.\\
+    Wir lesen dann von links nach rechts.
+    \metroset{block=fill}
+    \begin{exampleblock}{Beispiel}
+        $A_1$: $\forall x,y \in \mathbb{N}: \exists z \in \mathbb{N}: x+y = z$\\
+        Bedeutung: Für zwei beliebige Zahlen x und y aus $\mathbb{N}$ gibt es eine weitere natürliche Zahl z, so dass $x+y=z$ gilt.
+    \end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]{Quantoren}
+    \alert{Achtung!}\\
+    Die Reihenfolge von zwei Quantoren zu vertauschen, kann die Bedeutung einer Aussage deutlich verändern.
+    \metroset{block=fill}
+    \begin{exampleblock}{Beispiel}
+        x,y $\in$ Studenten\\
+        \textbf{$A_1$: $\forall x \exists y:$ x schlägt y\\
+        $A_2$: $\exists x \forall y:$ x schlägt y\\ }
+        Was ist der Unterschied zwischen beiden Aussagen?
+    \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Quantoren}
+    \begin{alertblock}{Aufgabe}
+      Wir formulieren folgende Aussage mithilfe von Quantoren und den Symbolen der Aussagenlogik (Junktoren).
+    \end{alertblock}
+    \metroset{block=fill}
+    \begin{block}{Beispiel}
+    \begin{itemize}
+        \item $A_1$: Eine ganze Zahl ist eine natürliche Zahl, wenn sie positiv oder null ist.
+    \end{itemize}
+    \end{block}
+    \begin{block}{Hinführung}
+    \begin{itemize}
+        \item $A_1$: Für alle ganzen Zahlen x gilt: Wenn x positiv oder null ist, ist x eine natürliche Zahl.
+    \end{itemize}
+    \end{block}
+    \begin{block}{\alert{Lösung}}
+    \begin{itemize}
+        \item $A_1$: $\forall x \in \mathbb{Z}: x \geq 0 \implies x \in \mathbb{N}$
+    \end{itemize}
+    \end{block}
+\end{frame}
+
+{\setbeamercolor{palette primary}{bg=ExColor}
+\begin{frame}{Denkpause}
+    \begin{alertblock}{Aufgaben}
+      Formuliere folgende Aussagen mithilfe von Quantoren und den Symbolen der Aussagenlogik (Junktoren). 
+    \end{alertblock}
+    \metroset{block=fill}
+    \begin{block}{Normal}
+    \begin{itemize}
+        \item $A_1$: Die Differenz zweier ganzer Zahlen ist wieder eine ganze Zahl.
+    \end{itemize}
+    \end{block}
+    \begin{block}{Schwer}
+    \begin{itemize}
+        \item $A_2$: Jede natürliche Zahl lässt sich als Summe von vier Quadratzahlen darstellen.
+    \end{itemize}
+    \end{block}
+    \begin{block}{Da haben selbst wir keinen Bock drauf}
+    \begin{itemize}
+        \item $A_3$: Eine natürliche Zahl, die von einer von ihr verschiedenen natürlichen Zahl größer als 1 geteilt wird, ist nicht prim.
+    \end{itemize}
+    \end{block}
+\end{frame}
+}
+
+{\setbeamercolor{palette primary}{bg=ExColor}
+\begin{frame}{Lösungen}
+  \begin{itemize}[<+- | alert@+>]
+        \item 
+            $A_1$: $\forall x,y \in \mathbb{Z}: x-y \in \mathbb{Z}$
+        \item
+            $A_2$: $\forall x \in \mathbb{N}: \exists a, b, c, d \in \mathbb{N}: x = a^2 + b^2 + c^2 + d^2$
+        \item
+            $A_3$: $\forall x \in \mathbb{N}: \exists y \in \mathbb{N}: (y>1) \wedge (y \neq x) \wedge (y \mid x) \implies x\ \text{ist keine Primzahl}$.
+    \end{itemize}
+\end{frame}
+}
