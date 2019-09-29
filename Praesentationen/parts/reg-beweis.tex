@@ -139,52 +139,58 @@
 \end{frame}
 
 \begin{frame}{DEA zu Grammatik: Konstruktion}
-    Also: \alert<4-5>{Zustände $\hat{=}$ Variablen}, \alert<6-8>{Übergänge $\hat{=}$ Produktionen} und \alert<8-9>{das Wortende} müssen wir besonders handhaben.
+    Also: \alert<4-5>{Zustände $\hat{=}$ Variablen}; \alert<6>{Übergänge $\hat{=}$ Produktionen}
     
     \onslide<2-> %
-    Sei also ein \alert<2>{DEA $M = (\alert<4>{Z}, \alert<3>{\Sigma}, \alert<6-8>{\delta}, \alert<5,9>{z_0}, \alert<8-9>{E})$} gegeben. \\
-    Wir definieren die \alert<2>{Grammatik $G = (\alert<4>{V}, \alert<3>{\Sigma}, \alert<6-9>{P}, \alert<5>{S})$} mit:
+    Sei also ein \alert<2>{DEA $M = (\alert<4>{Z}, \alert<3>{\Sigma}, \alert<6>{\delta}, \alert<5>{z_0}, E)$} gegeben. \\
+    Wir definieren die \alert<2>{Grammatik $G = (\alert<4>{V}, \alert<3>{\Sigma}, \alert<6>{P}, \alert<5>{S})$} mit:
     \begin{itemize}
-    	\item<3- | alert@3> Alphabet $\Sigma$
-    	\item<4- | alert@4> Variablenmenge $V = Z$
-    	\item<5- | alert@5> Startsymbol $S = z_0$
-    	\item<6- | alert@6> Produktionsmenge $P$ erzeugen wir aus $\delta$:
-    	\begin{itemize}
-    		\item<7- | alert@7> Aus dem Übergang $\delta(z, a) = z'$ wird die Regel $(z \to az')$
-    		\item<8- | alert@8> Falls $z' \in E$ kommt noch $(z \to a)$ hinzu
-    	\end{itemize}
-    	\item<9- | alert@9> Falls $z_0 \in E$, brauchen wir die Regel $(z_0 \to \emptyWord)$
+        \item<3- | alert@3> Alphabet $\Sigma$
+        \item<4- | alert@4> Variablenmenge $V = Z$
+        \item<5- | alert@5> Startsymbol $S = z_0$
+        \item<6- | alert@6> Produktionsmenge $P$ erzeugen wir aus $\delta$
     \end{itemize}
 \end{frame}
 
-%\begin{frame}{DEA zu Grammatik}
-%    \begin{columns}
-%        \column{0.5\textwidth}
-%        Unsere Menge der Produktionsregeln P besteht aus folgenden Regeln:\\
-%        \vspace{0.3cm}
-%        Jeder \glqq$\delta$-Anweisung\grqq\ \alert{$\delta(z_1, a)=z_2$} ordnen wir folgende Regeln zu.
-%        \begin{itemize}
-%            \item \alert<2>{$z_1 \rightarrow a z_2$}
-%            \item Und zusätzlich, falls \alert<3>{$z_2 \in E: z_1 \rightarrow a$}
-%        \end{itemize}
-%        \column{0.5\textwidth}
-%        \centering
-%            \only<2>{\alert<2>{            \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm,semithick]
-%            \node [state] (1)  {$z_1$};
-%            \node [state] (2) [right of=1]  {$z_2$};
-%            \path (1) edge node {a} (2);
-%            \end{tikzpicture}\\
-%            \glqq$\delta (z_1,a) = z_2$\grqq}}
-%            \only<3>{\alert<3>{
-%            \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm,semithick]
-%            \node [state] (1)  {$z_1$};
-%            \node [state, accepting] (2) [right of=1]  {$z_2$};
-%            \path (1) edge node {a} (2);
-%            \end{tikzpicture}\\
-%            \glqq$\delta (z_1,a) = z_2$\grqq}}
-%            
-%    \end{columns}
-%\end{frame}
+\begin{frame}{DEA zu Grammatik: Produktionsregeln}\begin{columns}
+    \begin{column}{0.5\textwidth}
+        Für die Produktionsmenge $P$ wandeln wir die Übergänge um. \\
+        \vspace{.3cm}
+        \onslide<2-> %
+        Jedem $\delta$-Übergang \alert<2-3>{$\delta(z_1, a)=z_2$} ordnen wir folgende Regeln zu:
+        \begin{itemize}
+            \item<2- | alert@2> $z_1 \rightarrow a z_2$
+            \item<3-> Und zusätzlich, falls \alert<3>{$z_2 \in E:$ $z_1 \rightarrow a$}
+        \end{itemize}
+        \onslide<4->{ %
+            Falls $z_0 \in E$, brauchen wir außerdem $z_0 \to \emptyWord$.
+        }
+    \end{column}
+    \begin{column}{0.5\textwidth}\centering\alert{\only<2-3>{ %
+        \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm,semithick]
+            \node [state] (1)  {$z_1$};
+            \onslide<2>{
+                \node [state] (2) [right of=1]  {$z_2$};
+                \path (1) edge node {a} (2);
+            }\onslide<3>{
+                \node [state, accepting] (2') [right of=1]  {$z_2$};
+                \path (1) edge node {a} (2');
+            }
+        \end{tikzpicture} \\
+        \glqq$\delta (z_1,a) = z_2$\grqq \\
+        wird zu
+        \begin{align*}
+            &z_1 \to az_2 \\
+            &\onslide<3->{z_1 \to z_2}
+        \end{align*}
+    }\only<4>{
+        \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm,semithick]
+            \node [state,initial,accepting] (0)  {$z_0$};
+        \end{tikzpicture} \\
+        \glqq$z_0 \in E$\grqq \\
+        wird zu $$z_0 \to \emptyWord$$
+    }}\end{column}
+\end{columns}\end{frame}
 
 \begin{frame}{DEA zu Grammatik}
     \begin{alertblock}{Zu zeigen: $x \in T(M)$ gdw. $x \in L(G)$}
