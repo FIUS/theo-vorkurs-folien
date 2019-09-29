@@ -43,13 +43,31 @@ Wir können Aussagen verändern oder durch Operationen zu neuen Aussagen verbind
 \metroset{block=fill}
 \begin{alertblock}{Grundoperationen}
 \begin{itemize}
-    \item<1-> \textbf{Und}: A \alert<1>{$\wedge$} B $\leadsto$ Fred möchte Schokolade \alert<1>{und} Gummibärchen.
+    \item<1-> \textbf{Und}: A \alert<1>{$\wedge$} B $\leadsto$ Fred möchte Schokolade \alert<1>{und} Gummibärchen.\\
+    \only<1>{\emph{Analog}: M: $M_1 \cap M_2$, Jedes Element aus M liegt in $M_1$ \textbf{und} in $M_2$}
     \item<2-> \textbf{Oder}: A \alert<2>{$\vee$} B $\leadsto$ Fred möchte Schokolade \alert<2>{oder} Gummibärchen.\\
     \only<2>{\emph{Anmerkung}: Inklusives \glqq oder\grqq, kein \glqq entweder oder\grqq \\
-    Das heißt, es können auch beide Aussagen wahr sein.}
-    \item<3> \textbf{Nicht}: \alert<3>{$\neg$}A $\leadsto$ Fred möchte \alert<3>{keine} Schokolade.
+    Das heißt, es können auch beide Aussagen wahr sein.}\\
+	\only<2>{\emph{Analog}: M: $M_1 \cup M_2$, Jedes Element aus M liegt in $M_1$ \textbf{oder} in $M_2$}
+    \item<3> \textbf{Nicht}: \alert<3>{$\neg$}A $\leadsto$ Fred möchte \alert<3>{keine} Schokolade.\\
+    \only<3>{\emph{Analog}: M: $\overline{M_1}$, Jedes Element aus M liegt \textbf{nicht} in $M_1$}
 \end{itemize}
 \end{alertblock}
+\end{frame}
+
+\begin{frame}{Logische Operationen vs. Mengenoperationen}
+	\alert{Mengenoperationen können nicht auf Aussagen angewand werden und umgekehrt!}
+	\metroset{block=fill}
+	\begin{alertblock}{Grundoperationen}
+	\begin{table}[]
+		\begin{tabular}{rc|cl}
+			\multicolumn{1}{l}{Mengen}             & \multicolumn{1}{l|}{} & \multicolumn{1}{l}{} & \multicolumn{1}{r}{Aussagen}               \\ \hline
+			\textbf{Schnitt:}     & A $\cap$ B            & A $\wedge$ B         & \textbf{:Logisches UND}   \\
+			\textbf{Vereinigung:} & A $\cup$ B            & A $\vee$ B           & \textbf{:Logisches ODER}  \\
+			\textbf{Komplement:}  & $\overline{A}$        & $\neg$ A             & \textbf{:Logisches NICHT}
+		\end{tabular}
+	\end{table}
+	\end{alertblock}
 \end{frame}
 
 \begin{frame}{Logische Operationen: Implikation}
@@ -90,9 +108,11 @@ Wir können Aussagen verändern oder durch Operationen zu neuen Aussagen verbind
     \begin{block}{Etwas Schwerer}
     \begin{itemize}
         \item $A_4$: $(\emptyset=\emptyset^{*}) \implies (a \in \emptyset)$
-        \item $A_5$: $(a \notin \emptyset) \implies (\emptyset = \emptyset^{*})$
-        \item $A_6$: $A_4 \iff A_5$
-        \item $A_7$: Wenn mein Auto fliegen kann, hast du auch ein fliegendes Auto.
+        \item $A_5$: $\{2\} \cup \{6\} \subseteq \mathbb{N}$
+        \item $A_6$: $(a \notin \emptyset) \implies (\emptyset = \emptyset^{*})$
+        \item $A_7$: $A_4 \iff A_6$
+        \item $A_8$: $(7 \in \{1, 2, 7, 9\}) \cap (2 = 7-5)$
+        \item $A_9$: Wenn mein Auto fliegen kann, hast du auch ein fliegendes Auto.
     \end{itemize}
     \end{block}
 \end{frame}
@@ -125,11 +145,15 @@ Wir können Aussagen verändern oder durch Operationen zu neuen Aussagen verbind
         \item
             $A_4$: wahr 
         \item
-            $A_5$: falsch
+            $A_5$: wahr
         \item
             $A_6$: falsch
+       	\item
+       		$A_7$: falsch
         \item
-            $A_7$: wahr
+            $A_8$: Das ist keine Aussage, da der Schnitt($\cap$) verwendet wurde um zwei Aussagen miteinander zu verknüpfen
+       	\item
+       		$A_9$: wahr
     \end{itemize}
 \end{frame}
 }
