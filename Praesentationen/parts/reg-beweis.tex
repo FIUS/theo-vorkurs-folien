@@ -109,9 +109,9 @@
     \vspace{.3cm} %
     
     \onslide<6-> %
-    \begin{block}{\alert{Anmerkung}}
+    \begin{alertblock}{Anmerkung}
     	Wir beschränken uns auf DEAs; in der Vorlesung werdet ihr aber eine allgemeinere Äquivalenz zeigen.
-    \end{block}
+    \end{alertblock}
 \end{frame}
 
 \begin{frame}{Automaten und Grammatiken: Ansatz}
@@ -192,34 +192,62 @@
     }}\end{column}
 \end{columns}\end{frame}
 
-\begin{frame}{DEA zu Grammatik}
+\begin{frame}{DEA zu Grammatik: Korrektheit (Beweisidee)}
     \begin{alertblock}{Zu zeigen: $x \in T(M)$ gdw. $x \in L(G)$}
-    Dabei gilt: $x=a_1 a_2 ... a_n$\\
-    Die folgenden Aussagen sind äquivalent:
-        \begin{itemize}
-            \item x wird von Automat M erkannt \emph{$(x\in T(M))$}
-            \item Es gibt eine Folge von Zuständen $z_0, z_1, \dots, z_n$ mit: $z_0$ ist Startzustand, $z_n$ ist Endzustand \textbf{und}: $\forall i \in \{1, ..., n\}: \delta(z_{i-1}, a_i)=z_i$
-            \item Es gibt Folge an Variablen $z_0, z_1, \dots, z_n$ mit: $z_0$ ist Startvariable und x lässt sich von $z_0$ ausgehend ableiten.
-            \item x wird von der Grammatik G produziert \emph{$(x \in L(G))$}
-        \end{itemize}
-        \qed
+    	\onslide<2-> %
+        Sei $x = a_1 a_2 \ldots a_{n-1} a_n$ ein Wort, das von $M$ akzeptiert wird. \\
+        \onslide<3-> %
+        \begin{center}\centering\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=1.75cm,semithick]
+            \alert<5-5>{\node [initial,state]   (0)              {$z_0$};}
+            \alert<5-6>{\node [state]           (1) [right of=0] {$z_1$};}
+            \alert<6-8>{\node                   (5) [right of=1] {$\ldots$};}
+            \alert<8-9>{\node [state]           (8) [right of=5] {$z_{n-1}$};}
+            \alert<9-9>{\node [state,accepting] (9) [right of=8] {$z_n$};}
+            
+            \alert<5>{\path (0) edge node {$a_1$}     (1);}
+            \alert<6>{\path (1) edge node {$a_2$}     (5);}
+            \alert<8>{\path (5) edge node {$a_{n-1}$} (8);}
+            \alert<9>{\path (8) edge node {$a_n$}     (9);}
+        \end{tikzpicture}\end{center}
+        \onslide<4-> %
+        Mit den passenden Regeln \only<5-9>{(z.B. %
+        	\only<5>{$z_0 \to a_1 z_1$}%
+        	\only<6>{$z_1 \to a_2 z_2$}%
+        	\only<7>{$z_2 \to a_3 z_3$}%
+        	\only<8>{$z_{n-2} \to a_{n-1} z_{n-1}$}%
+        	\only<9>{$z_{n-1} \to a_n$}%
+        ) }lässt sich $x$ ableiten:
+        $$\alert<5>{z_0} \alert<5>{\Rightarrow} \alert<5>{a_1} \alert<5-6>{z_1} \alert<6>{\Rightarrow} a_1 \alert<6>{a_2} \alert<6-7>{z_2} \alert<7>{\Rightarrow} \alert<7-8>{\ldots} \alert<8>{\Rightarrow} a_1 a_2 \ldots \alert<8>{a_{n-1}} \alert<8-9>{z_{n-1}} \alert<9>{\Rightarrow} a_1 a_2 \ldots a_{n-1} \alert<9>{a_n} = x$$
+        \onslide<10-> %
+        Also können wir das Wort in der Grammatik ableiten. \\
+        \onslide<11-> %
+        \alert<11>{Funktioniert die Argumentation auch andersrum?}
+        \onslide<12-> %
+        \alert<12>{Ja!}
     \end{alertblock}
 \end{frame}
 
-% \begin{frame}[fragile]{Automaten und Grammatiken}
-%     \begin{columns}
-%         \column{0.5\textwidth}
-%         P besteht aus folgenden Regeln:\\
-%         \vspace{0.3cm}
-%         Jeder \glqq$\delta$-Anweisung\grqq\ \alert{$\delta(z_1, a)=z_2$} ordnen wir folgende Regeln zu.
-%         \begin{itemize}
-%             \item \alert<2>{$z_1 \rightarrow a z_2$}
-%             \item Und zusätzlich, falls \alert<3>{$z_2 \in E: z_1 \rightarrow a$}
-%         \end{itemize}
-%         \column{0.5\textwidth}
-%     \end{columns}
-% \end{frame}
-
+\begin{frame}{DEA zu Grammatik: Korrektheit}
+    \begin{alertblock}{Zu zeigen: $x \in T(M)$ gdw. $x \in L(G)$}
+        Dabei gilt immer noch: $x = a_1 a_2 \ldots a_{n-1} a_n$ \\
+        \onslide<2-> %
+        Die folgenden Aussagen sind äquivalent:
+        \begin{itemize}
+            \item<3- | alert@3> $x$ wird von Automat $M$ erkannt \emph{$(x\in T(M))$}
+            \item<4- | alert@4> Es gibt eine Folge von Zuständen $z_0, z_1, \ldots, z_{n-1}, z_n$ mit:
+            $z_0$ ist Startzustand, $z_n$ ist Endzustand \textbf{und}:
+            $\forall i \in \{1, \ldots, n\}: \delta(z_{i-1}, a_i) = z_i$
+            \item<5- | alert@5> Es gibt Folge an Variablen $z_0, z_1, \dots, z_{n-1}$ mit:
+            $z_0$ ist Startvariable, $(z_{n-1} \to a_n) \in P$ \textbf{und}:
+            $\forall i \in \{1, \ldots, n-1\}: (z_{i-1} \to a_i z_i) \in P$
+            \item<6- | alert@6> Es gibt Folge an Variablen $z_0, z_1, \dots, z_{n-1}$ mit:
+            $z_0$ ist Startvariable \textbf{und}: $z_0 \Rightarrow a_1 z_1 \Rightarrow \ldots \Rightarrow a_1 a_2 \ldots a_{n-1} a_n$
+            \item<7- | alert@7> x wird von der Grammatik G produziert \emph{$(x \in L(G))$}
+        \end{itemize}
+    	\onslide<8-> %
+        Also gilt die Äquivalenz. \qed
+    \end{alertblock}
+\end{frame}
 
 % \begin{frame}[fragile]{Grammatik zu Automaten}
 %     Eine reguläre Grammatik und eine endlicher Automat können die selben Sprachen beschreiben.
@@ -259,12 +287,4 @@
 %     \end{center}
 %     }
 %     \end{exampleblock}
-% \end{frame}
-
-
-% \begin{frame}[fragile]{Automaten zu Grammatik}
-%   Eine reguläre Grammatik und eine endlicher Automat können die selben Sprachen beschreiben.
-%   \begin{exampleblock}{\glqq$\impliedby$\grqq}
-%   bla
-%   \end{exampleblock}
 % \end{frame}
