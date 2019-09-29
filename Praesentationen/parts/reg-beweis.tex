@@ -91,52 +91,102 @@
 \end{columns}
 \end{frame}
 
-\begin{frame}[fragile]{Automaten und Grammatiken}
+\begin{frame}{Automaten und Grammatiken}
     \metroset{block=fill}
     \begin{exampleblock}{Satz}
-    Jede durch endliche Automaten erkennbare Sprache ist auch regulär (also Typ 3).
+    Jede durch \only<6->{\alert<6>{deterministische }}endliche Automaten erkennbare Sprache ist auch regulär (also Typ 3).
     \end{exampleblock}
-   Sei \alert{$A \subseteq \SigmaStern$} eine Sprache und \alert{M ein Automat mit \textbf{T(M) = A}},\\ \emph{(d.h. M erkennt die Sprache A)}.\\
-   \vspace{0.3cm}
-   Wir definieren eine \alert{Typ 3-Grammatik G mit \textbf{L(G)=A}},\\ \emph{(d.h. die Grammatik G erzeugt die Sprache A)}.\\
-   \vspace{0.3cm}
-   Es ist $G=(V, \Sigma, P, S)$ mit:\\
-   V = Menge der Zustände des Automaten $(Z)$\\
-   S = Startzustand des Automaten $(z_0)$\\
-    \vspace{0.3cm}
-   \only<1>{\emph{Falls $\emptyWord \in A$, dann enthält P die Regel \glqq$z_0 \to \emptyWord$\grqq}}
+	\onslide<2-> %
+    Sei \alert<2>{$A \subseteq \SigmaStern$} eine Sprache und \alert<2>{M ein \only<-5>{Automat}\only<6->{\alert<6>{DEA}}} mit \alert<2-3>{$\mathbf{T(M) = A}$}.\\
+    \onslide<3-> %
+    (d.h. $M$ erkennt die Sprache $A$) \\
+    \vspace{.3cm} %
+    
+    \onslide<4-> %
+    Wir suchen eine \alert<4>{Typ 3-Grammatik G} mit \alert<4-5>{$\mathbf{L(G) = A}$}.\\
+    \onslide<5-> %
+    (d.h. die Grammatik $G$ erzeugt die Sprache $A$)
+    \vspace{.3cm} %
+    
+    \onslide<6-> %
+    \begin{block}{\alert{Anmerkung}}
+    	Wir beschränken uns auf DEAs; in der Vorlesung werdet ihr aber eine allgemeinere Äquivalenz zeigen.
+    \end{block}
 \end{frame}
 
-\begin{frame}[fragile]{Automaten und Grammatiken}
-    \begin{columns}
-        \column{0.5\textwidth}
-        Unsere Menge der Produktionsregeln P besteht aus folgenden Regeln:\\
-        \vspace{0.3cm}
-        Jeder \glqq$\delta$-Anweisung\grqq\ \alert{$\delta(z_1, a)=z_2$} ordnen wir folgende Regeln zu.
-        \begin{itemize}
-            \item \alert<2>{$z_1 \rightarrow a z_2$}
-            \item Und zusätzlich, falls \alert<3>{$z_2 \in E: z_1 \rightarrow a$}
-        \end{itemize}
-        \column{0.5\textwidth}
-        \centering
-            \only<2>{\alert<2>{            \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm,semithick]
-            \node [state] (1)  {$z_1$};
-            \node [state] (2) [right of=1]  {$z_2$};
-            \path (1) edge node {a} (2);
-            \end{tikzpicture}\\
-            \glqq$\delta (z_1,a) = z_2$\grqq}}
-            \only<3>{\alert<3>{
-            \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm,semithick]
-            \node [state] (1)  {$z_1$};
-            \node [state, accepting] (2) [right of=1]  {$z_2$};
-            \path (1) edge node {a} (2);
-            \end{tikzpicture}\\
-            \glqq$\delta (z_1,a) = z_2$\grqq}}
-            
-    \end{columns}
+\begin{frame}{Automaten und Grammatiken: Ansatz}
+	Wir stellen einige Parallelen fest:
+	% note: \alert or \usebeamercolor[fg]{alerted text} inside p-columns breaks layout
+	% default alert color of metropolis is mLightBrown
+	\begin{center}\begin{tabular}{p{.46\textwidth}|p{.46\textwidth}}
+		\textbf{Endliche Automaten} & \textbf{Reguläre Grammatiken}
+		\onslide<2-> \\\hline
+		Wörter werden \textcolor<2>{mLightBrown}{von links nach rechts} gelesen
+		& Wörter werden \textcolor<2>{mLightBrown}{von links nach rechts} erzeugt
+		\onslide<3-> \\\hline
+		\textcolor<3>{mLightBrown}{Pro Schritt} wird \textcolor<3>{mLightBrown}{ein Buchstabe} gelesen
+		& \textcolor<3>{mLightBrown}{Pro Schritt} wird \textcolor<3>{mLightBrown}{ein Buchstabe} erzeugt
+		\onslide<4-> \\\hline
+		\textcolor<4>{mLightBrown}{Ein Startzustand}
+		& \textcolor<4>{mLightBrown}{Ein Startsymbol}
+		\onslide<5-> \\\hline
+		Beim Lesen des \textcolor<5>{mLightBrown}{letzten Buchstabens} wird in einen \textcolor<5>{mLightBrown}{Endzustand} übergegangen
+		& Beim Erzeugen des \textcolor<5>{mLightBrown}{letzten Buchstabens} wird \textcolor<5>{mLightBrown}{keine neue Variable} erzeugt
+		\onslide<6-> \\\hline
+		Ansonsten wird in jedem Schritt \textcolor<6>{mLightBrown}{aus einem Zustand in genau einen Zustand} übergegangen
+		& Ansonsten wird in jedem Schritt \textcolor<6>{mLightBrown}{aus einer Variable genau eine Variable} erzeugt
+	\end{tabular}\end{center}
 \end{frame}
 
-\begin{frame}[fragile]{Automaten und Grammatiken}
+\begin{frame}{DEA zu Grammatik: Konstruktion}
+    Also: \alert<4-5>{Zustände $\hat{=}$ Variablen}, \alert<6-8>{Übergänge $\hat{=}$ Produktionen} und \alert<8-9>{das Wortende} müssen wir besonders handhaben.
+    
+    \onslide<2-> %
+    Sei also ein \alert<2>{DEA $M = (\alert<4>{Z}, \alert<3>{\Sigma}, \alert<6-8>{\delta}, \alert<5,9>{z_0}, \alert<8-9>{E})$} gegeben. \\
+    Wir definieren die \alert<2>{Grammatik $G = (\alert<4>{V}, \alert<3>{\Sigma}, \alert<6-9>{P}, \alert<5>{S})$} mit:
+    \begin{itemize}
+    	\item<3- | alert@3> Alphabet $\Sigma$
+    	\item<4- | alert@4> Variablenmenge $V = Z$
+    	\item<5- | alert@5> Startsymbol $S = z_0$
+    	\item<6- | alert@6> Produktionsmenge $P$ erzeugen wir aus $\delta$:
+    	\begin{itemize}
+    		\item<7- | alert@7> Aus dem Übergang $\delta(z, a) = z'$ wird die Regel $(z \to az')$
+    		\item<8- | alert@8> Falls $z' \in E$ kommt noch $(z \to a)$ hinzu
+    	\end{itemize}
+    	\item<9- | alert@9> Falls $z_0 \in E$, brauchen wir die Regel $(z_0 \to \emptyWord)$
+    \end{itemize}
+\end{frame}
+
+%\begin{frame}{DEA zu Grammatik}
+%    \begin{columns}
+%        \column{0.5\textwidth}
+%        Unsere Menge der Produktionsregeln P besteht aus folgenden Regeln:\\
+%        \vspace{0.3cm}
+%        Jeder \glqq$\delta$-Anweisung\grqq\ \alert{$\delta(z_1, a)=z_2$} ordnen wir folgende Regeln zu.
+%        \begin{itemize}
+%            \item \alert<2>{$z_1 \rightarrow a z_2$}
+%            \item Und zusätzlich, falls \alert<3>{$z_2 \in E: z_1 \rightarrow a$}
+%        \end{itemize}
+%        \column{0.5\textwidth}
+%        \centering
+%            \only<2>{\alert<2>{            \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm,semithick]
+%            \node [state] (1)  {$z_1$};
+%            \node [state] (2) [right of=1]  {$z_2$};
+%            \path (1) edge node {a} (2);
+%            \end{tikzpicture}\\
+%            \glqq$\delta (z_1,a) = z_2$\grqq}}
+%            \only<3>{\alert<3>{
+%            \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm,semithick]
+%            \node [state] (1)  {$z_1$};
+%            \node [state, accepting] (2) [right of=1]  {$z_2$};
+%            \path (1) edge node {a} (2);
+%            \end{tikzpicture}\\
+%            \glqq$\delta (z_1,a) = z_2$\grqq}}
+%            
+%    \end{columns}
+%\end{frame}
+
+\begin{frame}{DEA zu Grammatik}
     \begin{alertblock}{Zu zeigen: $x \in T(M)$ gdw. $x \in L(G)$}
     Dabei gilt: $x=a_1 a_2 ... a_n$\\
     Die folgenden Aussagen sind äquivalent:
