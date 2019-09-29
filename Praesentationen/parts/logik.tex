@@ -55,20 +55,84 @@ Wir können Aussagen verändern oder durch Operationen zu neuen Aussagen verbind
 \end{alertblock}
 \end{frame}
 
-\begin{frame}{Logische Operationen vs. Mengenoperationen}
-	\alert{Mengenoperationen können nicht auf Aussagen angewand werden und umgekehrt!}
-	\metroset{block=fill}
-	\begin{alertblock}{Grundoperationen}
-	\begin{table}[]
-		\begin{tabular}{rc|cl}
-			\multicolumn{1}{l}{Mengen}             & \multicolumn{1}{l|}{} & \multicolumn{1}{l}{} & \multicolumn{1}{r}{Aussagen}               \\ \hline
-			\textbf{Schnitt:}     & A $\cap$ B            & A $\wedge$ B         & \textbf{:Logisches UND}   \\
-			\textbf{Vereinigung:} & A $\cup$ B            & A $\vee$ B           & \textbf{:Logisches ODER}  \\
-			\textbf{Komplement:}  & $\overline{A}$        & $\neg$ A             & \textbf{:Logisches NICHT}
-		\end{tabular}
-	\end{table}
+\begin{frame}{Mengen - Mal anders}
+	\begin{alertblock}{Ein paar Definitionen}
+		Eine nichtleere Menge einstelliger Symbole nennen wir \alert{Alphabet}.
+		Es wird oft dargestellt durch den Bezeichner $\Sigma$.\\
 	\end{alertblock}
+	\metroset{block=fill}
+	\begin{exampleblock}{Beispiele}
+		\begin{itemize}
+			\item $\Sigma = \{a,b\}$
+			\item $\Sigma = \{0,1\}$
+			\item $\Sigma = \{\text{Rechts, Links, Vorwärts, Rückwärts, Start, Stopp, Pause}\}$
+		\end{itemize}
+	\end{exampleblock}
 \end{frame}
+
+
+\begin{frame}{Überblick: Mengenoperationen}
+	
+	Auf \alert{Mengen} A, B lassen sich verschiedene Mengenoperationen ausführen.
+	
+	\metroset{block=fill}
+	\begin{exampleblock}{Mengenoperationen}
+		\begin{itemize}
+			\item Schnitt: $A \cap B$
+			\item Vereinigung: $A \cup B$
+			\item Komplement: $\overline{A}$
+		\end{itemize}
+	\end{exampleblock}
+\end{frame}
+
+\begin{frame}{Überblick: Logische Operationen}
+	
+	Auf \alert{Aussagen} A, B lassen sich verschiedene logische Operationen ausführen.
+	
+	\metroset{block=fill}
+	\begin{exampleblock}{Logische Operationen}
+		\begin{itemize}
+			\item Logisches Und: $A \wedge B$
+			\item Logisches Oder: $A \vee B$
+			\item Logisches Nicht: $\neg A$
+		\end{itemize}
+	\end{exampleblock}
+\end{frame}
+
+{\setbeamercolor{palette primary}{bg=ExColor}
+	\begin{frame}{Logische Operationen vs. Mengenoperationen}
+		\alert{Mengenoperationen und logische Operationen dürfen nicht verwechselt werden.}
+		\begin{table}[]
+			\begin{tabular}{l l}
+				A: $5 \in \mathbb{N}$ & B: Es regnet\\
+				C: \{$w \mid |w|=2$ \} \ & D: \{a,b,c,x,y\}\\
+			\end{tabular}
+		\end{table}
+		\metroset{block=fill}
+		\metroset{block=fill}
+		\begin{block}{Welche dieser Verknüpfungen sind zulässig?}
+			\begin{itemize}
+				\item $L_1: A \wedge B$
+				\item $L_2: A \vee C$
+				\item $L_3: C \cap D$
+				\item $L_4: A \wedge B \cup C$
+			\end{itemize}
+		\end{block}
+	\end{frame}
+}
+
+{\setbeamercolor{palette primary}{bg=ExColor}
+	\begin{frame}[fragile]{Logische Operationen vs. Mengenoperationen}
+		\begin{itemize}[<+- | alert@+>]
+			\item $L_1$: Zulässig
+			\item $L_2$: Nicht zulässig
+			\item $L_3$: Zulässig
+			\item $L_4$: Nicht zulässig
+		\end{itemize}
+	\end{frame}
+}
+
+
 
 \begin{frame}{Logische Operationen: Implikation}
 \begin{alertblock}{A$\implies$B}
