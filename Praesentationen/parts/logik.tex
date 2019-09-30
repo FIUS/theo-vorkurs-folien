@@ -230,15 +230,17 @@ Wir können Aussagen verändern oder durch Operationen zu neuen Aussagen verbind
 
 
 \begin{frame}{Anwendung der Implikation}
-    Wir haben zwei Aussagen A und B. Wir nehmen nun an, A sei wahr. Wenn wir zeigen, dass A$\implies$B wahr ist, wissen wir auch, dass B wahr ist.
+    Wir haben zwei Aussagen $A$ und $B$. Wir nehmen nun an, $A$ sei wahr. Wenn wir zeigen, dass dann auch $B$ wahr ist, wissen wir, dass $A \implies B$ gilt.
 \metroset{block=fill}
 \begin{exampleblock}{Beispiel}
 \begin{enumerate}
-    \item<1-> Wir zeigen, es gibt eine ganze Zahl x,\\sodass $3 = x - 2 \implies x = 5$ wahr ist.
+    \item<1-> Wir wollen zeigen, dass für eine ganze Zahl $x$ \\
+    die Implikation $3 = x - 2 \implies x = 5$ gilt.
     \item<2-> Wir nehmen an, dass die linke Aussage wahr ist\dots
     \item<3-> \dots und zeigen, dass dann die rechte Aussage gilt.
     \item<4-> $(3 = x - 2) \implies (3 + 2 = x) \implies (5 = x) \implies (x = 5)$
-    \item<5> Also gilt die rechte Aussage \qed\;
+    \item<5-> Also folgt die rechte Aussage aus der linken
+    \item<6-> Somit gilt die Implikation \qed\;
 \end{enumerate}
 \end{exampleblock}
 \end{frame}
