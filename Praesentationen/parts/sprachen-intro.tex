@@ -105,8 +105,8 @@
         \item Wort der Länge \alert<2>{0}: \alert<2>{$\emptyWord$}
     \end{itemize}
     \only<1>{Wir schreiben \alert<1>{$\absval{w}$} um \alert<1>{Länge des Wortes $w$} abzukürzen.\\}
-    \only<2>{$\emptyWord$ \emph{(\glqq Epsilon\grqq)} nennen wir das \glqq leere Wort\grqq.
-    \begin{itemize}
+    \only<2->{$\emptyWord$ \emph{(\glqq Epsilon\grqq)} nennen wir das \glqq leere Wort\grqq.}
+    \onslide<2->{\begin{itemize}
         \item \alert{Vergleich:} Es ist vergleichbar mit einem leerem String,\\ \qquad\qquad \,\, also: $\dq\dq=\emptyWord$
         \item \alert{Achtung:} Das leere Wort kann kein Teil eines Alphabets sein,\\\qquad\qquad da es nicht einstellig ist.
     \end{itemize}}
@@ -115,15 +115,14 @@
 \begin{frame}{Neutrales Element der Konkatenation}
     \begin{alertblock}{Achtung}
         Wir können bei der Konkatenation auch das leere Wort anhängen. Es verhält sich hierbei als das \alert<1>{neutrale Element}.\\
-        d.h. für ein beliebiges Wort $a$, ist $a\cdot\emptyWord = \emptyWord\cdot a=a$
+        d.h. für ein beliebiges Wort $w$, ist $w \cdot \emptyWord = \emptyWord \cdot w = w$
         \begin{exampleblock}{Vergleich}
-        \begin{itemize}
-            \item Bei der Addition von Zahlen ist die 0 das neutrale Element\\
-            $a+0=0+a=a$
-            \item Bei der Multiplikation von Zahlen ist die 1 das neutrale Element\\
-            $a*1=1*a=a$
-        \end{itemize}
-        
+            \begin{itemize}
+                \item Bei der Addition von Zahlen ist die 0 das neutrale Element\\
+                $n + 0 = 0 + n = n$
+                \item Bei der Multiplikation von Zahlen ist die 1 das neutrale Element\\
+                $x * 1 = 1 * x = x$
+            \end{itemize}
         \end{exampleblock}
     \end{alertblock}
 \end{frame}
