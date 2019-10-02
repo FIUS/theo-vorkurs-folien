@@ -5,8 +5,8 @@
     \begin{alertblock}{Zeige Aussagen der Form:\\\emph{Für alle $n\in\mathbb{N}$ gilt...}}
     \begin{enumerate}
         \item Zeige Aussage für das kleinste Element
-        \item<1-> \only<7,8>{\alert<7>{Zeige, wenn Aussage für beliebiges n gilt, gilt sie auch für dessen Nachfolger, also n+1.}}\onslide<1-6>{Zeige, dass Aussage auch für das folgende Element gilt.}
-        \item<2-6,8> \only<8>{\alert<8>{$\leadsto$ Aussage gilt für alle n.}}\onslide<2-6>{\small Zeige, dass Aussage auch für das folgende Element gilt.}
+        \item<1-> \only<7,8>{\alert<7>{Zeige, wenn Aussage für beliebiges $n$ gilt, gilt sie auch für dessen Nachfolger, also $n+1$.}}\onslide<1-6>{Zeige, dass Aussage auch für das folgende Element gilt.}
+        \item<2-6,8> \only<8>{\alert<8>{$\leadsto$ Aussage gilt für alle $n$.}}\onslide<2-6>{\small Zeige, dass Aussage auch für das folgende Element gilt.}
         \item<3-6> \footnotesize Zeige, dass Aussage auch für das folgende Element gilt.
         \item<4-6> \scriptsize Zeige, dass Aussage auch für das folgende Element gilt.
         \item<5-6> \tiny Zeige, dass Aussage auch für das folgende Element gilt.
@@ -28,8 +28,8 @@
     \begin{alertblock}{Zeige Aussagen der Form:\\\emph{Für alle $n\in\mathbb{N}$ gilt...}}
     \begin{enumerate}
         \item \alert{Induktionsanfang}\\Zeige Aussage für das kleinste Element
-        \item \alert{Induktionsvorraussetzung}\\Zeige, unter der Vorraussetzung: \\\emph{die Aussage gelte für beliebiges n},\dots
-        \item \alert{Induktionsschritt}\\\dots dann gilt die Aussage auch für dessen Nachfolger n+1.
+        \item \alert{Induktionsvorraussetzung}\\Zeige, unter der Vorraussetzung: \\\emph{die Aussage gelte für beliebiges $n$},\dots
+        \item \alert{Induktionsschritt}\\\dots dann gilt die Aussage auch für dessen Nachfolger $n+1$.
         \item $\leadsto$ Aussage gilt für alle $n \in \mathbb{N}$.
     \end{enumerate}
     \end{alertblock}
@@ -128,7 +128,7 @@ Zeigen Sie $\displaystyle\sum_{i = 0}^{n} (2i+1) = (n+1)^2,\quad\forall n \in\ma
         Ang. Aussage gilt für $n \in\mathbb{N}$.
     \end{alertblock}
     \begin{alertblock}{Induktionsschritt IS}
-        Zeige Aussage gilt für alle n+1 unter Nutzung der I.V.:\\
+        Zeige Aussage gilt für alle $n+1$ unter Nutzung der I.V.:\\
         $\displaystyle\sum_{i=0}^{\alert{n+1}} i \overset{!}{=} \frac{(\alert{n+1})((\alert{n+1})+1)}{2}$
     \end{alertblock}
 \end{frame}
@@ -136,7 +136,7 @@ Zeigen Sie $\displaystyle\sum_{i = 0}^{n} (2i+1) = (n+1)^2,\quad\forall n \in\ma
 
 \begin{frame}[fragile]{Lösungen: normale Aufgabe}
 \small\begin{alertblock}{Induktionsschritt}
-    Zeige Aussage gilt für alle n+1 unter Nutzung der I.V.:
+    Zeige Aussage gilt für alle $n+1$ unter Nutzung der I.V.:
     \begin{align*}
         \onslide<1->{&\displaystyle\sum_{i=0}^{\alert<1>{n+1}} i &\overset{!}{=} \frac{(\alert<1>{n+1})((\alert<1>{n+1})+1)}{2}}\\
         \onslide<2->{\iff&(\displaystyle\sum_{i=0}^{n} i)+(n+1) &\overset{!}{=} \frac{(n+1)(n+2)}{2}}\\
@@ -161,7 +161,7 @@ Zeigen Sie $\displaystyle\sum_{i = 0}^{n} (2i+1) = (n+1)^2,\quad\forall n \in\ma
         Zeige Aussage gilt für alle n+1 unter Nutzung der I.V.:\\
         $\displaystyle\sum_{i=0}^{\alert{n+1}} i \overset{!}{=} \frac{(\alert{n+1})((\alert{n+1})+1)}{2}$ gilt für alle $n \in \mathbb{N}$
     \end{alertblock}
-    \alert{$\leadsto$ Aussage gilt für alle n.}\qed
+    \alert{$\leadsto$ Aussage gilt für alle $n$.}\qed
 \end{frame}
 }
 
@@ -180,14 +180,14 @@ Zeigen Sie $\displaystyle\sum_{i = 0}^{n} (2i+1) = (n+1)^2,\quad\forall n \in\ma
         Ang. Aussage gilt für $n \in\mathbb{N}\setminus \{0\}$.
     \end{alertblock}
     \begin{alertblock}{Induktionsschritt IS}
-        Zeige Aussage gilt für alle n+1 unter Nutzung der I.V.:\\
+        Zeige Aussage gilt für alle $n+1$ unter Nutzung der I.V.:\\
         $\displaystyle\prod_{i=1}^{\alert{n+1}} 4^i \overset{!}{=} 2^{(\alert{n+1})((\alert{n+1})+1)}$
     \end{alertblock}
 \end{frame}
 
 \begin{frame}[fragile]{Lösungen: schwerere Aufgabe}
 \small\begin{alertblock}{Induktionsschritt}
-    Zeige Aussage gilt für alle n+1 unter Nutzung der I.V.:
+    Zeige Aussage gilt für alle $n+1$ unter Nutzung der I.V.:
     \begin{align*}
         \onslide<1->{&\displaystyle\prod_{i=1}^{\alert<1>{n+1}} 4^i &\overset{!}{=} 2^{(\alert<1>{n+1})((\alert<1>{n+1})+1)}}\\
         \onslide<2->{\iff&(\displaystyle\prod_{i=1}^{n} 4^i) * 4^{(n+1)} &\overset{!}{=} 2^{(n+1)(n+2)}}\\
@@ -210,10 +210,10 @@ Zeigen Sie $\displaystyle\sum_{i = 0}^{n} (2i+1) = (n+1)^2,\quad\forall n \in\ma
         Ang. Aussage gilt für $n \in\mathbb{N}\setminus \{0\}$.
     \end{alertblock}
     \begin{alertblock}{Induktionsschritt IS}
-        Zeige Aussage gilt für alle n+1 unter Nutzung der I.V.:\\
+        Zeige Aussage gilt für alle $n+1$ unter Nutzung der I.V.:\\
         $\displaystyle\prod_{i=1}^{\alert{n+1}} 4^i \overset{!}{=} 2^{(\alert{n+1})((\alert{n+1})+1)}$ gilt für alle $n \in \mathbb{N}\setminus \{0\}$
     \end{alertblock}
-    \alert{$\leadsto$ Aussage gilt für alle n.}\qed
+    \alert{$\leadsto$ Aussage gilt für alle $n$.}\qed
 \end{frame}
 }
 
