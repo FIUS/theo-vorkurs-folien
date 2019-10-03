@@ -139,19 +139,19 @@
     \midrule
        \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=1cm,semithick]
         \node[initial,state](q0){$q_0$};
-        \end{tikzpicture} & Startzustand & Hier wird ein Wort eingegeben\\
+        \end{tikzpicture} & Startzustand & Hier fängt der Automat beim Lesen eines Wortes an \\
         \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=1.4cm,semithick]
         \node[state](qi){$q_i$};
         \node[state](qj)[right of=qi]{$q_j$};
         \path (qi) edge node {$a$} (qj);
-        \end{tikzpicture}&Zustandsübergang&gibt an welches Symbol eingelesen werden kann um in den Folgezustand zu übergehen.\\
+        \end{tikzpicture} & Zustandsübergang & gibt an, welches Symbol eingelesen werden kann, um in den Folgezustand zu übergehen. \\
         \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=1cm,semithick]
         \node[accepting,state](qe){$q_E$};
-        \end{tikzpicture}&Endzustand&Hier kann ein fertig gelesenes Wort akzeptiert werden.\\
+        \end{tikzpicture} & Endzustand & Hier kann ein fertig gelesenes Wort akzeptiert werden. \\
         \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm,semithick]
         \node[state](qi){$\emptyset$};
         \path (qi) edge [loop right] node {$x \in \Sigma$} (B);
-        \end{tikzpicture}&Fangzustand&wird benotigt um Determinismus zu gewährleisten. In Graphiken oft nicht eingezeichnet, ist aber da. Malt den hin.\\
+        \end{tikzpicture} & Fangzustand & wird benötigt, um Determinismus zu gewährleisten. In Graphiken oft nicht eingezeichnet, ist aber da. Malt den hin. \\
     \bottomrule
     \end{tabular}
 \end{frame}
@@ -160,12 +160,12 @@
     \small
     \begin{tabular}{p{0.05\textwidth} p{0.37\textwidth} p{0.43\textwidth}}
     \toprule
-    Abk.&Bedeutung&Was?!\\
+    Abk. & Bedeutung & Was?! \\
     \midrule
-       T(M)&Sprache von Automat M&Die Sprache die von einem Automat M erkannt wird\\
-       L(G)&Sprache von Grammatik G&Die Sprache die von einer Grammatik G erzeugt wird\\
-       $\gamma$&kleines Gamma&oft Bezeichner für regulären Ausdruck\\
-       L($\gamma$)&Sprache von reg. Ausdruck $\gamma$&Die Sprache die von einem regulärem Ausdruck $\gamma$ erkannt wird\\
+       T(M) & Sprache von Automat M & Die Sprache, die von einem Automat M erkannt wird \\
+       L(G) & Sprache von Grammatik G & Die Sprache, die von einer Grammatik G erzeugt wird \\
+       $\gamma$ & kleines Gamma & oft Bezeichner für regulären Ausdruck \\
+       L($\gamma$) & Sprache von reg. Ausdruck $\gamma$ & Die Sprache. die von einem regulären Ausdruck $\gamma$ erkannt wird \\
     \bottomrule
     \end{tabular}
 \end{frame}
