@@ -31,7 +31,7 @@ Die \alert{regulären Ausdrücke} bieten uns eine Möglichkeit Sprachen schnell 
         \item Wenn $\gamma$ ein einzelnes Wort ist, ist genau dieses Wort in der Sprache enthalten.\\
         $\gamma = \emptyWord$: $L(\gamma)=\{\emptyWord\}$,\quad$\gamma = a$: $L(\gamma)=\{a\}$
         \item Wenn $\gamma$ aus zwei hintereinandergeschrieben Ausdrücken besteht, repräsentiert Konkatenation.\\
-        $\gamma = (a)^*(b)^*: L(\gamma)=\{a^nb^m|n,m\in\mathbb{N}\}$
+        $\gamma = (a)^*b: L(\gamma)=\{a^nb \mid n \in \mathbb{N}\}$
         \item Wenn $\gamma$ aus zwei mit \glqq oder\grqq\ verknüpften Ausdrücken besteht, sind beide Seiten in der Sprache enthalten.\\
         $\gamma = (a \mid bc)$: $L(\gamma)=\{a, bc\}$
         \item Wenn $\gamma$ ein Ausdruck mit einem Stern ist, kann dieser innere Ausdruck beliebig oft wiederholt werden (auch null mal).\\
