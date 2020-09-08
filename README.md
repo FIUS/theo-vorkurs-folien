@@ -4,8 +4,7 @@ Dieser wird zu Beginn jedes Wintersemesters kostenlos für alle neuen Studierend
 
 
 
-FIUS-Wiki (hautsächlich Orga-Krams): https://fius.informatik.uni-stuttgart.de/wiki/doku.php?id=fachschaft:reader:aktivitaetenundaks:theovorkurs
+FIUS-Wiki (hautsächlich Orga-Krams und Protokolle): https://fius.informatik.uni-stuttgart.de/wiki/doku.php?id=fachschaft:reader:aktivitaetenundaks:theovorkurs
 
 Webseite: https://fius.informatik.uni-stuttgart.de/dienste/theo-vorkurs/
 
-Alle Protokolle finden sich im Wiki.
