@@ -1,0 +1,172 @@
+\input{../preamble.tex}
+
+\title{Vorkurs Theoretische Informatik}
+\subtitle{Einführung in reguläre Sprachen}
+\date{Freitag, 16.10.2020}
+\author{Arbeitskreis  Theo Vorkurs}
+\institute{Fachgruppe Informatik}
+% \titlegraphic{\hfill\includegraphics[height=1.5cm]{logo.pdf}}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}[fragile]{Übersicht}
+  \setbeamertemplate{section in toc}[sections numbered]
+  \tableofcontents%[hideallsubsections]
+\end{frame}
+
+
+%\section{Chomsky-Hierachie}
+%
+%\input{../parts/reg-grammatik.tex}
+%
+%\begin{frame}[standout]
+%  Murmelpause
+%\end{frame}
+%
+%\section{Automaten}
+%
+%\input{../parts/reg-automat.tex}
+%
+%\begin{frame}[standout]
+%  Murmelpause
+%\end{frame}
+%
+%\input{../parts/reg-determinismus.tex}
+%
+%\begin{frame}[standout]
+%  Murmelpause
+%\end{frame}
+%
+%\section{Grammatik und Automaten}
+%
+%\input{../parts/reg-beweis.tex}
+%
+%\begin{frame}[standout]
+%  Verdauungspause
+%\end{frame}
+%
+%\section{Reguläre Ausdrücke}
+%
+%\input{../parts/reg-ausdruck.tex}
+%
+%\begin{frame}[standout]
+%  Murmelpause
+%\end{frame}
+%
+%\section{Wiederholung}
+%\begin{frame}[fragile]{Das können wir jetzt beantworten}
+%	\begin{alertblock}{Tag 1: Mengen}
+%		\begin{itemize}
+%			\item Was ist eine Menge?
+%			\item Wie kann man zwei Mengen verknüpfen?
+%			\item Wie schreibt man formal Mengen auf?
+%		\end{itemize}
+%	\end{alertblock}
+%\end{frame}
+%
+%\begin{frame}[fragile]{Das können wir jetzt beantworten}
+%	\begin{alertblock}{Tag 1: Formale Sprachen}
+%		\begin{itemize}
+%			\item Was ist eine Formale Sprache?
+%			\item Was ist ein Alphabet?
+%			\item Wie zeigt man, dass zwei Sprachen äquivalent sind?
+%		\end{itemize}
+%	\end{alertblock}
+%\end{frame}
+%
+%\begin{frame}[fragile]{Das können wir jetzt beantworten}
+%    \begin{alertblock}{Tag 2: Beweise}
+%    \begin{itemize}
+%        \item Was ist ein direkter Beweis?
+%        \item Wie funktioniert die Kontraposition?
+%        \item Wie funktioniert ein Widerspruchsbeweis?
+%        \item Wie funktioniert Induktion?
+%    \end{itemize}
+%    \end{alertblock}
+%\end{frame}
+%
+%\begin{frame}[fragile]{Das können wir jetzt beantworten}
+%    \begin{alertblock}{Tag 3: Grammatiken}
+%    \begin{itemize}
+%        \item Was sind Grammatiken?
+%        \item Was ist der Zusammenhang zwischen Grammatiken und Sprachen?
+%        \item Wie finde ich raus, ob ein Wort von einer Grammatik erzeugt wird?
+%    \end{itemize}
+%    \end{alertblock}
+%\end{frame}
+%
+%\begin{frame}[fragile]{Das können wir jetzt beantworten}
+%	\begin{alertblock}{Heute: Reguläre Grammatiken}
+%		\begin{itemize}
+%			\item Wie sehen Produktionsregeln für reguläre Grammatiken aus?
+%			\item Bilden einer regulären Grammatik für gegebene reguläre Sprache
+%		\end{itemize}
+%	\end{alertblock}
+%\end{frame}
+%
+%\begin{frame}[fragile]{Das können wir jetzt beantworten}
+%	\begin{alertblock}{Heute: Automaten}
+%		\begin{itemize}
+%        	\item Was sind Automaten?
+%			\item Wie wandelt man Automaten zu einer äquivalenten Grammatik um?
+%			\item Was macht einen deterministischen Automaten aus?
+%			\item Finden eines (deterministischen) Automaten für gegebene Sprache
+%		\end{itemize}
+%	\end{alertblock}
+%\end{frame}
+%
+%\begin{frame}[fragile]{Das können wir jetzt beantworten}
+%	\begin{alertblock}{Heute: Reguläre Ausdrücke}
+%		\begin{itemize}
+%			\item Wie funktioniert die Konkatenation?
+%			\item Was bedeuten ($\alpha \mid \beta$) und $(\alpha)^*$?
+%			\item Finden eines regulären Ausdrucks für gegebene reguläre Sprache
+%		\end{itemize}
+%	\end{alertblock}
+%\end{frame}
+
+\begin{frame}[standout]
+  Noch Fragen?
+\end{frame}
+
+\begin{frame}[fragile]{Glossar}
+    \small
+    \begin{tabular}{p{0.2\textwidth} p{0.25\textwidth} p{0.4\textwidth}}
+    \toprule
+    Abk.&Bedeutung&Was?!\\
+    \midrule
+       \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=1cm,semithick,baseline=(q0.base)]
+        \node[initial,state](q0){$q_0$};
+        \end{tikzpicture} & Startzustand & Hier fängt der Automat beim Lesen eines Wortes an \\
+        \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=1.4cm,semithick,baseline=(qi.base)]
+        \node[state](qi){$q_i$};
+        \node[state](qj)[right of=qi]{$q_j$};
+        \path (qi) edge node {$a$} (qj);
+        \end{tikzpicture} & Zustandsübergang & gibt an, welches Symbol eingelesen werden kann, um in den Folgezustand zu übergehen. \\
+        \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=1cm,semithick,baseline=(qe.base)]
+        \node[accepting,state](qe){$q_E$};
+        \end{tikzpicture} & Endzustand & Hier kann ein fertig gelesenes Wort akzeptiert werden. \\
+        \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm,semithick,baseline=(qi.base)]
+        \node[state](qi){$\emptyset$};
+        \path (qi) edge [loop right] node {$x \in \Sigma$} (B);
+        \end{tikzpicture} & Fangzustand & wird benötigt, um Determinismus zu gewährleisten. In Graphiken oft nicht eingezeichnet, ist aber da. Malt den hin. \\
+    \bottomrule
+    \end{tabular}
+\end{frame}
+
+\begin{frame}[fragile]{Glossar}
+    \small
+    \begin{tabular}{p{0.05\textwidth} p{0.37\textwidth} p{0.43\textwidth}}
+    \toprule
+    Abk. & Bedeutung & Was?! \\
+    \midrule
+       T(M) & Sprache von Automat M & Die Sprache, die von einem Automat M erkannt wird \\
+       L(G) & Sprache von Grammatik G & Die Sprache, die von einer Grammatik G erzeugt wird \\
+       $\gamma$ & kleines Gamma & oft Bezeichner für regulären Ausdruck \\
+       L($\gamma$) & Sprache von reg. Ausdruck $\gamma$ & Die Sprache. die von einem regulären Ausdruck $\gamma$ erkannt wird \\
+    \bottomrule
+    \end{tabular}
+\end{frame}
+\end{document}
