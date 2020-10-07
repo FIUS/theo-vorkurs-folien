@@ -55,11 +55,11 @@
     \end{block}
     \metroset{block=fill}
     \begin{block}{Schwer}
-    $L_1$: $\{w\mid |w|\equiv 0 \bmod 6\}$\\
-    $L_2$: $\{w\mid |w|\equiv 0 \bmod 2\}$\\
-    $L_3$: $\{w\mid |w|\equiv 0 \bmod 3\}$\\
-    \vspace{0.3cm}
-    Zu zeigen: $L_1 = L_2 \cap L_3$
+        $L_1 = \{a^nb^n \mid n \in \mathbb{N}\}$\\
+        $L_2 = \{w \in \{a, b\}^* \mid |w|_a = |w|_b\}$\\
+        $L_3 = \{a^kb^l \mid k,l \in \mathbb{N}\}$\\
+        \vspace{0.3cm}
+        Zu zeigen: $L_1 = L_2 \cap L_3$
     \end{block}
 \end{frame}
 }
@@ -97,33 +97,38 @@
 {\setbeamercolor{palette primary}{bg=ExColor}
 \begin{frame}[fragile]{Lösung}
     \begin{alertblock}{Aufgaben}
-    Z.z. $L_1 = L_2 \cap L_3$\\
-    d.h. $\forall x: x \in L_1 \iff x \in L_2 \wedge x \in L_3$
+        Z.z. $L_1 = L_2 \cap L_3$\\
+        d.h. $\forall w \in \{a,b\}^*: w \in L_1 \iff w \in L_2 \wedge w \in L_3$
     \end{alertblock}
-    \only<1>{
-    \metroset{block=fill}
-    \begin{alertblock}{\glqq$\implies$\grqq}
-        Sei x beliebig. Ang. $x \in L_1$.\\
-        Dann gilt $|x|\equiv 0 \bmod 6$. Also $\exists k \in \mathbb{N}: |x| = 6k = 3 * 2 * k$.\\
-        Somit gilt auch $\exists \ell \in \mathbb{N}: |x| = 3 \ell$ mit $\ell = 2 * k$ und $\exists m \in \mathbb{N}: |x| = 2 m$ mit $m = 3 * k$.\\
-        $\leadsto x \in L_2 \wedge x \in L_3$.
-    \end{alertblock}
+    \only<1-4>{
+        \metroset{block=fill}
+        \begin{alertblock}{\glqq$\implies$\grqq}
+            \begin{enumerate}
+                \item<1-4> Sei $w \in L_1$ beliebig.
+                \item<2-4> Dann existiert ein $n \in \mathbb{N}$ so, dass $w = a^nb^n$
+                \item<3-4> Insbesondere gilt:
+                \begin{enumerate}
+                    \item[i)] $|w|_a = |w|_b$
+                    \item[ii)] $w = a^kb^l$ mit $k := n =: l$
+                \end{enumerate}
+                \item<4> Folglich ist also $w \in L_2$ und $w \in L_3$.
+            \end{enumerate}
+        \end{alertblock}
     }
-    \only<2>{
-    \metroset{block=fill}
-    \begin{alertblock}{\glqq$\impliedby$\grqq}
-        Sei x beliebig. Ang. $x \in L_2 \wedge x \in L_3$.\\
-        Dann $\exists k, \ell \in \mathbb{N}: |x| = 2 * k, |x| = 3 * \ell$.\\
-        Somit sind 2 und 3 Teil der Primfaktorzerlegung von $|x|$.\\
-        Dann gilt $\exists m \in \mathbb{N}: |x| = 6 * m$.\\
-        $\leadsto x \in L_1$.
-    \end{alertblock}
-    }
-    \only<3>{
-    \begin{alertblock}{\glqq$\iff$\grqq}
-     Da $\forall x: x \in L_1 \implies x \in L_2 \wedge x \in L_3$ und $\forall x: x \in L_2 \wedge x \in L_3 \implies x \in L_1$ gilt:\\
-    $\forall x: x \in L_1 \iff x \in L_2 \wedge x \in L_3$ \qed
-    \end{alertblock}
+    \only<5->{
+        \metroset{block=fill}
+        \begin{alertblock}{\glqq$\impliedby$\grqq}
+            \begin{enumerate}
+                \item<5-> Sei $w \in L_2 \cap L_3$ beliebig.
+                \item<6->  Dann gilt:
+                \begin{enumerate}
+                    \item[i)] $n := |w|_a = |w|_b$
+                    \item[ii)] $w = a^kb^l$ für $k, l \in \mathbb{N}$
+                \end{enumerate}
+                \item<7->  Und somit $w = a^{|w|_a}b^{|w|_b} = a^nb^n$.
+                \item<8->  Folglich ist $w \in L_1$
+            \end{enumerate}
+        \end{alertblock}
     }
 \end{frame}
 }

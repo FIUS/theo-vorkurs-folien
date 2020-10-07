@@ -6,43 +6,72 @@
     \end{alertblock}
     
     \metroset{block=fill}
-    \begin{block}{Normal}
+    \begin{block}{Einfach}
         \begin{itemize}
-            \item Für jede Primzahl $p$ ist $2^p-1$ eine Primzahl.
+            \item Alle $6n+1$ für ungerade $n \in \mathbb{N}$ und $n > 0$ sind Primzahlen.
         \end{itemize}
     \end{block}
     \metroset{block=fill}
-    \begin{block}{Etwas schwerer}
+    \begin{block}{Normal}
     \begin{itemize}
             \item Für jede ganze Zahl $x$ gilt $x\equiv 1\bmod 4 \implies x\equiv 1\bmod 2$
     \end{itemize}
-        
+    \end{block}
+    \metroset{block=fill}
+    \begin{block}{Etwas schwerer}
+        \begin{itemize}
+            \item Für alle $n \in \mathbb{N}$ gilt $n$ teilt $5n + 22!$.
+        \end{itemize}
     \end{block}
 \end{frame}
 }
 
 {\setbeamercolor{palette primary}{bg=ExColor}
-\begin{frame}[fragile]{Lösungen}
-    \begin{alertblock}{Aufgaben}
-    Welche Beweistechnik könnte sich für die folgenden Aussagen eignen? Warum?
-    \end{alertblock}
-    
+\begin{frame}[fragile]{Lösungen}   
+    \metroset{block=fill}
+    \begin{block}{Einfach}
+        Aussage: Alle $6n+1$ für ungerade $n \in \mathbb{N}$ und $n > 0$ sind Primzahlen.
+        \begin{enumerate}
+            \item<1-> Diese Aussage ist falsch!
+            \item<2-> Wir widerlegen die Aussage durch ein Gegenbeispiel:
+            \item<3-> Betrachte $n = 9$
+            \item<4-> Dann gilt $6n+1 = 55$, mit Faktorisierung $55 = 5 \cdot 11$
+            \item<5-> $55$ ist also insbesondere keine Primzahl \qed
+        \end{enumerate}
+    \end{block}
+\end{frame}
+}
+
+{\setbeamercolor{palette primary}{bg=ExColor}
+\begin{frame}[fragile]{Lösungen}   
     \metroset{block=fill}
     \begin{block}{Normal}
-        \begin{itemize}
-            \item Für jede Primzahl $p$ ist $2^p-1$ eine Primzahl.\\
-            $\rightarrow$ Gegenbeispiel (sei $p\defeq11$)
-        \end{itemize}
+        Aussage: Für jede ganze Zahl $x$ gilt $x\equiv 1\bmod 4 \implies x\equiv 1\bmod 2$.
+        \begin{enumerate}
+            \item<2-> Wir zeigen die Aussage durch einen direkten Beweis 
+            \item<3-> Sei $x \equiv 1 \pmod{4}$
+            \item<4-> Dann existiert ein $k \in \mathbb{Z}$ mit $x = 4k + 1$
+            \item<5-> Insbesondere gilt also $x = 2(2k)+1$
+            \item<6-> Somit ist also $x \equiv 1 \pmod{2}$
+        \end{enumerate}
     \end{block}
+\end{frame}
+}
+
+{\setbeamercolor{palette primary}{bg=ExColor}
+\begin{frame}[fragile]{Lösungen}   
     \metroset{block=fill}
     \begin{block}{Etwas schwerer}
-        \begin{itemize}
-            \item[] $\rightarrow$Direkter Beweis
-            \item $x\equiv 1\bmod 4\iff\exists z\in\mathbb{Z} : 4 \cdot z + 1 = x$
-            \item $\iff\exists z\in\mathbb{Z}: (2 \cdot 2) \cdot z + 1 = x$
-            \item $\implies\exists u,z\in\mathbb{Z}: u = 2z\wedge 2u + 1 = x$
-            \item $\implies x\equiv 1\bmod 2$
-        \end{itemize}
+        Aussage: Für alle $n \in \mathbb{N}$ gilt $n$ teilt $5n + 22!$.
+        \begin{enumerate}
+            \item<2-> Diese Aussage ist ebenso falsch!
+            \item<3-> Hierfür kombinieren wir ein Gegenbeispiel mit einem Widerspruchsbeweis:
+            \item<4-> Betrachte zunächst $n = 23$
+            \item<5-> Zunächst ist klar, dass $23 \mid 5\cdot23$.
+            \item<6-> Angenommen, $23 \mid (5\cdot23 + 22!)$, dann teilt $23$ auch $(5\cdot23+22!)-5\cdot23 = 22!$
+            \item<7-> $22!$ besitzt jedoch nur Primfaktoren kleiner $22$
+            \item<8-> Durch die Eindeutigkeit der Primfaktorzerlegung ist das ein Widerspruch
+        \end{enumerate}
     \end{block}
 \end{frame}
 }
