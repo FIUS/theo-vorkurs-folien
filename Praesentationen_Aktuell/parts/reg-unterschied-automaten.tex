@@ -1,0 +1,92 @@
+\begin{frame}[fragile]{Verschiedene endliche Automaten}
+    \begin{alertblock}{NEA}
+    Beim lesen eines Wortes ist es manchmal unklar, welchen Übergang der Automat nehmen soll.\\
+    $\leadsto$ Der Automat ist \emph{\alert{nichtdeterministisch}}.
+    \end{alertblock}
+    \begin{alertblock}{DEA}
+    Wir können unsere Möglichkeiten so einschränken, dass bei jedem Zeichen eindeutig ist, welcher Übergang genutzt wird.\\
+    $\leadsto$ Der Automat ist \alert{\emph{deterministisch}}.
+    \end{alertblock}
+\end{frame}
+
+\begin{frame}[fragile]{Unterschied NEA und DEA}
+    Bildlich kann man den Unterschied zwischen NEA und DEA an verschiedenen Merkmalen erkennen:
+    \begin{alertblock}{Mehrere Möglichkeiten bei Übergängen:}
+        \begin{center}
+            \begin{tikzpicture}[->, >=stealth, shorten >=1pt, semithick]
+                \node[state]         (1)                            {$q_i$};
+                \node[state]         (2) [above right=0.7cm and 2cm of 1]   {$q_j$};
+                \node[state]         (3) [below right=0.7cm and 2cm of 1]   {$q_k$};
+
+                \path
+                (1) edge                node[above] {a}  (2)
+                    edge                node[below] {a,b}(3);
+            \end{tikzpicture}
+        \end{center}
+    Bei einem DEA wäre nur ein Weg mit einem \alert{a} von dem Zustand $q_i$ aus erlaubt!
+    \end{alertblock}
+\end{frame}
+
+\begin{frame}[fragile]{Unterschied NEA und DEA}
+    Bildlich kann man den Unterschied zwischen NEA und DEA an verschiedenen Merkmalen erkennen:
+    \begin{alertblock}{Nicht definierte Übergänge}
+        \begin{center}
+            \begin{tikzpicture}[->, >=stealth, shorten >=1pt, semithick]
+                \node[state]         (1)                {$q_i$};
+                \node[state]         (2) [right = 2cm of 1]   {$q_j$};
+
+                \path
+                (1) edge[bend left]  node[above] {a}  (2)
+                (2) edge[bend left]  node[below] {a,b}(1);
+            \end{tikzpicture}
+        \end{center}
+    Bei einem DEA müsste ein Übergang mit \alert{b} für den Zustand $q_i$ definiert werden!
+    \end{alertblock}
+\end{frame}
+
+\begin{frame}[fragile]{Unterschied NEA und DEA}
+    Bildlich kann man den Unterschied zwischen NEA und DEA an verschiedenen Merkmalen erkennen:
+    \begin{alertblock}{Mehrere Startzustände}
+        \begin{center}
+            \begin{tikzpicture}[->, >=stealth, shorten >=1pt, semithick]
+                \node[state, initial]         (1)                      {$q_0$};
+                \node[state, initial]         (2) [below = 1.5cm of 1]   {$\tilde{q}_0$};
+                \node[state]                  (3) [below right= 0.75cm and 2cm of 1]   {$q_1$};
+
+                \path
+                (1) edge node[above] {a}  (3)
+                    edge[loop above] node[above] {b} (1)
+                (2) edge node[below] {a,b}(3);
+            \end{tikzpicture}
+        \end{center}
+    Ein DEA muss \alert{genau einen} Startzustand besitzen!
+    \end{alertblock}
+\end{frame}
+
+\begin{frame}{Wann wird ein Wort akzeptiert?}
+      Ein Wort $w \in \Sigma^*$ wird von einem NEA akzeptiert, wenn es \alert{mindestens einen} akzeptierenden Pfad gibt.
+      \begin{alertblock}{Beispiel}
+        Welche Zustände werden erreicht wenn $w = aaba$ eingelesen werden?
+        \begin{tikzpicture}[->, >=stealth, shorten >=1pt, semithick]
+            \node[state, initial]           (0)                        {$q_0$};
+            \node[state, accepting]         (1) [right = 2cm of 0]     {$q_1$};
+            \node[state]                    (2) [right = 2cm of 1]     {$q_2$};
+            
+            \path
+            (0) edge[loop above]    node[above] {a,b}   (0)
+            edge[bend right]        node[below] {a}     (1)
+            (1) edge[bend right]    node[above] {b}     (0)
+            edge                    node[above] {a}     (2)
+            (2) edge[loop above]    node[above] {a,b}   (2);
+        \end{tikzpicture}
+        \vspace*{-5mm}
+        \begin{center}
+            \begin{enumerate}
+                \item[i)]<2-> $q_0 \rightarrow q_0 \rightarrow q_0 \rightarrow q_0 \rightarrow q_0$
+                \item[ii)]<3-> $q_0 \rightarrow q_0 \rightarrow q_0 \rightarrow q_0 \rightarrow q_1$ (Endzustand erreicht)
+                \item[iii)]<4-> $q_0 \rightarrow q_0 \rightarrow q_1 \rightarrow q_0 \rightarrow q_1$ (Endzustand erreicht)
+                \item[iv)]<5-> $q_0 \rightarrow q_1 \rightarrow q_2 \rightarrow q_2 \rightarrow q_2$
+            \end{enumerate}
+        \end{center}
+    \end{alertblock}
+\end{frame}

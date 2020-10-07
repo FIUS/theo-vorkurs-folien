@@ -1,14 +1,3 @@
-\begin{frame}[fragile]{Verschiedene endliche Automaten}
-\begin{alertblock}{NEA}
-Beim lesen eines Wortes ist es manchmal unklar, welchen Übergang der Automat nehmen soll.\\
-$\leadsto$ Der Automat ist \emph{\alert{nichtdeterministisch}}.
-\end{alertblock}
-\begin{alertblock}{DEA}
-Wir können unsere Möglichkeiten so einschränken, dass bei jedem Zeichen eindeutig ist, welcher Übergang genutzt wird.\\
-$\leadsto$ Der Automat ist \alert{\emph{deterministisch}}.
-\end{alertblock}
-\end{frame}
-
 \subsection{DEA}
 \begin{frame}[fragile]{Deterministische endliche Automaten}
 \begin{alertblock}{Wir beschränken unseren Automaten folgendermaßen:}
@@ -209,26 +198,6 @@ Von \alert{jedem Zustand} muss \alert{genau ein} Übergang für \alert{jedes $a\
                 (5) edge [loop below]  node {0,1}(5);
         \end{tikzpicture}
     \end{alertblock}
-\end{frame}
-}
-
-{\setbeamercolor{palette primary}{bg=ExColor}
-\begin{frame}{Scheinklausuraufgabe WS17/18}
-\begin{alertblock} {Gegeben sei folgender NEA M:}
-Nenne Wörter die erkannt werden.\\
-    \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm,
-                            semithick]
-        \node [initial,state]   (0)              {$q_0$};
-        \node [state,accepting]           (1) [right of=0] {$q_1$};
-        \node [state] (2) [below of=0] {$q_2$};
-        \path   (0) edge               node {b} (1)
-                    edge               node {a,b} (2)
-                (1) edge               node {a} (2)
-                    edge [loop above]  node {b} (1)
-                (2) edge [loop below]  node {a,b} (2);
-        \end{tikzpicture}
-        \onslide<2>{\alert{\textbf{$\leadsto$ b, bb, bbb, bbbb, bbbbb,...}}}
-\end{alertblock}
 \end{frame}
 }
 
