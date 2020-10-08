@@ -16,6 +16,9 @@
 *.cb2
 .*.lb
 
+## Latexmk temporaries
+__latexindent_temp.tex
+
 ## Intermediate documents:
 *.dvi
 *.xdv
