@@ -248,14 +248,21 @@ Wir können Aussagen verändern oder durch Operationen zu neuen Aussagen verbind
 {\setbeamercolor{palette primary}{bg=ExColor}
 \begin{frame}{Denkpause}
     \begin{alertblock}{Aufgaben}
-      Welche der folgenden Schlüsse sind richtig?
+      Die folgenden Teilaufgaben bestehen aus einer Aussage, einem Geschehen und aus einer Folgerung. Welche der Folgerungen sind richtig, unter der Annahme, 
+      dass die Aussagen wahr sind.
     \end{alertblock}
     \metroset{block=fill}
     \begin{block}{Normal bis Schwer}
     \begin{itemize}
-        \item $S_1$: Lukas ist im Vorkurs oder schläft noch. Im Vorkurs ist er nicht. Also schläft er noch.
-        \item $S_2$: Wenn Anne nicht rennt, bekommt sie die Bahn nicht. Sie bekommt die Bahn. Also ist sie gerannt.
-        \item $S_3$: Wenn Tobi nicht lernt, besteht er nicht. Tobi hat gelernt. Also besteht er.
+        \item Aussage: "Lukas ist im Vorkurs oder schläft noch"\\
+        Geschehen: Lukas ist nicht im Vorkurs.\\
+        Folgerung: Also schläft er noch.
+        \item Aussage: "Wenn Anne nicht rennt, bekommt sie die Bahn nicht"\\
+        Geschehen: Anne bekommt die Bahn.\\
+        Folgerung: Also ist sie gerannt.
+        \item Aussage: "Wenn Tobi auf die Prüfung nicht lernt, besteht er nicht"\\
+        Geschehen: Tobi hat auf die Prüfung gelernt.\\
+        Folgerung: Also besteht er.
     \end{itemize}
     \end{block}
 \end{frame}
@@ -263,13 +270,39 @@ Wir können Aussagen verändern oder durch Operationen zu neuen Aussagen verbind
 
 {\setbeamercolor{palette primary}{bg=ExColor}
 \begin{frame}{Lösungen}
-  \begin{itemize}[<+- | alert@+>]
-        \item
-            $S_1$: Richtig.
-        \item
-            $S_2$: Richtig. Begründung: Die zweite Aussage ist die Kontraposition der ersten Aussage. Wie gezeigt wurde, ist die Kontraposition einer Aussage wahr gdw. die Aussage selbst wahr ist.
-        \item
-            $S_3$: Falsch. Beispiel: Tobi lernt, und besteht trotzdem nicht. \Frowny
-    \end{itemize}
+    \only<1>{
+        \metroset{block=fill}
+        \begin{block}{Normal bis Schwer}
+            \begin{itemize}
+                \item Aussage: "Lukas ist im Vorkurs oder schläft noch"\\
+                Geschehen: Lukas ist nicht im Vorkurs.\\
+                Folgerung: Also schläft er noch.
+            \end{itemize}
+        \end{block}
+    }
+    \only<2>{
+        \metroset{block=fill}
+        \begin{block}{Normal bis Schwer}
+            \begin{itemize}
+                \item<2> Aussage: "Wenn Anne nicht rennt, bekommt sie die Bahn nicht"\\
+                Geschehen: Anne bekommt die Bahn.\\
+                Folgerung: Also ist sie gerannt.
+            \end{itemize}
+        \end{block}
+    }
+    \only<3>{
+        \metroset{block=fill}
+        \begin{block}{Normal bis Schwer}
+            \begin{itemize}
+                \item<3> Aussage: "Wenn Tobi auf die Prüfung nicht lernt, besteht er nicht"\\
+                Geschehen: Tobi hat auf die Prüfung gelernt.\\
+                Folgerung: Also besteht er.
+            \end{itemize}
+        \end{block}
+    }
+
+    \only<1>{Die Folgerung ist richtig. Laut Aussage ist Lukas im Vorkurs oder schläft noch (oder beides). Wenn er also nicht im Vorkurs ist, bleibt nur noch die Option übrig, dass er noch schläft.}
+    \only<2>{Die Folgerung ist richtig. Die zweite Aussage ist die Kontraposition der ersten Aussage. Wie gezeigt wurde, ist die Kontraposition einer Aussage wahr gdw. die Aussage selbst wahr ist. }
+    \only<3>{Die Folgerung ist falsch. Es ist auch möglich, dass Tobi lernt und nicht besteht!}
 \end{frame}
 }
