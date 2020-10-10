@@ -78,7 +78,7 @@ Nenne Wörter die erkannt werden.\\
     Finde einen passenden DEA oder NEA für die folgenden Sprachen:
     \begin{itemize}
         \item $L_1 = \{w \in \{a,b\}^* \mid |w|_a \equiv 1 \pmod{3}\}$
-        \item $L_2 = \{uaab \mid u \in \{a,b\}^*\}$
+        \item $L_2 = \{ua\mid u \in \{a,b\}^*\}$
     \end{itemize}
     \end{block}
     \begin{block}{Etwas Schwerer}
@@ -95,7 +95,7 @@ Nenne Wörter die erkannt werden.\\
 
 {\setbeamercolor{palette primary}{bg=ExColor}
 \begin{frame}{Lösung: Normal}
-    \only<1->{
+    \only<1>{
     \begin{alertblock}{$L_1 = \{w \in \{a,b\}^* \mid |w|_a \equiv 1 \pmod{3}\}$}
         \begin{center}
             \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm,
@@ -113,31 +113,23 @@ Nenne Wörter die erkannt werden.\\
             \end{tikzpicture}
         \end{center}
     \end{alertblock}}
-    \vspace*{-7mm}
     \only<2->{
-    \begin{alertblock}{$L_2 = \{uaab \mid u \in \{a,b\}^*\}$}
+    \begin{alertblock}{$L_2 = \{ua \mid u \in \{a,b\}^*\}$}
+        \vspace*{5mm}
         \only<2>{NEA:}
         \only<3>{DEA:}
         \begin{center}
             \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm,
                                 semithick]
             \node [initial,state]   (0)              {$p_0$};
-            \node [state]           (1) [right of=0] {$p_1$};
-            \node [state]           (2) [right of=1] {$p_2$};
-            \node [state,accepting] (3) [right of=2] {$p_3$};
+            \node [state,accepting]           (1) [right of=0] {$p_1$};
     
             \path<2>    (0) edge                node {a}    (1)
-                            edge[loop above]    node {a,b}  (0)
-                        (1) edge                node {a}    (2)
-                        (2) edge                node {b}    (3);
+                            edge[loop above]    node {a,b}  (0);
             \path<3>    (0) edge[bend right]    node[above] {a}     (1)
                             edge[loop above]    node        {b}     (0)
-                        (1) edge                node        {a}     (2)
-                            edge[bend right]    node[above] {b}     (0)
-                        (2) edge                node        {b}     (3)
-                            edge[loop above]    node[above] {a}     (2)
-                        (3) edge[bend left]     node[left=1cm]  {a}     (1)
-                            edge[bend left]     node[below] {b}     (0);
+                        (1) edge[loop above]     node        {a}     (1)
+                            edge[bend right]    node[above] {b}     (0);
             \end{tikzpicture}
         \end{center}
     \end{alertblock}}
@@ -155,9 +147,7 @@ Nenne Wörter die erkannt werden.\\
             \node [state]           (q2) [right of=q1]      {$q_2$};
             
             \node [state]           (p0) [below right= 0.75cm and 2cm of s] {$p_0$};
-            \node [state]           (p1) [right of=p0]      {$p_1$};
-            \node [state]           (p2) [right of=p1]      {$p_2$};
-            \node [state,accepting] (p3) [right of=p2]      {$p_3$};
+            \node [state, accepting]           (p1) [right of=p0]      {$p_1$};
 
             \path       (s) edge                node[above] {a}     (q0)
                             edge                node[below] {a,b}   (p0)
@@ -169,9 +159,7 @@ Nenne Wörter die erkannt werden.\\
                         (q2)edge[bend left]     node[below] {a}    (q0)
                             edge[loop above]    node {b}    (q2)
                         (p0)edge                node {a}    (p1)
-                            edge[loop above]    node {a,b}  (p0)
-                        (p1)edge                node {a}    (p2)
-                        (p2)edge                node {b}    (p3);
+                            edge[loop above]    node {a,b}  (p0);
 
         \end{tikzpicture}
     \end{alertblock}
@@ -181,63 +169,66 @@ Nenne Wörter die erkannt werden.\\
 {\setbeamercolor{palette primary}{bg=ExColor}
 \begin{frame}{Lösung: Schwer}
     \begin{alertblock}{$L_3 = L_1 \cup L_2$}
-        \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm,
-            semithick]
-            \node [initial,state]   (00)               {$q_0, p_0$};
-            \node [state]           (01) [right of=00] {$q_0, p_1$};
-            \node [state]           (02) [right of=01] {$q_0, p_2$};
-            \node [state,accepting] (03) [right of=02] {$q_0, p_3$};
-            \node [state]           (10) [below of=00] {$q_1, p_0$};
-            \node [state]           (11) [right of=10] {$q_1, p_1$};
-            \node [state]           (12) [right of=11] {$q_1, p_2$};
-            \node [state,accepting] (13) [right of=12] {$q_1, p_3$};
-            \node<2> [state, orange, accepting]           (10) [below of=00] {$q_1, p_0$};
-            \node<2> [state, orange, accepting]           (11) [right of=10] {$q_1, p_1$};
-            \node<2> [state, orange, accepting]           (12) [right of=11] {$q_1, p_2$};
-            \node<2> [state, orange, accepting] (13) [right of=12] {$q_1, p_3$};
-            \node<3-> [state, accepting]           (10) [below of=00] {$q_1, p_0$};
-            \node<3-> [state, accepting]           (11) [right of=10] {$q_1, p_1$};
-            \node<3-> [state, accepting]           (12) [right of=11] {$q_1, p_2$};
-            \node<3-> [state, accepting] (13) [right of=12] {$q_1, p_3$};
-            \node [state]           (20) [below of=10] {$q_2, p_0$};
-            \node [state]           (21) [right of=20] {$q_2, p_1$};
-            \node [state]           (22) [right of=21] {$q_2, p_2$};
-            \node [state,accepting] (23) [right of=22] {$q_2, p_3$};
+        \begin{center}
+            \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm,
+                semithick]
+                \node [initial,state]       (00)                  {$q_0, p_0$};
+                \node [state, accepting]    (01) [right of=00]    {$q_1, p_0$};
+                \node [state]               (02) [right of=01]    {$q_2, p_0$};
+                \node<1> [state]               (10) [below = 2cm of 00]    {$q_0, p_1$};
+                \node<1> [state, accepting]    (11) [right of=10]    {$q_1, p_1$};
+                \node<1> [state]               (12) [right of=11]    {$q_2, p_1$};
+                \node<2> [state, accepting, orange]                 (10) [below = 2cm of 00]    {$q_0, p_1$};
+                \node<2> [state, accepting, orange]                 (11) [right of=10]    {$q_1, p_1$};
+                \node<2> [state, accepting, orange]                 (12) [right of=11]    {$q_2, p_1$};
+                \node<3-> [state, accepting]                 (10) [below = 2cm of 00]    {$q_0, p_1$};
+                \node<3-> [state, accepting]                 (11) [right of=10]    {$q_1, p_1$};
+                \node<3-> [state, accepting]                 (12) [right of=11]    {$q_2, p_1$};
+        
+                \path<1>   (00)    edge                node        {a}    (01)
+                                    edge[loop above]    node        {b}    (00)
+                            (01)    edge                node        {a}    (02)
+                                    edge[loop above]    node        {b}    (01)
+                            (02)    edge[bend left]     node[below] {a}    (00)
+                                    edge[loop above]    node        {b}    (02)
+                            (10)    edge                node        {a}    (11)
+                                    edge[loop above]    node        {b}    (10)
+                            (11)    edge                node        {a}    (12)
+                                    edge[loop above]    node        {b}    (11)
+                            (12)    edge[bend left]     node[below] {a}    (10)
+                                    edge[loop above]    node        {b}    (12);
 
-            \path<1> (13) edge[bend left]    node[below] {b}     (10);
+                \path<2>    (00)    edge[loop above]    node        {b}    (00)
+                            (01)    edge[loop above]    node        {b}    (01)
+                            (02)    edge[loop above]    node        {b}    (02)
+                            (10)    edge                node        {a}    (11)
+                            (11)    edge                node        {a}    (12)
+                            (12)    edge[bend left]     node[below] {a}    (10);
 
-            \path<1->(00) edge[loop above]  node        {b}     (00)
-                    (01) edge               node[above] {b}     (00)
-                    (02) edge               node        {b}     (03)
-                    (03) edge[bend right]   node[above] {b}     (00)
+                \path<3>    (00)    edge[orange]        node[right] {a}    (11)
+                                    edge[loop above]    node        {b}    (00)
+                            (01)    edge[orange]        node[right] {a}    (12)
+                                    edge[loop above]    node        {b}    (01)
+                            (02)    edge[orange]        node[right] {a}    (10)
+                                    edge[loop above]    node        {b}    (02)
+                            (10)    edge                node        {a}    (11)
+                            (11)    edge                node        {a}    (12)
+                            (12)    edge[bend left]     node[below] {a}    (10);
 
-                    (10) edge[loop left]    node        {b}     (10)
-                    (11) edge               node[above] {b}     (10)
-                    (12) edge               node        {b}     (13)
-
-                    (20) edge[loop left]    node        {b}     (20)
-                    (21) edge               node[above] {b}     (20)
-                    (22) edge               node        {b}     (23)
-                    (23) edge[bend left]    node[below] {b}     (20);
-
-            \path<2>(00) edge[orange]               node[right]         {a}     (11)
-                    (01) edge[orange]               node[above right]   {a}     (12)
-                    (02) edge[orange]               node[right]         {a}     (12)
-                    (03) edge[bend right=2mm,orange]node[above right=1mm and 1.1cm] {a}     (11)
-                    (13) edge[bend left]            node[below]         {b}     (10);
-
-            \path<3>(10) edge[orange]               node[right]          {a}     (21)
-                    (11) edge[orange]               node[above right]   {a}     (22)
-                    (12) edge[orange]               node[right]         {a}     (22)
-                    (13) edge[bend right=2mm,orange]node[above right=1mm and 1.1cm] {a}     (21)
-                    (13) edge[bend right]    node[above]                {b}     (10);
-
-            \path<4>(20) edge[orange]               node[above right=5mm and 4mm]    {a}     (01)
-                    (21) edge[orange]               node[left]          {a}     (02)
-                    (22) edge[bend left, orange]    node[below=5mm]         {a}     (02)
-                    (23) edge[bend right=8mm,orange]node[above right] {a}     (01)
-                    (13) edge[bend left]    node[above]                 {b}     (10);
-        \end{tikzpicture}
+                \path<4>    (00)    edge                node[right] {a}    (11)
+                                    edge[loop above]    node        {b}    (00)
+                            (01)    edge                node[right] {a}    (12)
+                                    edge[loop above]    node        {b}    (01)
+                            (02)    edge                node[right] {a}    (10)
+                                    edge[loop above]    node        {b}    (02)
+                            (10)    edge                node        {a}    (11)
+                                    edge[orange]        node        {b}    (00)
+                            (11)    edge                node        {a}    (12)
+                                    edge[orange]        node        {b}    (01)
+                            (12)    edge[bend left]     node[below] {a}    (10)
+                                    edge[orange]        node        {b}    (02);
+            \end{tikzpicture}
+        \end{center}
     \end{alertblock}
 \end{frame}
 }
