@@ -9,38 +9,38 @@
 
 \subsubsection{Beweisbeispiel: Transitivität der Teilmenge}
 \begin{frame}[fragile]{Beispielbeweis}
-\begin{exampleblock}{Zeigen sie, Teilmengen sind transitiv.}
+\begin{exampleblock}{Zeigen Sie, Teilmengen sind transitiv.}
 \begin{enumerate}
-    \item<1->\alert<1>{
-        \only<1>{zu zeigen: }\onslide<2->{z.z. }$A\subseteq B\wedge B\subseteq C \alert<3>{\implies\text{}}A\subseteq C$
+    \item<1->\alert<1|handout:0>{
+        \only<1|handout:0>{zu zeigen: }\onslide<2->{z.z. }$A\subseteq B\wedge B\subseteq C \alert<3|handout:0>{\implies\text{}}A\subseteq C$
         }
-    \item<2->\alert<2>{
-        \only<2>{Umschreiben:\\}
-        $\iff $\alert<4,5>{$($\alert<9>{$($\alert<6>{$\forall x$}$: x \in A \implies x \in B)$}$ \wedge $\alert<10>{$($\alert<6>{$\forall x$}$: x \in B \implies x \in C)$}$)$}\\
-        \qquad\alert<3>{$\implies$}$\;($\alert<6>{$\forall x$}$\ : $\alert<7>{$x \in A$}$ \implies x \in C)$
+    \item<2->\alert<2|handout:0>{
+        \only<2|handout:0>{Umschreiben:\\}
+        $\iff $\alert<4,5|handout:0>{$($\alert<9|handout:0>{$($\alert<6|handout:0>{$\forall x$}$: x \in A \implies x \in B)$}$ \wedge $\alert<10|handout:0>{$($\alert<6|handout:0>{$\forall x$}$: x \in B \implies x \in C)$}$)$}\\
+        \qquad\alert<3|handout:0>{$\implies$}$\;($\alert<6|handout:0>{$\forall x$}$\ : $\alert<7|handout:0>{$x \in A$}$ \implies x \in C)$
         }
-    \item<3->\alert<3>{
-        \only<3>{\emph{Implikation}\\
+    \item<3->\alert<3|handout:0>{
+        \only<3|handout:0>{\emph{Implikation}\\
         linke Seite wahr $\implies$ rechte Seite muss wahr sein.\\
         linke Seite falsch $\implies$ beliebiges kann folgen\\
         $\implies$ uns interessiert also nur der Fall \emph{links ist wahr}}
-        \alert<4>{\only<4,5>{Wir machen uns also \emph{\textquotedbl die linke Seite ist wahr\textquotedbl} zur Voraussetzung}\alert<5>{\only<5>{:\\Angenommen, $A \subseteq B \wedge B \subseteq C$ gilt.}}}
+        \alert<4>{\only<4,5|handout:0>{Wir machen uns also \emph{\textquotedbl die linke Seite ist wahr\textquotedbl} zur Voraussetzung}\alert<5>{\only<5|handout:0>{:\\Angenommen, $A \subseteq B \wedge B \subseteq C$ gilt.}}}
         \onslide<6->{Ang., $A \subseteq B \wedge B \subseteq C$.}
         }
-    \item<6->\alert<6>{
-        \only<6>{Jetzt geht der Beweis richtig los.\\Wähle beliebiges x um Allgemeinheit zu wahren\dots\\}
-        \onslide<6->{Sei $x$ beliebig}\alert<7>{\onslide<7->{, mit \alert<9>{$x\in A$.}}}
+    \item<6->\alert<6|handout:0>{
+        \only<6|handout:0>{Jetzt geht der Beweis richtig los.\\Wähle beliebiges x um Allgemeinheit zu wahren\dots\\}
+        \onslide<6->{Sei $x$ beliebig}\alert<7>{\onslide<7-|handout:0>{, mit \alert<9>{$x\in A$.}}}
         }
-    \item<8->\alert<8-9>{
-        \only<8>{Wir können jetzt unsere Voraussetzungen ausnutzen,\\um $x\in C$ zu folgern.}
+    \item<8->\alert<8-9|handout:0>{
+        \only<8|handout:0>{Wir können jetzt unsere Voraussetzungen ausnutzen,\\um $x\in C$ zu folgern.}
         \onslide<9->$\implies x\in B$
-        \alert<10>{\onslide<10->$\implies x\in C$}
+        \alert<10|handout:0>{\onslide<10->$\implies x\in C$}
         \onslide<11>\qed
     }
   \end{enumerate}
 \end{exampleblock}
 \end{frame}
 
-\begin{frame}[standout]
+\begin{frame}<handout:0>[standout]
     Verdauungspause
 \end{frame}

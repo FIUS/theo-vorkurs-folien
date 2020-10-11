@@ -13,7 +13,7 @@
 
 \begin{frame}{Weiterer Mengenbeweis}
     \metroset{block=fill}
-    \only<1>{
+    \only<1|handout:1>{
     \begin{block}{\alert{$\forall x: x \in L_1 \implies x \in L_2$}}
     Sei $x$ beliebig.\\
     Angenommen, $x \in L_1$.\\
@@ -21,7 +21,7 @@
     $\leadsto x \in L_2$
     \end{block}
     }
-    \only<2>{
+    \only<2|handout:1>{
     \begin{block}{\alert{$\forall x: x \in L_2 \implies x \in L_1$}}
     Sei $x$ beliebig.\\
     Angenommen, $x \in L_2$.\\
@@ -29,7 +29,7 @@
     $\leadsto x \in L_1$
     \end{block}
     }
-    \only<3>{
+    \only<3|handout:2>{
     Da gezeigt wurde:\\
     \vspace{0.3cm}
     $\forall x: x \in L_1 \implies x \in L_2$\\
@@ -65,7 +65,7 @@
 }
 
 {\setbeamercolor{palette primary}{bg=ExColor}
-\begin{frame}[fragile]{Lösung}
+\begin{frame}<handout:0>[fragile]{Lösung}
     \begin{alertblock}{Aufgaben}
     z.Z. $L_1 \subsetneq L_2$\\
     d.h. $(\forall x: x \in L_1 \implies x \in L_2) \wedge (L_1 \neq L_2)$
@@ -95,7 +95,7 @@
 }
 
 {\setbeamercolor{palette primary}{bg=ExColor}
-\begin{frame}[fragile]{Lösung}
+\begin{frame}<handout:0>[fragile]{Lösung}
     \begin{alertblock}{Aufgaben}
         Z.z. $L_1 = L_2 \cap L_3$\\
         d.h. $\forall w \in \{a,b\}^*: w \in L_1 \iff w \in L_2 \wedge w \in L_3$
