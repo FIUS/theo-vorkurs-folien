@@ -5,8 +5,8 @@
     \begin{alertblock}{Zeige Aussagen der Form:\\\emph{Für alle $n\in\mathbb{N}$ gilt...}}
     \begin{enumerate}
         \item Zeige Aussage für das kleinste Element
-        \item<1-> \only<7,8>{\alert<7>{Zeige, wenn Aussage für beliebiges $n$ gilt, gilt sie auch für dessen Nachfolger, also $n+1$.}}\onslide<1-6>{Zeige, dass Aussage auch für das folgende Element gilt.}
-        \item<2-6,8> \only<8>{\alert<8>{$\leadsto$ Aussage gilt für alle $n$.}}\onslide<2-6>{\small Zeige, dass Aussage auch für das folgende Element gilt.}
+        \item<1-> \only<7,8|handout:0>{\alert<7>{Zeige, wenn Aussage für beliebiges $n$ gilt, gilt sie auch für dessen Nachfolger, also $n+1$.}}\onslide<1-6>{Zeige, dass Aussage auch für das folgende Element gilt.}
+        \item<2-6,8> \only<8|handout:0>{\alert<8>{$\leadsto$ Aussage gilt für alle $n$.}}\onslide<2-6>{\small Zeige, dass Aussage auch für das folgende Element gilt.}
         \item<3-6> \footnotesize Zeige, dass Aussage auch für das folgende Element gilt.
         \item<4-6> \scriptsize Zeige, dass Aussage auch für das folgende Element gilt.
         \item<5-6> \tiny Zeige, dass Aussage auch für das folgende Element gilt.
@@ -119,7 +119,7 @@ Zeigen Sie $\displaystyle\sum_{i = 0}^{n} (2i+1) = (n+1)^2,\quad\forall n \in\ma
 
 %\subsubsection{Lösungen normal}
 {\setbeamercolor{palette primary}{bg=ExColor}
-\begin{frame}[fragile]{Lösungen: normale Aufgabe}
+\begin{frame}<handout:0>[fragile]{Lösungen: normale Aufgabe}
     Zu zeigen: $\displaystyle\sum_{i=0}^{n} i = \frac{n(n+1)}{2}$ gilt für alle $n \in \mathbb{N}$.
     \begin{alertblock}{Induktionsanfang IA}
         Aussage gilt für $n\defeq 0$, da $\displaystyle\sum_{i=0}^{0} i = 0 = \frac{0(0+1)}{2}$.
@@ -134,7 +134,7 @@ Zeigen Sie $\displaystyle\sum_{i = 0}^{n} (2i+1) = (n+1)^2,\quad\forall n \in\ma
 \end{frame}
 
 
-\begin{frame}[fragile]{Lösungen: normale Aufgabe}
+\begin{frame}<handout:0>[fragile]{Lösungen: normale Aufgabe}
 \small\begin{alertblock}{Induktionsschritt}
     Zeige Aussage gilt für $n+1$ unter Nutzung der I.V.:
     \begin{align*}
@@ -149,7 +149,7 @@ Zeigen Sie $\displaystyle\sum_{i = 0}^{n} (2i+1) = (n+1)^2,\quad\forall n \in\ma
 \end{frame}
 
 
-\begin{frame}[fragile]{Lösungen: normale Aufgabe}
+\begin{frame}<handout:0>[fragile]{Lösungen: normale Aufgabe}
     Zu zeigen: $\displaystyle\sum_{i=0}^{n} i = \frac{n(n+1)}{2}$ gilt für alle $n \in \mathbb{N}$.
     \begin{alertblock}{Induktionsanfang IA}
         Aussage gilt für $n\defeq 0$, da $\displaystyle\sum_{i=0}^{0} i = 0 = \frac{0(0+1)}{2}$.
@@ -171,7 +171,7 @@ Zeigen Sie $\displaystyle\sum_{i = 0}^{n} (2i+1) = (n+1)^2,\quad\forall n \in\ma
 
 %\subsubsection{Lösungen schwerer}
 {\setbeamercolor{palette primary}{bg=ExColor}
-\begin{frame}[fragile]{Lösungen: schwerere Aufgabe}
+\begin{frame}<handout:0>[fragile]{Lösungen: schwerere Aufgabe}
     Zu zeigen: $\displaystyle\prod_{i=1}^{n} 4^i = 2^{n(n+1)}$, für alle $n \in \mathbb{N}\setminus \{0\}$.
     \begin{alertblock}{Induktionsanfang IA}
         Aussage gilt für $n\defeq 1$, da $\displaystyle\prod_{i=1}^{1} 4^i = 4^1 = 4 = 2^2 = 2^{1(1+1)}$.
@@ -185,7 +185,7 @@ Zeigen Sie $\displaystyle\sum_{i = 0}^{n} (2i+1) = (n+1)^2,\quad\forall n \in\ma
     \end{alertblock}
 \end{frame}
 
-\begin{frame}[fragile]{Lösungen: schwerere Aufgabe}
+\begin{frame}<handout:0>[fragile]{Lösungen: schwerere Aufgabe}
 \small\begin{alertblock}{Induktionsschritt}
     Zeige Aussage gilt für $n+1$ unter Nutzung der I.V.:
     \begin{align*}
@@ -201,7 +201,7 @@ Zeigen Sie $\displaystyle\sum_{i = 0}^{n} (2i+1) = (n+1)^2,\quad\forall n \in\ma
 \end{frame}
 
 
-\begin{frame}[fragile]{Lösungen: schwerere Aufgabe}
+\begin{frame}<handout:0>[fragile]{Lösungen: schwerere Aufgabe}
      Zu zeigen: $\displaystyle\prod_{i=1}^{n} 4^i = 2^{n(n+1)}$, für alle $n \in \mathbb{N}\setminus \{0\}$.
     \begin{alertblock}{Induktionsanfang IA}
         Aussage gilt für $n\defeq 1$, da $\displaystyle\prod_{i=1}^{1} 4^i = 4^1 = 4 = 2^2 = 2^{1(1+1)}$.
