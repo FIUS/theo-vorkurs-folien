@@ -11,7 +11,7 @@
 \end{frame}
 
 
-\begin{frame}{Automaten: Formal}
+\begin{frame}{Automaten: Formal - Beispiel}
 \begin{columns}
     \column{0.5\textwidth}
         \alert{$L_1=\{a^{n}b^{m} \mid n,m \in \mathbb{N}\}$}\\
@@ -19,7 +19,7 @@
         \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=1.5cm,semithick]
         \node [initial,state,accepting]   (0)              {$q_0$};
         \node [state,accepting]           (1) [right of=0] {$q_1$};
-        \node [state]                     (2) [below of=0] {$F$};
+        \node [state]                     (2) [below of=1] {$F$};
         
         \path   (0) edge                    node {b}    (1)
                     edge [loop above]       node {a}    (0)
@@ -94,7 +94,7 @@
 \begin{frame}{Automaten und Grammatiken}
     \metroset{block=fill}
     \begin{exampleblock}{Satz}
-    Jede durch \only<6->{\alert<6>{deterministische }}endliche Automaten erkennbare Sprache ist auch regulär (also Typ 3).
+    Jede durch \only<6->{\alert<6>{deterministische}} endliche Automaten erkennbare Sprache ist auch regulär (also Typ 3).
     \end{exampleblock}
 	\onslide<2-> %
     Sei \alert<2>{$A \subseteq \SigmaStern$} eine Sprache und \alert<2>{M ein \only<-5>{Automat}\only<6->{\alert<6>{DEA}}} mit \alert<2-3>{$\mathbf{T(M) = A}$}.\\
@@ -133,8 +133,8 @@
 		Beim Lesen des \textcolor<5>{mLightBrown}{letzten Buchstabens} wird in einen \textcolor<5>{mLightBrown}{Endzustand} übergegangen
 		& Beim Erzeugen des \textcolor<5>{mLightBrown}{letzten Buchstabens} wird \textcolor<5>{mLightBrown}{keine neue Variable} erzeugt
 		\onslide<6-> \\\hline
-		Ansonsten wird in jedem Schritt \textcolor<6>{mLightBrown}{aus einem Zustand in genau einen Zustand} übergegangen
-		& Ansonsten wird in jedem Schritt \textcolor<6>{mLightBrown}{aus einer Variable genau eine Variable} erzeugt
+		In jedem Schritt wird \textcolor<6>{mLightBrown}{aus einem Zustand in genau einen Zustand} übergegangen
+		& In jedem Schritt wird \textcolor<6>{mLightBrown}{aus einer Variable genau eine Variable} erzeugt
 	\end{tabular}\end{center}
 \end{frame}
 
