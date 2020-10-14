@@ -1,0 +1,124 @@
+\begin{frame}{Automaten: Formal}
+  Ein \textbf{DEA M} lässt sich beschreiben durch ein geordnetes 5-Tupel\\
+  \alert{$M=(Z, \Sigma, \delta, z_0, E)$} mit:
+  \begin{itemize}
+    \item $Z$: Die Menge der Zustände
+    \item $\Sigma$: Das Alphabet
+    \item $\delta$: Die Überführungsfunktion
+    \item $z_0$: Der Startzustand
+    \item $E$: Die Menge der Endzustände
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Automaten: Formal - Beispiel}
+  \begin{columns}
+    \column{0.5\textwidth}
+    \alert{$L_1=\{a^{n}b^{m} \mid n,m \in \mathbb{N}\}$}\\
+    \vspace{0.6cm}
+    \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=1.5cm,semithick]
+      \node [initial,state,accepting]   (0)              {$q_0$};
+      \node [state,accepting]           (1) [right of=0] {$q_1$};
+      \node [state]                     (2) [below of=1] {$F$};
+
+      \path   (0) edge                    node {b}    (1)
+      edge [loop above]       node {a}    (0)
+      (1) edge                    node {a}    (2)
+      edge [loop above]       node {b}    (1)
+      (2) edge [loop right]       node {a,b}  (2);
+    \end{tikzpicture}
+
+    \column{0.5\textwidth}
+    \alert{$M=(Z, \Sigma, \delta, q_0, E)$} mit:
+    \begin{itemize}
+      \item<2-> \alert<2>{$Z=\{q_0, q_1, F\}$}
+      \item<3-> \alert<3>{$\Sigma=\{a, b\}$}
+      \item<4-> \alert<4>{$\delta$:
+              \begin{itemize}
+                \item $\delta(q_0, a)=q_0$
+                \item $\delta(q_0, b)=q_1$
+                \item $\delta(q_1, a)=F$
+                \item $\delta(q_1, b)=q_1$
+                \item $\delta(F, a)=F$
+                \item $\delta(F, b)=F$
+              \end{itemize}}
+      \item<5-> \alert<5>{$E=\{q_0, q_1\}$}
+    \end{itemize}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Kurz selbst denken...}
+  \begin{columns}
+    \column{0.5\textwidth}
+    \alert{$L_2=\{w \in \{a, b\}^* \mid |w|=3\}$}\\
+    %TÖDÖ Töröööööt Benjamin der kleiner Elefant fragt Janette: Ey machst du automat amk!
+
+    \vspace{0.6cm}
+    \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=1.5cm,semithick]
+      \node [initial,state]   (0)              {$q_0$};
+      \node [state]           (1) [below of=0] {$q_1$};
+      \node [state]           (2) [below of=1] {$q_2$};
+      \node [state,accepting] (3) [below of=2] {$q_E$};
+      \node [state]           (f) [right of=3] {$F$};
+
+      \path   (0) edge                node {a,b}  (1)
+      (1) edge                node {a,b}  (2)
+      (2) edge                node {a,b}  (3)
+      (3) edge                node {a,b}  (f)
+      (f) edge [loop above]   node {a,b} (f);
+    \end{tikzpicture}
+
+    \column{0.5\textwidth}
+    \alert{$M=(Z, \Sigma, \delta, q_0, E)$} mit:
+    \begin{itemize}
+      \item<2-> \alert<2>{$Z=\{q_0, q_1, q_2, q_E, F\}$}
+      \item<3-> \alert<3>{$\Sigma=\{a, b\}$}
+      \item<4-> \alert<4>{$\delta$:
+              \begin{itemize}
+                \item $\delta(q_0, a)=q_1$
+                \item $\delta(q_0, b)=q_1$
+                \item $\delta(q_1, a)=q_2$
+                \item $\delta(q_1, b)=q_2$
+                \item $\delta(q_2, a)=q_3$
+                \item $\delta(q_2, b)=q_3$
+                \item $\delta(q_E, a)=F$
+                \item $\delta(q_E, b)=F$
+                \item $\delta(F, a)=F$
+                \item $\delta(F, b)=F$
+              \end{itemize}}
+      \item<5-> \alert<5>{$E=\{q_E\}$}
+    \end{itemize}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Automaten und Grammatiken: Parallelen}
+  Wir stellen einige Parallelen fest:
+  % note: \alert or \usebeamercolor[fg]{alerted text} inside p-columns breaks layout
+  % default alert color of metropolis is mLightBrown
+  \begin{center}\begin{tabular}{p{.46\textwidth}|p{.46\textwidth}}
+      \textbf{Endliche Automaten} & \textbf{Reguläre Grammatiken}
+      \onslide<2->                                                                                                                                                 \\\hline
+      Wörter werden \textcolor<2>{mLightBrown}{von links nach rechts} gelesen
+                                  & Wörter werden \textcolor<2>{mLightBrown}{von links nach rechts} erzeugt
+      \onslide<3->                                                                                                                                                 \\\hline
+      \textcolor<3>{mLightBrown}{Pro Schritt} wird \textcolor<3>{mLightBrown}{ein Buchstabe} gelesen
+                                  & \textcolor<3>{mLightBrown}{Pro Schritt} wird \textcolor<3>{mLightBrown}{ein Buchstabe} erzeugt
+      \onslide<4->                                                                                                                                                 \\\hline
+      \textcolor<4>{mLightBrown}{Ein Startzustand}
+                                  & \textcolor<4>{mLightBrown}{Ein Startsymbol}
+      \onslide<5->                                                                                                                                                 \\\hline
+      Beim Lesen des \textcolor<5>{mLightBrown}{letzten Buchstabens} wird in einen \textcolor<5>{mLightBrown}{Endzustand} übergegangen
+                                  & Beim Erzeugen des \textcolor<5>{mLightBrown}{letzten Buchstabens} wird \textcolor<5>{mLightBrown}{keine neue Variable} erzeugt
+      \onslide<6->                                                                                                                                                 \\\hline
+      In jedem Schritt wird \textcolor<6>{mLightBrown}{aus einem Zustand in genau einen Zustand} übergegangen
+                                  & In jedem Schritt wird \textcolor<6>{mLightBrown}{aus einer Variable genau eine Variable} erzeugt
+    \end{tabular}\end{center}
+\end{frame}
+
+\begin{frame}{Automaten und Grammatiken}
+  \metroset{block=fill}
+  \begin{exampleblock}{Satz}
+    Jede durch deterministische endliche Automaten erkennbare Sprache ist auch regulär (also Typ 3).
+  \end{exampleblock}
+  Der Beweis dieses Satzes findet sich im Anhang
+\end{frame}
