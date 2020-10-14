@@ -46,7 +46,17 @@ Wir können weitere Regeln formulieren, mit denen wir von einem gegebenen Startp
     \begin{exampleblock}{$L_2 = \{a, b\}^*$}
     $\onslide<5->{P=\{S \rightarrow  aS \only<6->{\mid bS}\only<7->{\mid \emptyWord}\}}$
     \end{exampleblock}
-    }
+	}
+    \only<8->{
+	\begin{exampleblock}{$L_3 = \{a^nbbc^m\;|\;n, m\in\mathbb{N}\}$}
+	$\begin{aligned}
+		\onslide<9->{P=\{ S & \rightarrow  ABC,}\\
+		\onslide<10->{A & \rightarrow aA \mid \emptyWord,} \\
+		\onslide<11->{B & \rightarrow bb,} \\
+		\onslide<12->{C & \rightarrow cC \mid \emptyWord \} }			
+	\end{aligned}$
+	\end{exampleblock}
+	}
 \end{frame}
 
 {\setbeamercolor{palette primary}{bg=ExColor}
