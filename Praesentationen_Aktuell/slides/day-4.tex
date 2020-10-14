@@ -100,7 +100,7 @@
         \node[accepting,state](qe){$q_E$};
         \end{tikzpicture} & Endzustand & Hier kann ein fertig gelesenes Wort akzeptiert werden. \\
         \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm,semithick,baseline=(qi.base)]
-        \node[state](qi){$\emptyset$};
+        \node[state](qi){$q_f$};
         \path (qi) edge [loop right] node {$x \in \Sigma$} (B);
         \end{tikzpicture} & Fangzustand & wird benötigt, um Determinismus zu gewährleisten. In Graphiken oft nicht eingezeichnet, ist aber da. Malt den hin. \\
     \bottomrule
