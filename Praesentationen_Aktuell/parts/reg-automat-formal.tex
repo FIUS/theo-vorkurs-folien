@@ -19,7 +19,7 @@
     \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=1.5cm,semithick]
       \node [initial,state,accepting]   (0)              {$q_0$};
       \node [state,accepting]           (1) [right of=0] {$q_1$};
-      \node [state]                     (2) [below of=1] {$F$};
+      \node [state]                     (2) [below of=1] {$q_f$};
 
       \path   (0) edge                    node {b}    (1)
       edge [loop above]       node {a}    (0)
@@ -31,16 +31,16 @@
     \column{0.5\textwidth}
     \alert{$M=(Z, \Sigma, \delta, q_0, E)$} mit:
     \begin{itemize}
-      \item<2-> \alert<2>{$Z=\{q_0, q_1, F\}$}
+      \item<2-> \alert<2>{$Z=\{q_0, q_1, q_f\}$}
       \item<3-> \alert<3>{$\Sigma=\{a, b\}$}
       \item<4-> \alert<4>{$\delta$:
               \begin{itemize}
                 \item $\delta(q_0, a)=q_0$
                 \item $\delta(q_0, b)=q_1$
-                \item $\delta(q_1, a)=F$
+                \item $\delta(q_1, a)=q_f$
                 \item $\delta(q_1, b)=q_1$
-                \item $\delta(F, a)=F$
-                \item $\delta(F, b)=F$
+                \item $\delta(F, a)=q_f$
+                \item $\delta(F, b)=q_f$
               \end{itemize}}
       \item<5-> \alert<5>{$E=\{q_0, q_1\}$}
     \end{itemize}
@@ -65,7 +65,7 @@
         \node [state]           (1) [below of=0] {$q_1$};
         \node [state]           (2) [below of=1] {$q_2$};
         \node [state,accepting] (3) [below of=2] {$q_E$};
-        \node [state]           (f) [right of=3] {$F$};
+        \node [state]           (f) [right of=3] {$q_f$};
 
         \path   (0) edge                node {a,b}  (1)
         (1) edge                node {a,b}  (2)
@@ -82,7 +82,7 @@
     \metroset{block=fill}
     \alert{$M=(Z, \Sigma, \delta, q_0, E)$} mit:
     \begin{itemize}
-      \item<2-> \alert<2>{$Z=\{q_0, q_1, q_2, q_E, F\}$}
+      \item<2-> \alert<2>{$Z=\{q_0, q_1, q_2, q_E, q_f\}$}
       \item<3-> \alert<3>{$\Sigma=\{a, b\}$}
       \item<4-> \alert<4>{$\delta$:
               \vspace{-0.2cm}
@@ -93,10 +93,10 @@
                 \item $\delta(q_1, b)=q_2$
                 \item $\delta(q_2, a)=q_3$
                 \item $\delta(q_2, b)=q_3$
-                \item $\delta(q_E, a)=F$
-                \item $\delta(q_E, b)=F$
-                \item $\delta(F, a)=F$
-                \item $\delta(F, b)=F$
+                \item $\delta(q_E, a)=q_f$
+                \item $\delta(q_E, b)=q_f$
+                \item $\delta(F, a)=q_f$
+                \item $\delta(F, b)=q_f$
               \end{itemize}}
       \item<5-> \alert<5>{$E=\{q_E\}$}
     \end{itemize}
