@@ -31,9 +31,9 @@
     \column{0.5\textwidth}
     \alert{$M=(Z, \Sigma, \delta, q_0, E)$} mit:
     \begin{itemize}
-      \item<2-> \alert<2>{$Z=\{q_0, q_1, q_f\}$}
-      \item<3-> \alert<3>{$\Sigma=\{a, b\}$}
-      \item<4-> \alert<4>{$\delta$:
+      \item<2-|handout:1> \alert<2|handout:0>{$Z=\{q_0, q_1, q_f\}$}
+      \item<3-|handout:1> \alert<3|handout:0>{$\Sigma=\{a, b\}$}
+      \item<4-|handout:1> \alert<4|handout:0>{$\delta$:
               \begin{itemize}
                 \item $\delta(q_0, a)=q_0$
                 \item $\delta(q_0, b)=q_1$
@@ -42,7 +42,7 @@
                 \item $\delta(F, a)=q_f$
                 \item $\delta(F, b)=q_f$
               \end{itemize}}
-      \item<5-> \alert<5>{$E=\{q_0, q_1\}$}
+      \item<5-|handout:1> \alert<5|handout:0>{$E=\{q_0, q_1\}$}
     \end{itemize}
   \end{columns}
 \end{frame}
@@ -77,29 +77,31 @@
     \end{block}
 
     \column{0.5\textwidth}
-    \begin{alertblock}{Lösung}
-    \end{alertblock}
-    \metroset{block=fill}
-    \alert{$M=(Z, \Sigma, \delta, q_0, E)$} mit:
-    \begin{itemize}
-      \item<2-> \alert<2>{$Z=\{q_0, q_1, q_2, q_E, q_f\}$}
-      \item<3-> \alert<3>{$\Sigma=\{a, b\}$}
-      \item<4-> \alert<4>{$\delta$:
-              \vspace{-0.2cm}
-              \begin{itemize}
-                \item $\delta(q_0, a)=q_1$
-                \item $\delta(q_0, b)=q_1$
-                \item $\delta(q_1, a)=q_2$
-                \item $\delta(q_1, b)=q_2$
-                \item $\delta(q_2, a)=q_3$
-                \item $\delta(q_2, b)=q_3$
-                \item $\delta(q_E, a)=q_f$
-                \item $\delta(q_E, b)=q_f$
-                \item $\delta(F, a)=q_f$
-                \item $\delta(F, b)=q_f$
-              \end{itemize}}
-      \item<5-> \alert<5>{$E=\{q_E\}$}
-    \end{itemize}
+    \only<2-|handout:0>{
+      \begin{alertblock}{Lösung}
+      \end{alertblock}
+      \metroset{block=fill}
+      \alert{$M=(Z, \Sigma, \delta, q_0, E)$} mit:
+      \begin{itemize}
+        \item<3-> \alert<2>{$Z=\{q_0, q_1, q_2, q_E, q_f\}$}
+        \item<4-> \alert<3>{$\Sigma=\{a, b\}$}
+        \item<5-> \alert<4>{$\delta$:
+                \vspace{-0.2cm}
+                \begin{itemize}
+                  \item $\delta(q_0, a)=q_1$
+                  \item $\delta(q_0, b)=q_1$
+                  \item $\delta(q_1, a)=q_2$
+                  \item $\delta(q_1, b)=q_2$
+                  \item $\delta(q_2, a)=q_3$
+                  \item $\delta(q_2, b)=q_3$
+                  \item $\delta(q_E, a)=q_f$
+                  \item $\delta(q_E, b)=q_f$
+                  \item $\delta(F, a)=q_f$
+                  \item $\delta(F, b)=q_f$
+                \end{itemize}}
+        \item<6-> \alert<5>{$E=\{q_E\}$}
+      \end{itemize}
+    }
   \end{columns}
 \end{frame}}
 
@@ -109,20 +111,20 @@
   % default alert color of metropolis is mLightBrown
   \begin{center}\begin{tabular}{p{.46\textwidth}|p{.46\textwidth}}
       \textbf{DEA} & \textbf{Reguläre Grammatiken}
-      \onslide<2->                                                                                                                                  \\\hline
+      \onslide<2-|handout:1>                                                                                                                        \\\hline
       Wörter werden \textcolor<2>{mLightBrown}{von links nach rechts} gelesen
-                   & Wörter werden \textcolor<2>{mLightBrown}{von links nach rechts} erzeugt
-      \onslide<3->                                                                                                                                  \\\hline
+                   & Wörter werden \textcolor<2|handout:0>{mLightBrown}{von links nach rechts} erzeugt
+      \onslide<3-|handout:1>                                                                                                                        \\\hline
       \textcolor<3>{mLightBrown}{Pro Schritt} wird \textcolor<3>{mLightBrown}{ein Buchstabe} gelesen
-                   & \textcolor<3>{mLightBrown}{Pro Schritt} wird \textcolor<3>{mLightBrown}{ein Buchstabe} erzeugt
-      \onslide<4->                                                                                                                                  \\\hline
-      \textcolor<4>{mLightBrown}{Ein Startzustand}
-                   & \textcolor<4>{mLightBrown}{Ein Startsymbol}
-      \onslide<5->                                                                                                                                  \\\hline
-      Beim Lesen des \textcolor<5>{mLightBrown}{letzten Buchstabens} wird in einen \textcolor<5>{mLightBrown}{Endzustand} übergegangen
+                   & \textcolor<3|handout:0>{mLightBrown}{Pro Schritt} wird \textcolor<3>{mLightBrown}{ein Buchstabe} erzeugt
+      \onslide<4-|handout:1>                                                                                                                        \\\hline
+      \textcolor<4|handout:0>{mLightBrown}{Ein Startzustand}
+                   & \textcolor<4|handout:0>{mLightBrown}{Ein Startsymbol}
+      \onslide<5-|handout:1>                                                                                                                        \\\hline
+      Beim Lesen des \textcolor<5|handout:0>{mLightBrown}{letzten Buchstabens} wird in einen \textcolor<5>{mLightBrown}{Endzustand} übergegangen
                    & Beim Erzeugen des \textcolor<5>{mLightBrown}{letzten Buchstabens} wird \textcolor<5>{mLightBrown}{keine neue Variable} erzeugt
-      \onslide<6->                                                                                                                                  \\\hline
-      In jedem Schritt wird \textcolor<6>{mLightBrown}{aus einem Zustand in genau einen Zustand} übergegangen
+      \onslide<6-|handout:1>                                                                                                                        \\\hline
+      In jedem Schritt wird \textcolor<6|handout:0>{mLightBrown}{aus einem Zustand in genau einen Zustand} übergegangen
                    & In jedem Schritt wird \textcolor<6>{mLightBrown}{aus einer Variable genau eine Variable} erzeugt
     \end{tabular}\end{center}
 \end{frame}
