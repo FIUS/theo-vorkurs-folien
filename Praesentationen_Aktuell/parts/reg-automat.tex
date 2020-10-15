@@ -134,9 +134,9 @@
                 \framebox{EG$\nearrow$1.OG} , \framebox{EG$\nearrow$2.OG} , \framebox{1.OG$\searrow$EG} , \framebox{1.OG$\nearrow$2.OG} , \framebox{2.OG$\searrow$EG} , \\\qquad\quad\;\framebox{2.OG$\searrow$1.OG} , \framebox{OFF}
             \end{footnotesize}$\}$
             \begin{itemize}
-     		    \item Der Aufzug startet vom Erdgeschoss und darf sich nur aus Stockwerken bewegen, in denen er sich befindet.
-				\item Der Aufzug kann nur im Erdgeschoss ausgeschaltet werden. Er kann dann keine Bewegung durchführen. 
-				\item Der Aufzug muss ausgeschaltet werden.
+                \item Der Aufzug startet vom Erdgeschoss und darf sich nur aus Stockwerken bewegen, in denen er sich befindet.
+                \item Der Aufzug kann nur im Erdgeschoss ausgeschaltet werden. Er kann dann keine Bewegung durchführen.
+                \item Der Aufzug muss ausgeschaltet werden.
             \end{itemize}
         \end{alertblock}
         % \begin{footnotesize}
@@ -156,7 +156,7 @@
             \node [state,accepting] (E) [right of=0] {$q_E$};
 
             \path   (0) edge [bend left=10,pos=0.6] node {\footnotesize\framebox{EG$\nearrow$1.OG}} (1)
-            edge [pos=0.7]      node {\footnotesize\framebox{OFF}} (E)
+            edge [below]      node {\footnotesize\framebox{OFF}} (E)
             edge [bend left=90] node {\footnotesize\framebox{EG$\nearrow$2.OG}} (2)
             (1) edge [bend left=10,pos=0.4] node {\footnotesize\framebox{1.OG$\nearrow$2.OG}}(2)
             edge [bend left=10,pos=0.4] node {\footnotesize\framebox{1.OG$\searrow$EG}} (0)
