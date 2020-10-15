@@ -9,16 +9,15 @@
     \begin{block}{Normal}
         \begin{itemize}
             \item Was ist der Unterschied zwischen $\Sigma$ und $\Sigma^*$?
-            \item Welche besondere Eigenschaft besitzt das leere Wort $\epsilon$? Insbesondere: Welchen Wert besitzt $|\epsilon|$?
-            \item Welchen Wert besitzt $|\epsilon \cdot a^2 \cdot \epsilon \cdot bab|_a$?
+            \item Welche besondere Eigenschaft besitzt das leere Wort $\emptyWord$? Insbesondere: Welchen Wert besitzt $|\emptyWord|$?
+            \item Welchen Wert besitzt $|\emptyWord \cdot a^2 \cdot \emptyWord \cdot bab|_a$?
         \end{itemize}
     \end{block}
-    \metroset{block=fill}
-    \begin{block}{Etwas Schwerer}
-        \begin{itemize}
-            \item Für welche $n \in \mathbb{N}$ gilt $a^n = a^3 \cdot \epsilon \cdot a^{n-3}$?
-        \end{itemize}
-    \end{block}
+%    \begin{block}{Etwas Schwerer}
+%        \begin{itemize}
+%            \item Für welche $n \in \mathbb{N}$ gilt $a^n = a^3 \cdot \emptyWord \cdot a^{n-3}$?
+%        \end{itemize}
+%    \end{block}
 \end{frame}
 }
 
@@ -31,52 +30,40 @@
         \end{block}
         \begin{enumerate}
             \item[i)] Das \alert{Alphabet} $\Sigma$ ist eine nichtleere Menge einstelliger Symbole.
-            \item[ii)] $\Sigma^*$ ist die Menge aller möglichen Kombinationen (bzgl. der Konkatenation) der Elemente aus $\Sigma$.
-                  Insbesondere gilt hier $\epsilon \in \Sigma^*$.
+            \item[ii)] $\Sigma^*$ ist die Menge aller möglichen Kombinationen (bzgl. der Konkatenation) der Elemente aus $\Sigma$.\\
+            Insbesondere gilt hier $\emptyWord \in \Sigma^*$.
         \end{enumerate}
     }
 
     \only<2>{
         \metroset{block=fill}
         \begin{block}{Normal}
-            Welche besondere Eigenschaft besitzt das leere Wort $\epsilon$? Insbesondere: Welchen Wert besitzt $|\epsilon|$?
+            Welche besondere Eigenschaft besitzt das leere Wort $\emptyWord$? Insbesondere: Welchen Wert besitzt $|\emptyWord|$?
         \end{block}
-        $\epsilon$ ist das neutrale Element bzgl. der Konkatenation. Das heißt:
+        $\emptyWord$ ist das neutrale Element bzgl. der Konkatenation. Das heißt:
         \begin{align*}
-            \forall w \in \Sigma^*: w = w \cdot \epsilon = \epsilon \cdot w
+            \forall w \in \Sigma^*: w = w \cdot \emptyWord = \emptyWord \cdot w
         \end{align*}
         Insbesondere gilt also:
         \begin{align*}
-            \forall w \in \Sigma^*: |w| = |w \cdot \epsilon| = |w| + |\epsilon|
+            \forall w \in \Sigma^*: |w| = |w \cdot \emptyWord| = |w| + |\emptyWord|
         \end{align*}
-        womit $|\epsilon| = 0$ gelten muss.
+        womit $|\emptyWord| = 0$ gelten muss.
     }
 
     \only<3>{
         \metroset{block=fill}
         \begin{block}{Normal}
-            Welchen Wert besitzt $|\epsilon \cdot a^2 \cdot \epsilon \cdot bab|_a$?
+            Welchen Wert besitzt $|\emptyWord \cdot a^2 \cdot \emptyWord \cdot bab|_a$?
         \end{block}
         Zunächst schreiben wir
         \begin{align*}
-            \epsilon \cdot a^2 \cdot \epsilon \cdot bab = a^2bab = aabab
+            \emptyWord \cdot a^2 \cdot \emptyWord \cdot bab = a^2bab = aabab
         \end{align*}
         und zählen anschließend die vorkommenden $a$'s. Also
         \begin{align*}
-            |\epsilon \cdot a^2 \cdot \epsilon \cdot bab|_a = |aabab|_a = 3
+            |\emptyWord \cdot a^2 \cdot \emptyWord \cdot bab|_a = |aabab|_a = 3.
         \end{align*}
-    }
-
-    \only<4>{
-        \metroset{block=fill}
-        \begin{block}{Etwas Schwerer}
-            Für welche $n \in \mathbb{N}$ gilt $a^n = a^3 \cdot \epsilon \cdot a^{n-3}$?
-        \end{block}
-        Für $n \in \{0, 1, 2\}$ ist $a^{n-3}$ nicht definiert. Für alle anderen $n$ (also $n \geq 3$) gilt jedoch
-        \begin{align*}
-            a^3 \cdot \epsilon \cdot a^{n-3} = a^3 a^{n-3} = a^n.
-        \end{align*}
-        Somit gilt die Aussage für alle $n \geq 3$.
     }
 \end{frame}
 }
@@ -150,8 +137,8 @@
             \end{align*}
         \end{block}
         \begin{center}
-            \only<6>{$\epsilon, a, b, aa, ab, aaa, aab, aba, abb, ...$}
-            \only<7>{$\epsilon, ab, aabb, a^3b^3, a^4b^4, ...$}
+            \only<6>{$\emptyWord, a, b, aa, ab, aaa, aab, aba, abb, ...$}
+            \only<7>{$\emptyWord, ab, aabb, a^3b^3, a^4b^4, ...$}
             \only<8>{Keine Wörter; $\emptyset$}
             \only<9>{$aaa, baaa, abaa, aaba, aaab, a^7, ...$}
         \end{center}
@@ -169,8 +156,8 @@
     \metroset{block=fill}
     \begin{block}{Normal}
         \begin{itemize}
-            \item $\neg (42 = 11) \wedge (|\epsilon| > 0 \vee \emptyset^* = \{\epsilon\})$
-            \item $\forall w \in \{a, b\}^*: (|w|_a = 0 \implies w = \epsilon)$
+            \item $\neg (42 = 11) \wedge (|\emptyWord| > 0 \vee \emptyset^* = \{\emptyWord\})$
+            \item $\forall w \in \{a, b\}^*: (|w|_a = 0 \implies w = \emptyWord)$
             \item $\forall w \in \{a, b\}^*: (|w|_a = 0 \implies ab = ba)$
             \item $(\forall w \in \{a, b\}^*: |w|_a = 0) \implies ab = ba$
         \end{itemize}
@@ -179,7 +166,7 @@
     \begin{block}{Schwer}
         \begin{itemize}
             \item $\forall x \in \mathbb{Z}: x \equiv 0 \pmod{2} \vee x \equiv 1 \pmod{4}$
-            \item $\forall w \in \{a, b\}^*: \left(\left(\exists u \in \{a,b\}^*: uw \neq u\right) \implies w \neq \epsilon\right)$
+            \item $\forall w \in \{a, b\}^*: \left(\left(\exists u \in \{a,b\}^*: uw \neq u\right) \implies w \neq \emptyWord\right)$
         \end{itemize}
     \end{block}
 \end{frame}
@@ -191,8 +178,8 @@
         \metroset{block=fill}
         \begin{block}{Normal}
             \begin{align*}
-                \only<1>{\neg (42 = 11) \wedge (|\epsilon| > 0 \vee \emptyset^* = \{\epsilon\})}
-                \only<2>{\forall w \in \{a, b\}^*: (|w|_a = 0 \implies w = \epsilon)}
+                \only<1>{\neg (42 = 11) \wedge (|\emptyWord| > 0 \vee \emptyset^* = \{\emptyWord\})}
+                \only<2>{\forall w \in \{a, b\}^*: (|w|_a = 0 \implies w = \emptyWord)}
                 \only<3>{\forall w \in \{a, b\}^*: (|w|_a = 0 \implies ab = ba)}
                 \only<4>{(\forall w \in \{a, b\}^*: |w|_a = 0) \implies ab = ba}
             \end{align*}
@@ -207,7 +194,7 @@
         \begin{block}{Schwer}
             \begin{align*}
                 \only<5>{\forall x \in \mathbb{Z}: x \equiv 0 \pmod{2} \vee x \equiv 1 \pmod{4}}
-                \only<6>{\forall w \in \{a, b\}^*: \left(\left(\exists u \in \{a,b\}^*: uw \neq u\right) \implies w \neq \epsilon\right)}
+                \only<6>{\forall w \in \{a, b\}^*: \left(\left(\exists u \in \{a,b\}^*: uw \neq u\right) \implies w \neq \emptyWord\right)}
             \end{align*}
         \end{block}
         \begin{center}

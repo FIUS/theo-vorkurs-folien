@@ -164,16 +164,21 @@
             \item $A_1:\ L\left(\left(a|a\right)^*\right) = L\left(\left(aa\right)^*\right)$
             \item $A_2:\ L\left(\left(a|b\right)^*\right) = L\left(\left(a\right)^*|\left(b\right)^*\right)$
             \item $A_3:\
-                      L\left(\left(b\left(a|b\right)^*\right)|\left(b\left(a|b\right)^*\right)\right) = \left\{a,b\right\}^*$
+                      L\left(\left(a\left(a|b\right)^*\right)|\left(b\left(a|b\right)^*\right)\right) = \left\{a,b\right\}^*$
         \end{itemize}
     \end{block}
     \begin{block}{Schwer}
         \begin{itemize}
-            \item $A_4:\
-                      L\left(\left(a|b\right)^*\right) = L\left(\left(\left(a\right)^*b\right)^*\left(a\right)^*\right)$
-            \item $A_5:\ L\left(a\left(a|b\right)^*|b\left(a|b\right)^*\right) = \left\{a,b\right\}^*$
+        	\item $A_4:\ L\left(\left(\emptyWord | aaa\right)^*a\left(\left(\left(aaa\right)^* | \left(\emptyWord\right)^*|aaa\right)\right)\right) = \left\{a^{n} \mid n \equiv 1 \pmod 3\right\}^*$
+
         \end{itemize}
     \end{block}
+	    \begin{block}{Sehr Schwer}
+		\begin{itemize}
+            \item $A_5:\
+			L\left(\left(a|b\right)^*\right) = L\left(\left(\left(a\right)^*b\right)^*\left(a\right)^*\right)$
+		\end{itemize}
+	\end{block}
 \end{frame}
 }
 
@@ -182,9 +187,9 @@
     \begin{itemize}[<+- | alert@+>]
         \item $A_1$: falsch
         \item $A_2$: falsch
-        \item $A_3$: wahr
-        \item $A_4$: falsch
-        \item $A_5$: falsch
+        \item $A_3$: falsch
+        \item $A_4$: wahr
+        \item $A_5$: wahr
     \end{itemize}
 \end{frame}
 }
