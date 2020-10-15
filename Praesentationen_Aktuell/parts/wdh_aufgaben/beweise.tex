@@ -1,0 +1,61 @@
+{\setbeamercolor{palette primary}{bg=ExColor}
+\begin{frame}[fragile]{Beweise}
+    \begin{alertblock}{Aufgaben}
+        Zeige die folgenden Aussagen
+    \end{alertblock}
+    \metroset{block=fill}
+    \begin{block}{Normal}
+        Sei $L = \{a^nb^n \mid n \in \mathbb{N}\}$, dann gilt:
+        \begin{align*}
+            \forall w \in \{a, b\}^*: \left(w \in L \implies |w| \text{ ist gerade}\right)
+        \end{align*}
+    \end{block}
+    \metroset{block=fill}
+    \begin{block}{Schwer}
+        \begin{align*}
+            \forall x \in \mathbb{Z}: x \equiv 0 \pmod{2} \vee x^2 \equiv 1 \pmod{4}
+        \end{align*}
+    \end{block}
+\end{frame}
+}
+
+{\setbeamercolor{palette primary}{bg=ExColor}
+\begin{frame}[fragile]{Lösungen}
+    \metroset{block=fill}
+    \begin{block}{Normal}
+        Sei $L = \{a^nb^n \mid n \in \mathbb{N}\}$, dann gilt:
+        \begin{align*}
+            \forall w \in \{a, b\}^*: \left(w \in L \implies |w| \text{ ist gerade}\right)
+        \end{align*}
+    \end{block}
+    Sei $w \in \{a,b\}^*$ beliebig mit $w \in L$.\\
+    Laut Definition von $L$ existiert ein $n \in \mathbb{N}$ sodass $w = a^nb^n$.\\
+    Dann gilt:
+    \begin{align*}
+        |w| = |a^nb^n| = 2n 
+    \end{align*}
+    Insbesondere ist $|w|$ also gerade. \qed
+\end{frame}
+}
+
+{\setbeamercolor{palette primary}{bg=ExColor}
+\begin{frame}[fragile]{Lösungen}
+    \metroset{block=fill}
+    \begin{block}{Schwer}
+        \begin{align*}
+            \forall x \in \mathbb{Z}: x \equiv 0 \pmod{2} \vee x^2 \equiv 1 \pmod{4}
+        \end{align*}
+    \end{block}
+    Sei $x \in \mathbb{Z}$ beliebig.
+    \begin{enumerate}
+        \item[i)] Sei $x \equiv 0 \pmod{2}$: Dann sind wir schon fertig.
+        \item[ii)] Sei $x \equiv 1 \pmod{2}$: Dann können wir $x$ schreiben als $x = 2k + 1$ für ein $k \in \mathbb{Z}$.
+        Es gilt:
+        \begin{align*}
+            x^2 = (2k+1)^2 = 4k^2 + 4k + 1 = 4(k^2 + k) + 1
+        \end{align*}  
+        Also folgt unmittelbar laut Definition $x^2 \equiv 4(k^2 + k) + 1 \equiv 1 \pmod{4}$.
+    \end{enumerate}
+    Somit ist die Behauptung bewiesen. \qed
+\end{frame}
+}

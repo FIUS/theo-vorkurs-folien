@@ -164,7 +164,6 @@
     \begin{block}{Schwer}
         \begin{itemize}
             \item $\forall x \in \mathbb{Z}: x \equiv 0 \pmod{2} \vee x \equiv 1 \pmod{4}$
-            \item $\forall x \in \mathbb{Z}: x \equiv 0 \pmod{2} \vee x^2 \equiv 1 \pmod{4}$
         \end{itemize}
     \end{block}
 \end{frame}
@@ -189,30 +188,16 @@
             \item richtig
         \end{itemize}
     }
-    \only<5-6>{
+    \only<5>{
         \metroset{block=fill}
         \begin{block}{Schwer}
             \begin{align*}
                 \only<5>{\forall x \in \mathbb{Z}: x \equiv 0 \pmod{2} \vee x \equiv 1 \pmod{4}}
-                \only<6>{\forall x \in \mathbb{Z}: x \equiv 0 \pmod{2} \vee x^2 \equiv 1 \pmod{4}}
             \end{align*}
         \end{block}
         \only<5>{
             Die Aussage ist falsch!\\
             Gegenbeispiel $x = 3$, dann ist $x \equiv 1 \pmod{2}$ und $x \equiv 3 \pmod{4}$.
-        }
-        \only<6>{
-            Die Aussage ist wahr! (Eine ähnliche Aussage wurde an Tag 2 bewiesen)\\
-            Sei $x \in \mathbb{Z}$ beliebig.
-            \begin{enumerate}
-                \item[i)] Sei $x \equiv 0 \pmod{2}$: Dann sind wir schon fertig.
-                \item[ii)] Sei $x \equiv 1 \pmod{2}$: Dann können wir $x$ schreiben als $x = 2k + 1$ für ein $k \in \mathbb{Z}$.
-                Es gilt:
-                \begin{align*}
-                    x^2 = (2k+1)^2 = 4k^2 + 4k + 1 = 4(k^2 + k) + 1
-                \end{align*}  
-                Also folgt unmittelbar laut Definition $x^2 \equiv 4(k^2 + k) + 1 \equiv 1 \pmod{4}$.
-            \end{enumerate}
         }
     }
 \end{frame}
