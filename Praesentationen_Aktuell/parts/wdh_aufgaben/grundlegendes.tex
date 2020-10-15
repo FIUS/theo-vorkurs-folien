@@ -104,45 +104,43 @@
 
 {\setbeamercolor{palette primary}{bg=ExColor}
 \begin{frame}[fragile]{Lösungen}
-    \only<1-5>{
-        \begin{alertblock}{Aufgaben}
-            Welche der folgenden Aussage ist korrekt?
-        \end{alertblock}
+    \metroset{block=fill}
+    \begin{block}{Normal}
+        \begin{align*}
+            \only<1>{a \in \{a, b, c\}}
+            \only<2>{a \subseteq \{a, b, c\}}
+            \only<3>{\{a,b\} \in \{a, b, \{a, b\}, c\}}
+            \only<4>{\{a,b\} \subseteq \{a, b, \{a, b\}, c\}}
+            \only<5>{\{\{a,b\}\} \subseteq \{a, b, \{a, b\}, c\}}
+        \end{align*}
+    \end{block}
+    \begin{itemize}[<+- | alert@+>]
+        \item wahr
+        \item geht nicht
+        \item wahr
+        \item wahr
+        \item wahr
+    \end{itemize}
+\end{frame}
+}
+
+{\setbeamercolor{palette primary}{bg=ExColor}
+\begin{frame}[fragile]{Lösungen}
         \metroset{block=fill}
         \begin{block}{Normal}
             \begin{align*}
-                \only<1>{a \in \{a, b, c\}}
-                \only<2>{a \subseteq \{a, b, c\}}
-                \only<3>{\{a,b\} \in \{a, b, \{a, b\}, c\}}
-                \only<4>{\{a,b\} \subseteq \{a, b, \{a, b\}, c\}}
-                \only<5>{\{\{a,b\}\} \subseteq \{a, b, \{a, b\}, c\}}
+                \only<3>{&}\only<1,3>{L_1 = \{a^nb^m \mid n, m \in \mathbb{N}\}}\only<3>{\\}
+                \only<3>{&}\only<2,3>{L_2 = \{a^nb^n \mid n \in \mathbb{N}\}}\only<3>{\\}
+                \only<3>{&}\only<3>{L_3 = L_1 \backslash L_2}
+                \only<4>{L_4 = \{w \in \{a,b\}^* \mid |w|_a \equiv 3 \pmod{4}\}}
             \end{align*}
         \end{block}
-        \begin{center}
-            \only<1, 3,4,5>{\alert{wahr}}
-            \only<2>{\alert{falsch}}
-        \end{center}
-    }
-    \only<6-9>{
-        \begin{alertblock}{Aufgaben}
-            Nenne jeweils 5 Wörter aus den folgenden Sprachen
-        \end{alertblock}
-        \metroset{block=fill}
-        \begin{block}{Normal}
-            \begin{align*}
-                \only<6>{L_1 = \{a^nb^m \mid n, m \in \mathbb{N}\}}
-                \only<7>{L_2 = \{a^nb^n \mid n \in \mathbb{N}\}}
-                \only<8>{L_3 = L_1 \backslash L_2}
-                \only<9>{L_4 = \{w \in \{a,b\}^* \mid |w|_a \equiv 3 \pmod{4}\}}
-            \end{align*}
-        \end{block}
-        \begin{center}
-            \only<6>{$\emptyWord, a, b, aa, ab, aaa, aab, aba, abb, ...$}
-            \only<7>{$\emptyWord, ab, aabb, a^3b^3, a^4b^4, ...$}
-            \only<8>{Keine Wörter; $\emptyset$}
-            \only<9>{$aaa, baaa, abaa, aaba, aaab, a^7, ...$}
-        \end{center}
-    }
+        \begin{itemize}[<+- | alert@+>]
+            \item $\emptyWord, a, b, aa, ab, aaa, aab, aba, abb, ...$
+            \item $\emptyWord, ab, aabb, a^3b^3, a^4b^4, ...$
+            \item Keine Wörter; $\emptyset$
+            \item $aaa, baaa, abaa, aaba, aaab, a^7, ...$
+        \end{itemize}
 \end{frame}
 }
 
@@ -166,7 +164,7 @@
     \begin{block}{Schwer}
         \begin{itemize}
             \item $\forall x \in \mathbb{Z}: x \equiv 0 \pmod{2} \vee x \equiv 1 \pmod{4}$
-            \item $\forall w \in \{a, b\}^*: \left(\left(\exists u \in \{a,b\}^*: uw \neq u\right) \implies w \neq \emptyWord\right)$
+            \item $\forall x \in \mathbb{Z}: x \equiv 0 \pmod{2} \vee x^2 \equiv 1 \pmod{4}$
         \end{itemize}
     \end{block}
 \end{frame}
@@ -184,23 +182,38 @@
                 \only<4>{(\forall w \in \{a, b\}^*: |w|_a = 0) \implies ab = ba}
             \end{align*}
         \end{block}
-        \begin{center}
-            \only<1,4>{\alert{wahr}}
-            \only<2,3>{\alert{falsch}}
-        \end{center}
+        \begin{itemize}[<+- | alert@+>]
+            \item richtig
+            \item falsch
+            \item falsch
+            \item richtig
+        \end{itemize}
     }
     \only<5-6>{
         \metroset{block=fill}
         \begin{block}{Schwer}
             \begin{align*}
                 \only<5>{\forall x \in \mathbb{Z}: x \equiv 0 \pmod{2} \vee x \equiv 1 \pmod{4}}
-                \only<6>{\forall w \in \{a, b\}^*: \left(\left(\exists u \in \{a,b\}^*: uw \neq u\right) \implies w \neq \emptyWord\right)}
+                \only<6>{\forall x \in \mathbb{Z}: x \equiv 0 \pmod{2} \vee x^2 \equiv 1 \pmod{4}}
             \end{align*}
         \end{block}
-        \begin{center}
-            \only<5>{\alert{falsch}}
-            \only<6>{\alert{wahr}}
-        \end{center}
+        \only<5>{
+            Die Aussage ist falsch!\\
+            Gegenbeispiel $x = 3$, dann ist $x \equiv 1 \pmod{2}$ und $x \equiv 3 \pmod{4}$.
+        }
+        \only<6>{
+            Die Aussage ist wahr! (Eine ähnliche Aussage wurde an Tag 2 bewiesen)\\
+            Sei $x \in \mathbb{Z}$ beliebig.
+            \begin{enumerate}
+                \item[i)] Sei $x \equiv 0 \pmod{2}$: Dann sind wir schon fertig.
+                \item[ii)] Sei $x \equiv 1 \pmod{2}$: Dann können wir $x$ schreiben als $x = 2k + 1$ für ein $k \in \mathbb{Z}$.
+                Es gilt:
+                \begin{align*}
+                    x^2 = (2k+1)^2 = 4k^2 + 4k + 1 = 4(k^2 + k) + 1
+                \end{align*}  
+                Also folgt unmittelbar laut Definition $x^2 \equiv 4(k^2 + k) + 1 \equiv 1 \pmod{4}$.
+            \end{enumerate}
+        }
     }
 \end{frame}
 }
