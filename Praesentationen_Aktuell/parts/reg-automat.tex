@@ -155,13 +155,13 @@
             \node [state]           (2) [above of=1] {$q_2$};
             \node [state,accepting] (E) [right of=0] {$q_E$};
 
-            \path   (0) edge [bend left=10,pos=0.6] node {\footnotesize\framebox{EG$\nearrow$1.OG}} (1)
+            \path   (0) edge [bend left=10] node [rotate=90,above] {\footnotesize\framebox{EG$\nearrow$1.OG}} (1)
             edge [below]      node {\footnotesize\framebox{OFF}} (E)
-            edge [bend left=90] node {\footnotesize\framebox{EG$\nearrow$2.OG}} (2)
-            (1) edge [bend left=10,pos=0.4] node {\footnotesize\framebox{1.OG$\nearrow$2.OG}}(2)
-            edge [bend left=10,pos=0.4] node {\footnotesize\framebox{1.OG$\searrow$EG}} (0)
-            (2) edge [bend left=10,pos=0.6] node {\footnotesize\framebox{2.OG$\searrow$1.OG}}(1)
-            edge [bend left=90] node {\footnotesize\framebox{2.OG$\searrow$EG}} (0);
+            edge [bend left=70] node {\footnotesize\framebox{EG$\nearrow$2.OG}} (2)
+            (1) edge [bend left=10] node [rotate=90,above] {\footnotesize\framebox{1.OG$\nearrow$2.OG}} (2)
+            edge [bend left=10] node [rotate=90,below] {\footnotesize\framebox{1.OG$\searrow$EG}} (0)
+            (2) edge [bend left=10] node [rotate=90,below] {\footnotesize\framebox{2.OG$\searrow$1.OG}}(1)
+            edge [bend left=70] node {\footnotesize\framebox{2.OG$\searrow$EG}} (0);
         \end{tikzpicture}
     \end{center}
 \end{frame}
