@@ -18,27 +18,68 @@
         \end{itemize}
     \end{alertblock}
     \metroset{block=fill}
-    \begin{exampleblock}{Beispiel}
-        $\gamma = ((a|b)^* \mid \emptyWord) \implies aba \in L(\gamma)$
+    \begin{exampleblock}{Beispiele Syntax}
+        \begin{itemize}
+            \item $\gamma_1 = (a | b) baa (ab)^*$
+            \item $\gamma_2 = ((\epsilon | baa (b | bb)) aa)^*$
+        \end{itemize}
     \end{exampleblock}
 \end{frame}
 
-\begin{frame}{Reguläre Ausdrücke verwenden}
-    \begin{exampleblock}{Wie Sprachen und reguläre Ausdrücke zusammenhängen}
-        \footnotesize
+\begin{frame}{Bedeutung von Regulären Ausdrücken}
+    \metroset{block=fill}
+    \begin{block}{Die einem Regulären Ausdruck zugeordnete Sprache}
+        Die Sprache welche von einem Regulären Ausdruck $\gamma$ beschrieben wird schreiben wir als $L(\gamma) \subseteq \Sigma^*$.
+    \end{block}
+        Wir bauen Reguläre Ausdrücke schrittweise auf und erklären dabei die Bedeutung der einzelnen Bausteine:
+        \metroset{block=fill}
+        \begin{block}{Bedeutung von Regulären Ausdrücken}
+            \begin{itemize}[<+- | alert@+>]
+                \item Sei $\gamma = \emptyset$: Dann ist $L(\gamma) = \emptyset$
+                \item Sei $\gamma = \epsilon$: Dann ist $L(\gamma) = \{\epsilon\}$
+                \item Sei $\gamma = a$ für ein $a \in \Sigma$: Dann ist $L(\gamma) = \{a\}$
+            \end{itemize}
+        \end{block}
+\end{frame}
+
+\begin{frame}{Bedeutung von Regulären Ausdrücken}
+    \metroset{block=fill}
+    \begin{block}{Bedeutung von Regulären Ausdrücken}
+        Seien $\alpha$ und $\beta$ bereits Reguläre Ausdrücke, dann ist:
         \begin{itemize}[<+- | alert@+>]
-            \item Wenn $\gamma = \emptyset$, beschreibt es die leere Sprache: $L(\gamma) = \{\}$
-            \item Wenn $\gamma$ ein einzelnes Wort ist, ist genau dieses Wort in der Sprache enthalten.\\
-                  $\gamma = \emptyWord$: $L(\gamma)=\{\emptyWord\}$,\quad$\gamma = a$: $L(\gamma)=\{a\}$
-            \item Wenn $\gamma$ aus zwei hintereinandergeschrieben Ausdrücken besteht, repräsentiert Konkatenation.\\
-                  $\gamma = (a)^*b: L(\gamma)=\{a^nb \mid n \in \mathbb{N}\}$
-            \item Wenn $\gamma$ aus zwei mit \glqq oder\grqq\ verknüpften Ausdrücken besteht, sind beide Seiten in der Sprache enthalten.\\
-                  $\gamma = (a \mid bc)$: $L(\gamma)=\{a, bc\}$
-            \item Wenn $\gamma$ ein Ausdruck mit einem Stern ist, kann dieser innere Ausdruck beliebig oft wiederholt werden (auch null mal).\\
-                  $\gamma = (a)^*$: $L(\gamma)=\{\emptyWord, a, aa, aaa, ...\}=\{a\}^*$
-            \item Alles zusammen --- $\gamma = ((a)^* \mid (bc)^*)$: $L(\gamma)=\{\emptyWord, a, bc, aa, bcbc, aaa, ...\} = \{a\}^* \cup \{bc\}^*$
+            \item Sei $\gamma = (\alpha \mid \beta)$: Dann ist $L(\gamma) = L(\alpha) \cup L(\beta)$
+            \item Sei $\gamma = (\alpha)^*$: Dann ist $L(\gamma) = L(\alpha)^*$
+            \item Sei $\gamma = \alpha \beta$: Dann ist $L(\gamma) = \{uv \mid u \in L(\alpha) \wedge v \in L(\beta)\}$
         \end{itemize}
-    \end{exampleblock}
+    \end{block}
+        \metroset{block=fill}
+        \begin{block}{
+            \only<1>{Beispiele $\gamma = (\alpha \mid \beta)$}
+            \only<2>{Beispiele $\gamma = (\alpha)^*$}
+            \only<3>{Beispiele $\gamma = \alpha \beta$}
+        }
+            \only<1>{
+                \begin{itemize}
+                    \item $L(a | b) = \{a, b\}$
+                    \item $L((aab | baba) | a) = \{aab, baba, a\}$
+                \end{itemize}
+            }
+            \only<2>{
+                \begin{itemize}
+                    \item $L((a)^*) = \{a\}^* = \{a^n \mid n \in \mathbb{N}\}$
+                    \item $L((abaa)^*) = \{abaa\}^* = \{w^n \mid n \in \mathbb{N}, w = abaa\}$
+                    \item $L((a | b)^*) = (L(a | b))^* = \{a,b\}^*$
+                    \item $L((a)^* | (b)^*) = L((a)^*) \cup L((b)^*) = \{a\}^* \cup \{b\}^*$
+                \end{itemize}
+            }
+            \only<3>{
+                \begin{itemize}
+                    \item $L(ababba) = \{ababba\}$
+                    \item $L((a)^*(b)^*) = \{a^n b^m \mid n, m \in \mathbb{N}\}$
+                    \item $L((bab \mid (ab)^*) abb) = \{bababb\} \cup \{(ab)^n abb \mid n \in \mathbb{N}\}$
+                \end{itemize}
+            }
+        \end{block}
 \end{frame}
 
 {\setbeamercolor{palette primary}{bg=ExColor}
