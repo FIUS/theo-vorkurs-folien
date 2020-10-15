@@ -1,0 +1,16 @@
+{\setbeamercolor{palette primary}{bg=ExColor}
+\begin{frame}[fragile]{Lösungen}
+    \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=1.5cm,semithick]
+        \node [initial,state]   (0)              {$q_0$};
+        \node [state]           (1) [above right of=0] {$q_1$};
+        \node [state,accepting] (2) [right of=1] {$q_2$};
+        \node [state]           (3) [below right of=0] {$q_3$};
+        \node [state,accepting] (4) [right of=3] {$q_4$};
+
+        \path   (0) edge                node {a}  (1)
+        (1) edge                node {a}  (2)
+        (0) edge                node {b}  (3)
+        (3) edge                node {b}  (4);
+    \end{tikzpicture}
+\end{frame}
+}
