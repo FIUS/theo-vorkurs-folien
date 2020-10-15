@@ -47,33 +47,45 @@
   \end{columns}
 \end{frame}
 
-\begin{frame}{Kurz selbst denken...}
+{\setbeamercolor{palette primary}{bg=ExColor}
+\begin{frame}{Automaten: Formal - Aufgabe}
+  \footnotesize
   \begin{columns}
     \column{0.5\textwidth}
-    \alert{$L_2=\{w \in \{a, b\}^* \mid |w|=3\}$}\\
-    %TÖDÖ Töröööööt Benjamin der kleiner Elefant fragt Janette: Ey machst du automat amk!
+    \begin{alertblock}{Aufgabe}
+    \end{alertblock}
+    \metroset{block=fill}
+    \begin{block}{Normal}
+      \alert{$L_2=\{w \in \{a, b\}^* \mid |w|=3\}$}
+      %TÖDÖ Töröööööt Benjamin der kleiner Elefant fragt Janette: Ey machst du automat amk!
 
-    \vspace{0.6cm}
-    \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=1.5cm,semithick]
-      \node [initial,state]   (0)              {$q_0$};
-      \node [state]           (1) [below of=0] {$q_1$};
-      \node [state]           (2) [below of=1] {$q_2$};
-      \node [state,accepting] (3) [below of=2] {$q_E$};
-      \node [state]           (f) [right of=3] {$F$};
+      \vspace{0.1cm}
+      \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=1.5cm,semithick]
+        \node [initial,state]   (0)              {$q_0$};
+        \node [state]           (1) [below of=0] {$q_1$};
+        \node [state]           (2) [below of=1] {$q_2$};
+        \node [state,accepting] (3) [below of=2] {$q_E$};
+        \node [state]           (f) [right of=3] {$F$};
 
-      \path   (0) edge                node {a,b}  (1)
-      (1) edge                node {a,b}  (2)
-      (2) edge                node {a,b}  (3)
-      (3) edge                node {a,b}  (f)
-      (f) edge [loop above]   node {a,b} (f);
-    \end{tikzpicture}
+        \path   (0) edge                node {a,b}  (1)
+        (1) edge                node {a,b}  (2)
+        (2) edge                node {a,b}  (3)
+        (3) edge                node {a,b}  (f)
+        (f) edge [loop above]   node {a,b} (f);
+      \end{tikzpicture}
+      \vspace{0.1cm}
+    \end{block}
 
     \column{0.5\textwidth}
+    \begin{alertblock}{Lösung}
+    \end{alertblock}
+    \metroset{block=fill}
     \alert{$M=(Z, \Sigma, \delta, q_0, E)$} mit:
     \begin{itemize}
       \item<2-> \alert<2>{$Z=\{q_0, q_1, q_2, q_E, F\}$}
       \item<3-> \alert<3>{$\Sigma=\{a, b\}$}
       \item<4-> \alert<4>{$\delta$:
+              \vspace{-0.2cm}
               \begin{itemize}
                 \item $\delta(q_0, a)=q_1$
                 \item $\delta(q_0, b)=q_1$
@@ -89,7 +101,7 @@
       \item<5-> \alert<5>{$E=\{q_E\}$}
     \end{itemize}
   \end{columns}
-\end{frame}
+\end{frame}}
 
 \begin{frame}{Automaten und Grammatiken: Parallelen}
   Wir stellen einige Parallelen fest:
