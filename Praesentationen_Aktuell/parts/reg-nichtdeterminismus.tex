@@ -142,24 +142,25 @@
         \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm,
                 semithick]
             \node [initial,state]   (s)                     {$s$};
-            \node [state, accepting](q0) [above right= 0.75cm and 2cm of s] {$q_0$};
+            \node [state, accepting](q0) [above right= 1cm and 2cm of s] {$q_0$};
             \node [state]           (q1) [right of=q0]      {$q_1$};
             \node [state]           (q2) [right of=q1]      {$q_2$};
 
-            \node [state]           (p0) [below right= 0.75cm and 2cm of s] {$p_0$};
+            \node [state]           (p0) [below right= 1cm and 2cm of s] {$p_0$};
             \node [state, accepting]           (p1) [right of=p0]      {$p_1$};
 
             \path       (s) edge                node[above] {a}     (q0)
             edge                node[below] {a,b}   (p0)
-            edge[bend left]     node[above] {a}     (p1)
+            edge[bend left=10]     node[above,pos=0.75] {a}     (p1)
             (q0)edge                node {a}    (q1)
             edge[loop above]    node {b}    (q0)
             (q1)edge                node {a}    (q2)
             edge[loop above]    node {b}    (q1)
-            (q2)edge[bend left]     node[below] {a}    (q0)
+            (q2)edge[bend left=23]     node[below,pos=0.75] {a}    (q0)
             edge[loop above]    node {b}    (q2)
             (p0)edge                node {a}    (p1)
-            edge[loop above]    node {a,b}  (p0);
+            edge[loop below]    node {a,b}  (p0)
+            (s) edge [bend right=17] node [below right] {b} (q2);
 
         \end{tikzpicture}
     \end{alertblock}
