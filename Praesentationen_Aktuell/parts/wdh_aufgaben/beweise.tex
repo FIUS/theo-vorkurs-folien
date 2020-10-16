@@ -1,7 +1,7 @@
 {\setbeamercolor{palette primary}{bg=ExColor}
 \begin{frame}[fragile]{Beweise}
     \begin{alertblock}{Aufgaben}
-        Zeige die folgenden Aussagen
+        Versuche dich an folgenden Mengenbeweisen.
     \end{alertblock}
     \metroset{block=fill}
     \begin{block}{Normal}
@@ -21,41 +21,47 @@
 
 {\setbeamercolor{palette primary}{bg=ExColor}
 \begin{frame}[fragile]{Lösungen}
-    \metroset{block=fill}
-    \begin{block}{Normal}
-        Sei $L = \{a^nb^n \mid n \in \mathbb{N}\}$, dann gilt:
-        \begin{align*}
-            \forall w \in \{a, b\}^*: \left(w \in L \implies |w| \text{ ist gerade}\right)
-        \end{align*}
-    \end{block}
-    Sei $w \in \{a,b\}^*$ beliebig mit $w \in L$.\\
-    Laut Definition von $L$ existiert ein $n \in \mathbb{N}$ sodass $w = a^nb^n$.\\
-    Dann gilt:
-    \begin{align*}
-        |w| = |a^nb^n| = |a^n| + |b^n| = n+n = 2n 
-    \end{align*}
-    Insbesondere ist $|w|$ also gerade. \qed
+    \begin{alertblock}{Aufgabe}
+		z.Z.: Sei $L = \{a^nb^n \mid n \in \mathbb{N}\}$, dann gilt:\\
+		$\forall w \in \{a, b\}^*: \left(w \in L \implies |w| \text{ ist gerade}\right)$
+	\end{alertblock}
+	\metroset{block=fill}
+    \begin{alertblock}{Beweis}
+    	\begin{enumerate}
+    		\item<1-> Sei $w \in \{a,b\}^*$ beliebig.\\
+    		\item<2-> Angenommen,  $w \in L$.\\
+    		\item<3-> Dann existiert ein $n \in \mathbb{N}$ so, dass $w = a^nb^n$.\\
+    		\item<4-> Insbesondere gilt:
+    		\begin{align*}
+    		|w| = |a^nb^n| = |a^n| + |b^n| = n+n = 2n 
+    		\end{align*}
+    		\item<5-> Folglich ist $|w|$ gerade. \qed
+    	\end{enumerate}
+    \end{alertblock}
 \end{frame}
 }
 
 {\setbeamercolor{palette primary}{bg=ExColor}
-\begin{frame}[fragile]{Lösungen}
-    \metroset{block=fill}
-    \begin{block}{Schwer}
-        \begin{align*}
-            \forall x \in \mathbb{Z}: x \equiv 0 \pmod{2} \vee x^2 \equiv 1 \pmod{4}
-        \end{align*}
-    \end{block}
-    Sei $x \in \mathbb{Z}$ beliebig.
-    \begin{enumerate}
-        \item[i)] Sei $x \equiv 0 \pmod{2}$: Dann sind wir schon fertig.
-        \item[ii)] Sei $x \equiv 1 \pmod{2}$: Dann können wir $x$ schreiben als $x = 2k + 1$ für ein $k \in \mathbb{Z}$.
-        Es gilt:
-        \begin{align*}
-            x^2 = (2k+1)^2 = 4k^2 + 4k + 1 = 4(k^2 + k) + 1
-        \end{align*}  
-        Also folgt unmittelbar laut Definition $x^2 \equiv 4(k^2 + k) + 1 \equiv 1 \pmod{4}$.
-    \end{enumerate}
-    Somit ist die Behauptung bewiesen. \qed
-\end{frame}
+	\begin{frame}[fragile]{Lösungen}
+		\begin{alertblock}{Aufgabe}
+			z.Z.: $\forall x \in \mathbb{Z}: x \equiv 0 \pmod{2} \vee x^2 \equiv 1 \pmod{4}$
+		\end{alertblock}
+		\metroset{block=fill}
+		\begin{alertblock}{Beweis}
+			\begin{enumerate}
+				\item<1-> Sei $x \in \mathbb{Z}$ beliebig.
+				\item<2->
+					\begin{enumerate}
+						\item[i)]<2-> Sei $x \equiv 0 \pmod{2}$: Dann sind wir schon fertig.
+						\item[ii)]<3-> Sei $x \equiv 1 \pmod{2}$: Dann können wir $x$ schreiben als $x = 2k + 1$ für ein $k \in \mathbb{Z}$.
+						Es gilt:
+						\begin{align*}
+						x^2 = (2k+1)^2 = 4k^2 + 4k + 1 = 4(k^2 + k) + 1
+						\end{align*}  
+						Also folgt unmittelbar laut Definition $x^2 \equiv 4(k^2 + k) + 1 \equiv 1 \pmod{4}$.
+					\end{enumerate}
+				\item<4-> Somit ist die Behauptung bewiesen. \qed
+			\end{enumerate}
+		\end{alertblock}
+	\end{frame}
 }
