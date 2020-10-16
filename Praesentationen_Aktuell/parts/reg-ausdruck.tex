@@ -19,9 +19,9 @@
     \end{alertblock}
     \metroset{block=fill}
     \begin{exampleblock}{Beispiele für die Syntax}
-    	Reguläre Ausdrücke können zum Beispiel so aussehen...
+        Reguläre Ausdrücke können zum Beispiel so aussehen...
         \begin{itemize}
- 
+
             \item $\gamma_1 = (a | b) baa (ab)^*$
             \item $\gamma_2 = ((\emptyWord | baa (b | bb)) aa)^*$
         \end{itemize}
@@ -31,58 +31,58 @@
 \begin{frame}{Bedeutung von Regulären Ausdrücken}
     \metroset{block=fill}
     \begin{block}{Reguläre Ausdrücke und Sprachen}
-    	Ein regulärer Ausdruck $\gamma$ beschreibt eine formale Sprache.\\
-    	Diese formale Sprache schreiben wir als $L(\gamma) \subset \Sigma^*$.
+        Ein regulärer Ausdruck $\gamma$ beschreibt eine formale Sprache.\\
+        Diese formale Sprache schreiben wir als $L(\gamma) \subset \Sigma^*$.
     \end{block}
-        Wir bauen Reguläre Ausdrücke schrittweise auf und erklären dabei die Bedeutung der einzelnen Bausteine:
-        \metroset{block=fill}
-        \begin{block}{Bedeutung von Regulären Ausdrücken}
-            \begin{itemize}[<+- | alert@+>]
-                \item Sei $\gamma = \emptyset$: Dann ist $L(\gamma) = \emptyset$
-                \item Sei $\gamma = \emptyWord$: Dann ist $L(\gamma) = \{\emptyWord\}$
-                \item Sei $\gamma = a$ für ein $a \in \Sigma$: Dann ist $L(\gamma) = \{a\}$
-            \end{itemize}
-        \end{block}
+    Wir bauen Reguläre Ausdrücke schrittweise auf und erklären dabei die Bedeutung der einzelnen Bausteine:
+    \metroset{block=fill}
+    \begin{block}{Bedeutung von Regulären Ausdrücken}
+        \begin{itemize}[<+- | alert@+>]
+            \item Sei $\gamma = \emptyset$: Dann ist $L(\gamma) = \emptyset$
+            \item Sei $\gamma = \emptyWord$: Dann ist $L(\gamma) = \{\emptyWord\}$
+            \item Sei $\gamma = a$ für ein $a \in \Sigma$: Dann ist $L(\gamma) = \{a\}$
+        \end{itemize}
+    \end{block}
 \end{frame}
 
 \begin{frame}{Bedeutung von regulären Ausdrücken}
     \metroset{block=fill}
     \begin{block}{Bedeutung von regulären Ausdrücken}
         Sind $\alpha$ und $\beta$ bereits reguläre Ausdrücke, so gilt:
-        \begin{itemize}[<+- | alert@+>]
+        \begin{itemize}[<+- | alert@+ | handout:+- | handout:alert@+>]
             \item Sei $\gamma = (\alpha \mid \beta)$: Dann ist $L(\gamma) = L(\alpha) \cup L(\beta)$
             \item Sei $\gamma = (\alpha)^*$: Dann ist $L(\gamma) = L(\alpha)^*$
             \item Sei $\gamma = \alpha \beta$: Dann ist $L(\gamma) = \{uv \mid u \in L(\alpha) \wedge v \in L(\beta)\}$
         \end{itemize}
     \end{block}
-        \metroset{block=fill}
-        \begin{exampleblock}{
-            \only<1>{Beispiel: $\gamma = (\alpha \mid \beta)$}
-            \only<2>{Beispiel: $\gamma = (\alpha)^*$}
-            \only<3>{Beispiel: $\gamma = \alpha \beta$}
+    \metroset{block=fill}
+    \begin{exampleblock}{
+            \only<1|handout:1>{Beispiel: $\gamma = (\alpha \mid \beta)$}
+            \only<2|handout:2>{Beispiel: $\gamma = (\alpha)^*$}
+            \only<3|handout:3>{Beispiel: $\gamma = \alpha \beta$}
         }
-            \only<1>{
-                \begin{itemize}
-                    \item $L(a | b) = \{a, b\}$
-                    \item $L((aab | baba) | a) = \{aab, baba, a\}$
-                \end{itemize}
-            }
-            \only<2>{
-                \begin{itemize}
-                    \item $L((a)^*) = \{a\}^* = \{a^n \mid n \in \mathbb{N}\}$
-                    \item $L((abaa)^*) = \{abaa\}^* = \{w^n \mid n \in \mathbb{N}, w = abaa\}$
-                    \item $L((a | b)^*) = (L(a | b))^* = \{a,b\}^*$
-                    \item $L((a)^* | (b)^*) = L((a)^*) \cup L((b)^*) = \{a\}^* \cup \{b\}^*$
-                \end{itemize}
-            }
-            \only<3>{
-                \begin{itemize}
-                    \item $L(ababba) = \{ababba\}$
-                    \item $L((a)^*(b)^*) = \{a^n b^m \mid n, m \in \mathbb{N}\}$
-                    \item $L((bab \mid (ab)^*) abb) = \{bababb\} \cup \{(ab)^n abb \mid n \in \mathbb{N}\}$
-                \end{itemize}
-            }
-        \end{exampleblock}
+        \only<1|handout:1>{
+            \begin{itemize}
+                \item $L(a | b) = \{a, b\}$
+                \item $L((aab | baba) | a) = \{aab, baba, a\}$
+            \end{itemize}
+        }
+        \only<2|handout:2>{
+            \begin{itemize}
+                \item $L((a)^*) = \{a\}^* = \{a^n \mid n \in \mathbb{N}\}$
+                \item $L((abaa)^*) = \{abaa\}^* = \{w^n \mid n \in \mathbb{N}, w = abaa\}$
+                \item $L((a | b)^*) = (L(a | b))^* = \{a,b\}^*$
+                \item $L((a)^* | (b)^*) = L((a)^*) \cup L((b)^*) = \{a\}^* \cup \{b\}^*$
+            \end{itemize}
+        }
+        \only<3|handout:3>{
+            \begin{itemize}
+                \item $L(ababba) = \{ababba\}$
+                \item $L((a)^*(b)^*) = \{a^n b^m \mid n, m \in \mathbb{N}\}$
+                \item $L((bab \mid (ab)^*) abb) = \{bababb\} \cup \{(ab)^n abb \mid n \in \mathbb{N}\}$
+            \end{itemize}
+        }
+    \end{exampleblock}
 \end{frame}
 
 {\setbeamercolor{palette primary}{bg=ExColor}
@@ -146,7 +146,7 @@
         \metroset{block=fill}
         \begin{block}{Welcher reguläre Ausdruck beschreibt $T(M)$?}
             \begin{enumerate}
-                \item \alert<2>{$(a|b(a)^*b)(a|b)^*$}
+                \item \alert<2|handout:0>{$(a|b(a)^*b)(a|b)^*$}
                 \item $a(ab)^*$
                 \item $(a|b(a)^*b)(b)^*$
                 \item $(a|b)^*$
