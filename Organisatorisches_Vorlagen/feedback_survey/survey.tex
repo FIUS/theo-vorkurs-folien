@@ -1,16 +1,23 @@
 \documentclass[a4paper, 11pt]{scrreprt}
 \usepackage{paperandpencil}
+\usepackage[ngerman]{babel}
 \usepackage[top=2.5cm,bottom=2.5cm,left=2cm,right=2cm]{geometry}
 \usepackage{graphicx}
 \pagestyle{plain}
 \begin{document}
 \pagenumbering{arabic}
 \setcounter{page}{1}
+
 \begin{figure}[h]
   \centering
   % \includegraphics{school_logo.png} Optional -uncomment to use
 \end{figure}
-\section*{Feedback - Vorkurs Theoretische Informatik}
+\section*{\LARGE Feedback - Vorkurs Theoretische Informatik}
+\vspace{1cm}
+
+\begin{tabular}{p{7cm}p{2.1cm}p{2.1cm}p{2.1cm}p{2.1cm}p{0.001cm}}
+  Ich war im Hörsaal... & $\Box$ 01 & $\Box$ 02 & $\Box$ 03 & $\Box$ 04
+\end{tabular}
 
 \question*{Welchen Studiengang und im wievielten Semester studierst du?}
 \fbox{\parbox[c][1cm]{\textwidth}{\phantom{.}}}
@@ -38,6 +45,7 @@
 \subsection*{Übungsaufgaben}
 \vertikalblockfour{stimme nicht zu}{stimme eher nicht zu}{stimme eher zu}{stimme zu}{
   \blocktextfour{Die Übungsaufgaben hatten einen Mehrwert für den Vorkurs.}
+  \blocktextfour{Ich habe die Übungsaufgaben verstanden.}
   \blocktextfour{Bei Fragen habe ich schnell Hilfe bekommen.}
   \blocktextfour{Bei Fragen konnte mir gut weitergeholfen werden.}
   \blocktextfour{Ich konnte mich mit den anderen Teilnehmern austauschen.}
@@ -57,13 +65,17 @@
   \blocktextfour{Die Folien waren verständlich.}
   \blocktextfour{Ich werde mir die Folien nach dem Vortrag nochmal anschauen.}
   \blocktextfour{Die Zusätzlichen Ausführungen der Vortragenden waren hilfreich.}
-  \blocktextfour{Die Vortragenden wirkten sympathisch..}
 }
 \vertikalblockfour{gar nicht}{selten}{fast immer}{täglich}{
-  \blocktextfour{Ich habe mir das Handout vorher angeschaut}
+  \blocktextfour{Ich habe mir das Handout vorher angeschaut.}
 }
 
 \subsection*{Themen}
+
+\vertikalblockthree{teilweise neu}{größtenteils neu}{alle\\neu}{
+  \blocktextthree{Die Themen waren mir...}
+}
+
 \question*{Wie gut hast du folgende Themenfelder verstanden?}
 \vertikalblockfour{gar nicht}{eher nicht}{grundsätzlich schon}{vollständig}{
   \blocktextfour{Formale Sprachen}
@@ -72,6 +84,12 @@
   \blocktextfour{Grammatiken}
   \blocktextfour{Automaten}
   \blocktextfour{Reguläre Ausdrücke}
+}
+
+\subsection*{Hygiene}
+\vertikalblockfour{stimme nicht zu}{stimme eher nicht zu}{stimme eher zu}{stimme zu}{
+  \blocktextfour{Die geltenen Hygieneregeln wurden verständlich erklärt.}
+  \blocktextfour{Für die Einhalung der Regeln wurde gesorgt.}
 }
 
 \question*{Warum hast du dich für die Variante in Präsenz enschieden?}
