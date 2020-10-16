@@ -1,5 +1,5 @@
 \begin{frame}[fragile]{mehr Möglichkeiten reguläre Sprachen zu beschreiben}
-    Graphen und \glqq Bilder\grqq\ sind oft nicht das optimale Mittel eine Sprache zu beschreiben.\\
+    Automaten und Mengenschreibweise sind oft nicht das optimale Mittel, eine Sprache zu beschreiben.\\
     Die \alert{regulären Ausdrücke} bieten uns eine Möglichkeit Sprachen schnell und intuitiv zu beschreiben.
     \begin{alertblock}{Funktionsweise}
         \begin{enumerate}
@@ -18,34 +18,37 @@
         \end{itemize}
     \end{alertblock}
     \metroset{block=fill}
-    \begin{exampleblock}{Beispiele Syntax}
+    \begin{exampleblock}{Beispiele für die Syntax}
+    	Reguläre Ausdrücke können zum Beispiel so aussehen...
         \begin{itemize}
+ 
             \item $\gamma_1 = (a | b) baa (ab)^*$
-            \item $\gamma_2 = ((\epsilon | baa (b | bb)) aa)^*$
+            \item $\gamma_2 = ((\emptyWord | baa (b | bb)) aa)^*$
         \end{itemize}
     \end{exampleblock}
 \end{frame}
 
 \begin{frame}{Bedeutung von Regulären Ausdrücken}
     \metroset{block=fill}
-    \begin{block}{Die einem Regulären Ausdruck zugeordnete Sprache}
-        Die Sprache welche von einem Regulären Ausdruck $\gamma$ beschrieben wird schreiben wir als $L(\gamma) \subseteq \Sigma^*$.
+    \begin{block}{Reguläre Ausdrücke und Sprachen}
+    	Ein regulärer Ausdruck $\gamma$ beschreibt eine formale Sprache.\\
+    	Diese formale Sprache schreiben wir als $L(\gamma) \subset \Sigma^*$.
     \end{block}
         Wir bauen Reguläre Ausdrücke schrittweise auf und erklären dabei die Bedeutung der einzelnen Bausteine:
         \metroset{block=fill}
         \begin{block}{Bedeutung von Regulären Ausdrücken}
             \begin{itemize}[<+- | alert@+>]
                 \item Sei $\gamma = \emptyset$: Dann ist $L(\gamma) = \emptyset$
-                \item Sei $\gamma = \epsilon$: Dann ist $L(\gamma) = \{\epsilon\}$
+                \item Sei $\gamma = \emptyWord$: Dann ist $L(\gamma) = \{\emptyWord\}$
                 \item Sei $\gamma = a$ für ein $a \in \Sigma$: Dann ist $L(\gamma) = \{a\}$
             \end{itemize}
         \end{block}
 \end{frame}
 
-\begin{frame}{Bedeutung von Regulären Ausdrücken}
+\begin{frame}{Bedeutung von regulären Ausdrücken}
     \metroset{block=fill}
-    \begin{block}{Bedeutung von Regulären Ausdrücken}
-        Seien $\alpha$ und $\beta$ bereits Reguläre Ausdrücke, dann ist:
+    \begin{block}{Bedeutung von regulären Ausdrücken}
+        Sind $\alpha$ und $\beta$ bereits reguläre Ausdrücke, so gilt:
         \begin{itemize}[<+- | alert@+>]
             \item Sei $\gamma = (\alpha \mid \beta)$: Dann ist $L(\gamma) = L(\alpha) \cup L(\beta)$
             \item Sei $\gamma = (\alpha)^*$: Dann ist $L(\gamma) = L(\alpha)^*$
@@ -53,10 +56,10 @@
         \end{itemize}
     \end{block}
         \metroset{block=fill}
-        \begin{block}{
-            \only<1>{Beispiele $\gamma = (\alpha \mid \beta)$}
-            \only<2>{Beispiele $\gamma = (\alpha)^*$}
-            \only<3>{Beispiele $\gamma = \alpha \beta$}
+        \begin{exampleblock}{
+            \only<1>{Beispiel: $\gamma = (\alpha \mid \beta)$}
+            \only<2>{Beispiel: $\gamma = (\alpha)^*$}
+            \only<3>{Beispiel: $\gamma = \alpha \beta$}
         }
             \only<1>{
                 \begin{itemize}
@@ -79,13 +82,13 @@
                     \item $L((bab \mid (ab)^*) abb) = \{bababb\} \cup \{(ab)^n abb \mid n \in \mathbb{N}\}$
                 \end{itemize}
             }
-        \end{block}
+        \end{exampleblock}
 \end{frame}
 
 {\setbeamercolor{palette primary}{bg=ExColor}
 \begin{frame}{Reguläre Ausdrücke}
     \begin{alertblock}{Aufgaben}
-        Finde einen regulären Ausdruck für die folgenden Sprachen
+        Finde einen regulären Ausdruck $\gamma_i$ für die folgenden Sprachen.
     \end{alertblock}
     \metroset{block=fill}
     \begin{block}{Normal}
@@ -108,8 +111,8 @@
 
 {\setbeamercolor{palette primary}{bg=ExColor}
 \begin{frame}<handout:0>{Lösung}
-    Alle Lösungen sind Beispiellösungen, es sind auch andere möglich.\\
-    Klammern die nicht zur Bedeutung beitragen, dürfen wir für die Kurzschreibweise weglassen.
+    Alle Lösungen sind Beispiellösungen - abweichende Lösungen sind möglich.\\
+    Klammern, die nicht zur Bedeutung beitragen, dürfen wir für die Kurzschreibweise weglassen.
     \begin{itemize}[<+- | alert@+>]
         \item $\gamma_1 = (aa)^*$
         \item $\gamma_2 = (a)^*(b)^*$
@@ -156,7 +159,7 @@
 {\setbeamercolor{palette primary}{bg=ExColor}
 \begin{frame}{Reguläre Ausdrücke}
     \begin{alertblock}{Aufgaben}
-        Begründe welche der folgenden Aussagen wahr/falsch sind:
+        Welche der folgenden Aussagen sind wahr/falsch? Begründe.
     \end{alertblock}
     \metroset{block=fill}
     \begin{block}{Normal}
