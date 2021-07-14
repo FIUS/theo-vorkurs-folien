@@ -8,3 +8,34 @@ FIUS-Wiki (hautsächlich Orga-Krams und Protokolle): https://fius.informatik.uni
 
 Webseite: https://fius.informatik.uni-stuttgart.de/dienste/theo-vorkurs/
 
+## Bauen der Folien
+### Mit GNU-Make
+Alles auszuführen im Verzeichnis `presentation`
+
+Einzelner Tag (Präsentation):
+```bash
+make day-x
+```
+
+Einzelner Tag (Handout):
+```bash
+make day-x-handout
+```
+
+Alle Tage:
+```bash
+make
+```
+
+### Ohne GNU-Make
+Alles auszuführen im Verzeichnis `presentation/slides`
+
+Einzelner Tag (Präsentation):
+```
+latexmk -pdf day-x.tex
+```
+
+Einzelner Tag (Handout):
+```
+latexmk -pdf day-x-handout.tex
+```
