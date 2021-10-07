@@ -40,11 +40,11 @@ Wir können weitere Regeln formulieren, mit denen wir von einem gegebenen Startp
     \end{alertblock}
     \metroset{block=fill}
     \begin{exampleblock}{$L_1 = \{a\}^*$}
-    $\onslide<2->{P=\{S \rightarrow aS \only<3->{\mid \emptyWord}\}}$
+    $\onslide<2->{P=\{S \rightarrow aS \only<3->{\mid \emptyWord\}}}$
     \end{exampleblock}
     \only<4->{
     \begin{exampleblock}{$L_2 = \{a, b\}^*$}
-    $\onslide<5->{P=\{S \rightarrow  aS \only<6->{\mid bS}\only<7->{\mid \emptyWord}\}}$
+    $\onslide<5->{P=\{S \rightarrow  aS \only<6->{\mid bS}\only<7->{\mid \emptyWord\}}}$
     \end{exampleblock}
 	}
     \only<8->{
@@ -97,7 +97,7 @@ Alle Lösungen sind Beispiellösungen, es sind auch andere möglich.
         $A\rightarrow cA \;|\; Ac \;|\; a$, 
         $B\rightarrow cB \;|\; Bc \;|\; b$\}}
         \item<7-> \alert<7>{$P_7 = \{S\rightarrow U\text{\Stopsign} \;|\; \text{\Stopsign}$, $U\rightarrow \text{\Rewind} U \;|\; \text{\MoveUp} U \;|\; \text{\Forward} U \;|\; \text{\MoveDown} U \;|\;\emptyWord$\}}
-        \item<8-> \alert<8>{$P_8 = \{\} \leadsto$ Es gibt keine Produktionsregeln!}
+        \item<8-> \alert<8>{$P_8 = \{\} \leadsto$ Wir brauchen keine Produktionsregeln!}
     \end{itemize}
 \end{frame}
 }  
