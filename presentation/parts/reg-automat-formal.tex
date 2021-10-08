@@ -21,11 +21,11 @@
       \node [state,accepting]           (1) [right of=0] {$q_1$};
       \node [state]                     (2) [below of=1] {$q_f$};
 
-      \path   (0) edge                    node {b}    (1)
-      edge [loop above]       node {a}    (0)
-      (1) edge                    node {a}    (2)
-      edge [loop above]       node {b}    (1)
-      (2) edge [loop right]       node {a,b}  (2);
+      \path   (0) edge                    node {$b$}    (1)
+      edge [loop above]       node {$a$}    (0)
+      (1) edge                    node {$a$}    (2)
+      edge [loop above]       node {$b$}    (1)
+      (2) edge [loop right]       node {$a,b$}  (2);
     \end{tikzpicture}
 
     \column{0.5\textwidth}
@@ -67,11 +67,11 @@
         \node [state,accepting] (3) [below of=2] {$q_E$};
         \node [state]           (f) [right of=3] {$q_f$};
 
-        \path   (0) edge                node {a,b}  (1)
-        (1) edge                node {a,b}  (2)
-        (2) edge                node {a,b}  (3)
-        (3) edge                node {a,b}  (f)
-        (f) edge [loop above]   node {a,b} (f);
+        \path   (0) edge                node {$a,b$}  (1)
+        (1) edge                node {$a,b$}  (2)
+        (2) edge                node {$a,b$}  (3)
+        (3) edge                node {$a,b$}  (f)
+        (f) edge [loop above]   node {$a,b$} (f);
       \end{tikzpicture}
       \vspace{0.1cm}
     \end{block}

@@ -47,15 +47,15 @@
                       \node [state,accepting] (4) [right of=3] {$q_{b2}$};
                       \only<4->{\alert<4>{\node [state] (f) [above right of=4] {$q_f$};}}
 
-                      \path   (0) edge                node {a}  (1)
-                      (1) edge                node {a}  (2)
-                      (0) edge                node [below left] {b}  (3)
-                      (3) edge                node [below right] {b}  (4);
-                      \only<4->{\alert<4>{\path (4) edge                node [below right] {a,b}  (f)
-                          (3) edge [bend left=10]               node {a}  (f)
-                          (1) edge [bend right=10]                node [below left] {b}  (f)
-                          (2) edge                node {a,b}  (f)
-                          (f) edge [loop right] node [right] {a,b} (f);
+                      \path   (0) edge                node {$a$}  (1)
+                      (1) edge                node {$a$}  (2)
+                      (0) edge                node [below left] {$b$}  (3)
+                      (3) edge                node [below right] {$b$}  (4);
+                      \only<4->{\alert<4>{\path (4) edge                node [below right] {$a,b$}  (f)
+                          (3) edge [bend left=10]               node {$a$}  (f)
+                          (1) edge [bend right=10]                node [below left] {$b$}  (f)
+                          (2) edge                node {$a,b$}  (f)
+                          (f) edge [loop right] node [right] {$a,b$} (f);
                       }}
                   \end{tikzpicture}
                   \column{0.3\textwidth}
@@ -92,13 +92,13 @@
                       \node [state,accepting] (2) [below of=0] {$q_2$};
                       \only<4->{\alert<4>{\node [state] (f) [right of=2] {$q_f$};}}
 
-                      \path   (0) edge [bend left]                node {a}  (1)
-                      (1) edge [bend left]               node [above] {b}  (0)
-                      (0) edge                node [left] {c,d}  (2);
-                      \only<4->{\alert<4>{\path (0) edge                node [below left,pos=0.4] {b}  (f)
-                          (1) edge                node {a,c,d}  (f)
-                          (2) edge                 node {a,b,c,d}  (f)
-                          (f) edge [loop right] node [right] {a,b,c,d} (f);
+                      \path   (0) edge [bend left]                node {$a$}  (1)
+                      (1) edge [bend left]               node [above] {$b$}  (0)
+                      (0) edge                node [left] {$c,d$}  (2);
+                      \only<4->{\alert<4>{\path (0) edge                node [below left,pos=0.4] {$b$}  (f)
+                          (1) edge                node {$a,c,d$}  (f)
+                          (2) edge                 node {$a,b,c,d$}  (f)
+                          (f) edge [loop right] node [right] {$a,b,c,d$} (f);
                       }}
                   \end{tikzpicture}
                   \column{0.3\textwidth}

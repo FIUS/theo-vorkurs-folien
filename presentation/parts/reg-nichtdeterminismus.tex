@@ -11,12 +11,12 @@
                     \node [state]             (3) [right of=2] {$q_3$};
                     \node [state, accepting]  (4) [right of=3] {$q_4$};
 
-                    \path   (0) edge[loop above]    node[above]     {a,b}   (0)
-                    edge                node[above]     {a}     (1)
-                    (1) edge                node[above]     {b}     (2)
-                    (2) edge                node[above]     {a}     (3)
-                    (3) edge                node[above]     {a}     (4)
-                    (4) edge[loop above]    node[above]     {a,b}   (4);
+                    \path   (0) edge[loop above]    node[above]     {$a,b$}   (0)
+                    edge                node[above]     {$a$}     (1)
+                    (1) edge                node[above]     {$b$}     (2)
+                    (2) edge                node[above]     {$a$}     (3)
+                    (3) edge                node[above]     {$a$}     (4)
+                    (4) edge[loop above]    node[above]     {$a,b$}   (4);
                 \end{tikzpicture}
             \end{center}
         \end{alertblock}
@@ -32,15 +32,15 @@
                     \node [state]             (3) [right of=2] {$q_3$};
                     \node [state, accepting]  (4) [right of=3] {$q_4$};
 
-                    \path   (0) edge[loop above]    node[above]     {b}     (0)
-                    edge                node[above]     {a}     (1)
-                    (1) edge                node[above]     {b}     (2)
-                    edge[loop above]    node[above]     {a}     (1)
-                    (2) edge                node[above]     {a}     (3)
-                    edge[bend left]     node[below]     {b}     (0)
-                    (3) edge                node[above]     {a}     (4)
-                    edge[bend left]     node[below]     {b}     (2)
-                    (4) edge[loop above]    node[above]     {a,b}   (4);
+                    \path   (0) edge[loop above]    node[above]     {$b$}     (0)
+                    edge                node[above]     {$a$}     (1)
+                    (1) edge                node[above]     {$b$}     (2)
+                    edge[loop above]    node[above]     {$a$}     (1)
+                    (2) edge                node[above]     {$a$}     (3)
+                    edge[bend left]     node[below]     {$b$}     (0)
+                    (3) edge                node[above]     {$a$}     (4)
+                    edge[bend left]     node[below]     {$b$}     (2)
+                    (4) edge[loop above]    node[above]     {$a,b$}   (4);
                 \end{tikzpicture}
             \end{center}
         \end{alertblock}
@@ -57,13 +57,13 @@
             \node [initial,state]   (0)              {$q_0$};
             \node [state,accepting]           (1) [right of=0] {$q_1$};
             \node [state] (2) [below of=0] {$q_2$};
-            \path   (0) edge               node {b} (1)
-            edge               node {a,b} (2)
-            (1) edge               node {a} (2)
-            edge [loop above]  node {b} (1)
-            (2) edge [loop below]  node {a,b} (2);
+            \path   (0) edge               node {$b$} (1)
+            edge               node {$a,b$} (2)
+            (1) edge               node {$a$} (2)
+            edge [loop above]  node {$b$} (1)
+            (2) edge [loop below]  node {$a,b$} (2);
         \end{tikzpicture}
-        \onslide<2|handout:0>{\alert{\textbf{$\leadsto$ b, bb, bbb, bbbb, bbbbb,...}}}
+        \onslide<2|handout:0>{\alert{\textbf{$\leadsto b, bb, bbb, bbbb, bbbbb,\dots$}}}
     \end{alertblock}
 \end{frame}
 }
@@ -104,12 +104,12 @@
                     \node [state, accepting]    (1) [right of=0]    {$q_1$};
                     \node [state]               (2) [right of=1]    {$q_2$};
 
-                    \path   (0) edge                node {a}    (1)
-                    edge[loop above]    node {b}    (0)
-                    (1) edge                node {a}    (2)
-                    edge[loop above]    node {b}    (1)
-                    (2) edge[bend left]     node[below] {a}    (0)
-                    edge[loop above]    node {b}    (2);
+                    \path   (0) edge                node {$a$}    (1)
+                    edge[loop above]    node {$b$}    (0)
+                    (1) edge                node {$a$}    (2)
+                    edge[loop above]    node {$b$}    (1)
+                    (2) edge[bend left]     node[below] {$a$}    (0)
+                    edge[loop above]    node {$b$}    (2);
                 \end{tikzpicture}
             \end{center}
         \end{alertblock}}
@@ -124,12 +124,12 @@
                     \node [initial,state]   (0)              {$p_0$};
                     \node [state,accepting]           (1) [right of=0] {$p_1$};
 
-                    \path<2>    (0) edge                node {a}    (1)
-                    edge[loop above]    node {a,b}  (0);
-                    \path<3>    (0) edge[bend right]    node[above] {a}     (1)
-                    edge[loop above]    node        {b}     (0)
-                    (1) edge[loop above]     node        {a}     (1)
-                    edge[bend right]    node[above] {b}     (0);
+                    \path<2>    (0) edge                node {$a$}    (1)
+                    edge[loop above]    node {$a,b$}  (0);
+                    \path<3>    (0) edge[bend right]    node[above] {$a$}     (1)
+                    edge[loop above]    node        {$b$}     (0)
+                    (1) edge[loop above]     node        {$a$}     (1)
+                    edge[bend right]    node[above] {$b$}     (0);
                 \end{tikzpicture}
             \end{center}
         \end{alertblock}}
@@ -149,18 +149,18 @@
             \node [state]           (p0) [below right= 1cm and 2cm of s] {$p_0$};
             \node [state, accepting]           (p1) [right of=p0]      {$p_1$};
 
-            \path       (s) edge                node[above] {a}     (q0)
-            edge                node[below] {a,b}   (p0)
-            edge[bend left=10]     node[above,pos=0.75] {a}     (p1)
-            (q0)edge                node {a}    (q1)
-            edge[loop above]    node {b}    (q0)
-            (q1)edge                node {a}    (q2)
-            edge[loop above]    node {b}    (q1)
-            (q2)edge[bend left=23]     node[below,pos=0.75] {a}    (q0)
-            edge[loop above]    node {b}    (q2)
-            (p0)edge                node {a}    (p1)
-            edge[loop below]    node {a,b}  (p0)
-            (s) edge [bend right=17] node [below right] {b} (q2);
+            \path       (s) edge                node[above] {$a$}     (q0)
+            edge                node[below] {$a,b$}   (p0)
+            edge[bend left=10]     node[above,pos=0.75] {$a$}     (p1)
+            (q0)edge                node {$a$}    (q1)
+            edge[loop above]    node {$b$}    (q0)
+            (q1)edge                node {$a$}    (q2)
+            edge[loop above]    node {$b$}    (q1)
+            (q2)edge[bend left=23]     node[below,pos=0.75] {$a$}    (q0)
+            edge[loop above]    node {$b$}    (q2)
+            (p0)edge                node {$a$}    (p1)
+            edge[loop below]    node {$a,b$}  (p0)
+            (s) edge [bend right=17] node [below right] {$b$} (q2);
 
         \end{tikzpicture}
     \end{alertblock}
@@ -186,48 +186,48 @@
                 \node<3-> [state, accepting]                 (11) [right of=10]    {$q_1, p_1$};
                 \node<3-> [state, accepting]                 (12) [right of=11]    {$q_2, p_1$};
 
-                \path<1>   (00)    edge                node        {a}    (01)
-                edge[loop above]    node        {b}    (00)
-                (01)    edge                node        {a}    (02)
-                edge[loop above]    node        {b}    (01)
-                (02)    edge[bend left]     node[below] {a}    (00)
-                edge[loop above]    node        {b}    (02)
-                (10)    edge                node        {a}    (11)
-                edge[loop above]    node        {b}    (10)
-                (11)    edge                node        {a}    (12)
-                edge[loop above]    node        {b}    (11)
-                (12)    edge[bend left]     node[below] {a}    (10)
-                edge[loop above]    node        {b}    (12);
+                \path<1>   (00)    edge                node        {$a$}    (01)
+                edge[loop above]    node        {$b$}    (00)
+                (01)    edge                node        {$a$}    (02)
+                edge[loop above]    node        {$b$}    (01)
+                (02)    edge[bend left]     node[below] {$a$}    (00)
+                edge[loop above]    node        {$b$}    (02)
+                (10)    edge                node        {$a$}    (11)
+                edge[loop above]    node        {$b$}    (10)
+                (11)    edge                node        {$a$}    (12)
+                edge[loop above]    node        {$b$}    (11)
+                (12)    edge[bend left]     node[below] {$a$}    (10)
+                edge[loop above]    node        {$b$}    (12);
 
-                \path<2>    (00)    edge[loop above]    node        {b}    (00)
-                (01)    edge[loop above]    node        {b}    (01)
-                (02)    edge[loop above]    node        {b}    (02)
-                (10)    edge                node        {a}    (11)
-                (11)    edge                node        {a}    (12)
-                (12)    edge[bend left]     node[below] {a}    (10);
+                \path<2>    (00)    edge[loop above]    node        {$b$}    (00)
+                (01)    edge[loop above]    node        {$b$}    (01)
+                (02)    edge[loop above]    node        {$b$}    (02)
+                (10)    edge                node        {$a$}    (11)
+                (11)    edge                node        {$a$}    (12)
+                (12)    edge[bend left]     node[below] {$a$}    (10);
 
-                \path<3>    (00)    edge[orange]        node[right] {a}    (11)
-                edge[loop above]    node        {b}    (00)
-                (01)    edge[orange]        node[right] {a}    (12)
-                edge[loop above]    node        {b}    (01)
-                (02)    edge[orange]        node[right] {a}    (10)
-                edge[loop above]    node        {b}    (02)
-                (10)    edge                node        {a}    (11)
-                (11)    edge                node        {a}    (12)
-                (12)    edge[bend left]     node[below] {a}    (10);
+                \path<3>    (00)    edge[orange]        node[right] {$a$}    (11)
+                edge[loop above]    node        {$b$}    (00)
+                (01)    edge[orange]        node[right] {$a$}    (12)
+                edge[loop above]    node        {$b$}    (01)
+                (02)    edge[orange]        node[right] {$a$}    (10)
+                edge[loop above]    node        {$b$}    (02)
+                (10)    edge                node        {$a$}    (11)
+                (11)    edge                node        {$a$}    (12)
+                (12)    edge[bend left]     node[below] {$a$}    (10);
 
-                \path<4>    (00)    edge                node[right] {a}    (11)
-                edge[loop above]    node        {b}    (00)
-                (01)    edge                node[right] {a}    (12)
-                edge[loop above]    node        {b}    (01)
-                (02)    edge                node[right] {a}    (10)
-                edge[loop above]    node        {b}    (02)
-                (10)    edge                node        {a}    (11)
-                edge[orange]        node        {b}    (00)
-                (11)    edge                node        {a}    (12)
-                edge[orange]        node        {b}    (01)
-                (12)    edge[bend left]     node[below] {a}    (10)
-                edge[orange]        node        {b}    (02);
+                \path<4>    (00)    edge                node[right] {$a$}    (11)
+                edge[loop above]    node        {$b$}    (00)
+                (01)    edge                node[right] {$a$}    (12)
+                edge[loop above]    node        {$b$}    (01)
+                (02)    edge                node[right] {$a$}    (10)
+                edge[loop above]    node        {$b$}    (02)
+                (10)    edge                node        {$a$}    (11)
+                edge[orange]        node        {$b$}    (00)
+                (11)    edge                node        {$a$}    (12)
+                edge[orange]        node        {$b$}    (01)
+                (12)    edge[bend left]     node[below] {$a$}    (10)
+                edge[orange]        node        {$b$}    (02);
             \end{tikzpicture}
         \end{center}
     \end{alertblock}
