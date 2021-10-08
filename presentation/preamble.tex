@@ -4,7 +4,10 @@
 \usepackage{appendixnumberbeamer}
 \usepackage[ngerman]{babel}
 \usepackage[utf8]{inputenc}
-\usepackage{t1enc}
+%\usepackage{t1enc}
+\usepackage[T1]{fontenc}
+\usepackage[sfdefault,scaled=.85]{FiraSans}
+\usepackage{newtxsf}
 
 \usepackage{booktabs}
 \usepackage[scale=2]{ccicons}
@@ -51,3 +54,14 @@
 
 \setbeamertemplate{footline}[text line]
 {\parbox{\linewidth}{Fachgruppe Informatik\hfill\insertpagenumber\hfill Vorkurs Theoretische Informatik\vspace{0.2in}}}
+
+\newcommand{\Center}[1]{
+	\begin{frame}<handout:0>[standout]
+		#1
+	\end{frame}
+}
+\newcommand{\Whiteboard}{
+	\begin{frame}<handout:0>[fragile]{Online-Whiteboard}
+		\phantom{text}
+	\end{frame}
+}
