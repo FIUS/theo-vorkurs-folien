@@ -66,31 +66,31 @@
             \node<9>    [state,accepting,orange](3) [right of=2]  {$q_E$};
 
             \path<1,2,9>
-            (1) edge                node {a}  (2)
-            (2) edge [loop above]   node {a,b}(2)
-            edge                node {b}  (3);
+            (1) edge                node {$a$}  (2)
+            (2) edge [loop above]   node {$a,b$}(2)
+            edge                node {$b$}  (3);
             \path<3>
-            (1) edge [orange]       node {a}  (2)
-            (2) edge [loop above]   node {a,b}(2)
-            edge                node {b}  (3);
+            (1) edge [orange]       node {$a$}  (2)
+            (2) edge [loop above]   node {$a,b$}(2)
+            edge                node {$b$}  (3);
             \path<4,5,6,7>
-            (1) edge                     node {a}  (2)
-            (2) edge [loop above,orange] node {a,b}(2)
-            edge                     node {b}  (3);
+            (1) edge                     node {$a$}  (2)
+            (2) edge [loop above,orange] node {$a,b$}(2)
+            edge                     node {$b$}  (3);
             \path<8>
-            (1) edge                node {a}  (2)
-            (2) edge [loop above]   node {a,b}(2)
-            edge [orange]       node {b}  (3);
+            (1) edge                node {$a$}  (2)
+            (2) edge [loop above]   node {$a,b$}(2)
+            edge [orange]       node {$b$}  (3);
         \end{tikzpicture}
     \end{exampleblock}
     \onslide<2->{
-        \begin{exampleblock}{Worteingabe:} \alert<3>{a}\alert<4>{a}\alert<5>{b}\alert<6>{a}\alert<7>{b}\alert<8>{b} $\in L$\only<1-8>{?} \only<9>{$\leadsto$ \alert{akzeptiert}
+        \begin{exampleblock}{Worteingabe:} \alert<3>{$a$}\alert<4>{$a$}\alert<5>{$b$}\alert<6>{$a$}\alert<7>{$b$}\alert<8>{$b$} $\in L$\only<1-8>{?} \only<9>{$\leadsto$ \alert{akzeptiert}
             }
         \end{exampleblock}}
 \end{frame}
 
 \begin{frame}{Beispiel: Automat}
-    Gegeben ist eine Sprache L. Gesucht ist ein Automat M, der \textbf{genau} die Wörter aus L akzeptiert.
+    Gegeben ist eine Sprache $L$. Gesucht ist ein Automat $M$, der \textbf{genau} die Wörter aus $L$ akzeptiert.
     \vspace{0.5cm}
     % \only<1>{
     % \begin{alertblock}{$L_1 = \{a^{2n} \mid n\in\naturals\}$}
@@ -100,13 +100,13 @@
     %         \node   [state, accepting]          [right of=2]    (3) {$q_2$};
 
     %         \path
-    %                 (1) edge node {a} (2);
+    %                 (1) edge node {$a$} (2);
 
     %         \path
-    %                 (2) edge [bend left] node {a} (3);
+    %                 (2) edge [bend left] node {$a$} (3);
 
     %         \path
-    %                 (3) edge [bend left] node {a} (2);
+    %                 (3) edge [bend left] node {$a$} (2);
     %     \end{tikzpicture}
     % \end{alertblock}
     % }
@@ -116,8 +116,8 @@
                 \node   [initial,state]                             (1) {$q_0$};
                 \node   [state,accepting]           [right of=1]    (2) {$q_1$};
 
-                \path   (1) edge node {c,d} (2)
-                (1) edge [loop above] node {a,b} (1);
+                \path   (1) edge node {$c,d$} (2)
+                (1) edge [loop above] node {$a,b$} (1);
             \end{tikzpicture}
         \end{alertblock}
     }
@@ -202,10 +202,10 @@
             \node   [initial,state,accepting]                   (1) {$q_0$};
             \node   [state,accepting]           [right of=1]    (2) {$q_1$};
 
-            \path   (1) edge node {b} (2)
-            (1) edge [loop above] node {a} (1);
+            \path   (1) edge node {$b$} (2)
+            (1) edge [loop above] node {$a$} (1);
 
-            \path   (2) edge [loop above] node {b} (2);
+            \path   (2) edge [loop above] node {$b$} (2);
         \end{tikzpicture}
     }}
     \vspace{0.2cm}
@@ -216,9 +216,9 @@
             \node   [state]             [right of=2]            (3) {$q_2$};
             \node   [state,accepting]   [right of=3]            (4) {$q_3$};
 
-            \path   (1) edge node {a,b,c} (2);
-            \path   (2) edge node {a,b,c} (3);
-            \path   (3) edge node {a,b,c} (4);
+            \path   (1) edge node {$a,b,c$} (2);
+            \path   (2) edge node {$a,b,c$} (3);
+            \path   (3) edge node {$a,b,c$} (4);
         \end{tikzpicture}
     }}
     \vspace{0.2cm}
@@ -237,9 +237,9 @@
             \node   [state,accepting]   [right of=1]            (2) {$q_1$};
             \node   [state]             [right of=2]            (3) {$q_2$};
 
-            \path   (1) edge node {a} (2);
-            \path   (2) edge node {a} (3);
-            \path   (3) edge [bend left] node {a} (1);
+            \path   (1) edge node {$a$} (2);
+            \path   (2) edge node {$a$} (3);
+            \path   (3) edge [bend left] node {$a$} (1);
         \end{tikzpicture}
     }}
     % \end{itemize}
@@ -259,28 +259,28 @@
             \node   [state]             [below of=3]             (7) {$q_6$};
             \node   [state, accepting]  [below of=4]             (8) {$q_7$};
 
-            \path   (1) edge node {a} (2)
-            (1) edge node {b} (5)
+            \path   (1) edge node {$a$} (2)
+            (1) edge node {$b$} (5)
             (1) edge [loop above] node {c} (1);
 
-            \path   (2) edge node {a} (3)
-            (2) edge node {b} (6)
+            \path   (2) edge node {$a$} (3)
+            (2) edge node {$b$} (6)
             (2) edge [loop above] node {c} (2);
 
-            \path   (3) edge node {a} (4)
-            (3) edge node {b} (7)
+            \path   (3) edge node {$a$} (4)
+            (3) edge node {$b$} (7)
             (3) edge [loop above] node {c} (3);
 
-            \path   (4) edge node {b} (8)
+            \path   (4) edge node {$b$} (8)
             (4) edge [loop above] node {c} (4);
 
-            \path   (5) edge node {a} (6)
+            \path   (5) edge node {$a$} (6)
             (5) edge [loop below] node {c} (5);
 
-            \path   (6) edge node {a} (7)
+            \path   (6) edge node {$a$} (7)
             (6) edge [loop below] node {c} (6);
 
-            \path   (7) edge node {a} (8)
+            \path   (7) edge node {$a$} (8)
             (7) edge [loop below] node {c} (7);
 
             \path   (8) edge [loop below] node {c} (8);
@@ -297,12 +297,12 @@
             \node   [state]             [right of=1]            (2) {$q_1$};
             \node   [state]             [below of=1]            (3) {$q_2$};
 
-            \path   (1) edge [bend right] node {a} (2)
-            (1) edge [bend right] node {b} (3);
-            \path   (2) edge node {a} (3)
-            (2) edge [bend right] node {b} (1);
-            \path   (3) edge [bend right] node {a} (1)
-            (3) edge [bend right=60] node {b} (2);
+            \path   (1) edge [bend right] node {$a$} (2)
+            (1) edge [bend right] node {$b$} (3);
+            \path   (2) edge node {$a$} (3)
+            (2) edge [bend right] node {$b$} (1);
+            \path   (3) edge [bend right] node {$a$} (1)
+            (3) edge [bend right=60] node {$b$} (2);
         \end{tikzpicture}
     }}
 \end{frame}

@@ -34,57 +34,57 @@
             \node       [state]                 (4) [below of=1]  {$q_f$};
 
             \path<1,2,9>
-            (1) edge                node {a}  (2)
-            edge                node {b}  (4)
-            (2) edge [loop above]   node {a}  (2)
-            edge [bend left]    node {b}  (3)
-            (4) edge [loop right]   node {a,b}(4)
-            (3) edge [loop above]   node {b}  (3)
-            edge [bend left]    node {a}  (2);
+            (1) edge                node {$a$}  (2)
+            edge                node {$b$}  (4)
+            (2) edge [loop above]   node {$a$}  (2)
+            edge [bend left]    node {$b$}  (3)
+            (4) edge [loop right]   node {$a,b$}(4)
+            (3) edge [loop above]   node {$b$}  (3)
+            edge [bend left]    node {$a$}  (2);
             \path<3>
-            (1) edge [orange]       node {a}  (2)
-            edge                node {b}  (4)
-            (2) edge [loop above]   node {a}  (2)
-            edge [bend left]    node {b}  (3)
-            (4) edge [loop right]   node {a,b}(4)
-            (3) edge [loop above]   node {b}  (3)
-            edge [bend left]    node {a}  (2);
+            (1) edge [orange]       node {$a$}  (2)
+            edge                node {$b$}  (4)
+            (2) edge [loop above]   node {$a$}  (2)
+            edge [bend left]    node {$b$}  (3)
+            (4) edge [loop right]   node {$a,b$}(4)
+            (3) edge [loop above]   node {$b$}  (3)
+            edge [bend left]    node {$a$}  (2);
             \path<4>
-            (1) edge                node {a}  (2)
-            edge                node {b}  (4)
-            (2) edge [loop above,orange] node {a}  (2)
-            edge [bend left]    node {b}  (3)
-            (4) edge [loop right]   node {a,b}(4)
-            (3) edge [loop above]   node {b}  (3)
-            edge [bend left]    node {a}  (2);
+            (1) edge                node {$a$}  (2)
+            edge                node {$b$}  (4)
+            (2) edge [loop above,orange] node {$a$}  (2)
+            edge [bend left]    node {$b$}  (3)
+            (4) edge [loop right]   node {$a,b$}(4)
+            (3) edge [loop above]   node {$b$}  (3)
+            edge [bend left]    node {$a$}  (2);
             \path<5,7>
-            (1) edge                node {a}  (2)
-            edge                node {b}  (4)
-            (2) edge [loop above]   node {a}  (2)
-            edge [bend left,orange] node {b}  (3)
-            (4) edge [loop right]   node {a,b}(4)
-            (3) edge [loop above]   node {b}  (3)
-            edge [bend left]    node {a}  (2);
+            (1) edge                node {$a$}  (2)
+            edge                node {$b$}  (4)
+            (2) edge [loop above]   node {$a$}  (2)
+            edge [bend left,orange] node {$b$}  (3)
+            (4) edge [loop right]   node {$a,b$}(4)
+            (3) edge [loop above]   node {$b$}  (3)
+            edge [bend left]    node {$a$}  (2);
             \path<6>
-            (1) edge                node {a}  (2)
-            edge                node {b}  (4)
-            (2) edge [loop above]   node {a}  (2)
-            edge [bend left]    node {b}  (3)
-            (4) edge [loop right]   node {a,b}(4)
-            (3) edge [loop above]   node {b}  (3)
-            edge [bend left,orange] node {a}  (2);
+            (1) edge                node {$a$}  (2)
+            edge                node {$b$}  (4)
+            (2) edge [loop above]   node {$a$}  (2)
+            edge [bend left]    node {$b$}  (3)
+            (4) edge [loop right]   node {$a,b$}(4)
+            (3) edge [loop above]   node {$b$}  (3)
+            edge [bend left,orange] node {$a$}  (2);
             \path<8>
-            (1) edge                node {a}  (2)
-            edge                node {b}  (4)
-            (2) edge [loop above]   node {a}  (2)
-            edge [bend left]    node {b}  (3)
-            (4) edge [loop right]   node {a,b}(4)
-            (3) edge [loop above,orange] node {b}  (3)
-            edge [bend left]    node {a}  (2);
+            (1) edge                node {$a$}  (2)
+            edge                node {$b$}  (4)
+            (2) edge [loop above]   node {$a$}  (2)
+            edge [bend left]    node {$b$}  (3)
+            (4) edge [loop right]   node {$a,b$}(4)
+            (3) edge [loop above,orange] node {$b$}  (3)
+            edge [bend left]    node {$a$}  (2);
         \end{tikzpicture}
     \end{exampleblock}
     \onslide<2->{
-        \begin{exampleblock}{Worteingabe:} \alert<3>{a}\alert<4>{a}\alert<5>{b}\alert<6>{a}\alert<7>{b}\alert<8>{b} $\in L$\only<1-8>{?} \only<9>{$\leadsto$ \alert{akzeptiert}
+        \begin{exampleblock}{Worteingabe:} \alert<3>{$a$}\alert<4>{$a$}\alert<5>{$b$}\alert<6>{$a$}\alert<7>{$b$}\alert<8>{$b$} $\in L$\only<1-8>{?} \only<9>{$\leadsto$ \alert{akzeptiert}
             }
         \end{exampleblock}}
 \end{frame}
@@ -124,8 +124,8 @@
                     semithick]
                 \node [initial,state,accepting] (0)              {$q_0$};
                 \node [state]                   (1) [right of=0] {$q_1$};
-                \path   (0) edge [bend left]   node {a} (1)
-                (1) edge [bend left]   node {a} (0);
+                \path   (0) edge [bend left]   node {$a$} (1)
+                (1) edge [bend left]   node {$a$} (0);
             \end{tikzpicture}
         \end{alertblock}}
 
@@ -136,11 +136,11 @@
                 \node [initial,state]   (0)              {$q_0$};
                 \node [state]           (1) [right of=0] {$q_1$};
                 \node [state,accepting] (2) [right of=1] {$q_2$};
-                \path   (0) edge               node {a} (1)
-                edge [loop above]  node {b} (1)
-                (1) edge               node {a} (2)
-                edge [loop above]  node {b} (2)
-                (2) edge [loop above]  node {a,b}(2);
+                \path   (0) edge               node {$a$} (1)
+                edge [loop above]  node {$b$} (1)
+                (1) edge               node {$a$} (2)
+                edge [loop above]  node {$b$} (2)
+                (2) edge [loop above]  node {$a,b$}(2);
             \end{tikzpicture}
         \end{alertblock}}
 \end{frame}
@@ -159,19 +159,19 @@
             \node [state,accepting] (5) [right of=4] {$q_E$};
 
             \path
-            (0) edge                    node {b}    (1)
-            edge [loop below]       node {a,c}  (0)
-            (1) edge                    node {a}    (2)
-            edge [loop below]       node {b,c}  (1)
-            (2) edge                    node {a}    (3)
-            edge [bend right=85]    node {b,c}  (1)
-            (3) edge                    node {c}    (4)
-            edge [bend left]        node {b}    (1)
-            edge [loop below]       node {a}    (3)
-            (4) edge                    node {a}    (5)
-            edge [bend right=95]    node {b,c}  (1)
-            (5) edge [bend left=60]     node {b,c}  (1)
-            edge [bend left]        node {a}    (3);
+            (0) edge                    node {$b$}    (1)
+            edge [loop below]       node {$a,c$}  (0)
+            (1) edge                    node {$a$}    (2)
+            edge [loop below]       node {$b,c$}  (1)
+            (2) edge                    node {$a$}    (3)
+            edge [bend right=85]    node {$b,c$}  (1)
+            (3) edge                    node {$c$}    (4)
+            edge [bend left]        node {$b$}    (1)
+            edge [loop below]       node {$a$}    (3)
+            (4) edge                    node {$a$}    (5)
+            edge [bend right=95]    node {$b,c$}  (1)
+            (5) edge [bend left=60]     node {$b,c$}  (1)
+            edge [bend left]        node {$a$}    (3);
         \end{tikzpicture}
     \end{alertblock}
 \end{frame}
