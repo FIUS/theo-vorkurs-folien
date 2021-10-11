@@ -4,11 +4,11 @@
         \item Paris ist die Hauptstadt von Frankreich
         \item Mäuse jagen Elefanten
         \item $5 \in \mathbb{N}$
-        \item 5 = 8
+        \item $5 = 8$
         \item $u \in \{u, v, w\}$
     \end{itemize}
     \end{alertblock}
-    Eine Aussage A ist entweder \textbf{wahr} oder \textbf{falsch}.
+    Eine Aussage $A$ ist entweder \textbf{wahr} oder \textbf{falsch}.
 \end{frame}
 
 \begin{frame}[fragile]{Was ist Aussagenlogik?}
@@ -18,7 +18,7 @@
         \item Geh dein Zimmer aufräumen!
         \item Wie viele Tiere wohnen in der Uni?
         \item $(x+y)^2+1$
-        \item \{a,b,c\}
+        \item $\{a,b,c\}$
         \item ...
     \end{itemize}
     \end{alertblock}
@@ -37,20 +37,20 @@
 \begin{frame}[fragile]{Logische Operationen}
 Wir können Aussagen verändern oder durch Operationen zu neuen Aussagen verbinden.
 \begin{itemize}
-    \item A: Fred möchte Schokolade.
-    \item B: Fred möchte Gummibärchen.
+    \item $A$: Fred möchte Schokolade.
+    \item $B$: Fred möchte Gummibärchen.
 \end{itemize}
 \metroset{block=fill}
 \begin{alertblock}{Grundoperationen}
 \begin{itemize}
-    \item<1-> \textbf{Und}: A \alert<1>{$\wedge$} B $\leadsto$ Fred möchte Schokolade \alert<1>{und} Gummibärchen.\\
-    \only<1>{\emph{Analog}: M: $M_1 \cap M_2$, Jedes Element aus M liegt in $M_1$ \textbf{und} in $M_2$}
-    \item<2-> \textbf{Oder}: A \alert<2>{$\vee$} B $\leadsto$ Fred möchte Schokolade \alert<2>{oder} Gummibärchen.\\
+    \item<1-> \textbf{Und}: $A$ \alert<1>{$\wedge$} $B$ $\leadsto$ Fred möchte Schokolade \alert<1>{und} Gummibärchen.\\
+    \only<1>{\emph{Analog}: $M$: $M_1 \cap M_2$, Jedes Element aus $M$ liegt in $M_1$ \textbf{und} in $M_2$}
+    \item<2-> \textbf{Oder}: $A$ \alert<2>{$\vee$} $B$ $\leadsto$ Fred möchte Schokolade \alert<2>{oder} Gummibärchen.\\
     \only<2>{\emph{Anmerkung}: Inklusives \glqq oder\grqq, kein \glqq entweder oder\grqq \\
     Das heißt, es können auch beide Aussagen wahr sein.\\}
-	\only<2>{\emph{Analog}: M: $M_1 \cup M_2$, Jedes Element aus M liegt in $M_1$ \textbf{oder} in $M_2$}
-    \item<3> \textbf{Nicht}: \alert<3>{$\neg$}A $\leadsto$ Fred möchte \alert<3>{keine} Schokolade.\\
-    \only<3>{\emph{Analog}: M: $\overline{M_1}$, Jedes Element aus M liegt \textbf{nicht} in $M_1$}
+	\only<2>{\emph{Analog}: $M$: $M_1 \cup M_2$, Jedes Element aus $M$ liegt in $M_1$ \textbf{oder} in $M_2$}
+    \item<3> \textbf{Nicht}: \alert<3>{$\neg$}$A$ $\leadsto$ Fred möchte \alert<3>{keine} Schokolade.\\
+    \only<3>{\emph{Analog}: $M$: $\overline{M_1}$, Jedes Element aus $M$ liegt \textbf{nicht} in $M_1$}
 \end{itemize}
 \end{alertblock}
 \end{frame}
@@ -58,7 +58,7 @@ Wir können Aussagen verändern oder durch Operationen zu neuen Aussagen verbind
 
 \begin{frame}{Überblick: Mengenoperationen}
 
-	Auf \alert{Mengen} A, B lassen sich verschiedene Mengenoperationen ausführen.
+	Auf \alert{Mengen} $A$, $B$ lassen sich verschiedene Mengenoperationen ausführen.
 
 	\metroset{block=fill}
 	\begin{exampleblock}{Mengenoperationen}
@@ -72,7 +72,7 @@ Wir können Aussagen verändern oder durch Operationen zu neuen Aussagen verbind
 
 \begin{frame}{Überblick: Logische Operationen}
 
-	Auf \alert{Aussagen} A, B lassen sich verschiedene logische Operationen ausführen.
+	Auf \alert{Aussagen} $A$, $B$ lassen sich verschiedene logische Operationen ausführen.
 
 	\metroset{block=fill}
 	\begin{exampleblock}{Logische Operationen}
@@ -89,54 +89,54 @@ Wir können Aussagen verändern oder durch Operationen zu neuen Aussagen verbind
 		\alert{Mengenoperationen und logische Operationen dürfen nicht verwechselt werden.}
 		\begin{table}[]
 			\begin{tabular}{l l}
-				A: $5 \in \mathbb{N}$ & B: Es regnet\\
-				C: \{$w \mid |w|=2$ \} \ & D: \{a,b,c,x,y\}\\
+				$A$: $5 \in \mathbb{N}$ & $B$: Es regnet\\
+				$C$: \{$w \mid |w|=2$ \} \ & $D$: \{a,b,c,x,y\}\\
 			\end{tabular}
 		\end{table}
 		\metroset{block=fill}
 		\metroset{block=fill}
 		\begin{block}{Welche dieser Verknüpfungen sind zulässig?}
-			\begin{itemize}
-				\item $L_1: A \wedge B$
-				\item $L_2: A \vee C$
-				\item $L_3: C \cap D$
-				\item $L_4: A \wedge B \cup C$
-			\end{itemize}
+			\begin{enumerate}
+				\item $A \wedge B$
+				\item $A \vee C$
+				\item $C \cap D$
+				\item $A \wedge B \cup C$
+			\end{enumerate}
 		\end{block}
 	\end{frame}
 }
 
 {\setbeamercolor{palette primary}{bg=ExColor}
 	\begin{frame}<handout:0>[fragile]{Logische Operationen vs. Mengenoperationen}
-		\begin{itemize}[<+- | alert@+>]
-			\item $L_1$: Zulässig
-			\item $L_2$: Nicht zulässig
-			\item $L_3$: Zulässig
-			\item $L_4$: Nicht zulässig
-		\end{itemize}
+		\begin{enumerate}[<+- | alert@+>]
+			\item Zulässig
+			\item Nicht zulässig
+			\item Zulässig
+			\item Nicht zulässig
+		\end{enumerate}
 	\end{frame}
 }
 
 
 
 \begin{frame}{Logische Operationen: Implikation}
-\begin{alertblock}{A$\implies$B}
+\begin{alertblock}{$A\implies B$}
 \begin{itemize}
-    \item \glqq Wenn A wahr ist, dann muss auch B wahr sein.\grqq
-    \item kurz: \glqq\textbf{Wenn} A, \textbf{dann} B.\grqq
-    \item Wenn A falsch ist können wir keine Aussage über B treffen.
-    \item A$\implies$B ist dieselbe Aussage wie $\neg A \vee B$
+    \item \glqq Wenn $A$ wahr ist, dann muss auch $B$ wahr sein.\grqq
+    \item kurz: \glqq\textbf{Wenn} $A$, \textbf{dann} $B$.\grqq
+    \item Wenn $A$ falsch ist können wir keine Aussage über $B$ treffen.
+    \item $A\implies B$ ist dieselbe Aussage wie $\neg A \vee B$
 \end{itemize}
 \end{alertblock}
 \end{frame}
 
 \begin{frame}<handout:0>{Logische Operationen: Äquivalenz}
-\begin{alertblock}{A$\iff$B}
+\begin{alertblock}{$A\iff B$}
 \begin{itemize}
-    \item \glqq A ist wahr, \textbf{genau dann wenn} B wahr ist.\grqq
-    \item kurz: \glqq A gdw. B\grqq
-    \item A und B müssen den selben Wahrheitswert haben.
-    \item A$\iff$B ist dieselbe Aussage wie $(A \implies B) \wedge (B \implies A)$
+    \item \glqq $A$ ist wahr, \textbf{genau dann wenn} $B$ wahr ist.\grqq
+    \item kurz: \glqq $A$ gdw. $B$\grqq
+    \item $A$ und $B$ müssen den selben Wahrheitswert haben.
+    \item $A\iff B$ ist dieselbe Aussage wie $(A \implies B) \wedge (B \implies A)$
 \end{itemize}
 \end{alertblock}
 \end{frame}
