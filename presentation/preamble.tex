@@ -60,3 +60,10 @@
 		#1
 	\end{frame}
 }
+
+% Fix section pages in appendix
+\AtBeginDocument{%
+  \apptocmd{\appendix}{%
+    \setbeamertemplate{section page}[simple]%
+  }{}{}
+}
