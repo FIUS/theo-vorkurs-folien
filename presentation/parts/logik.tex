@@ -130,15 +130,78 @@ Wir können Aussagen verändern oder durch Operationen zu neuen Aussagen verbind
 \end{alertblock}
 \end{frame}
 
+{\setbeamercolor{palette primary}{bg=ExColor}
+	\begin{frame}{Denkpause}
+		\begin{alertblock}{Aufgaben}
+			Die folgenden Teilaufgaben bestehen aus einer Aussage, einem Geschehen und aus einer Folgerung. Welche der Folgerungen sind richtig, unter der Annahme, 
+			dass die Aussagen wahr sind?
+		\end{alertblock}
+		\metroset{block=fill}
+		\begin{block}{Normal bis Schwer}
+			\begin{itemize}
+				\item Aussage: "Lukas ist im Vorkurs oder schläft noch"\\
+				Geschehen: Lukas ist nicht im Vorkurs.\\
+				Folgerung: Also schläft er noch.
+				\item Aussage: "Wenn Anne nicht rennt, bekommt sie die Bahn nicht"\\
+				Geschehen: Anne bekommt die Bahn.\\
+				Folgerung: Also ist sie gerannt.
+				\item Aussage: "Wenn Tobi auf die Prüfung nicht lernt, besteht er nicht"\\
+				Geschehen: Tobi hat auf die Prüfung gelernt.\\
+				Folgerung: Also besteht er.
+			\end{itemize}
+		\end{block}
+	\end{frame}
+}
+	
+	
+{\setbeamercolor{palette primary}{bg=ExColor}
+	\begin{frame}<handout:0>{Lösungen}
+		\only<1>{
+			\metroset{block=fill}
+			\begin{block}{Normal bis Schwer}
+				\begin{itemize}
+					\item Aussage: "Lukas ist im Vorkurs oder schläft noch"\\
+					Geschehen: Lukas ist nicht im Vorkurs.\\
+					Folgerung: Also schläft er noch.
+				\end{itemize}
+			\end{block}
+		}
+		\only<2>{
+			\metroset{block=fill}
+			\begin{block}{Normal bis Schwer}
+				\begin{itemize}
+					\item<2> Aussage: "Wenn Anne nicht rennt, bekommt sie die Bahn nicht"\\
+					Geschehen: Anne bekommt die Bahn.\\
+					Folgerung: Also ist sie gerannt.
+				\end{itemize}
+			\end{block}
+		}
+		\only<3>{
+			\metroset{block=fill}
+			\begin{block}{Normal bis Schwer}
+				\begin{itemize}
+					\item<3> Aussage: "Wenn Tobi auf die Prüfung nicht lernt, besteht er nicht"\\
+					Geschehen: Tobi hat auf die Prüfung gelernt.\\
+					Folgerung: Also besteht er.
+				\end{itemize}
+			\end{block}
+		}
+		
+		\only<1>{Die Folgerung ist richtig. Laut Aussage ist Lukas im Vorkurs oder schläft noch (oder beides). Wenn er also nicht im Vorkurs ist, bleibt nur noch die Option übrig, dass er noch schläft.}
+		\only<2>{Die Folgerung ist richtig. Die zweite Aussage ist die Kontraposition der ersten Aussage. Wie gezeigt wurde, ist die Kontraposition einer Aussage wahr gdw. die Aussage selbst wahr ist. }
+		\only<3>{Die Folgerung ist falsch. Es ist auch möglich, dass Tobi lernt und nicht besteht!}
+	\end{frame}
+}
+
 \begin{frame}<handout:0>{Logische Operationen: Äquivalenz}
-\begin{alertblock}{$A\iff B$}
-\begin{itemize}
-    \item \glqq $A$ ist wahr, \textbf{genau dann wenn} $B$ wahr ist.\grqq
-    \item kurz: \glqq $A$ gdw. $B$\grqq
-    \item $A$ und $B$ müssen den selben Wahrheitswert haben.
-    \item $A\iff B$ ist dieselbe Aussage wie $(A \implies B) \wedge (B \implies A)$
-\end{itemize}
-\end{alertblock}
+	\begin{alertblock}{$A\iff B$}
+		\begin{itemize}
+			\item \glqq $A$ ist wahr, \textbf{genau dann wenn} $B$ wahr ist.\grqq
+			\item kurz: \glqq $A$ gdw. $B$\grqq
+			\item $A$ und $B$ müssen den selben Wahrheitswert haben.
+			\item $A\iff B$ ist dieselbe Aussage wie $(A \implies B) \wedge (B \implies A)$
+		\end{itemize}
+	\end{alertblock}
 \end{frame}
 
 {\setbeamercolor{palette primary}{bg=ExColor}
@@ -237,65 +300,3 @@ Wir können Aussagen verändern oder durch Operationen zu neuen Aussagen verbind
 \end{enumerate}
 \end{exampleblock}
 \end{frame}
-
-{\setbeamercolor{palette primary}{bg=ExColor}
-\begin{frame}{Denkpause}
-    \begin{alertblock}{Aufgaben}
-      Die folgenden Teilaufgaben bestehen aus einer Aussage, einem Geschehen und aus einer Folgerung. Welche der Folgerungen sind richtig, unter der Annahme, 
-      dass die Aussagen wahr sind?
-    \end{alertblock}
-    \metroset{block=fill}
-    \begin{block}{Normal bis Schwer}
-    \begin{itemize}
-        \item Aussage: "Lukas ist im Vorkurs oder schläft noch"\\
-        Geschehen: Lukas ist nicht im Vorkurs.\\
-        Folgerung: Also schläft er noch.
-        \item Aussage: "Wenn Anne nicht rennt, bekommt sie die Bahn nicht"\\
-        Geschehen: Anne bekommt die Bahn.\\
-        Folgerung: Also ist sie gerannt.
-        \item Aussage: "Wenn Tobi auf die Prüfung nicht lernt, besteht er nicht"\\
-        Geschehen: Tobi hat auf die Prüfung gelernt.\\
-        Folgerung: Also besteht er.
-    \end{itemize}
-    \end{block}
-\end{frame}
-
-
-{\setbeamercolor{palette primary}{bg=ExColor}
-\begin{frame}<handout:0>{Lösungen}
-    \only<1>{
-        \metroset{block=fill}
-        \begin{block}{Normal bis Schwer}
-            \begin{itemize}
-                \item Aussage: "Lukas ist im Vorkurs oder schläft noch"\\
-                Geschehen: Lukas ist nicht im Vorkurs.\\
-                Folgerung: Also schläft er noch.
-            \end{itemize}
-        \end{block}
-    }
-    \only<2>{
-        \metroset{block=fill}
-        \begin{block}{Normal bis Schwer}
-            \begin{itemize}
-                \item<2> Aussage: "Wenn Anne nicht rennt, bekommt sie die Bahn nicht"\\
-                Geschehen: Anne bekommt die Bahn.\\
-                Folgerung: Also ist sie gerannt.
-            \end{itemize}
-        \end{block}
-    }
-    \only<3>{
-        \metroset{block=fill}
-        \begin{block}{Normal bis Schwer}
-            \begin{itemize}
-                \item<3> Aussage: "Wenn Tobi auf die Prüfung nicht lernt, besteht er nicht"\\
-                Geschehen: Tobi hat auf die Prüfung gelernt.\\
-                Folgerung: Also besteht er.
-            \end{itemize}
-        \end{block}
-    }
-
-    \only<1>{Die Folgerung ist richtig. Laut Aussage ist Lukas im Vorkurs oder schläft noch (oder beides). Wenn er also nicht im Vorkurs ist, bleibt nur noch die Option übrig, dass er noch schläft.}
-    \only<2>{Die Folgerung ist richtig. Die zweite Aussage ist die Kontraposition der ersten Aussage. Wie gezeigt wurde, ist die Kontraposition einer Aussage wahr gdw. die Aussage selbst wahr ist. }
-    \only<3>{Die Folgerung ist falsch. Es ist auch möglich, dass Tobi lernt und nicht besteht!}
-\end{frame}
-}
