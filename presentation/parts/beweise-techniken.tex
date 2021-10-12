@@ -24,7 +24,8 @@
     \end{alertblock}
     \metroset{block=fill}
     \begin{exampleblock}{Beispiel}
-    Z.z.: \alert<7|handout:0>{\alert<1|handout:0>{$\forall n\in\mathbb{N}$:} $n^2$ gerade $\implies$\alert<2|handout:0>{ $n$ gerade}}
+    Z.z.: \alert<7|handout:0>{\alert<1|handout:0>{$\forall n\in\mathbb{N}$:} $n^2$ gerade $\implies$\alert<2|handout:0>{ $n$ gerade}} \\
+    \qquad bzw. \alert<1|handout:0>{$\forall n\in\mathbb{N}$:} \alert<2|handout:0>{$\neg(n \text{ gerade})$} $\implies \neg(n^2$ gerade$)$ 
     \begin{enumerate}
         \item\alert<1|handout:0>{Sei $n \in \mathbb{N}$ beliebig.}
         \item\alert<2|handout:0>{Angenommen, $n$ ist \emph{nicht} gerade.}
@@ -72,7 +73,7 @@ Z.z.: $(\neg A \implies\neg B) \iff (B \implies A)$
         \begin{enumerate}
             \item<1-|handout:1> \alert<1|handout:0>{Ang. $\sqrt{2}$ ist rational.}
             \item<2-|handout:1> \alert<2|handout:0>{Dann $\exists p, q \in \mathbb{Z} : \sqrt{2} = \frac{p}{q}$} $\wedge$ \alert<3,11|handout:0>{$p, q$ sind teilerfremd.}
-            \only<2,3|handout:0>{\alert<2>{{\\\emph{Anmerkung:}}} $r\in\mathbb{Q}\iff\exists p,q\in\mathbb{Z}:r=\frac{p}{q}$}.
+            \only<2,3|handout:0>{\alert<2>{{\\\emph{Anmerkung:}}} $r\in\mathbb{Q}\iff\exists p,q\in\mathbb{Z}:r=\frac{p}{q}$.}
             \only<2,3|handout:0>{\alert<3>{{\\\emph{Anmerkung:}}} $\frac{p}{q}$ kann man immer soweit kürzen, dass $p,q$ teilerfremd sind.}
             \item<4-|handout:1> \only<4|handout:0>{Quadrieren und Umformen:\\}$\leadsto(\sqrt{2})^2 = (\frac{p}{q})^2 \iff 2 = \frac{p^2}{q^2} \iff \alert<5,8|handout:0>{2q^2=p^2}$
             \item<5-|handout:1> \alert<5|handout:0>{$\leadsto p^2$ ist gerade.} \alert<6,10|handout:0>{$\leadsto p$ ist gerade.}\only<5,6|handout:0>{\alert<5>{{\\\emph{Erinnerung:}}} $\forall n\in\mathbb{Z}:n$ gerade $\iff\exists k\in\mathbb{Z}:2k=n$.}\only<5,6|handout:0>{\alert<6>{{\\\emph{Erinnerung:}}} $\forall n\in\mathbb{N}$: $n^2$ gerade $\implies n$ gerade \\\qquad\qquad\quad(siehe Beispiel Kontraposition)}
