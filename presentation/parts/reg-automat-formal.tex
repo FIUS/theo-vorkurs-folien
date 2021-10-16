@@ -83,9 +83,9 @@
       \metroset{block=fill}
       \alert{$M=(Z, \Sigma, \delta, q_0, E)$} mit:
       \begin{itemize}
-        \item<3-> \alert<2>{$Z=\{q_0, q_1, q_2, q_E, q_f\}$}
-        \item<4-> \alert<3>{$\Sigma=\{a, b\}$}
-        \item<5-> \alert<4>{$\delta$:
+        \item<3-> \alert<3>{$Z=\{q_0, q_1, q_2, q_E, q_f\}$}
+        \item<4-> \alert<4>{$\Sigma=\{a, b\}$}
+        \item<5-> \alert<5>{$\delta$:
                 \vspace{-0.2cm}
                 \begin{itemize}
                   \item $\delta(q_0, a)=q_1$
@@ -96,10 +96,10 @@
                   \item $\delta(q_2, b)=q_3$
                   \item $\delta(q_E, a)=q_f$
                   \item $\delta(q_E, b)=q_f$
-                  \item $\delta(q_F, a)=q_f$
-                  \item $\delta(q_F, b)=q_f$
+                  \item $\delta(q_f, a)=q_f$
+                  \item $\delta(q_f, b)=q_f$
                 \end{itemize}}
-        \item<6-> \alert<5>{$E=\{q_E\}$}
+        \item<6-> \alert<6>{$E=\{q_E\}$}
       \end{itemize}
     }
   \end{columns}
@@ -121,7 +121,7 @@
       \textcolor<4|handout:0>{mLightBrown}{Ein Startzustand}
                    & \textcolor<4|handout:0>{mLightBrown}{Ein Startsymbol}
       \onslide<5-|handout:1>                                                                                                                                            \\\hline
-      Beim Lesen des \textcolor<5|handout:0>{mLightBrown}{letzten Buchstabens} wird in einen \textcolor<5|handout:0>{mLightBrown}{Endzustand} übergegangen
+      Wenn beim Lesen des \textcolor<5|handout:0>{mLightBrown}{letzten Buchstabens} wird in einen \textcolor<5|handout:0>{mLightBrown}{Endzustand} übergegangen wird, wird akzeptiert
                    & Beim Erzeugen des \textcolor<5|handout:0>{mLightBrown}{letzten Buchstabens} wird \textcolor<5|handout:0>{mLightBrown}{keine neue Variable} erzeugt
       \onslide<6-|handout:1>                                                                                                                                            \\\hline
       In jedem Schritt wird \textcolor<6|handout:0>{mLightBrown}{aus einem Zustand in genau einen Zustand} übergegangen
