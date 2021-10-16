@@ -280,3 +280,6 @@ TSWLatexianTemp*
 # End of https://www.gitignore.io/api/latex
 
 *.rsls
+
+# feedback survey sty
+paperandpencil.sty
