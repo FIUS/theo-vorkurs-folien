@@ -23,9 +23,9 @@ Dieser wird zu Beginn jedes Wintersemesters kostenlos für alle neuen Studierend
 
 
 
-FIUS-Wiki (hautsächlich Orga-Krams und Protokolle): https://fius.informatik.uni-stuttgart.de/wiki/doku.php?id=fachschaft:reader:aktivitaetenundaks:theovorkurs
+Internes Wiki (hautsächlich Orga-Krams und Protokolle): https://wiki.fius.de/fachschaft/reader/aktivitaetenundaks/theovorkurs
 
-Webseite: https://fius.informatik.uni-stuttgart.de/dienste/theo-vorkurs/
+Webseite: https://fius.de/index.php/studien-interessierte/vorkurs-theoretische-informatik/
 
 ## Bauen der Folien
 ### Mit GNU-Make
