@@ -1,3 +1,20 @@
+% Copyright 2018, 2019, 2020, 2021 FIUS
+%
+% This file is part of theo-vorkurs-folien.
+%
+% theo-vorkurs-folien is free software: you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation, either version 3 of the License, or
+% (at your option) any later version.
+%
+% theo-vorkurs-folien is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% GNU General Public License for more details.
+%
+% You should have received a copy of the GNU General Public License
+% along with theo-vorkurs-folien.  If not, see <https://www.gnu.org/licenses/>.
+
 \begin{frame}[fragile]{Reguläre Sprachen anders beschreiben}
     Wir können reguläre Sprachen auch graphisch beschreiben.\\
     Dafür nutzen wir \alert{endliche Automaten}.\\
@@ -95,19 +112,19 @@
     % \only<1>{
     % \begin{alertblock}{$L_1 = \{a^{2n} \mid n\in\naturals\}$}
     % \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm,semithick]
-    %         \node   [initial,state,accepting]                   (1) {$q_0$};
-    %         \node   [state]                     [right of=1]    (2) {$q_1$};
-    %         \node   [state, accepting]          [right of=2]    (3) {$q_2$};
+    %      \node   [initial,state,accepting]                   (1) {$q_0$};
+    %      \node   [state]                     [right of=1]    (2) {$q_1$};
+    %      \node   [state, accepting]          [right of=2]    (3) {$q_2$};
 
-    %         \path
-    %                 (1) edge node {$a$} (2);
+    %      \path
+    %              (1) edge node {$a$} (2);
 
-    %         \path
-    %                 (2) edge [bend left] node {$a$} (3);
+    %      \path
+    %              (2) edge [bend left] node {$a$} (3);
 
-    %         \path
-    %                 (3) edge [bend left] node {$a$} (2);
-    %     \end{tikzpicture}
+    %      \path
+    %              (3) edge [bend left] node {$a$} (2);
+    %  \end{tikzpicture}
     % \end{alertblock}
     % }
     \only<1>{
@@ -140,8 +157,8 @@
             \end{itemize}
         \end{alertblock}
         % \begin{footnotesize}
-        %     \framebox{EG$\nearrow$2.OG} \framebox{2.OG$\searrow$EG} \framebox{OFF} $\in L$\\
-        %     \framebox{2.OG$\searrow$EG} \framebox{OFF} \framebox{EG$\nearrow$1.OG} $\notin L$\\
+        %  \framebox{EG$\nearrow$2.OG} \framebox{2.OG$\searrow$EG} \framebox{OFF} $\in L$\\
+        %  \framebox{2.OG$\searrow$EG} \framebox{OFF} \framebox{EG$\nearrow$1.OG} $\notin L$\\
         % \end{footnotesize}
         \alert{Zeichne einen Automaten an, dessen akzeptierte Sprache genau die Menge der korrekten Abläufe ist.}
     \end{small}
@@ -195,7 +212,7 @@
 {\setbeamercolor{palette primary}{bg=ExColor}
 \begin{frame}<handout:0>{Lösung}
     % \begin{itemize}[<+- | alert@+>]
-    %     \item 
+    %  \item
     \onslide<1->{\alert<1>{
         % \item
         \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm,semithick]

@@ -1,3 +1,20 @@
+% Copyright 2018, 2019, 2020, 2021 FIUS
+%
+% This file is part of theo-vorkurs-folien.
+%
+% theo-vorkurs-folien is free software: you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation, either version 3 of the License, or
+% (at your option) any later version.
+%
+% theo-vorkurs-folien is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% GNU General Public License for more details.
+%
+% You should have received a copy of the GNU General Public License
+% along with theo-vorkurs-folien.  If not, see <https://www.gnu.org/licenses/>.
+
 \begin{frame}{Automaten und Grammatiken}
   \metroset{block=fill}
   \begin{exampleblock}{Satz}
@@ -133,41 +150,41 @@
 \end{frame}
 
 % \begin{frame}[fragile]{Grammatik zu Automaten}
-%     Eine reguläre Grammatik und eine endlicher Automat können die selben Sprachen beschreiben.
-%     \begin{exampleblock}{\glqq$\implies$\grqq}
-%     \only<1>{Aus $z_1 \to az_2 \in P$ wird:\\
-%     \begin{center}
-%     \vspace{0.3cm}
-%         \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm,
-%                         semithick]
-%         %\tikzstyle{every state}=[fill=ExColor,draw=none,text=white]
+%  Eine reguläre Grammatik und eine endlicher Automat können die selben Sprachen beschreiben.
+%  \begin{exampleblock}{\glqq$\implies$\grqq}
+%  \only<1>{Aus $z_1 \to az_2 \in P$ wird:\\
+%  \begin{center}
+%  \vspace{0.3cm}
+%      \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm,
+%                      semithick]
+%      %\tikzstyle{every state}=[fill=ExColor,draw=none,text=white]
 
-%         \node       [state]                 (1) [right of=1]  {$z_1$};
-%         \node       [state]                 (2) [right of=2]  {$z_2$};
+%      \node       [state]                 (1) [right of=1]  {$z_1$};
+%      \node       [state]                 (2) [right of=2]  {$z_2$};
 
-%         \path
-%                 (1) edge                node {a}  (2);
-%         \end{tikzpicture}\\
-%         \glqq$\delta (z_1,a) = z_2$\grqq
-%     \end{center}}
+%      \path
+%              (1) edge                node {a}  (2);
+%      \end{tikzpicture}\\
+%      \glqq$\delta (z_1,a) = z_2$\grqq
+%  \end{center}}
 
-%     \only<2>{
-%     Falls $z_2 \in F$ ($z_2$ ein Endzustand)\\
-%     Aus $z_1 \to a \in P$ wird:\\
-%     \begin{center}
-%     \vspace{0.3cm}
-%         \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm,
-%                         semithick]
-%         %\tikzstyle{every state}=[fill=ExColor,draw=none,text=white]
+%  \only<2>{
+%  Falls $z_2 \in F$ ($z_2$ ein Endzustand)\\
+%  Aus $z_1 \to a \in P$ wird:\\
+%  \begin{center}
+%  \vspace{0.3cm}
+%      \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm,
+%                      semithick]
+%      %\tikzstyle{every state}=[fill=ExColor,draw=none,text=white]
 
-%         \node       [state]                 (1) [right of=1]  {$z_1$};
-%         \node       [state, accepting]      (2) [right of=2]  {$z_2$};
+%      \node       [state]                 (1) [right of=1]  {$z_1$};
+%      \node       [state, accepting]      (2) [right of=2]  {$z_2$};
 
-%         \path
-%                 (1) edge                node {a}  (2);
-%         \end{tikzpicture}\\
-%         \glqq$\delta (z_1,a) = z_2$\grqq
-%     \end{center}
-%     }
-%     \end{exampleblock}
+%      \path
+%              (1) edge                node {a}  (2);
+%      \end{tikzpicture}\\
+%      \glqq$\delta (z_1,a) = z_2$\grqq
+%  \end{center}
+%  }
+%  \end{exampleblock}
 % \end{frame}
