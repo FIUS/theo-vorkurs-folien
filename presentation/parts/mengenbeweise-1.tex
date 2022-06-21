@@ -47,13 +47,13 @@
             Zu zeigen: $A \setminus (B \cup C) = (A \setminus B) \cap (A \setminus C)$
         \onslide{
             \begin{align*}
-                x\in A \setminus (B \cup C) &\only<0-7>{\implies}\only<8->{\text{\alert<8>{$\iff$}}} x\in A \wedge \neg (x \in B \cup C)\\
-                &\only<0-6>{\implies}\only<7->{\text{\alert<7>{$\iff$}}} x\in A \wedge \neg (x \in B \vee x \in C)\\
-                &\only<0-5>{\implies}\only<6->{\text{\alert<6>{$\iff$}}} x \in A \wedge \neg (x \in B) \wedge \neg (x \in C)\\
-                &\only<0-4>{\implies}\only<5->{\text{\alert<5>{$\iff$}}} x \in A \wedge \neg (x \in B) \wedge x \in A \wedge \neg (x \in C)\\
-                &\only<0-3>{\implies}\only<4->{\text{\alert<4>{$\iff$}}} (x \in A \wedge \neg (x \in B)) \wedge (x \in A \wedge \neg (x \in C))\\
-                &\only<0-2>{\implies}\only<3->{\text{\alert<3>{$\iff$}}} (x \in A \setminus B) \wedge (x \in A \setminus C)\\
-                &\only<0-1>{\implies}\only<2->{\text{\alert<2>{$\iff$}}} x \in (A \setminus B) \cap (A \setminus C)
+                x\in A \setminus (B \cup C) &\only<0-7|handout:0>{\implies}\only<8-|handout:1>{\text{\alert<8|handout:0>{$\iff$}}} x\in A \wedge \neg (x \in B \cup C)\\
+                &\only<0-6>{\implies|handout:0}\only<7-|handout:1>{\text{\alert<7|handout:0>{$\iff$}}} x\in A \wedge \neg (x \in B \vee x \in C)\\
+                &\only<0-5>{\implies|handout:0}\only<6-|handout:1>{\text{\alert<6|handout:0>{$\iff$}}} x \in A \wedge \neg (x \in B) \wedge \neg (x \in C)\\
+                &\only<0-4>{\implies|handout:0}\only<5-|handout:1>{\text{\alert<5|handout:0>{$\iff$}}} x \in A \wedge \neg (x \in B) \wedge x \in A \wedge \neg (x \in C)\\
+                &\only<0-3>{\implies|handout:0}\only<4-|handout:1>{\text{\alert<4|handout:0>{$\iff$}}} (x \in A \wedge \neg (x \in B)) \wedge (x \in A \wedge \neg (x \in C))\\
+                &\only<0-2>{\implies|handout:0}\only<3-|handout:1>{\text{\alert<3|handout:0>{$\iff$}}} (x \in A \setminus B) \wedge (x \in A \setminus C)\\
+                &\only<0-1>{\implies|handout:0}\only<2-|handout:1>{\text{\alert<2|handout:0>{$\iff$}}} x \in (A \setminus B) \cap (A \setminus C)
             \end{align*}\qed
             }
         \\
