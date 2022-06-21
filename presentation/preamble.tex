@@ -53,6 +53,9 @@
 \usepackage{marvosym}
 \usepackage{mathtools}
 \usepackage{qrcode}
+\usepackage{advdate}
+
+\newcommand\daynr{0}
 
 \definecolor{ExColor}{HTML}{17819b}
 
@@ -73,9 +76,9 @@
 {\parbox{\linewidth}{Fachgruppe Informatik\hfill\insertpagenumber\hfill Vorkurs Theoretische Informatik\vspace{0.2in}}}
 
 \newcommand{\Center}[1]{
-	\begin{frame}<handout:0>[standout]
-		#1
-	\end{frame}
+  \begin{frame}<handout:0>[standout]
+    #1
+  \end{frame}
 }
 
 % Fix section pages in appendix
@@ -84,3 +87,5 @@
     \setbeamertemplate{section page}[simple]%
   }{}{}
 }
+
+\input{../config.tex}
