@@ -1,5 +1,5 @@
 <!--
-Copyright 2018, 2019, 2020, 2021 FIUS
+Copyright 2018-2022 FIUS
 
 This file is part of theo-vorkurs-folien.
 
