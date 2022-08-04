@@ -19,13 +19,13 @@
 \begin{frame}[fragile]{Formale Notation}
     Wir beschreiben eine \alert{\emph{Grammatik}} durch ein geordnetes \alert{\emph{Tupel}} $G = (V, \Sigma, P, S)$
     \begin{itemize}
-        \item V ist die Menge der verwendeten Nichtterminale
+        \item $V$ ist die Menge der verwendeten Nichtterminale
         \item $\Sigma$ die Menge der Terminale bzw. unser Alphabet
-        \item P ist die Menge der Produktionsregeln
-        \item S ist die Startvariable
+        \item $P$ ist die Menge der Produktionsregeln
+        \item $S$ ist die Startvariable
     \end{itemize}
     \metroset{block=fill}
-    \begin{exampleblock}{Beispiel für  L = \{$ww^R \mid w^R\text{ ist w rückwärts, }w \in \{a, b\}^n, \; n \geq 1$\}}
+    \begin{exampleblock}{Beispiel für  L = \{$ww^R \mid w \in \{a, b\}^n, \; n \geq 1$\}}
         $G = (V,\Sigma,P,S)$ mit\\
         $V = \{S\}$\\
         $\Sigma = \{a,b\}$\\
@@ -38,11 +38,11 @@
 \begin{frame}{Denkpause}
     \begin{columns}
         \column{0.5\textwidth}
-        \begin{alertblock}{knifflige Aufgabe}
+        \begin{alertblock}{Knifflige Aufgabe}
             Bob will durch das Labyrinth laufen. Er hat folgende Möglichkeiten:\\
-            $\Sigma$ = \{\text{\Rewind, \MoveUp, \Forward, \MoveDown}\}
+            $\Sigma = \{\text{\Rewind}, \text{\MoveUp}, \text{\Forward}, \text{\MoveDown}\}$
             \begin{itemize}
-                \item Bob kann nicht auf ein Feld zurücktreten von dem er gerade kam
+                \item Bob kann nicht auf ein Feld zurücktreten, von dem er gerade kam
                 \item Bob geht bei jedem Schritt ein Feld in die angegebene Richtung
             \end{itemize}
         \end{alertblock}
@@ -50,7 +50,7 @@
         \begin{figure}
             \centering
             \includegraphics[width=0.7\textwidth]{../figures/GBeispiel.png}
-            \caption{Bob's Problem}
+            \caption{Bobs Problem}
 
         \end{figure}
     \end{columns}
@@ -64,7 +64,7 @@
         \begin{figure}
             \centering
             \includegraphics[width=0.7\textwidth]{../figures/GBeispiel1.png}
-            \caption{der direkte Weg ist repräsentiert durch das Wort \alert{\MoveDown\Forward\Forward\Forward\Forward\Forward\Forward}}
+            \caption{Der direkte Weg ist repräsentiert durch das Wort \alert{\MoveDown\Forward\Forward\Forward\Forward\Forward\Forward}}
         \end{figure}
     \end{alertblock}
 \end{frame}
@@ -107,7 +107,7 @@
             %Wir nehmen uns zwei Variablen um zwischen den Einstiegsrichtungen zu unterscheiden für jeden Entscheidungspunkt und konstruieren damit  unsere Grammatik:\\
             $G = (V, \Sigma, P, S)$, wobei \\
             $V = \{S, A_u, A_r, B_u, B_l\}$ \\
-            $\Sigma = \{\text{\Rewind, \MoveUp, \Forward, \MoveDown}\}$ \\
+            $\Sigma = \{\text{\Rewind}, \text{\MoveUp}, \text{\Forward}, \text{\MoveDown}\}$ \\
             $P = \{S \rightarrow \text\MoveDown A_u \mid \text\MoveDown A_r,$\\
             \qquad\; $A_u \rightarrow \text{\Forward\Forward\Forward\Forward} B_l$\\
             \qquad\; $A_r \rightarrow \text{\MoveDown\MoveDown\Forward\Forward\MoveUp\Forward\Forward\MoveUp} B_u,$\\
@@ -122,14 +122,14 @@
 
         \end{figure}
     \end{columns}
-    \small\emph{Erinnerung:} Bob kann nicht auf ein Feld zurücktreten von dem er gerade kam
+    \small\emph{Erinnerung:} Bob kann nicht auf ein Feld zurücktreten, von dem er gerade kam
 \end{frame}
 }
 
 \subsubsection{Ableiten}
 \begin{frame}[fragile]{Ableiten}
-    Wir können durch das Ableiten formal zeigen, dass ein Wort von einer Grammatik erzeugt wird.\\
-    \small{Wir betrachten L = \{$ww^R \mid w^R\text{ ist w rückwärts, }w \in \{a, b\}^n, n>0, n\in \mathbb{N}$\}\\
+    Wir können durch das Ableiten formal zeigen, dass ein Wort von einer Grammatik erzeugt wird:\\
+    \small{Wir betrachten L = \{$ww^R \mid w^R\text{ ist w rückwärts, }w \in \{a, b\}^n, n\in \mathbb{N}\setminus \{0\}$\}\\
         mit der Grammatik $G=(V,\Sigma,P,S)$, wobei\\
         $V=\{S\}$, $\Sigma=\{a,b\}$, $P = \{S \rightarrow aSa \mid bSb \mid aa \mid bb$\}}
     \metroset{block=fill}
@@ -142,7 +142,7 @@
 {\setbeamercolor{palette primary}{bg=ExColor}
 \begin{frame}{Denkpause}
     \begin{alertblock}{Aufgaben}
-        Zeige.
+        Zeige die folgenden Aussagen
     \end{alertblock}
     \metroset{block=fill}
     \begin{block}{Normal}

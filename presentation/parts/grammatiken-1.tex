@@ -16,34 +16,38 @@
 % along with theo-vorkurs-folien.  If not, see <https://www.gnu.org/licenses/>.
 
 \begin{frame}[fragile]{Wörter in Sprachen}
-Wir können inzwischen Sprachen in Mengenschreibweise darstellen.\\Aber welche Wörter sind enthalten?\\
+Wir können inzwischen Sprachen in Mengenschreibweise darstellen.\\Es gibt aber auch weitere Möglichkeiten Sprachen zu definieren.\\
 \vspace{0.3cm}
-Wir können weitere Regeln formulieren mit denen wir von einem gegebenen Startpunkt aus alle Wörter einer Sprache erzeugen können.
+Wir können Regeln formulieren mit denen wir alle Wörter einer Sprache schrittweise erzeugen können.
 \end{frame}
 
 \begin{frame}[fragile]{Beispiel Worterzeugung}
-    \small{Wir betrachten L = \{$ww^R \mid w^R\text{ ist w rückwärts, }w \in \{a, b\}^n, n>0, n\in \mathbb{N}$\}\\
-    Hier ist z.B. $\alert<1>{w}w^R$ = \alert<1>{ababb}bbaba $\in$ L.}\\
+    \small{Wir betrachten L = \{$ww^R \mid w \in \{a, b\}^n, n>0, n\in \mathbb{N}$\}\\
+    Hier ist z.B. $\alert<1>{w}w^R$ = \alert<1>{$ababb$}$bbaba\in L$.}\\
     \begin{enumerate}
     \item <2-> 
-            \alert<2,5>{Wir beginnen mit einer Variablen S}
+            \alert<2,5>{Wir beginnen mit einer Variablen $S$.}
     \item <3-> 
-            \alert<3>{Wir formulieren Regeln um S umzuwandeln}
+            \alert<3>{Wir formulieren Regeln um $S$ umzuwandeln:}
             \alert<4>{\onslide<4->{
             \begin{align*}\alert<6,8>{S \rightarrow aSa}&\text{ oder }\alert<7,9>{S \rightarrow bSb}\\\text{oder }S \rightarrow aa &\text{ oder }\alert<10>{S \rightarrow bb}\end{align*}}}\vspace{-0.3in}
     \item <5->
-            \alert<5>{Damit können wir jetzt Wörter aus der Sprache beschreiben.}\\
-            z.B.: \alert<6>{a}\alert<7>{b}\alert<8>{a}\alert<9>{b}\alert<10>{bb}\alert<9>{b}\alert<8>{a}\alert<7>{b}\alert<6>{a} $\leadsto$ \only<5>{\alert<5>{S}}\only<6>{\alert<6>{aSa}}\only<7>{a\alert<7>{bSb}a}\only<8>{ab\alert<8>{aSa}ba}\only<9>{aba\alert<9>{bSb}aba}\only<10->{abab\alert<10>{bb}baba}
+            \alert<5>{Damit können wir jetzt Wörter aus der Sprache beschreiben:}\\
+            z.B.: \alert<6>{$a$}\alert<7>{$b$}\alert<8>{$a$}\alert<9>{$b$}\alert<10>{$bb$}\alert<9>{$b$}\alert<8>{$a$}\alert<7>{$b$}\alert<6>{$a$} 
+            $\leadsto$ 
+            \only<5>{\alert<5>{$S$}}\only<6>{\alert<6>{$aSa$}}\only<7>{a\alert<7>{$bSb$}$a$}\only<8>{$ab$\alert<8>{$aSa$}$ba$}\only<9>{$aba$\alert<9>{$bSb$}$aba$}\only<10->{$abab$\alert<10>{$bb$}$baba$}
     \item <11> \alert<11>{Wir nennen diese Umformungsregeln Produktionsregeln.}
     \end{enumerate}
+    \vspace{1cm}
+    \footnotesize{$w^R$ ist w rückwärts}
 \end{frame}
 
 \subsubsection{Produktionsregeln}
 \begin{frame}{Produktionsregeln}
     \begin{alertblock}{Einschränkungen}
     \begin{itemize}
-        \item \alert{\emph{Nichtterminale}} werden meist durch Großbuchstaben repräsentiert und müssen durch Produktionsregeln abgeändert werden
-        \item \alert{\emph{Terminale}} werden meist durch Kleinbuchstaben repräsentiert und sollten \emph{nicht} durch weitere Produktionsregeln abgeändert werden
+        \item \alert{\emph{Nichtterminale}} werden meist durch Großbuchstaben repräsentiert und müssen durch Produktionsregeln abgeändert werden.
+        \item \alert{\emph{Terminale}} werden meist durch Kleinbuchstaben repräsentiert und sollten \emph{nicht} durch weitere Produktionsregeln abgeändert werden.
         \item Mehrere Symbole können auf einen Schlag überführt werden. Dabei sollten die Terminale nicht entfernt oder umsortiert werden.\\
         z.B. $AB \rightarrow CD$ ist erlaubt.\\
         Auch $abAB \rightarrow BbAa$, aber das gehört sich nicht.
@@ -86,15 +90,15 @@ Wir können weitere Regeln formulieren mit denen wir von einem gegebenen Startpu
     \begin{itemize}
         \item $L_1 = \{a^{2n} \mid n\in\mathbb{N}\}$
         \item $L_2 = \{a^nb^nc^m \mid n, m\in\mathbb{N}\}$
-        \item $L_3 = \{uv \mid u\in\{a,b\}^\ast,\;v\in\{c,d\}\}$
+        \item $L_3 = \{uv \mid u\in\{a,b\}^\ast, v\in\{c,d\}\}$
         \item $L_4 = \{w \mid |w| = 3, w\in \{a,b,c\}^*\}$
     \end{itemize}
     \end{block}
     \begin{block}{Etwas Schwerer}
     \begin{itemize}
-        \item $L_5 = \{a^n \mid n \equiv 1 \pmod 3\}$
+        \item $L_5 = \{a^n \mid n \equiv 1 \mod 3\}$
         \item $L_6 = \{w \mid |w|_a = 3, |w|_b = 1, w\in \{a,b,c\}^*\}$
-        \item $L_7 = \{uv \mid u\in\{\text{\Rewind, \MoveUp, \Forward, \MoveDown}\}^\ast,\;v\in\{\text{\Stopsign}\}\}$
+        \item $L_7 = \{uv \mid u\in\{\text{\Rewind, \MoveUp, \Forward, \MoveDown}\}^\ast, v\in\{\text{\Stopsign}\}\}$
         \item $L_8 = \{w\mid |w|=2, w \in \{a, b\}\}$
     \end{itemize}
     \end{block}
