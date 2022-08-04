@@ -22,22 +22,22 @@
 			Ist der Beweis korrekt geführt? Was ist passiert?
 		\end{alertblock}
 		\metroset{block=transparent}
-		Sei $A(n)\defeq$ In einer Herde aus $n$ Telefonen haben alle die selbe Farbe.
+		Sei $A(n)\defeq$ \emph{In einer Herde aus $n$ Telefonen haben alle die selbe Farbe.}\\
 		Zu zeigen: $A(n)$ gilt für alle $n \in \mathbb{N} \setminus \{0\} $.
-		\begin{alertblock}{Induktionsanfang IA}
+		\begin{alertblock}{Induktionsanfang (IA)}
 			$A(1)$: Aussage gilt für $n\defeq 1$, da ein Telefon nur eine Farbe haben kann.
 		\end{alertblock}
-		\begin{alertblock}{Induktionsvorraussetzung IV}
+		\begin{alertblock}{Induktionsvorraussetzung (IV)}
 			Ang. $A(n)$ gilt für $n\geq1$.
 		\end{alertblock}
-		\begin{alertblock}{Induktionsschritt IS}
-			Zeige Aussage gilt für alle $n+1$ unter Nutzung der I.V.\\
-			d.h. wir zeigen $A(n+1)=$ In einer Herde aus $n+1$ Telefonen haben alle die selbe Farbe.
+		\begin{alertblock}{Induktionsschritt (IS)}
+			Zeige Aussage gilt für alle $n+1$ unter Nutzung der IV:\\
+			D.h. wir zeigen $A(n+1)=$ \emph{In einer Herde aus $n+1$ Telefonen haben alle die selbe Farbe.}
 		\end{alertblock}
 	\end{frame}
 	\begin{frame}[fragile]{Aufgabe}
 		\footnotesize{
-			\begin{alertblock}{Induktionsschritt IS}
+			\begin{alertblock}{Induktionsschritt (IS)}
 				Wir betrachten eine Herde aus $n+1$ Telefonen:
 				\[\underbrace{\text{\Telefon}\text{\Telefon}\text{\Telefon}\text{\Telefon}\text{\Telefon}\dots\text{\Telefon}\text{\Telefon}}_{n+1}\]
 				Wir sondern ein Telefon aus und betrachten den Rest. Nach I.V. haben diese alle die selbe Farbe.
@@ -60,10 +60,10 @@
 			\begin{block}{Das Problem}
 				Die Vorangehensweise erfordert, dass die betrachteten Mengen an $n$ Telefonen mindestens ein gemeinsames Element haben. Sie teilen dann die Farbe dieses Elements. Allerdings gibt es ein überlappendes Element erst ab $3$ Telefonen.
 				\[
-					\color{mLightGreen}A(1) \overset{\text{I.V.}}{\nimplies}
-					\alert{A(2):\overbrace{\text{\Telefon}}\underbrace{\text{\Telefon}}} \color{black} \overset{\alert{\text{I.V.}}}{\implies}
+					\color{mLightGreen}A(1) \overset{\text{IV}}{\nimplies}
+					\alert{A(2):\overbrace{\text{\Telefon}}\underbrace{\text{\Telefon}}} \color{black} \overset{\alert{\text{IV}}}{\implies}
 					A(3):\rlap{$\overbrace{\phantom{\text{\Telefon\Telefon}}}$}\text{\Telefon}\underbrace{\text{\Telefon\Telefon}}
-					\overset{\alert{\text{I.V.}}}{\implies} \dots \overset{\alert{\text{I.V.}}}{\implies} A(n)
+					\overset{\alert{\text{IV}}}{\implies} \dots \overset{\alert{\text{IV}}}{\implies} A(n)
 				\]
 				Die Kette an verifiziert wahren Aussagen ist also unterbrochen, da es keine gültige Vorraussetzung gibt um $A(2+1)$ zu zeigen.
 			\end{block}

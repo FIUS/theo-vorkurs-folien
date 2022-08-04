@@ -28,20 +28,15 @@
 %  \end{enumerate}
 % \end{frame}
 
-\subsubsection{formalere Definition}
-\begin{frame}{Definition nochmal formaler}
-    \begin{equation*}
-        (\forall n \in \mathbb{N}_{n_0}: P(n)) \iff (P(n_0) \wedge \forall n \in \mathbb{N}_{n_0}: (P(n) \implies P(n+1)))
-    \end{equation*}    
-\end{frame}
+\subsubsection{Formalere Definition}
 
 \begin{frame}{Definition nochmal formaler}
-    \onslide<1->$(\forall n \in \mathbb{N}_{n_0}: P(n)) \iff (\alert<2>{\underbrace{P(n_0)}_{\text{IA}}}\wedge \overbrace{\alert<3>{\forall n \in \mathbb{N}_{n_0}:} (\alert<4>{\underbrace{P(n)}_{\text{IV}}} \alert<5>{\implies P(n+1)})}^{\text{IS}})$
+    \onslide<1->$(\forall n \in \mathbb{N}_{n_0}: P(n)) \iff (\only<1>{P(n_0)}\only<2->{\alert<3>{\underbrace{P(n_0)}_{\text{IA}}}}\wedge \only<1>{\forall n \in \mathbb{N}_{n_0}: (P(n) \implies P(n+1))}\only<2->{\overbrace{\alert<4>{\forall n \in \mathbb{N}_{n_0}:} (\alert<5>{\underbrace{P(n)}_{\text{IV}}} \alert<6>{\implies P(n+1)})}}^{\text{IS}})$
     \begin{enumerate}
-        \item<2->\alert<2>{\textbf{IA:} $n = n_0$}
-        \item<3->\onslide<3->{\alert<3>{\textbf{IS:} Sei $n\in\mathbb{N}_{n_0}$ beliebig.}}
-        \onslide<4->{\alert<4>{Ang. es gilt $P(n)$. \tiny{\textbf{(IV)}}}}    
-        \item<5->\alert{$\leadsto$ Zeigen, dass $P(n+1)$ gilt, unter Verwendung von $P(n)$ \tiny{\textbf{(IV)}}}
+        \item<3->\alert<3>{\textbf{IA:} $n = n_0$}
+        \item<4->\onslide<4->{\alert<4>{\textbf{IS:} Sei $n\in\mathbb{N}_{n_0}$ beliebig.}}
+        \onslide<5->{\alert<5>{Ang. es gilt $P(n)$. \tiny{\textbf{(IV)}}}}    
+        \item<6->\alert{Zeigen, dass $P(n+1)$ gilt, unter Verwendung von $P(n)$ \tiny{\textbf{(IV)}}}
     \end{enumerate}
 \end{frame}
 
