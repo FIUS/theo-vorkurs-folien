@@ -22,7 +22,7 @@ Wir können weitere Regeln formulieren mit denen wir von einem gegebenen Startpu
 \end{frame}
 
 \begin{frame}[fragile]{Beispiel Worterzeugung}
-    \small{Wir betrachten L = \{$ww^R\;|\;w^R\text{ ist w rückwärts, }w \in \{a, b\}^n, n>0, n\in \mathbb{N}$\}\\
+    \small{Wir betrachten L = \{$ww^R \mid w^R\text{ ist w rückwärts, }w \in \{a, b\}^n, n>0, n\in \mathbb{N}$\}\\
     Hier ist z.B. $\alert<1>{w}w^R$ = \alert<1>{ababb}bbaba $\in$ L.}\\
     \begin{enumerate}
     \item <2-> 
@@ -65,7 +65,7 @@ Wir können weitere Regeln formulieren mit denen wir von einem gegebenen Startpu
     \end{exampleblock}
 	}
     \only<8->{
-	\begin{exampleblock}{$L_3 = \{a^nbbc^m\;|\;n, m\in\mathbb{N}\}$}
+	\begin{exampleblock}{$L_3 = \{a^nbbc^m \mid n, m\in\mathbb{N}\}$}
 	$\begin{aligned}
 		\onslide<9->{P=\{ S & \rightarrow  ABC,}\\
 		\onslide<10->{A & \rightarrow aA \mid \emptyWord,} \\
@@ -84,17 +84,17 @@ Wir können weitere Regeln formulieren mit denen wir von einem gegebenen Startpu
     \metroset{block=fill}
     \begin{block}{Normal}
     \begin{itemize}
-        \item $L_1 = \{a^{2n}\;|\;n\in\mathbb{N}\}$
-        \item $L_2 = \{a^nb^nc^m\;|\;n, m\in\mathbb{N}\}$
-        \item $L_3 = \{uv\;|\;u\in\{a,b\}^\ast,\;v\in\{c,d\}\}$
-        \item $L_4 = \{w\;|\;|w| = 3, w\in \{a,b,c\}^*\}$
+        \item $L_1 = \{a^{2n} \mid n\in\mathbb{N}\}$
+        \item $L_2 = \{a^nb^nc^m \mid n, m\in\mathbb{N}\}$
+        \item $L_3 = \{uv \mid u\in\{a,b\}^\ast,\;v\in\{c,d\}\}$
+        \item $L_4 = \{w \mid |w| = 3, w\in \{a,b,c\}^*\}$
     \end{itemize}
     \end{block}
     \begin{block}{Etwas Schwerer}
     \begin{itemize}
-        \item $L_5 = \{a^n\;|\;n \equiv 1 \pmod 3\}$
-        \item $L_6 = \{w\;|\;|w|_a = 3, |w|_b = 1, w\in \{a,b,c\}^*\}$
-        \item $L_7 = \{uv\;|\;u\in\{\text{\Rewind, \MoveUp, \Forward, \MoveDown}\}^\ast,\;v\in\{\text{\Stopsign}\}\}$
+        \item $L_5 = \{a^n \mid n \equiv 1 \pmod 3\}$
+        \item $L_6 = \{w \mid |w|_a = 3, |w|_b = 1, w\in \{a,b,c\}^*\}$
+        \item $L_7 = \{uv \mid u\in\{\text{\Rewind, \MoveUp, \Forward, \MoveDown}\}^\ast,\;v\in\{\text{\Stopsign}\}\}$
         \item $L_8 = \{w\mid |w|=2, w \in \{a, b\}\}$
     \end{itemize}
     \end{block}
