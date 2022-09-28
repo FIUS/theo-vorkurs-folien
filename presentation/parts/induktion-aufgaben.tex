@@ -58,33 +58,31 @@
 		\small{
 			\metroset{block=fill}
 			\begin{block}{Das Problem}
-				Die Vorangehensweise erfordert, dass die betrachteten Mengen an $n$ Telefonen mindestens ein gemeinsames Element haben. Sie teilen dann die Farbe dieses Elements. Allerdings gibt es ein überlappendes Element erst ab $3$ Telefonen.
+				Die Vorangehensweise erfordert, dass die betrachteten Mengen an $n-1$ Telefonen mindestens ein gemeinsames Element haben. Sie teilen dann die Farbe dieses Elements. Allerdings gibt es ein überlappendes Element erst ab $n=3$ Telefonen:
 				\[
-					\color{mLightGreen}A(1) \overset{\text{IV}}{\nimplies}
-					\alert{A(2):\overbrace{\text{\Telefon}}\underbrace{\text{\Telefon}}} \color{black} \overset{\alert{\text{IV}}}{\implies}
-					A(3):\rlap{$\overbrace{\phantom{\text{\Telefon\Telefon}}}$}\text{\Telefon}\underbrace{\text{\Telefon\Telefon}}
-					\overset{\alert{\text{IV}}}{\implies} \dots \overset{\alert{\text{IV}}}{\implies} A(n)
+					A(2):\alert{\text{\Telefon}\text{\Telefon}} \color{black} \leadsto 
+					A(3):\alert{\rlap{$\overbrace{\phantom{\text{\Telefon\Telefon}}}^{A(2)}$}\text{\Telefon}\underbrace{\text{\Telefon\Telefon}}_{A(2)}}
+					\leadsto \dots \leadsto A(n): \alert{\rlap{$\overbrace{\phantom{\text{\Telefon\Telefon} ... \text{\Telefon}}}^{A(n-1)}$}\text{\Telefon}\underbrace{\text{\Telefon} ... \text{\Telefon\Telefon}}_{A(n-1)}}
 				\]
-				Die Kette an verifiziert wahren Aussagen ist also unterbrochen, da es keine gültige Vorraussetzung gibt um $A(2+1)$ zu zeigen.
+				Das Problem ist nun, dass $A(2)$ nicht zwangsweise erfüllt sein muss! Somit ist die Voraussetzung $A(2)$ verletzt und wir können keine weiteren Folgerungen über $A(n)$ machen.
+
+				\begin{figure}
+				\resizebox{.4\textwidth}{!}{
+					\centering%
+					\begin{subfigure}{0.3\textwidth}
+						\centering%
+						\includegraphics[height=0.5in]{../figures/telephoneGreen.png}
+					\end{subfigure}
+					$\qquad$
+					\begin{subfigure}{0.3\textwidth}
+						\centering%
+						\includegraphics[height=0.5in]{../figures/telephoneWhite.png}
+					\end{subfigure}
+				}
+					\caption{Beide Telefone erfüllen jeweils $A(1)$, zusammen aber nicht $A(2)$}
+				\end{figure}
+
 			\end{block}
 		}
-
-		\begin{figure}
-		\resizebox{.6\textwidth}{!}{
-			\centering%
-			\begin{subfigure}{0.3\textwidth}
-				\centering%
-				\includegraphics[height=0.5in]{../figures/telephoneGreen.png}
-				\caption{grünes Telefon}
-			\end{subfigure}
-			$\qquad$
-			\begin{subfigure}{0.3\textwidth}
-				\centering%
-				\includegraphics[height=0.5in]{../figures/telephoneWhite.png}
-				\caption{weißes Telefon}
-			\end{subfigure}
-		}
-			\caption{Telefone mit unterschiedlicher Farbe}
-		\end{figure}
 	\end{frame}
 }
