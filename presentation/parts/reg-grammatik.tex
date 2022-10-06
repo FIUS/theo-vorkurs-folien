@@ -61,12 +61,12 @@
 {\setbeamercolor{palette primary}{bg=ExColor}
 \begin{frame}<handout:0>{Lösung}
     \begin{itemize}
-        \item<1-> \alert<1>{$P_1 = \{S \to aA \mid \emptyWord,\ A \to aB \mid a,\ B \to aA\}$}
-        \item<2-> \alert<2>{$P_2 = \{S \to aA \mid bB \mid b \mid a \mid \emptyWord,\ A \to aA \mid bB \mid b \mid a ,\ B \to bB \mid b\}$}
-        \item<3-> \alert<3>{$P_3 = \{S \to aS \mid bS \mid c \mid d\}$}
-        \item<4-> \alert<4>{$P_4 = \{S \to aA \mid bA \mid cA,\ A \to aB \mid bB \mid cB,\ B \to a \mid b \mid c\}$}
-        \item<5-> \alert<5>{$P_5 = \{S \to aA \mid a,\ A \to aB,\ B \to aS\}$}
-        \item<6-> \alert<6>{$P_6 = \{S \to \text{\Rewind}S \mid \text{\MoveUp}S \mid \text{\Forward}S \mid \text{\MoveDown}S \mid \text{\Stopsign}\}$}
+        \item<1-> \alert<1>{$P_1 = \{S \to aA \ |\ \emptyWord,\ A \to aB \ |\ a,\ B \to aA\}$}
+        \item<2-> \alert<2>{$P_2 = \{S \to aA \ |\ bB \ |\ b \ |\ a \ |\ \emptyWord,\ A \to aA \ |\ bB \ |\ b \ |\ a ,\ B \to bB \ |\ b\}$}
+        \item<3-> \alert<3>{$P_3 = \{S \to aS \ |\ bS \ |\ c \ |\ d\}$}
+        \item<4-> \alert<4>{$P_4 = \{S \to aA \ |\ bA \ |\ cA,\ A \to aB \ |\ bB \ |\ cB,\ B \to a \ |\ b \ |\ c\}$}
+        \item<5-> \alert<5>{$P_5 = \{S \to aA \ |\ a,\ A \to aB,\ B \to aS\}$}
+        \item<6-> \alert<6>{$P_6 = \{S \to \text{\Rewind}S \ |\ \text{\MoveUp}S \ |\ \text{\Forward}S \ |\ \text{\MoveDown}S \ |\ \text{\Stopsign}\}$}
     \end{itemize}
 \end{frame}
 }
@@ -76,17 +76,17 @@
         \begin{itemize}
             \item 
                 \alert<1>{
-                $P_7 = \{S \to cS \mid aA_1 \mid bB_0,$\\
+                $P_7 = \{S \to cS \ |\ aA_1 \ |\ bB_0,$\\
                 \vspace*{0.9mm}
                 \hspace*{7mm}
                 $\begin{aligned}
-                A_1 &\to cA_1 \mid aA_2 \mid bB_1,\\
-                A_2 &\to cA_2 \mid aA_3 \mid bB_2,\\
-                A_3 &\to cA_3 \mid bB_3 \mid b,\\
-                B_0 &\to cB_0 \mid aB_1,\\
-                B_1 &\to cB_1 \mid aB_2,\\
-                B_2 &\to cB_2 \mid aB_3 \mid a,\\
-                B_3 &\to cB_3 \mid c\}
+                A_1 &\to cA_1 \ |\ aA_2 \ |\ bB_1,\\
+                A_2 &\to cA_2 \ |\ aA_3 \ |\ bB_2,\\
+                A_3 &\to cA_3 \ |\ bB_3 \ |\ b,\\
+                B_0 &\to cB_0 \ |\ aB_1,\\
+                B_1 &\to cB_1 \ |\ aB_2,\\
+                B_2 &\to cB_2 \ |\ aB_3 \ |\ a,\\
+                B_3 &\to cB_3 \ |\ c\}
                 \end{aligned}
                 $}
         \end{itemize}

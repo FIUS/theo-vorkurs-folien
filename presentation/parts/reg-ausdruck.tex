@@ -31,7 +31,7 @@
         \begin{itemize}
             \item \alert{$\emptyset$} und \alert{$\emptyWord$} sind reguläre Ausdrücke.
             \item \alert{$a$} ist ein regulärer Ausdruck (für alle $a \in \Sigma$).
-            \item Wenn \alert{$\alpha$} und \alert{$\beta$} reguläre Ausdrücke sind,\\dann sind \alert{$\alpha \beta$}, \alert{($\alpha \mid \beta$)} und \alert{$(\alpha)^*$} auch reguläre Ausdrücke.
+            \item Wenn \alert{$\alpha$} und \alert{$\beta$} reguläre Ausdrücke sind,\\dann sind \alert{$\alpha \beta$}, \alert{($\alpha \ |\ \beta$)} und \alert{$(\alpha)^*$} auch reguläre Ausdrücke.
         \end{itemize}
     \end{alertblock}
     \metroset{block=fill}
@@ -67,7 +67,7 @@
     \begin{block}{Bedeutung von regulären Ausdrücken}
         Sind $\alpha$ und $\beta$ bereits reguläre Ausdrücke, so gilt:
         \begin{itemize}[<+- | alert@+ | handout:+- | handout:alert@+>]
-            \item Sei $\gamma = (\alpha \mid \beta)$: Dann ist $L(\gamma) = L(\alpha) \cup L(\beta)$
+            \item Sei $\gamma = (\alpha\ |\ \beta)$: Dann ist $L(\gamma) = L(\alpha) \cup L(\beta)$
             \item Sei $\gamma = (\alpha)^*$: Dann ist $L(\gamma) = L(\alpha)^*$
             \item Sei $\gamma = \alpha \beta$: Dann ist $L(\gamma) = \{uv \mid u \in L(\alpha) \wedge v \in L(\beta)\}$
         \end{itemize}
@@ -96,7 +96,7 @@
             \begin{itemize}
                 \item $L(ababba) = \{ababba\}$
                 \item $L((a)^*(b)^*) = \{a^n b^m \mid n, m \in \mathbb{N}\}$
-                \item $L((bab \mid (ab)^*) abb) = \{bababb\} \cup \{(ab)^n abb \mid n \in \mathbb{N}\}$
+                \item $L((bab | (ab)^*) abb) = \{bababb\} \cup \{(ab)^n abb \mid n \in \mathbb{N}\}$
             \end{itemize}
         }
     \end{exampleblock}
@@ -133,11 +133,11 @@
     \begin{itemize}[<+- | alert@+>]
         \item $\gamma_1 = (aa)^*$
         \item $\gamma_2 = a^*b^*$
-        \item $\gamma_3 = (a|b)^*\ (c|d)$
+        \item $\gamma_3 = (a|b)^*(c|d)$
         \item $\gamma_4 = (a|b|c)(a|b|c)(a|b|c)$
         \item $\gamma_5 = a(aaa)^*$
         \item $\gamma_6 = ($\Rewind | \MoveUp | \Forward | \MoveDown$)^*$\Stopsign
-        \item $\gamma_7 = c^*(ac^*ac^*ac^*b\mid ac^*ac^*bc^*a\mid ac^*bc^*ac^*a\mid bc^*ac^*ac^*a)c^*$
+        \item $\gamma_7 = c^*(ac^*ac^*ac^*b\ |\ ac^*ac^*bc^*a\ |\ ac^*bc^*ac^*a\ |\ bc^*ac^*ac^*a)c^*$
     \end{itemize}
 \end{frame}
 }

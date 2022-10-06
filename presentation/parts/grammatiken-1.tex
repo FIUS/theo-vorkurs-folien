@@ -61,20 +61,20 @@ Wir können Regeln formulieren mit denen wir alle Wörter einer Sprache schrittw
     \end{alertblock}
     \metroset{block=fill}
     \begin{exampleblock}{$L_1 = \{a\}^*$}
-    $\onslide<2->{P=\{S \rightarrow aS \only<3->{\mid \emptyWord\}}}$
+    $\onslide<2->{P=\{S \rightarrow aS \only<3->{\ |\ \emptyWord\}}}$
     \end{exampleblock}
     \only<4->{
     \begin{exampleblock}{$L_2 = \{a, b\}^*$}
-    $\onslide<5->{P=\{S \rightarrow  aS \only<6->{\mid bS}\only<7->{\mid \emptyWord\}}}$
+    $\onslide<5->{P=\{S \rightarrow  aS \only<6->{\ |\ bS}\only<7->{\ |\ \emptyWord\}}}$
     \end{exampleblock}
 	}
     \only<8->{
 	\begin{exampleblock}{$L_3 = \{a^nbbc^m \mid n, m\in\mathbb{N}\}$}
 	$\begin{aligned}
 		\onslide<9->{P=\{ S & \rightarrow  ABC,}\\
-		\onslide<10->{A & \rightarrow aA \mid \emptyWord,} \\
+		\onslide<10->{A & \rightarrow aA \ |\ \emptyWord,} \\
 		\onslide<11->{B & \rightarrow bb,} \\
-		\onslide<12->{C & \rightarrow cC \mid \emptyWord \} }			
+		\onslide<12->{C & \rightarrow cC \ |\ \emptyWord \} }			
 	\end{aligned}$
 	\end{exampleblock}
 	}
@@ -109,15 +109,15 @@ Wir können Regeln formulieren mit denen wir alle Wörter einer Sprache schrittw
 \begin{frame}<handout:0>{Lösungen}
 Alle Lösungen sind Beispiellösungen, es sind auch andere möglich.
     \begin{itemize}
-        \item<1-> \alert<1>{$P_1 = \{S\rightarrow aaS\;|\;\emptyWord$\}}
-        \item<2-> \alert<2>{$P_2 = \{S\rightarrow AB$, $A\rightarrow aAb \;|\; ab\; |\;\emptyWord$, $B\rightarrow cB \;|\; \emptyWord$\}}
-        \item<3-> \alert<3>{$P_3 = \{S\rightarrow UV$, $U\rightarrow aU \;|\; bU \; |\; \emptyWord$, $V\rightarrow c \;|\; d$\}}
-        \item<4-> \alert<4>{$P_4 = \{S\rightarrow XXX$, $X\rightarrow a \;|\; b \;|\; c$\}}
-        \item<5-> \alert<5>{$P_5 = \{S\rightarrow a \;|\; aaaS\}$}
+        \item<1-> \alert<1>{$P_1 = \{S\rightarrow aaS\ |\ \emptyWord$\}}
+        \item<2-> \alert<2>{$P_2 = \{S\rightarrow AB$, $A\rightarrow aAb \ |\  ab \ |\ \emptyWord$, $B\rightarrow cB \ |\  \emptyWord$\}}
+        \item<3-> \alert<3>{$P_3 = \{S\rightarrow UV$, $U\rightarrow aU \ |\  bU \ |\  \emptyWord$, $V\rightarrow c \ |\  d$\}}
+        \item<4-> \alert<4>{$P_4 = \{S\rightarrow XXX$, $X\rightarrow a \ |\  b \ |\  c$\}}
+        \item<5-> \alert<5>{$P_5 = \{S\rightarrow a \ |\  aaaS\}$}
         \item<6-> \alert<6>{$P_6 = \{S\rightarrow AAAB$, $AB\rightarrow BA$, 
-        $A\rightarrow cA \;|\; Ac \;|\; a$, 
-        $B\rightarrow cB \;|\; Bc \;|\; b$\}}
-        \item<7-> \alert<7>{$P_7 = \{S\rightarrow U\text{\Stopsign} \;|\; \text{\Stopsign}$, $U\rightarrow \text{\Rewind} U \;|\; \text{\MoveUp} U \;|\; \text{\Forward} U \;|\; \text{\MoveDown} U \;|\;\emptyWord$\}}
+        $A\rightarrow cA \ |\  Ac \ |\  a$, 
+        $B\rightarrow cB \ |\  Bc \ |\  b$\}}
+        \item<7-> \alert<7>{$P_7 = \{S\rightarrow U\text{\Stopsign} \ |\  \text{\Stopsign}$, $U\rightarrow \text{\Rewind} U \ |\  \text{\MoveUp} U \ |\  \text{\Forward} U \ |\  \text{\MoveDown} U \ |\ \emptyWord$\}}
         \item<8-> \alert<8>{$P_8 = \{\} \leadsto$ Wir brauchen keine Produktionsregeln!}
     \end{itemize}
 \end{frame}

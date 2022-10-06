@@ -30,7 +30,7 @@
         $V = \{S\}$\\
         $\Sigma = \{a,b\}$\\
         $P = \{S \rightarrow aSa, S \rightarrow bSb, S \rightarrow aa, S \rightarrow bb$\}\\
-        \qquad bzw. kurz: $P = \{S \rightarrow aSa\;|\;bSb\;|\;aa\;|\;bb$\}
+        \qquad bzw. kurz: $P = \{S \rightarrow aSa\ |\ bSb\ |\ aa\ |\ bb$\}
     \end{exampleblock}
 \end{frame}
 
@@ -108,11 +108,11 @@
             $G = (V, \Sigma, P, S)$, wobei \\
             $V = \{S, A_u, A_r, B_u, B_l\}$ \\
             $\Sigma = \{\text{\Rewind}, \text{\MoveUp}, \text{\Forward}, \text{\MoveDown}\}$ \\
-            $P = \{S \rightarrow \text\MoveDown A_u \mid \text\MoveDown A_r,$\\
+            $P = \{S \rightarrow \text\MoveDown A_u \ |\ \text\MoveDown A_r,$\\
             \qquad\; $A_u \rightarrow \text{\Forward\Forward\Forward\Forward} B_l$\\
             \qquad\; $A_r \rightarrow \text{\MoveDown\MoveDown\Forward\Forward\MoveUp\Forward\Forward\MoveUp} B_u,$\\
-            \qquad\; $B_l \rightarrow \text{\MoveDown\Rewind\Rewind\MoveDown\Rewind\Rewind\MoveUp\MoveUp} A_u \mid \text{\Forward\Forward},$\\
-            \qquad\; $B_u \rightarrow \text{\Rewind\Rewind\Rewind\Rewind} A_r \mid \text{\Forward\Forward}\}$
+            \qquad\; $B_l \rightarrow \text{\MoveDown\Rewind\Rewind\MoveDown\Rewind\Rewind\MoveUp\MoveUp} A_u \ |\ \text{\Forward\Forward},$\\
+            \qquad\; $B_u \rightarrow \text{\Rewind\Rewind\Rewind\Rewind} A_r \ |\ \text{\Forward\Forward}\}$
         \end{alertblock}
         \column{0.55\textwidth}
         \begin{figure}
@@ -131,7 +131,7 @@
     Wir können durch das Ableiten formal zeigen, dass ein Wort von einer Grammatik erzeugt wird:\\
     \small{Wir betrachten L = \{$ww^R \mid w^R\text{ ist w rückwärts, }w \in \{a, b\}^n, n\in \mathbb{N}\setminus \{0\}$\}\\
         mit der Grammatik $G=(V,\Sigma,P,S)$, wobei\\
-        $V=\{S\}$, $\Sigma=\{a,b\}$, $P = \{S \rightarrow aSa \mid bSb \mid aa \mid bb$\}}
+        $V=\{S\}$, $\Sigma=\{a,b\}$, $P = \{S \rightarrow aSa \ |\ bSb \ |\ aa \ |\ bb$\}}
     \metroset{block=fill}
     \begin{exampleblock}{Beispiel}
         Wir zeigen $ww^R = ababbbbaba \in$ L.\\
@@ -147,19 +147,19 @@
     \metroset{block=fill}
     \begin{block}{Normal}
         \begin{itemize}
-            \item $P_1=\{S\rightarrow aaS\;|\;\emptyWord\}$ erzeugt $aaaa$
-            \item $P_2=\{S\rightarrow AB$, $A\rightarrow aAb \;|\; ab\; |\;\emptyWord$, $B\rightarrow cB \;|\; \emptyWord\}$ erzeugt $aabbc$
-            \item $P_3=\{S\rightarrow UV$, $U\rightarrow aU \;|\; bU \; |\; \emptyWord$, $V\rightarrow c \;|\; d\}$ erzeugt $abac$
-            \item $P_4=\{S\rightarrow XXX$, $X\rightarrow a \;|\; b \;|\; c\}$ erzeugt $aac$
+            \item $P_1=\{S\rightarrow aaS\ |\ \emptyWord\}$ erzeugt $aaaa$
+            \item $P_2=\{S\rightarrow AB$, $A\rightarrow aAb \ |\ ab\ |\ \emptyWord$, $B\rightarrow cB \ |\  \emptyWord\}$ erzeugt $aabbc$
+            \item $P_3=\{S\rightarrow UV$, $U\rightarrow aU \ |\  bU \ |\  \emptyWord$, $V\rightarrow c \ |\  d\}$ erzeugt $abac$
+            \item $P_4=\{S\rightarrow XXX$, $X\rightarrow a \ |\  b \ |\  c\}$ erzeugt $aac$
         \end{itemize}
     \end{block}
     \begin{block}{Etwas Schwerer}
         \begin{itemize}
-            \item $P_5=\{S\rightarrow a \;|\; aaaS\}$ erzeugt $aaaa$
+            \item $P_5=\{S\rightarrow a \ |\  aaaS\}$ erzeugt $aaaa$
             \item $P_6=\{S\rightarrow AAAB$, $AB\rightarrow BA,
-                      A\rightarrow cA \;|\; Ac \;|\; a,
-                      B\rightarrow cB \;|\; Bc \;|\; b\}$ erzeugt $cabcacca$
-            \item $P_7=\{S\rightarrow U\text{\Stopsign} \;|\; \text{\Stopsign}$, $U\rightarrow \text{\Rewind} U \;|\; \text{\MoveUp} U \;|\; \text{\Forward} U \;|\; \text{\MoveDown} U \;|\;\emptyWord\}$ erzeugt \Forward\Stopsign
+                      A\rightarrow cA \ |\  Ac   a,
+                      B\rightarrow cB \ |\  Bc \ |\  b\}$ erzeugt $cabcacca$
+            \item $P_7=\{S\rightarrow U\text{\Stopsign} \ |\  \text{\Stopsign}$, $U\rightarrow \text{\Rewind} U \ |\  \text{\MoveUp} U \ |\  \text{\Forward} U \ |\  \text{\MoveDown} U \ |\ \emptyWord\}$ erzeugt \Forward\Stopsign
         \end{itemize}
     \end{block}
 \end{frame}
