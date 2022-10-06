@@ -192,66 +192,78 @@
 %
 {\setbeamercolor{palette primary}{bg=ExColor}
 \begin{frame}<handout:0>{Lösung: Schwer}
-    \begin{alertblock}{$L_3 = L_1 \cup L_2$}
+    \begin{alertblock}{DEA für $L_3 = L_1 \cup L_2$}
+	    Idee: Wir nutzen die Zustände $\{(q_i, p_j) \mid 1 \leq i \leq 3, 1 \leq j \leq 2\}$, so dass 
+	\begin{itemize}
+		\item<only@1> wir in Zustand $q_i$ sind gdw. $i \equiv |w|_a \pmod{3}$
+		\item<only@2> wir in Zustand $p_1$ sind gdw. zuletzt ein $a$ eingelesen wurde, sonst $p_0$.
+	\item<only@3> wir in $(q_i, p_j)$ akzeptieren falls $i = 1$ (da $w \in L_1$) oder $j = 1$ (da $w \in L_2$)
+	\end{itemize}
         \begin{center}
+	    \scalebox{0.85}{
             \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm,
                     semithick]
-                \node [initial,state]       (00)                  {$q_0, p_0$};
-                \node [state, accepting]    (01) [right of=00]    {$q_1, p_0$};
-                \node [state]               (02) [right of=01]    {$q_2, p_0$};
-                \node<1> [state]               (10) [below = 2cm of 00]    {$q_0, p_1$};
-                \node<1> [state, accepting]    (11) [right of=10]    {$q_1, p_1$};
-                \node<1> [state]               (12) [right of=11]    {$q_2, p_1$};
-                \node<2> [state, accepting, orange]                 (10) [below = 2cm of 00]    {$q_0, p_1$};
-                \node<2> [state, accepting, orange]                 (11) [right of=10]    {$q_1, p_1$};
-                \node<2> [state, accepting, orange]                 (12) [right of=11]    {$q_2, p_1$};
-                \node<3-> [state, accepting]                 (10) [below = 2cm of 00]    {$q_0, p_1$};
-                \node<3-> [state, accepting]                 (11) [right of=10]    {$q_1, p_1$};
-                \node<3-> [state, accepting]                 (12) [right of=11]    {$q_2, p_1$};
+		\node<1> [initial,state]       (00)                  {${\color{orange}q_0}, p_0$};
+                \node<1> [state, accepting]    (01) [right of=00]    {${\color{orange}q_1}, p_0$};
+                \node<1> [state]               (02) [right of=01]    {${\color{orange}q_2}, p_0$};
+		\node<1> [state, accepting]    (10) [below = 2cm of 00]    {${\color{orange}q_0}, p_1$};
+		\node<1> [state, accepting]    (11) [right of=10]    {${\color{orange}q_1}, p_1$};
+		\node<1> [state, accepting]    (12) [right of=11]    {${\color{orange}q_2}, p_1$};
 
-                \path<1>   (00)    edge                node        {$a$}    (01)
+		\path<1> (00)    edge[orange]                node[right] {$a$}    (11)
                 edge[loop above]    node        {$b$}    (00)
-                (01)    edge                node        {$a$}    (02)
+		(01)    edge[orange]                node[right] {$a$}    (12)
                 edge[loop above]    node        {$b$}    (01)
-                (02)    edge[bend left]     node[below] {$a$}    (00)
+		(02)    edge[orange]                node[right] {$a$}    (10)
+                edge[loop above]    node        {$b$}    (02)
+		(10)    edge[orange]                node        {$a$}    (11)
+                edge        node        {$b$}    (00)
+		(11)    edge[orange]                node        {$a$}    (12)
+                edge        node        {$b$}    (01)
+                (12)    edge[bend left, orange]     node[below] {$a$}    (10)
+                edge        node        {$b$}    (02);
+
+		\node<2> [initial,state]       (00)                  {$q_0, {\color{orange}p_0}$};
+		\node<2> [state, accepting]    (01) [right of=00]    {$q_1, {\color{orange}p_0}$};
+		\node<2> [state]               (02) [right of=01]    {$q_2, {\color{orange}p_0}$};
+		\node<2> [state, accepting]    (10) [below = 2cm of 00]    {$q_0, {\color{orange}p_1}$};
+		\node<2> [state, accepting]    (11) [right of=10]    {$q_1, {\color{orange}p_1}$};
+		\node<2> [state, accepting]    (12) [right of=11]    {$q_2, {\color{orange}p_1}$};
+
+		\path<2> (00)    edge[orange]               node[right] {$a$}    (11)
+                edge[loop above]    node        {$b$}    (00)
+		(01)    edge[orange]                node[right] {$a$}    (12)
+                edge[loop above]    node        {$b$}    (01)
+		(02)    edge[orange]                node[right] {$a$}    (10)
                 edge[loop above]    node        {$b$}    (02)
                 (10)    edge                node        {$a$}    (11)
-                edge[loop above]    node        {$b$}    (10)
+		edge[orange]        node        {$b$}    (00)
                 (11)    edge                node        {$a$}    (12)
-                edge[loop above]    node        {$b$}    (11)
+		edge[orange]        node        {$b$}    (01)
                 (12)    edge[bend left]     node[below] {$a$}    (10)
-                edge[loop above]    node        {$b$}    (12);
+		edge[orange]        node        {$b$}    (02);
 
-                \path<2>    (00)    edge[loop above]    node        {$b$}    (00)
-                (01)    edge[loop above]    node        {$b$}    (01)
-                (02)    edge[loop above]    node        {$b$}    (02)
-                (10)    edge                node        {$a$}    (11)
-                (11)    edge                node        {$a$}    (12)
-                (12)    edge[bend left]     node[below] {$a$}    (10);
+		\node<3> [initial,state]       (00)                  {$q_0, p_0$};
+		\node<3> [state, accepting,orange]    (01) [right of=00]    {$q_1{\color{black},p_0}$};
+                \node<3> [state]               (02) [right of=01]    {$q_2, p_0$};
+		\node<3> [state, accepting,orange]    (10) [below = 2cm of 00]    {${\color{black}q_0,} p_1$};
+                \node<3> [state, accepting,orange]    (11) [right of=10]    {$q_1, p_1$};
+		\node<3> [state, accepting,orange]    (12) [right of=11]    {${\color{black}q_2,} p_1$};
 
-                \path<3>    (00)    edge[orange]        node[right] {$a$}    (11)
-                edge[loop above]    node        {$b$}    (00)
-                (01)    edge[orange]        node[right] {$a$}    (12)
-                edge[loop above]    node        {$b$}    (01)
-                (02)    edge[orange]        node[right] {$a$}    (10)
-                edge[loop above]    node        {$b$}    (02)
-                (10)    edge                node        {$a$}    (11)
-                (11)    edge                node        {$a$}    (12)
-                (12)    edge[bend left]     node[below] {$a$}    (10);
-
-                \path<4>    (00)    edge                node[right] {$a$}    (11)
+                \path<3> (00)    edge                node[right] {$a$}    (11)
                 edge[loop above]    node        {$b$}    (00)
                 (01)    edge                node[right] {$a$}    (12)
                 edge[loop above]    node        {$b$}    (01)
                 (02)    edge                node[right] {$a$}    (10)
                 edge[loop above]    node        {$b$}    (02)
                 (10)    edge                node        {$a$}    (11)
-                edge[orange]        node        {$b$}    (00)
+                edge        node        {$b$}    (00)
                 (11)    edge                node        {$a$}    (12)
-                edge[orange]        node        {$b$}    (01)
+                edge        node        {$b$}    (01)
                 (12)    edge[bend left]     node[below] {$a$}    (10)
-                edge[orange]        node        {$b$}    (02);
+                edge        node        {$b$}    (02);
             \end{tikzpicture}
+            }
         \end{center}
     \end{alertblock}
 \end{frame}
