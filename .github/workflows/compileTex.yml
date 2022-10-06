@@ -19,12 +19,12 @@ jobs:
           run: |
             apk add make zip
             cd presentation ; make
-            cd slides; zip --junk-paths presentation/slides *.pdf
+            cd slides; zip -jqr *.pdf
       - uses: actions/upload-artifact@v2
         if: github.ref == 'refs/heads/master'
         with:
           name: slides-pdfs
-          path: presentation/slides/jvk-blatt*.pdf
+          path: presentation/slides/*.pdf
       - name: Create Release
         if: startsWith(github.ref, 'refs/tags/')
         id: create_release
