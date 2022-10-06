@@ -19,7 +19,7 @@ jobs:
           run: |
             apk add make zip
             cd presentation ; make
-            cd sheets; zip --junk-paths presentation/slides *.pdf
+            cd slides; zip --junk-paths presentation/slides *.pdf
       - uses: actions/upload-artifact@v2
         if: github.ref == 'refs/heads/master'
         with:
