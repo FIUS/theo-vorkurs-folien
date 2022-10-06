@@ -122,11 +122,12 @@
         \item Wort der Länge 3: z.B. $aaa, aba, 110, \text{RechtsPauseStopp} \dots$
         \item Wort der Länge 2: z.B. $aa, ab, 00, \text{StartVorw"arts} \dots$
         \item Wort der Länge 1: z.B. $a, b, 1, \text{Links} \dots$
-        \item Wort der Länge \alert<2>{0}: \alert<2>{$\emptyWord$}
+        \item Wort der Länge \alert<3>{0}: \alert<3>{$\emptyWord$}
     \end{itemize}
-    \only<1>{Wir schreiben \alert<1>{$\absval{w}$} um \alert<1>{Länge des Wortes $w$} abzukürzen.\\}
-    \only<2->{$\emptyWord$ \emph{(\glqq Epsilon\grqq)} nennen wir das \glqq leere Wort\grqq.}
-    \onslide<2->{\begin{itemize}
+    \only<1-2>{Wir schreiben \alert<1>{$\absval{w}$} um \alert<1>{Länge des Wortes $w$} abzukürzen.\\}
+    \only<2>{Um \alert<2>{nur ein Symbol} (z.B. $a$) zu zählen verwenden wir \alert<2>{$|w|_a$}.\\}
+    \only<3->{$\emptyWord$ \emph{(\glqq Epsilon\grqq)} nennen wir das \glqq leere Wort\grqq.}
+    \onslide<3->{\begin{itemize}
         \item \alert{Vergleich:} Es ist vergleichbar mit einem leerem String,\\ \qquad\qquad \,\, also: $\dq\dq=\emptyWord$
         \item \alert{Achtung:} Das leere Wort kann kein Teil eines Alphabets sein,\\\qquad\qquad da es nicht einstellig ist. Es hat die Wortl"ange $|\varepsilon|=0$
     \end{itemize}}
