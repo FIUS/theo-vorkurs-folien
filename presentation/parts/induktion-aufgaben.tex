@@ -58,13 +58,13 @@
 		\small{
 			\metroset{block=fill}
 			\begin{block}{Das Problem}
-				Die Vorangehensweise erfordert, dass die betrachteten Mengen an $n-1$ Telefonen mindestens ein gemeinsames Element haben. Sie teilen dann die Farbe dieses Elements. Allerdings gibt es ein überlappendes Element erst ab $n=3$ Telefonen:
+				In dem Induktionsschritt für $A(n+1)$ wird implizit angenommen, dass beide betrachteten Herden der $n$ Telefone mindestens ein gemeinsames Element haben. Sie teilen dann die Farbe dieses Elements. Allerdings gibt es ein überlappendes Element erst ab $n+1=3$ Telefonen:
 				\[
-					A(2):\alert{\text{\Telefon}\text{\Telefon}} \color{black} \leadsto 
 					A(3):\alert{\rlap{$\overbrace{\phantom{\text{\Telefon\Telefon}}}^{A(2)}$}\text{\Telefon}\underbrace{\text{\Telefon\Telefon}}_{A(2)}}
-					\leadsto \dots \leadsto A(n): \alert{\rlap{$\overbrace{\phantom{\text{\Telefon\Telefon} ... \text{\Telefon}}}^{A(n-1)}$}\text{\Telefon}\underbrace{\text{\Telefon} ... \text{\Telefon\Telefon}}_{A(n-1)}}
+					\leadsto A(4):\alert{\rlap{$\overbrace{\phantom{\text{\Telefon\Telefon}}}^{A(3)}$}\text{\Telefon}\underbrace{\text{\Telefon\Telefon}}_{A(3)}}
+					\leadsto \dots \leadsto A(n+1): \alert{\rlap{$\overbrace{\phantom{\text{\Telefon\Telefon} ... \text{\Telefon}}}^{A(n)}$}\text{\Telefon}\underbrace{\text{\Telefon} ... \text{\Telefon\Telefon}}_{A(n)}}
 				\]
-				Das Problem ist nun, dass $A(2)$ nicht zwangsweise erfüllt sein muss! Somit ist die Voraussetzung $A(2)$ verletzt und wir können keine weiteren Folgerungen über $A(n)$ machen.
+				Das Problem ist nun, dass $A(2)$ nicht zwangsweise erfüllt sein muss! Somit können wir keine weiteren Folgerungen über $A(n+1)$ mit $n \geq 2$ machen.
 
 				\begin{figure}
 				\resizebox{.4\textwidth}{!}{
@@ -85,4 +85,19 @@
 			\end{block}
 		}
 	\end{frame}
+	\note{
+		Einordnung der Grafiken:
+		\begin{itemize}
+			\item In der ersten Grafik wird gezeigt, dass das Argument für $A(k)$ mit $k \geq 3$ funktioniert falls man $A(2)$ annimmt. 
+			\item Die zweite Grafik zeigt nun aber auf, dass man nicht einfach $A(2)$ annehmen kann!
+		\end{itemize}
+
+		\alert{Optional:} Wieso ist das aus formaler Sicht ein Problem?
+
+		Betrachtet man die Definition von Induktion (angewandt auf unseren Beweis)
+		\begin{align*}
+			\underbrace{(\forall n \in \mathbb{N}_1: A(n))}_{(*)} \iff (A(1) \wedge \forall n \in \mathbb{N}_1: \underbrace{(A(n) \implies A(n+1))}_{(**)}),
+		\end{align*}
+		so sieht man, dass $(**)$ für $n=1$ nicht funktioniert (siehe zweite Grafik). Damit ist $(*)$ falsch!
+	}
 }
