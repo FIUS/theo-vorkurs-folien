@@ -31,6 +31,12 @@
 \usepackage{hyperref}
 
 \usepackage{pgf}
+\makeatletter
+\@ifclasswith{beamer}{notes}{
+  \usepackage{pgfpages}
+  \setbeameroption{show notes on second screen}
+}{}
+\makeatother
 \usepackage{tikz}
 \usetikzlibrary{arrows,automata,positioning}
 \usepackage{pgfplots}
