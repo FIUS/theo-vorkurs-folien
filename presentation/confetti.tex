@@ -1,0 +1,21 @@
+\usepackage{multimedia}
+
+\newcommand{\Konfetti}{
+    { % all template changes are local to this group.
+    \setbeamertemplate{navigation symbols}{}
+    \begin{frame}<article:0>[plain]
+        \begin{tikzpicture}[remember picture,overlay]
+            \node[at=(current page.center)] {
+              \movie[]{
+                \fbox{
+    \vbox to \paperheight {\vfil\hbox to \paperwidth{\hfil Klicken \hfil}%
+    \vfil}
+                }
+              }{../figures/confetti.mp4}  
+            };
+        \end{tikzpicture}
+     \end{frame}
+}
+}
+
+\newcommand{\Confetti}{\Konfetti}
