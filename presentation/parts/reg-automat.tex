@@ -17,7 +17,7 @@
 
 \begin{frame}[fragile]{Reguläre Sprachen anders beschreiben}
     Wir können reguläre Sprachen auch graphisch beschreiben.\\
-    Dafür nutzen wir \alert{endliche Automaten}.\\
+    Dafür nutzen wir \alert{(nicht deterministische) endliche Automaten}.\\
     Ein Automat prüft Wörter und entscheidet, ob sie Teil der Sprache sind oder nicht.\\
     $\leadsto$ Wir nennen das \alert{\emph{akzeptieren}}, bzw. nicht akzeptieren.
     \begin{alertblock}{Funktionsweise}
@@ -32,40 +32,54 @@
 
 \subsection{NEA}
 \begin{frame}[fragile]{Bestandteile eines endlichen Automaten}
-    Der Automat kann als gerichteter Graph notiert werden.\\
-    Wir konstruieren ihn aus den folgenden Komponenten:
-    \only<1|handout:1>{
-        \begin{alertblock}{Startzustand}
-            Im Startzustand wird das Wort eingegeben.\\
-            \begin{center}
-                \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm,semithick]
-                    \node[initial,state](q0){$q_0$};
-                \end{tikzpicture}
-            \end{center}
-        \end{alertblock}
+    Ein Automat kann als gerichteter Graph notiert werden.\\
+    \onslide<2->{Wir konstruieren ihn aus den folgenden Komponenten:}
+    \begin{center}
+        \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm,semithick]
+            %\tikzset{orange by arrow/.style={orange}}
+
+            \node<1,3-|handout:2->[initial,state](q0){$q_0$};
+            \node<2|handout:1>[initial,state,orange](q0){$q_0$};
+            \node<2|handout:1> (startOrange) [left=3ex of q0,orange] {start}; % extra start label
+            \draw<2|handout:1>[->,>=stealth',orange] (startOrange) -- (q0); % extra start arrow
+
+            \node[state](q1)[right of=q0]{$q_1$};
+
+            \node<1-3|handout:2->[accepting,state](qe)[right of=q1]{$q_E$};
+            \node<4|handout:1>[accepting,state,orange](qe)[right of=q1]{$q_E$};
+
+            \path<1-2,4-|handout:1> (q0) edge node {$a$} (q1);
+            \path<3|handout:2> (q0) edge[orange] node[orange] {$a$} (q1);
+
+            \path<1-2,4-|handout:1> (q1) edge node {$b$} (qe);
+            \path<3|handout:2> (q1) edge[orange] node[orange] {$b$} (qe);
+        \end{tikzpicture}
+    \end{center}
+    \only<1|handout:0>{
+        \begin{minipage}[t][3em][t]{\textwidth}
+        \end{minipage}
     }
     \only<2|handout:1>{
-        \begin{alertblock}{Zustandsübergang}
-            Wird das Zeichen auf dem Übergang \emph{gelesen}, geht der Automat in den folgenden Zustand über.\\
-            \begin{center}
-                \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm,semithick]
-                    \node[state](qi){$q_i$};
-                    \node[state](qj)[right of=qi]{$q_j$};
-                    \path (qi) edge node {$a$} (qj);
-                \end{tikzpicture}
-            \end{center}
-        \end{alertblock}
+        \begin{minipage}[t][3em][t]{\textwidth}
+            \begin{alertblock}{Startzustand}
+                Im Startzustand wird das Wort eingegeben.
+            \end{alertblock}
+        \end{minipage}
     }
     \only<3|handout:2>{
+        \begin{minipage}[t][3em][t]{\textwidth}
+        \begin{alertblock}{Zustandsübergang}
+            Wird das Zeichen auf dem Übergang \emph{gelesen}, geht der Automat in den folgenden Zustand über.\\
+        \end{alertblock}
+    \end{minipage}
+    }
+    \only<4|handout:1>{
+        \begin{minipage}[t][3em][t]{\textwidth}
         \begin{alertblock}{Endzustand}
             Falls sich der Automat in diesem Zustand befindet, und das Wort abgearbeitet ist, wird das Wort akzeptiert.\\
-            \begin{center}
-                \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm,semithick]
-                    \node[accepting,state](qe){$q_E$};
-                \end{tikzpicture}
-            \end{center}
             \emph{Anmerkung: }Unter Umständen sind mehrere hiervon nötig
         \end{alertblock}
+    \end{minipage}
     }
 \end{frame}
 
