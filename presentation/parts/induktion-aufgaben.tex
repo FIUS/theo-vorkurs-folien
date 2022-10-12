@@ -58,33 +58,50 @@
 		\small{
 			\metroset{block=fill}
 			\begin{block}{Das Problem}
-				Die Vorangehensweise erfordert, dass die betrachteten Mengen an $n$ Telefonen mindestens ein gemeinsames Element haben. Sie teilen dann die Farbe dieses Elements. Allerdings gibt es ein überlappendes Element erst ab $3$ Telefonen.
+				Für $A(n+1)$ wird angenommen, dass beide Herden der $n$ Telefone mindestens ein gemeinsames Element haben. 
+				Sie teilen dann die Farbe dieses Elements. 
+
+				Das Problem ist, dass $A(1) \Rightarrow A(2)$ nicht zwangsweise erfüllt sein muss! Somit können wir keine weiteren Folgerungen über $A(n+1)$ mit $n \geq 2$ machen.
+				
+				\begin{figure}
+				\resizebox{.4\textwidth}{!}{
+					\centering%
+					\begin{subfigure}{0.3\textwidth}
+						\centering%
+						\includegraphics[height=0.5in]{../figures/telephoneGreen.png}
+					\end{subfigure}
+					$\qquad$
+					\begin{subfigure}{0.3\textwidth}
+						\centering%
+						\includegraphics[height=0.5in]{../figures/telephoneWhite.png}
+					\end{subfigure}
+					}
+					\caption{Beide Telefone erfüllen jeweils $A(1)$, zusammen aber nicht $A(2)$}
+				\end{figure}
+
+				Denn es gibt ein überlappendes Element erst ab $n+1=3$ Telefonen:
 				\[
-					\color{mLightGreen}A(1) \overset{\text{IV}}{\nimplies}
-					\alert{A(2):\overbrace{\text{\Telefon}}\underbrace{\text{\Telefon}}} \color{black} \overset{\alert{\text{IV}}}{\implies}
-					A(3):\rlap{$\overbrace{\phantom{\text{\Telefon\Telefon}}}$}\text{\Telefon}\underbrace{\text{\Telefon\Telefon}}
-					\overset{\alert{\text{IV}}}{\implies} \dots \overset{\alert{\text{IV}}}{\implies} A(n)
+					A(3):\alert{\rlap{$\overbrace{\phantom{\text{\Telefon\Telefon}}}^{A(2)}$}\text{\Telefon}\underbrace{\text{\Telefon\Telefon}}_{A(2)}}
+					\leadsto A(4):\alert{\rlap{$\overbrace{\phantom{\text{\Telefon\Telefon\Telefon}}}^{A(3)}$}\text{\Telefon}\underbrace{\text{\Telefon\Telefon\Telefon}}_{A(3)}}
+					\leadsto \dots \leadsto A(n+1): \alert{\rlap{$\overbrace{\phantom{\text{\Telefon\Telefon} ... \text{\Telefon}}}^{A(n)}$}\text{\Telefon}\underbrace{\text{\Telefon} ... \text{\Telefon\Telefon}}_{A(n)}}
 				\]
-				Die Kette an verifiziert wahren Aussagen ist also unterbrochen, da es keine gültige Vorraussetzung gibt um $A(2+1)$ zu zeigen.
+
 			\end{block}
 		}
-
-		\begin{figure}
-		\resizebox{.6\textwidth}{!}{
-			\centering%
-			\begin{subfigure}{0.3\textwidth}
-				\centering%
-				\includegraphics[height=0.5in]{../figures/telephoneGreen.png}
-				\caption{grünes Telefon}
-			\end{subfigure}
-			$\qquad$
-			\begin{subfigure}{0.3\textwidth}
-				\centering%
-				\includegraphics[height=0.5in]{../figures/telephoneWhite.png}
-				\caption{weißes Telefon}
-			\end{subfigure}
-		}
-			\caption{Telefone mit unterschiedlicher Farbe}
-		\end{figure}
 	\end{frame}
+	\note{
+		Einordnung der Grafiken:
+		\begin{itemize}
+			\item In der ersten Grafik wird gezeigt, dass das Argument für $A(k)$ mit $k \geq 3$ funktioniert falls man $A(2)$ annimmt. 
+			\item Die zweite Grafik zeigt nun aber auf, dass man nicht einfach $A(2)$ annehmen kann!
+		\end{itemize}
+
+		\alert{Optional:} Wieso ist das aus formaler Sicht ein Problem?
+
+		Betrachtet man die Definition von Induktion (angewandt auf unseren Beweis)
+		\begin{align*}
+			\underbrace{(\forall n \in \mathbb{N}_1: A(n))}_{(*)} \iff (A(1) \wedge \forall n \in \mathbb{N}_1: \underbrace{(A(n) \implies A(n+1))}_{(**)}),
+		\end{align*}
+		so sieht man, dass $(**)$ für $n=1$ nicht funktioniert (siehe zweite Grafik). Damit ist $(*)$ falsch!
+	}
 }
