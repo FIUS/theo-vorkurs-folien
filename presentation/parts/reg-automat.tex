@@ -121,36 +121,45 @@
 \end{frame}
 
 \begin{frame}[fragile]{Zu Beachten}
-Regeln zu Übergängen bei Automaten:
-\begin{itemize}
-    \item<1-> $\varepsilon$-Übergänge sind \emph{nicht} möglich:\\
-    \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm,semithick]
-        \node [state] (1) {$q_0$};
-        \node [state] (2) [right of= 1] {$q_1$};
-        \path
-        (1) edge node[draw, strike out] {$\varepsilon$}  (2);
-    \end{tikzpicture}
-    \item<2-> Mehrere Endzustände sind möglich:\\
-    \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm,semithick]
-        \node [state] (1) {$q_0$};
-        \node [state,accepting] (2) [left of= 1] {$q_1$};
-        \node [state,accepting] (3) [right of= 1] {$q_2$};
-        \path
-        (1) edge node[above] {$a$} (2)
-        (1) edge node[above] {$b$} (3);
-    \end{tikzpicture}
-    \item<3-> Verlassen eines Enzustands ist möglich:
-    \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm,semithick]
-        \node [state] (1) {$q_0$};
-        \node [state,accepting] (2) [right of= 1] {$q_1$};
-        \node [state] (3) [right of= 2] {$q_2$};
-        \path
-        (1) edge node {$a$} (2)
-        (2) edge node {$a$} (3);
-    \end{tikzpicture}
-\end{itemize}
-    
-
+    \begin{alertblock}{Anmerkungen zu Übergängen bei Automaten:}
+        \begin{itemize}
+            \item<1-> $\varepsilon$-Übergänge sind \emph{nicht} möglich:\\
+            \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm,semithick]
+                \node [state] (1) {$q_0$};
+                \node [state] (2) [right of= 1] {$q_1$};
+                \path
+                (1) edge node[draw, strike out] {$\varepsilon$}  (2);
+            \end{tikzpicture}
+            \item<2-> Mehrere Endzustände sind möglich:\\
+            \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm,semithick]
+                \node [state] (1) {$q_0$};
+                \node [state,accepting] (2) [left of= 1] {$q_1$};
+                \node [state,accepting] (3) [right of= 1] {$q_2$};
+                \path
+                (1) edge node[above] {$a$} (2)
+                (1) edge node[above] {$b$} (3);
+            \end{tikzpicture}
+            \item<3-> Verlassen eines Enzustands ist möglich:
+            \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm,semithick]
+                \node [state] (1) {$q_0$};
+                \node [state,accepting] (2) [right of= 1] {$q_1$};
+                \node [state] (3) [right of= 2] {$q_2$};
+                \path
+                (1) edge node {$a$} (2)
+                (2) edge node {$a$} (3);
+            \end{tikzpicture}
+            \item<4-> Nicht erreichbare Zustände/Teile sind möglich:
+            \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm,semithick]
+                \node [state] (1) {$q_0$};
+                \node [state] (2) [right of= 1] {$q_1$};
+                \node [state] (3) [right of= 2] {$q_2$};
+                \node [state] (4) [right of= 3] {$q_3$};
+                \path
+                (1) edge node {$a$} (2)
+                (3) edge node {$c$} (4);
+            \end{tikzpicture}
+        \end{itemize}
+    \end{alertblock}
 \end{frame}
 
 \begin{frame}{Beispiel: Automat}
