@@ -20,6 +20,10 @@
 \usepackage[ngerman]{babel}
 \usepackage[top=2.5cm,bottom=2.5cm,left=2cm,right=2cm]{geometry}
 \usepackage{graphicx}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 \pagestyle{plain}
 \begin{document}
 \pagenumbering{arabic}
@@ -44,12 +48,15 @@
 
 %\section*{Your job}
 %\question{FRAGE}
-\vertikalblocktwo{ja}{nein}{
-  \blocktexttwo{Ich war auch im Mathe-Vorkurs des MINT-Kolleg (26.09.-07.10.)}
-  \blocktexttwo{Ich war auch im Informatik-Vorkurs des MINT-Kolleg (12.09.-16.09. oder 19.09.-23.09.)}
-  \blocktexttwo{Ich war auch im Java-Vorkurs von FIUS (04.10.-07.10.)}
-}\\
+\subsection*{Andere Vorkurse}
+\begin{tabular}{p{9.5cm}C{2.1cm}C{2.1cm}p{0.001cm}}
+  & ja& nein\\
+  Ich war auch im Mathe-Vorkurs des MINT-Kolleg\\\ (26.09.-07.10.) & $\Box$  & $\Box$ \\
+  Ich war auch im Informatik-Vorkurs des MINT-Kolleg\\\ (12.09.-16.09. oder 19.09.-23.09.) &  $\Box$ &  $\Box$\\
+  Ich war auch im Java-Vorkurs von FIUS\\\ (04.10.-07.10.) & $\Box$ & $\Box$\\
+\end{tabular}
 
+\subsection*{Allgemein}
 \vertikalblockfour{stimme zu}{stimme eher zu}{stimme eher nicht zu}{stimme nicht zu}{
   \blocktextfour{Der Vorkurs hat mir weiter geholfen.}
   \blocktextfour{Der Vorkurs hat mir Spaß gemacht.}
