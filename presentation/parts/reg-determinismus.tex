@@ -44,10 +44,10 @@
             %\tikzstyle{every state}=[fill=ExColor,draw=none,text=white]
 
             \node<1,3-> [initial,state]         (1)               {$q_0$};
-            \node<2>    [initial,state,orange]  (1)               {$q_0$};
+            \node<2|handout:0>    [initial,state,orange]  (1)               {$q_0$};
             \node       [state]                 (2) [right of=1]  {$q_1$};
             \node<1-8>  [state,accepting]       (3) [right of=2]  {$q_E$};
-            \node<9>    [state,accepting,orange](3) [right of=2]  {$q_E$};
+            \node<9|handout:0>    [state,accepting,orange](3) [right of=2]  {$q_E$};
             \node       [state]                 (4) [below of=1]  {$q_f$};
 
             \path<1,2,9>
@@ -58,7 +58,7 @@
             (4) edge [loop right]   node {$a,b$}(4)
             (3) edge [loop above]   node {$b$}  (3)
             edge [bend left]    node {$a$}  (2);
-            \path<3>
+            \path<3|handout:0>
             (1) edge [orange]       node {$a$}  (2)
             edge                node {$b$}  (4)
             (2) edge [loop above]   node {$a$}  (2)
@@ -66,7 +66,7 @@
             (4) edge [loop right]   node {$a,b$}(4)
             (3) edge [loop above]   node {$b$}  (3)
             edge [bend left]    node {$a$}  (2);
-            \path<4>
+            \path<4|handout:0>
             (1) edge                node {$a$}  (2)
             edge                node {$b$}  (4)
             (2) edge [loop above,orange] node {$a$}  (2)
@@ -74,7 +74,7 @@
             (4) edge [loop right]   node {$a,b$}(4)
             (3) edge [loop above]   node {$b$}  (3)
             edge [bend left]    node {$a$}  (2);
-            \path<5,7>
+            \path<5,7|handout:0>
             (1) edge                node {$a$}  (2)
             edge                node {$b$}  (4)
             (2) edge [loop above]   node {$a$}  (2)
@@ -82,7 +82,7 @@
             (4) edge [loop right]   node {$a,b$}(4)
             (3) edge [loop above]   node {$b$}  (3)
             edge [bend left]    node {$a$}  (2);
-            \path<6>
+            \path<6|handout:0>
             (1) edge                node {$a$}  (2)
             edge                node {$b$}  (4)
             (2) edge [loop above]   node {$a$}  (2)
@@ -90,7 +90,7 @@
             (4) edge [loop right]   node {$a,b$}(4)
             (3) edge [loop above]   node {$b$}  (3)
             edge [bend left,orange] node {$a$}  (2);
-            \path<8>
+            \path<8|handout:0>
             (1) edge                node {$a$}  (2)
             edge                node {$b$}  (4)
             (2) edge [loop above]   node {$a$}  (2)
@@ -101,7 +101,7 @@
         \end{tikzpicture}
     \end{exampleblock}
     \onslide<2->{
-        \begin{exampleblock}{Worteingabe:} \alert<3>{$a$}\alert<4>{$a$}\alert<5>{$b$}\alert<6>{$a$}\alert<7>{$b$}\alert<8>{$b$} $\in L$\only<1-8>{?} \only<9>{$\leadsto$ \alert{akzeptiert}
+        \begin{exampleblock}{Worteingabe:} \alert<3|handout:0>{$a$}\alert<4|handout:0>{$a$}\alert<5|handout:0>{$b$}\alert<6|handout:0>{$a$}\alert<7|handout:0>{$b$}\alert<8|handout:0>{$b$} $\in L$\only<1-8>{?} \only<9>{$\leadsto$ \alert<9-|handout:0>{akzeptiert}
             }
         \end{exampleblock}}
 \end{frame}
