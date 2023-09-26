@@ -147,19 +147,32 @@
     \metroset{block=fill}
     \begin{block}{Normal}
         \begin{itemize}
-            \item $P_1=\{S\rightarrow aaS\ |\ \emptyWord\}$ erzeugt $aaaa$
-            \item $P_2=\{S\rightarrow AB$, $A\rightarrow aAb \ |\ ab\ |\ \emptyWord$, $B\rightarrow cB \ |\  \emptyWord\}$ erzeugt $aabbc$
-            \item $P_3=\{S\rightarrow UV$, $U\rightarrow aU \ |\  bU \ |\  \emptyWord$, $V\rightarrow c \ |\  d\}$ erzeugt $abac$
-            \item $P_4=\{S\rightarrow XXX$, $X\rightarrow a \ |\  b \ |\  c\}$ erzeugt $aac$
+            \item $G_1=(\{S\}, \{a\}, P_1, S)$ erzeugt $aaaa$\\
+            mit $P_1=\{S\rightarrow aaS\ |\ \emptyWord\}$
+            \item $G_2=(\{S,A,B\}, \{a,b,c\}, P_2, S)$ erzeugt $aabbc$\\
+            mit $P_2=\{S\rightarrow AB$, $A\rightarrow aAb \ |\ ab\ |\ \emptyWord$, $B\rightarrow cB \ |\  \emptyWord\}$ 
+            \item $G_3=(\{S,U,V\}, \{a,b,c,d\}, P_3, S)$ erzeugt $abac$\\
+            mit $P_3=\{S\rightarrow UV$, $U\rightarrow aU \ |\  bU \ |\  \emptyWord$, $V\rightarrow c \ |\  d\}$
+            \item $G_4=(\{S,X\}, \{a,b,c\}, P_4, S)$ erzeugt $aac$\\
+            mit $P_4=\{S\rightarrow XXX$, $X\rightarrow a \ |\  b \ |\  c\}$
         \end{itemize}
     \end{block}
+\end{frame}
+\begin{frame}{Denkpause}
+    \begin{alertblock}{Aufgaben}
+        Zeige die folgenden Aussagen
+    \end{alertblock}
+    \metroset{block=fill}
     \begin{block}{Etwas Schwerer}
         \begin{itemize}
-            \item $P_5=\{S\rightarrow a \ |\  aaaS\}$ erzeugt $aaaa$
-            \item $P_6=\{S\rightarrow AAAB$, $AB\rightarrow BA,
+            \item $G_5=(\{S\}, \{a\}, P_5, S)$ erzeugt $aaaa$\\
+            mit $P_5=\{S\rightarrow a \ |\  aaaS\}$
+            \item $G_6=(\{S,A,B\}, \{a,b,c\}, P_6, D)$ erzeugt $cabcacca$\\
+            mit $P_6=\{S\rightarrow AAAB$, $AB\rightarrow BA,
                       A\rightarrow cA \ |\  Ac \ |\ a,
-                      B\rightarrow cB \ |\  Bc \ |\  b\}$ erzeugt $cabcacca$
-            \item $P_7=\{S\rightarrow U\text{\Stopsign} \ |\  \text{\Stopsign}$, $U\rightarrow \text{\Rewind} U \ |\  \text{\MoveUp} U \ |\  \text{\Forward} U \ |\  \text{\MoveDown} U \ |\ \emptyWord\}$ erzeugt \Forward\Stopsign
+                      B\rightarrow cB \ |\  Bc \ |\  b\}$ 
+            \item $G_7=(\{S,U\}, \{\text{\Stopsign},\text{\Rewind},\text{\MoveUp},\text{\Forward},\text{\MoveDown}\}, P_7, S)$  erzeugt \Forward\Stopsign\\
+            mit $P_7=\{S\rightarrow U\text{\Stopsign} \ |\  \text{\Stopsign}$, $U\rightarrow \text{\Rewind} U \ |\  \text{\MoveUp} U \ |\  \text{\Forward} U \ |\  \text{\MoveDown} U \ |\ \emptyWord\}$
         \end{itemize}
     \end{block}
 \end{frame}
@@ -169,13 +182,13 @@
 \begin{frame}<handout:0>{Lösungen}
     Alle Lösungen sind Beispiellösungen, es sind auch andere möglich.
     \begin{itemize}[<+- | alert@+>]
-        \item $S\Rightarrow_G aaS \Rightarrow_G aaaaS \Rightarrow_G aaaa$
-        \item $S\Rightarrow_G AB \Rightarrow_G aAbB \Rightarrow_G aabbB \Rightarrow_G aabbcB \Rightarrow_G aabbc$
-        \item $S\Rightarrow_G UV \Rightarrow_G aUV \Rightarrow_G abUV \Rightarrow_G abaUV \Rightarrow_G abaV \Rightarrow_G abac$
-        \item $S\Rightarrow_G XXX \Rightarrow_G aXX \Rightarrow_G aaX \Rightarrow_G aac$
-        \item $S\Rightarrow_G aaaS \Rightarrow_G aaaa$
-        \item $S\Rightarrow_G AAAB \Rightarrow_G AABA \Rightarrow_G ABAA \Rightarrow_G cABAA \Rightarrow_G caBAA \Rightarrow_G cabAA \Rightarrow_G cabcAA \Rightarrow_G cabcaA\Rightarrow_G cabcacA \Rightarrow_G cabcaccA \Rightarrow_G cabcacca$
-        \item $S\Rightarrow_G U\text{\Stopsign} \Rightarrow_G \text{\Forward}U\text{\Stopsign} \Rightarrow_G \text{\Forward}\text{\Stopsign}$
+        \item $S\Rightarrow_{G_1} aaS \Rightarrow_{G_1} aaaaS \Rightarrow_{G_1} aaaa$
+        \item $S\Rightarrow_{G_2} AB \Rightarrow_{G_2} aAbB \Rightarrow_{G_2} aabbB \Rightarrow_{G_2} aabbcB \Rightarrow_{G_2} aabbc$
+        \item $S\Rightarrow_{G_3} UV \Rightarrow_{G_3} aUV \Rightarrow_{G_3} abUV \Rightarrow_{G_3} abaUV \Rightarrow_{G_3} abaV \Rightarrow_{G_3} abac$
+        \item $S\Rightarrow_{G_4} XXX \Rightarrow_{G_4} aXX \Rightarrow_{G_4} aaX \Rightarrow_{G_4} aac$
+        \item $S\Rightarrow_{G_5} aaaS \Rightarrow_{G_5} aaaa$
+        \item $S\Rightarrow_{G_6} AAAB \Rightarrow_{G_6} AABA \Rightarrow_{G_6} ABAA \Rightarrow_{G_6} cABAA \Rightarrow_{G_6} caBAA \Rightarrow_{G_6} cabAA \Rightarrow_{G_6} cabcAA \Rightarrow_{G_6} cabcaA\Rightarrow_{G_6} cabcacA \Rightarrow_{G_6} cabcaccA \Rightarrow_{G_6} cabcacca$
+        \item $S\Rightarrow_{G_7} U\text{\Stopsign} \Rightarrow_{G_7} \text{\Forward}U\text{\Stopsign} \Rightarrow_{G_7} \text{\Forward}\text{\Stopsign}$
     \end{itemize}
 \end{frame}
 }
