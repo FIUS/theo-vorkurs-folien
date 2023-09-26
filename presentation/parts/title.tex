@@ -82,8 +82,8 @@
 % sets the qr-code to the current handout slides on the title page. 
 % This can be changed to let the qr-code appear on every page by exchanging \titlegraphic with \logo.
 \titlegraphic{
-    \fbox{\parbox{2cm+.5em}{\centering
+    \only<1|handout:0>{\fbox{\parbox{2cm+.5em}{\centering
         Aktuelle Folien:\par \vspace{.5ex}
         \qrcode{\handouturl{\daynr}}
-    }}
+    }}}
 }
