@@ -31,7 +31,7 @@
         \begin{itemize}
             \item \alert{$\emptyset$} und \alert{$\emptyWord$} sind reguläre Ausdrücke.
             \item \alert{$a$} ist ein regulärer Ausdruck (für alle $a \in \Sigma$).
-            \item Wenn \alert{$\alpha$} und \alert{$\beta$} reguläre Ausdrücke sind,\\dann sind \alert{$\alpha \beta$}, \alert{($\alpha \ |\ \beta$)} und \alert{$(\alpha)^*$} auch reguläre Ausdrücke.
+            \item Wenn \alert{$\alpha$} und \alert{$\beta$} reguläre Ausdrücke sind,\\dann sind \alert{$(\alpha)^*$}, \alert{($\alpha \ |\ \beta$)} und \alert{$\alpha \beta$} auch reguläre Ausdrücke.
         \end{itemize}
     \end{alertblock}
     \metroset{block=fill}
@@ -67,27 +67,27 @@
     \begin{block}{Bedeutung von regulären Ausdrücken}
         Sind $\alpha$ und $\beta$ bereits reguläre Ausdrücke, so gilt:
         \begin{itemize}[<+- | alert@+ | handout:+- | handout:alert@+>]
-            \item Sei $\gamma = (\alpha\ |\ \beta)$: Dann ist $L(\gamma) = L(\alpha) \cup L(\beta)$
             \item Sei $\gamma = (\alpha)^*$: Dann ist $L(\gamma) = L(\alpha)^*$
+            \item Sei $\gamma = (\alpha\ |\ \beta)$: Dann ist $L(\gamma) = L(\alpha) \cup L(\beta)$
             \item Sei $\gamma = \alpha \beta$: Dann ist $L(\gamma) = \{uv \mid u \in L(\alpha) \wedge v \in L(\beta)\}$
         \end{itemize}
     \end{block}
     \metroset{block=fill}
     \begin{exampleblock}{
-            \only<1|handout:1>{Beispiel: $\gamma = (\alpha \mid \beta)$}
-            \only<2|handout:2>{Beispiel: $\gamma = (\alpha)^*$}
+            \only<1|handout:1>{Beispiel: $\gamma = (\alpha)^*$}
+            \only<2|handout:2>{Beispiel: $\gamma = (\alpha \mid \beta)$}
             \only<3|handout:3>{Beispiel: $\gamma = \alpha \beta$}
         }
         \only<1|handout:1>{
             \begin{itemize}
-                \item $L(a | b) = \{a, b\}$
-                \item $L((aab | baba) | a) = \{aab, baba, a\}$
+                \item $L((a)^*) = \{a\}^* = \{a^n \mid n \in \mathbb{N}\}$
+                \item $L((abaa)^*) = \{abaa\}^* = \{w^n \mid n \in \mathbb{N}, w = abaa\}$
             \end{itemize}
         }
         \only<2|handout:2>{
             \begin{itemize}
-                \item $L((a)^*) = \{a\}^* = \{a^n \mid n \in \mathbb{N}\}$
-                \item $L((abaa)^*) = \{abaa\}^* = \{w^n \mid n \in \mathbb{N}, w = abaa\}$
+                \item $L(a | b) = \{a, b\}$
+                \item $L((aab | baba) | a) = \{aab, baba, a\}$
                 \item $L((a | b)^*) = (L(a | b))^* = \{a,b\}^*$
                 \item $L((a)^* | (b)^*) = L((a)^*) \cup L((b)^*) = \{a\}^* \cup \{b\}^*$
             \end{itemize}
