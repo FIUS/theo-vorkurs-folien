@@ -122,6 +122,26 @@
   \end{columns}
 \end{frame}}
 
+\begin{frame}{Erinnerung: Reguläre Grammatiken}
+  Eine Grammatik $G=(V,\Sigma,P,S)$ ist regulär, wenn:
+  \begin{itemize}
+    \item<3-> $\forall p\in P$ gilt: $p$ ist \alert{$A\rightarrow a$ oder $A\rightarrow aA$} mit $A\in V$, $a \in \Sigma$
+    \item<4-> $(\alert{S\rightarrow\varepsilon})\in P$ nur dann, wenn kein $(A\rightarrow aS)\in P$ 
+  \end{itemize}
+  \onslide<5->{Wenn es min. eine reguläre Grammatik für $L(G)$ gibt, gilt: $L(G)$ ist regulär (Typ 3)}
+  \metroset{block=fill}
+  \begin{exampleblock}{Beispiel $L = \{q\mid |w|=w , w\in\{a,b,c\}^*\}$}
+    \begin{itemize}
+      \item<2-> Nicht-Reguläre Grammatik: \\
+      $G_1=(\{S,A\}, \{a,b,c\}, P_1, S)$\\
+      $P_1=\{S \to AAA,\ A \to a \ |\ b \ |\ c\}$
+      \item<5-> Reguläre Grammatik: \\
+      $G_2=(\{S,A,B\}, \{a,b,c\}, P_2, S)$\\
+      $P_2=\{S \to aA \ |\ bA \ |\ cA,\ A \to aB \ |\ bB \ |\ cB,\ B \to a \ |\ b \ |\ c\}$
+    \end{itemize}
+  \end{exampleblock}
+\end{frame}
+
 \begin{frame}{Automaten und Grammatiken: Parallelen}
   Wir stellen einige Parallelen fest:
   % note: \alert or \usebeamercolor[fg]{alerted text} inside p-columns breaks layout
