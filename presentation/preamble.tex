@@ -1,4 +1,4 @@
-% Copyright 2018-2022 FIUS
+% Copyright 2018-2024 FIUS
 %
 % This file is part of theo-vorkurs-folien.
 %
@@ -38,7 +38,7 @@
 }{}
 \makeatother
 \usepackage{tikz}
-\usetikzlibrary{arrows,automata,positioning,shapes}
+\usetikzlibrary{arrows,automata,positioning,shapes,arrows.meta}
 \usepackage{pgfplots}
 \usepgfplotslibrary{dateplot}
 
@@ -56,10 +56,15 @@
 \usepackage{proof}
 \usepackage{tabularx}
 \renewcommand{\figurename}{Abb.}
+\usepackage{tikzsymbols}
+\let\Coffeecup\relax
+\let\Heart\relax
+\let\Smiley\relax
 \usepackage{marvosym}
 \usepackage{mathtools}
 \usepackage{qrcode}
 \usepackage{advdate}
+\usepackage{ifthen}
 
 \newcommand\daynr{0}
 
@@ -98,5 +103,12 @@
 \addtobeamertemplate{block begin}{}{\vskip 0em}
 \addtobeamertemplate{block alerted begin}{}{\vskip 0em}
 \addtobeamertemplate{block example begin}{}{\vskip 0em}
+
+\newsavebox\tikzBox
+\newenvironment{includetikzpicture}[1]{%
+  \def\sizeArgument{#1}\begin{lrbox}{\tikzBox}\begin{tikzpicture}
+      }{%
+    \end{tikzpicture}\end{lrbox}\resizebox{\sizeArgument}{!}{\usebox\tikzBox}%
+}
 
 \input{../config.tex}
