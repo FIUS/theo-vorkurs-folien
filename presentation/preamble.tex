@@ -66,6 +66,7 @@
 \usepackage{advdate}
 \usepackage{ifthen}
 
+
 \newcommand\daynr{0}
 
 \definecolor{ExColor}{HTML}{17819b}
@@ -93,8 +94,14 @@
   \end{frame}
 }
 
-% Fix section pages in appendix
+% Make subsections in toc small
+\makeatletter
+\setbeamertemplate{subsection in toc}{\small\leftskip=2em\inserttocsubsection\par}
+\makeatother
+
 \AtBeginDocument{%
+
+  % Fix section pages in appendix
   \apptocmd{\appendix}{%
     \setbeamertemplate{section page}[simple]%
   }{}{}
