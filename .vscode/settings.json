@@ -1,0 +1,8 @@
+{
+    "latex-workshop.latex.rootFile.indicator": "\\begin{document}",
+    "latex-workshop.latex.search.rootFiles.exclude": [
+        "presentation/preamble.tex",
+        "presentation/config.tex",
+        "presentation/parts/**",
+    ]
+}
