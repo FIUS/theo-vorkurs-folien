@@ -61,14 +61,14 @@ $$
             \begin{itemize}
                 \item $L_1 = \{a\}$
                 \item $L_2 = \{u+v \mid u\in\{1,2\}^\ast,\;v\in\{7,9\}\}$
-                \item $L_3 = \{w \mid |w| = 3\}$
+                \item $L_3 = \{w \mid w \in\{1,2,3\} |w| = 3\}$
             \end{itemize}
         \end{block}
         \begin{block}{Etwas Schwerer}
             \begin{itemize}
                 \item $L_4 = \{a^n \mid n \equiv 1 \pmod 3, n\in\mathbb{N}\}$
                 \item $L_5 = \{x \mid |x^2| = x^2\}$
-                \item $L_7 = \{w \mid w ist prim, w > 50\}$
+                \item $L_7 = \{w \mid w \text{ ist prim}, w > 50\}$
             \end{itemize}
         \end{block}
         \emph{Anmerkung:} $x \equiv y \pmod n \iff n$ teilt $(x-y)$ ohne Rest $\iff x = m \cdot n + y$ mit $x,y,n,m \in \mathbb{Z}$
@@ -79,13 +79,13 @@ $$
 \begin{frame}<handout:0>{Lösungen}
   \begin{itemize}[<+- | alert@+>]
         \item 
-            $L_1$: Enthält \textbf{nur} das einzelne Wort a!
+            $L_1$: Enthält \textbf{nur} das einzelne Wort $a$!
         \item
-            $L_2$: z.B. $c$, $d$, $ac$, $bc$, $aaac$, $abababad$, \dots\\
-            Wort besteht aus zwei Teilen: u z.B. $\emptyWord$, $a$, $b$, $ababa$, ...\\ v ist entweder $c$ oder $d$!
+            $L_2$: z.B. $7$, $9$, $17$, $27$, $1117$, $12121219$, \dots\\
+            Wort besteht aus zwei Teilen: u z.B. $\emptyWord$, $1$, $2$, $12121$, ...\\ v ist entweder $7$ oder $9$!
         \item
-            $L_3$: enthält alle Wörter der Länge 3, deren Buchstaben nur $a$, $b$ oder $c$ sind.\\
-            $\rightarrow$ $aaa$, $aab$, $aba$, $abb$, $abc$, $acb$, $acc$, $baa$, $bab$, $cbb$, ...
+            $L_3$: enthält alle Wörter der Länge 3, deren Zahlen nur $1$, $2$ oder $3$ sind.\\
+            $\rightarrow$ $111$, $112$, $121$, $122$, $123$, $132$, $133$, $211$, $212$, $322$, ...
         \item
             $L_4 = \{a, aaaa, aaaaaaa, \dots\}$\\
             Wörter deren Länge durch 3 geteilt den Rest 1 ergeben.
