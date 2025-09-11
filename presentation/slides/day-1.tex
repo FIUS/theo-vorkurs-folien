@@ -33,8 +33,8 @@
 \input{../parts/intro-allgemein.tex}
 
 \begin{frame}[fragile]{Übersicht}
-	\setbeamertemplate{section in toc}[sections numbered]
-	\tableofcontents%[hideallsubsections]
+  \setbeamertemplate{section in toc}[sections numbered]
+  \tableofcontents%[hideallsubsections]
 \end{frame}
 
 \section{Theoretische Informatik}
@@ -61,60 +61,25 @@
 
 \input{../parts/logik.tex}
 
+\section{Quantoren}
+
+\input{../parts/logik-quantoren.tex}
+
 \section{Wiederholung}
 \begin{frame}[fragile]{Das können wir jetzt beantworten}
-    \begin{alertblock}{Einführung}
+  \begin{alertblock}{Einführung}
     \begin{itemize}
-        \item Theoretische Informatik ist ganz schön wichtig...
-        \item ...für mein Studium.
+      \item Theoretische Informatik ist ganz schön wichtig...
+      \item ...für mein Studium.
     \end{itemize}
-    \end{alertblock}
+  \end{alertblock}
 \end{frame}
 
-\begin{frame}[fragile]{Das können wir jetzt beantworten}
-    \begin{alertblock}{Mengen, Sprachen, Elemente}
-    \begin{itemize}
-        \item Was ist eine Menge?
-        \item Was ist eine Sprache?
-        \item Was sind Elemente einer Sprache/Menge?
-    \end{itemize}
-    \end{alertblock}
-\end{frame}
+\input{../parts/wdh_slides/mengen.tex}
 
-\begin{frame}[fragile]{Das können wir jetzt beantworten}
-    \begin{alertblock}{Alphabete, $\SigmaStern$}
-    \begin{itemize}
-        \item Was ist ein Alphabet?, Was ist ein Wort?
-        \item Wie funktioniert die Konkatenation?
-        \item Was ist der Unterschied zwischen $\Sigma$ und $\SigmaStern$?
-        \item Das leere Wort: Welches ist das \textit{kleinste} Alphabet mit $\emptyWord \in \SigmaStern$?
-        \item Bilden von $\SigmaStern$ für gegebenes Alphabet $\Sigma$
-    \end{itemize}
-    \end{alertblock}
-\end{frame}
+\input{../parts/wdh_slides/aussagenlogik.tex}
 
-\begin{frame}[fragile]{Das können wir jetzt beantworten}
-    \begin{alertblock}{Operationen auf Mengen}
-    \begin{itemize}
-        \item Wie funktionieren Vereinigung, Schnitt und Komplement?
-        \item Wie bilde ich die Vereinigung oder Schnittmenge zweier Mengen?
-        \item Wie bilde ich das Komplement einer Menge?
-        \item Wie kann ich Sprachen formal beschreiben?
-        \item Hantieren mit verschiedenen seltsamen Mengen und den Verknüpfungen
-    \end{itemize}
-    \end{alertblock}
-\end{frame}
-
-\begin{frame}[fragile]{Das können wir jetzt beantworten}
-	\begin{alertblock}{Logik}
-		\begin{itemize}
-			\item Was ist eine Aussage?
-			\item Was bedeuten $\wedge$, $\vee$ und $\neg$?
-			\item Wie funktioniert die Implikation?
-			\item Wie funktioniert die Äquivalenz?
-		\end{itemize}
-	\end{alertblock}
-\end{frame}
+\input{../parts/wdh_slides/quantoren.tex}
 
 \Center{Noch Fragen?}
 
@@ -123,7 +88,7 @@
 \appendix
 \input{../parts/license-notice.tex}
 \begin{frame}<handout:0>[fragile]{Online-Whiteboard}
-	\phantom{text}
+  \phantom{text}
 \end{frame}
 
 \end{document}
