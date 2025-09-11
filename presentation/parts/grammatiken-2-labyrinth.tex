@@ -24,70 +24,70 @@
 \providecommand{\labyrinthSize}{\textwidth}
 \providecommand{\labyrinthVariant}{None}
 \begin{includetikzpicture}{\labyrinthSize}[x=1mm,y=1mm]
-  \tikzset{every path/.style={line width=0.4}}
-  % Strichmaennchen
-  \draw (15,116.5)--(15,108.5);
-  \draw (11,115.5)--(19,115.5);
-  \draw[draw=black,fill=labyrinthHead] (15,119) circle[radius=2.5];
-  \draw (15,108.5)--(10,103);
-  \draw (15,108.5)--(20,103);
-  \node[align=center] at (5,112) {\Large Bob};
+    \tikzset{every path/.style={line width=0.4}}
+    % Strichmaennchen
+    \draw (15,116.5)--(15,108.5);
+    \draw (11,115.5)--(19,115.5);
+    \draw[draw=black,fill=labyrinthHead] (15,119) circle[radius=2.5];
+    \draw (15,108.5)--(10,103);
+    \draw (15,108.5)--(20,103);
+    \node[align=center] at (5,112) {\Large Mei};
 
-  % Labyrinth
-  \tikzset{every path/.style={line width=5,draw=labyrinthLine}}
-  \draw (30,90)--(180,90);
-  \draw (0,90)--(0,0)--(180,0)--(180,60)--(150,60);
-  \draw (120,0)--(120,30);
-  \draw (90,30)--(150,30);
-  \draw (30,60)--(120,60);
-  \draw (60,60)--(60,30)--(30,30);
-  \draw[-{Stealth[inset=0pt, length=12, angle'=60]},line width=7] (15,102)--(15,89);
-  \draw[-{Stealth[inset=0pt, length=12, angle'=60]},line width=7] (179,75)--(192,75);
+    % Labyrinth
+    \tikzset{every path/.style={line width=5,draw=labyrinthLine}}
+    \draw (30,90)--(180,90);
+    \draw (0,90)--(0,0)--(180,0)--(180,60)--(150,60);
+    \draw (120,0)--(120,30);
+    \draw (90,30)--(150,30);
+    \draw (30,60)--(120,60);
+    \draw (60,60)--(60,30)--(30,30);
+    \draw[-{Stealth[inset=0pt, length=12, angle'=60]},line width=7] (15,102)--(15,89);
+    \draw[-{Stealth[inset=0pt, length=12, angle'=60]},line width=7] (179,75)--(192,75);
 
-  % Felder
-  \tikzset{every path/.style={draw=none,fill=labyrinthField},every circle/.style={radius=11}}
-  \foreach \x in {0,...,5}
-  \foreach \y in {0,...,2}
-    {\fill (15 + \x * 30,15 + \y * 30) circle;}
+    % Felder
+    \tikzset{every path/.style={draw=none,fill=labyrinthField},every circle/.style={radius=11}}
+    \foreach \x in {0,...,5}
+    \foreach \y in {0,...,2}
+        {\fill (15 + \x * 30,15 + \y * 30) circle;}
 
-  % Pfade
-  \tikzset{every path/.style={-{Stealth},draw=labyrinthPath,fill=none,rounded corners=10,line width=5}}
-  \ifthenelse{\equal{\labyrinthVariant}{Direkt}}
-  {
-    \draw (15,86)--(15,75)--(176,75); % Direkt
-  }{}
-  \ifthenelse{\equal{\labyrinthVariant}{Indirekt}}
-  {
-    \draw (15,86)--(15,15)--(75,15)--(75,45)--(135,45)--(135,75)--(176,75); % Indirekt
-  }{}
-  \ifthenelse{\equal{\labyrinthVariant}{Uhrzeigersinn}}
-  {
-    \draw (15,86)--(15,75)--(135,75)--(135,45)--(75,45)--(75,15)--(15,15)--(15,75)--(176,75); % Uhrzeigersinn
-    \draw[line width=2,draw=black] (60,82.75)--(90,82.75);
-  }{}
-  \ifthenelse{\equal{\labyrinthVariant}{GegenUhrzeigersinn}}
-  {
-    \draw (15,86)--(15,15)--(75,15)--(75,45)--(135,45)--(135,75)--(15,75)--(15,15)--(75,15)--(75,45)--(135,45)--(135,75)--(176,75); % GegenUhrzeigersinn
-    \draw[line width=2,draw=black] (90,82.75)--(60,82.75);
-  }{}
+    % Pfade
+    \tikzset{every path/.style={-{Stealth},draw=labyrinthPath,fill=none,rounded corners=10,line width=5}}
+    \ifthenelse{\equal{\labyrinthVariant}{Direkt}}
+    {
+        \draw (15,86)--(15,75)--(176,75); % Direkt
+    }{}
+    \ifthenelse{\equal{\labyrinthVariant}{Indirekt}}
+    {
+        \draw (15,86)--(15,15)--(75,15)--(75,45)--(135,45)--(135,75)--(176,75); % Indirekt
+    }{}
+    \ifthenelse{\equal{\labyrinthVariant}{Uhrzeigersinn}}
+    {
+        \draw (15,86)--(15,75)--(135,75)--(135,45)--(75,45)--(75,15)--(15,15)--(15,75)--(176,75); % Uhrzeigersinn
+        \draw[line width=2,draw=black] (60,82.75)--(90,82.75);
+    }{}
+    \ifthenelse{\equal{\labyrinthVariant}{GegenUhrzeigersinn}}
+    {
+        \draw (15,86)--(15,15)--(75,15)--(75,45)--(135,45)--(135,75)--(15,75)--(15,15)--(75,15)--(75,45)--(135,45)--(135,75)--(176,75); % GegenUhrzeigersinn
+        \draw[line width=2,draw=black] (90,82.75)--(60,82.75);
+    }{}
 
-  \ifthenelse{\equal{\labyrinthVariant}{DecisionPoints}}
-  {
-  \fill[draw=none,fill=labyrinthDecision] (15,75) circle;
-  \fill[draw=none,fill=labyrinthDecision] (135,75) circle;
-  \tikzset{every path/.style={-{Stealth},draw=labyrinthDecisionText,line width=2},every node/.style={font=\Huge,text=labyrinthDecisionText,text centered}}
-  \node[align=center] at (19,79) {$A_r$};
-  \node[align=center] at (11,71) {$A_u$};
-  \draw (34,75)--(26,75);
-  \draw (15,56)--(15,64);
-  \draw[-] (9,81)--(21,69);
+    \ifthenelse{\equal{\labyrinthVariant}{DecisionPoints}}
+    {
+    \fill[draw=none,fill=labyrinthDecision] (15,75) circle;
+    \fill[draw=none,fill=labyrinthDecision] (135,75) circle;
+    \tikzset{every path/.style={-{Stealth},draw=labyrinthDecisionText,line width=2},every node/.style={font=\Huge,text=labyrinthDecisionText,text centered}}
+    \node[align=center] at (19,79) {$A_r$};
+    \node[align=center] at (11,71) {$A_u$};
+    \draw (34,75)--(26,75);
+    \draw (15,56)--(15,64);
+    \draw[-] (9,81)--(21,69);
 
-  \node[align=center] at (131,79) {$B_l$};
-  \node[align=center] at (139,71) {$B_u$};
-  \draw (116,75)--(124,75);
-  \draw (135,56)--(135,64);
-  \draw[-] (129,69)--(141,81);
-  }{}
+    \node[align=center] at (131,79) {$B_l$};
+    \node[align=center] at (139,71) {$B_u$};
+    \draw (116,75)--(124,75);
+    \draw (135,56)--(135,64);
+    \draw[-] (129,69)--(141,81);
+    }{}
 \end{includetikzpicture}
 \let\labyrinthVariant\relax
 \let\labyrinthSize\relax
