@@ -60,15 +60,15 @@ $$
         \begin{block}{Normal}
             \begin{itemize}
                 \item $L_1 = \{a\}$
-                \item $L_2 = \{u+v \mid u\in\{1,2\}^\ast,\;v\in\{7,9\}\}$
-                \item $L_3 = \{w \mid w \in\{1,2,3\} |w| = 3\}$
+                \item $L_2 = \{u+v \mid u\in\{1,2\},\;v\in\{7,9\}\}$
+                \item $L_3 = \{w \mid |w| = 3\}$
             \end{itemize}
         \end{block}
         \begin{block}{Etwas Schwerer}
             \begin{itemize}
-                \item $L_4 = \{a^n \mid n \equiv 1 \pmod 3, n\in\mathbb{N}\}$
+                \item $L_4 = \{3^n \mid n \equiv 1 \pmod 3, n\in\mathbb{N}\}$
                 \item $L_5 = \{x \mid |x^2| = x^2\}$
-                \item $L_7 = \{w \mid w \text{ ist prim}, w > 50\}$
+                \item $L_6 = \{w \mid w \text{ ist prim}, w > 50\}$
             \end{itemize}
         \end{block}
         \emph{Anmerkung:} $x \equiv y \pmod n \iff n$ teilt $(x-y)$ ohne Rest $\iff x = m \cdot n + y$ mit $x,y,n,m \in \mathbb{Z}$
@@ -81,21 +81,19 @@ $$
         \item 
             $L_1$: Enthält \textbf{nur} das einzelne Wort $a$!
         \item
-            $L_2$: z.B. $7$, $9$, $17$, $27$, $1117$, $12121219$, \dots\\
-            Wort besteht aus zwei Teilen: u z.B. $\emptyWord$, $1$, $2$, $12121$, ...\\ v ist entweder $7$ oder $9$!
+            $L_2 = \{8, 10, 9, 11\}$\\
+            Wort besteht aus zwei Teilen, die addiert werden:\\ $u$ ist entweder $1$ oder $2$, $v$ ist entweder $7$ oder $9$!
         \item
-            $L_3$: enthält alle Wörter der Länge 3, deren Zahlen nur $1$, $2$ oder $3$ sind.\\
-            $\rightarrow$ $111$, $112$, $121$, $122$, $123$, $132$, $133$, $211$, $212$, $322$, ...
+            $L_3 = \{3, -3\}$\\
+            Enthält alle Zahlen mit dem Betrag $3$.
         \item
-            $L_4 = \{a, aaaa, aaaaaaa, \dots\}$\\
-            Wörter deren Länge durch 3 geteilt den Rest 1 ergeben.
+        $L_4 = \{3, 3^4, 3^7, \dots\}$\\
+            Enthält Zahlen $3^n$, wobei n durch 3 geteilt den Rest 1 ergibt.
         \item
-            $L_5 = \{caaba, cccbaaa, abaca, aaab, \dots\}$\\
-            genau 3 $a$'s, genau 1 $b$, beliebig viele $c$'s, keine Sortierung
+            $L_5 = \mathbb{R}$\\
+            $x^2$ ist immer positiv, also macht der Betrag hier keinen Unterschied.
         \item
-            $L_6$ = \{\Stopsign, \Rewind \Stopsign, \MoveUp \Stopsign,\dots\;, \MoveDown \Rewind \MoveDown \Stopsign,\dots\}
-        \item $L_7 = \emptyset$\\
-            $L_7$ enthält \textbf{gar kein} Wort!
+            $L_6 = \{53, 59, 61, 67, \dots\}$
     \end{itemize}
 \end{frame}
 }
