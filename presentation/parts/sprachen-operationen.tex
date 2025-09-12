@@ -54,18 +54,18 @@
 \column{0.5\textwidth}
     \begin{alertblock}{Komplement - $\overline{A}$}
     Gegeben sei eine Menge A.\\
-    Im Komplement der Menge A liegen alle Elemente, die in der Obermenge (z.B. $\Sigma^{*}$), aber nicht in der Menge A selbst liegen.
+    Im Komplement der Menge A liegen alle Elemente, die in der Obermenge (z.B. $\mathbb{N}$), aber nicht in der Menge A selbst liegen.
     \end{alertblock}
 \column{0.5\textwidth}
 \begin{figure}
     \centering
-    \includegraphics[width=0.7\textwidth]{../figures/Akomp.png}
+    \input{../figures/tikz/Komplement.tex}
     \caption{Veranschaulichung des Komplements}
-    \label{fig:my_label}
+    \label{fig:komplement}
 \end{figure}
 \end{columns}
-\onslide<2>{\alert{\emph{Anmerkung:}} Kann auch geschrieben werden als $\Sigma^{*}\setminus A$. \\
-\hspace{2cm}(gesprochen $\Sigma^{*}$ \emph{\glqq ohne\grqq} $A$)}
+\onslide<2>{\alert{\emph{Anmerkung:}} Kann auch geschrieben werden als $\mathbb{N}\setminus A$. \\
+\hspace{2cm}(gesprochen $\mathbb{N}$ \emph{\glqq ohne\grqq} $A$)}
 \end{frame}
 
 {\setbeamercolor{palette primary}{bg=ExColor}
@@ -84,7 +84,7 @@
         \begin{itemize}
             \item $M_5 = \{1, 2, 3\} \cap  \{1, \{2, 3\}\}$
             \item $M_6 = \{u \mid |u| \equiv 0 \pmod 2, u \in \mathbb{N}\}$\\\hspace{0.65cm}$\cup$ $\{v \mid |v| \equiv 0 \pmod 4, v \in \mathbb{N}\}$
-            \item $M_7 = \overline{\{a^{n} \mid n \ \text{ist gerade}\} }$ , über dem Alphabet $\{a,b\}$
+            \item $M_7 = \overline{\{a^{n} \mid n \ \text{ist gerade}, a \in \{3,4\}\}}$ über $\mathbb{N}$
         \end{itemize}
     \end{alertblock}
 \end{frame}
@@ -104,7 +104,8 @@
         \item
             $M_6 = \{u \mid |u| \equiv 0 \pmod 2, u \in \mathbb{N}\}$
         \item
-            $M_7 = \{a^{n} \mid n \ \text{ist ungerade}\} \cup\{w \mid w\in\{a,b\}^{*}, |w|_b \geq 1\}$
+            $M_7 = \mathbb{N} \setminus \{9^n, 16^n \mid n \in \mathbb N\}$\\
+            \hspace{0.44cm}$ = \mathbb{N} \setminus \{3^{2n}, 4^{2n} \mid n \in \mathbb N\}$
     \end{itemize}
 \end{frame}
 }
