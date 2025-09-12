@@ -19,7 +19,7 @@
     \begin{alertblock}{Aussagen}
     \begin{itemize}
         \item Paris ist die Hauptstadt von Frankreich
-        \item Totoro ist ein Mensch
+        \item Tim ist kein Mensch
         \item $5 \in \mathbb{N}$
         \item $5 = 8$
         \item $u \in \{u, v, w\}$
@@ -33,7 +33,7 @@
     \begin{itemize}
         \item Macht theoretische Informatik Spaß?
         \item Geh dein Zimmer aufräumen!
-        \item Wie oft trifft Mei auf Totoro?
+        \item Wie oft muss man Zähne putzen?
         \item $(x+y)^2+1$
         \item $\{a,b,c\}$
         \item ...
@@ -54,19 +54,19 @@
 \begin{frame}[fragile]{Logische Operationen}
 Wir können Aussagen verändern oder durch Operationen zu neuen Aussagen verbinden.
 \begin{itemize}
-    \item $A$: Totoro möchte Nüsse.
-    \item $B$: Totoro will schlafen.
+    \item $A$: Hamster Paule möchte Nüsse.
+    \item $B$: Hamster Paule will schlafen.
 \end{itemize}
 \metroset{block=fill}
 \begin{alertblock}{Grundoperationen}
 \begin{itemize}
-    \item<1-> \textbf{Und}: $A$ \alert<1>{$\wedge$} $B$ $\leadsto$ Totoro möchte Nüsse \alert<1>{und} will schlafen.\\
+    \item<1-> \textbf{Und}: $A$ \alert<1>{$\wedge$} $B$ $\leadsto$ Hamster Paule möchte Nüsse \alert<1>{und} will schlafen.\\
     \only<1>{\emph{Analog}: $M$: $M_1 \cap M_2$, Jedes Element aus $M$ liegt in $M_1$ \textbf{und} in $M_2$}
-    \item<2-> \textbf{Oder}: $A$ \alert<2>{$\vee$} $B$ $\leadsto$ Totoro möchte Nüsse \alert<2>{oder} will schlafen.\\
+    \item<2-> \textbf{Oder}: $A$ \alert<2>{$\vee$} $B$ $\leadsto$ Hamster Paule möchte Nüsse \alert<2>{oder} will schlafen.\\
     \only<2>{\emph{Anmerkung}: Inklusives \glqq oder\grqq, kein \glqq entweder oder\grqq \\
     Das heißt, es können auch beide Aussagen wahr sein.\\}
 	\only<2>{\emph{Analog}: $M$: $M_1 \cup M_2$, Jedes Element aus $M$ liegt in $M_1$ \textbf{oder} in $M_2$}
-    \item<3> \textbf{Nicht}: \alert<3>{$\neg$}$A$ $\leadsto$ Totoro möchte \alert<3>{keine} Nüsse.\\
+    \item<3> \textbf{Nicht}: \alert<3>{$\neg$}$A$ $\leadsto$ Hamster Paule möchte \alert<3>{keine} Nüsse.\\
     \only<3>{\emph{Analog}: $M$: $\overline{M_1}$, Jedes Element aus $M$ liegt \textbf{nicht} in $M_1$}
 \end{itemize}
 \end{alertblock}
@@ -107,7 +107,7 @@ Wir können Aussagen verändern oder durch Operationen zu neuen Aussagen verbind
 		\begin{table}[]
 			\begin{tabular}{l l}
 				$A$: $5 \in \mathbb{N}$ & $B$: Es regnet\\
-				$C$: \{$w \mid |w|=2$ \} \ & $D$: \{a,b,c,x,y\}\\
+				$C$: \{$n \in \mathbb{Z} \mid |w|=2$ \} \ & $D$: \{a,b,c,x,y\}\\
 			\end{tabular}
 		\end{table}
 		\metroset{block=fill}
@@ -166,11 +166,11 @@ Wir können Aussagen verändern oder durch Operationen zu neuen Aussagen verbind
 		\metroset{block=fill}
 		\begin{block}{Normal bis Schwer}
 			\begin{itemize}
-				\item Aussage: "Wenn Lukas nicht im Vorkurs,  schläft er noch"\\
-				Geschehen: Lukas ist nicht im Vorkurs.\\
+				\item Aussage: "Wenn Philipp nicht im Vorkurs, schläft er noch"\\
+				Geschehen: Philipp ist nicht im Vorkurs.\\
 				Folgerung: Also schläft er noch.
-				\item Aussage: "Wenn Mei nicht rennt, bekommt sie den Bus nicht"\\
-				Geschehen: Mei bekommt den Bus.\\
+				\item Aussage: "Wenn Anne nicht rennt, bekommt sie den Bus nicht"\\
+				Geschehen: Anne bekommt den Bus.\\
 				Folgerung: Also ist sie gerannt.
 				\item Aussage: "Wenn Tobi auf die Prüfung nicht lernt, besteht er nicht"\\
 				Geschehen: Tobi hat auf die Prüfung gelernt.\\
@@ -187,8 +187,8 @@ Wir können Aussagen verändern oder durch Operationen zu neuen Aussagen verbind
 			\metroset{block=fill}
 			\begin{block}{Normal bis Schwer}
 				\begin{itemize}
-					\item Aussage: "Wenn Lukas nicht im Vorkurs,  schläft er noch"\\
-					Geschehen: Lukas ist nicht im Vorkurs.\\
+					\item Aussage: "Wenn Philipp nicht im Vorkurs, schläft er noch"\\
+					Geschehen: Philipp ist nicht im Vorkurs.\\
 					Folgerung: Also schläft er noch.
 				\end{itemize}
 			\end{block}
@@ -197,8 +197,8 @@ Wir können Aussagen verändern oder durch Operationen zu neuen Aussagen verbind
 			\metroset{block=fill}
 			\begin{block}{Normal bis Schwer}
 				\begin{itemize}
-					\item<2> Aussage: "Wenn Mei nicht rennt, bekommt sie den Bus nicht"\\
-					Geschehen: Mei bekommt den Bus.\\
+					\item<2> Aussage: "Wenn Anne nicht rennt, bekommt sie den Bus nicht"\\
+					Geschehen: Anne bekommt den Bus.\\
 					Folgerung: Also ist sie gerannt.
 				\end{itemize}
 			\end{block}
@@ -214,7 +214,7 @@ Wir können Aussagen verändern oder durch Operationen zu neuen Aussagen verbind
 			\end{block}
 		}
 		
-		\only<1>{Die Folgerung ist richtig. Laut Aussage ist Lukas im Vorkurs oder schläft noch (oder beides). Wenn er also nicht im Vorkurs ist, bleibt nur noch die Option übrig, dass er noch schläft.}
+		\only<1>{Die Folgerung ist richtig. Laut Aussage ist Philipp im Vorkurs oder schläft noch (oder beides). Wenn er also nicht im Vorkurs ist, bleibt nur noch die Option übrig, dass er noch schläft.}
 		\only<2>{Die Folgerung ist richtig. Die zweite Aussage ist die Kontraposition der ersten Aussage. Die Kontraposition einer Aussage ist wahr gdw. die Aussage selbst wahr ist. }
 		\only<3>{Die Folgerung ist falsch. Es ist auch möglich, dass Tobi lernt und nicht besteht!}
 	\end{frame}
@@ -250,8 +250,8 @@ Wir können Aussagen verändern oder durch Operationen zu neuen Aussagen verbind
         \item $A_5$: $(a \notin \emptyset) \implies (\emptyset = \emptyset^{*})$
         \item $A_6$: $A_4 \iff A_5$
         \item $A_7$: $(7 \in \{1, 2, 7, 9\}) \cap (2 = 7-5)$
-        \item $A_8$: Wenn es Totoro in echt gibt,\\
-		\quad dann frisst Totoro kleine Kinder.
+        \item $A_8$: Wenn Hamster Paule eine Nuss sieht,\\
+		\quad dann frisst Paule diese.
     \end{itemize}
     \end{block}
 \end{frame}
