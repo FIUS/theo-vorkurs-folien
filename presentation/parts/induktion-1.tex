@@ -15,45 +15,44 @@
 % You should have received a copy of the GNU General Public License
 % along with theo-vorkurs-folien.  If not, see <https://www.gnu.org/licenses/>.
 
-\subsubsection{Idee}
 \begin{frame}[fragile]{Idee}
-\begin{columns}
-\column{0.5\textwidth}
-    \begin{alertblock}{Zeige Aussagen der Form:\\\emph{Für alle $n\in\mathbb{N}$ gilt\ldots}}
-    \begin{enumerate}
-        \item Zeige Aussage für das kleinste Element
-        \item<1-> \only<7,8|handout:0>{\alert<7>{Zeige, wenn Aussage für beliebiges $n$ gilt, gilt sie auch für dessen Nachfolger, also $n+1$.}}\onslide<1-6>{Zeige, dass Aussage auch für das folgende Element gilt.}
-        \item<2-6,8> \only<8|handout:0>{\alert<8>{$\leadsto$ Aussage gilt für alle $n$.}}\onslide<2-6>{\small Zeige, dass Aussage auch für das folgende Element gilt.}
-        \item<3-6> \footnotesize Zeige, dass Aussage auch für das folgende Element gilt.
-        \item<4-6> \scriptsize Zeige, dass Aussage auch für das folgende Element gilt.
-        \item<5-6> \tiny Zeige, dass Aussage auch für das folgende Element gilt.
-        \item<6> \dots
-    \end{enumerate}
-    \end{alertblock}
-\column{0.5\textwidth}
-    \begin{figure}
-        \centering
-        \includegraphics[width=0.7\textwidth]{../figures/induction.png}
-        %\caption{Idee}
-        %
-    \end{figure}
-\end{columns}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{alertblock}{Zeige Aussagen der Form:\\\emph{Für alle $n\in\mathbb{N}$ gilt\ldots}}
+            \begin{enumerate}
+                \item Zeige Aussage für das kleinste Element
+                \item<1-> \only<7,8|handout:0>{\alert<7>{Zeige, wenn Aussage für beliebiges $n$ gilt, gilt sie auch für dessen Nachfolger, also $n+1$.}}\onslide<1-6>{Zeige, dass Aussage auch für das folgende Element gilt.}
+                \item<2-6,8> \only<8|handout:0>{\alert<8>{$\leadsto$ Aussage gilt für alle $n$.}}\onslide<2-6>{\small Zeige, dass Aussage auch für das folgende Element gilt.}
+                \item<3-6> \footnotesize Zeige, dass Aussage auch für das folgende Element gilt.
+                \item<4-6> \scriptsize Zeige, dass Aussage auch für das folgende Element gilt.
+                \item<5-6> \tiny Zeige, dass Aussage auch für das folgende Element gilt.
+                \item<6> \dots
+            \end{enumerate}
+        \end{alertblock}
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=0.7\textwidth]{../figures/induction.png}
+            %\caption{Idee}
+            %
+        \end{figure}
+    \end{columns}
 \end{frame}
 
-\subsubsection{Funktionsweise}
+\subsection{Funktionsweise}
 \begin{frame}[fragile]{Struktur}
     \begin{alertblock}{Zeige Aussagen der Form:\\\emph{Für alle $n\in\mathbb{N}$ gilt\ldots}}
-    \begin{enumerate}
-        \item \alert{Induktionsanfang}\\Zeige Aussage für das kleinste Element
-        \item \alert{Induktionsvoraussetzung}\\Zeige, unter der Voraussetzung: \\\emph{die Aussage gelte für beliebiges $n$},\dots
-        \item \alert{Induktionsschritt}\\\dots dann gilt die Aussage auch für dessen Nachfolger $n+1$.
-        \item $\leadsto$ Aussage gilt für alle $n \in \mathbb{N}$.
-    \end{enumerate}
+        \begin{enumerate}
+            \item \alert{Induktionsanfang}\\Zeige Aussage für das kleinste Element
+            \item \alert{Induktionsvoraussetzung}\\Zeige, unter der Voraussetzung: \\\emph{die Aussage gelte für beliebiges $n$},\dots
+            \item \alert{Induktionsschritt}\\\dots dann gilt die Aussage auch für dessen Nachfolger $n+1$.
+            \item $\leadsto$ Aussage gilt für alle $n \in \mathbb{N}$.
+        \end{enumerate}
     \end{alertblock}
 \end{frame}
 
 \begin{frame}[fragile]{Beispiel}
-\center $\displaystyle\sum_{i = 0}^{n} (2i+1) = (n+1)^2,\quad\forall n \in\mathbb{N}$.
+    \center $\displaystyle\sum_{i = 0}^{n} (2i+1) = (n+1)^2,\quad\forall n \in\mathbb{N}$.
     \begin{figure}
         \centering
         \includegraphics[width=0.5\textheight]{../figures/Summe.png}\qquad \dots
@@ -68,65 +67,65 @@
 }
 
 \begin{frame}[fragile]{Beispiel}
-Zeigen Sie $\displaystyle\sum_{i = 0}^{n} (2i+1) = (n+1)^2,\quad\forall n \in\mathbb{N}$.
-\begin{alertblock}{Induktionsanfang (IA)}
-    Zeige Aussage gilt für $n\defeq0$:\\
-    \begin{align*}
-        &\sum_{i = 0}^{0} (2i+1)& &\overset{!}{=}& &(0+1)^2&\\
-        \iffspace &2 \cdot 0 + 1& &\overset{!}{=}& &1^2&\\
-        \iffspace &1& &=& &1& \qquad\checkmark
-    \end{align*}
-\end{alertblock}
+    Zeigen Sie $\displaystyle\sum_{i = 0}^{n} (2i+1) = (n+1)^2,\quad\forall n \in\mathbb{N}$.
+    \begin{alertblock}{Induktionsanfang (IA)}
+        Zeige Aussage gilt für $n\defeq0$:\\
+        \begin{align*}
+                      & \sum_{i = 0}^{0} (2i+1) &  & \overset{!}{=} &  & (0+1)^2 &                  \\
+            \iffspace & 2 \cdot 0 + 1           &  & \overset{!}{=} &  & 1^2     &                  \\
+            \iffspace & 1                       &  & =              &  & 1       & \qquad\checkmark
+        \end{align*}
+    \end{alertblock}
 \end{frame}
 
 \begin{frame}[fragile]{Beispiel}
-Zeigen Sie $\displaystyle\sum_{i = 0}^{n} (2i+1) = (n+1)^2,\quad\forall n \in\mathbb{N}$.
-\begin{alertblock}{Induktionsanfang (IA)}
-    Aussage gilt für $n\defeq0$, da $\displaystyle\sum_{i = 0}^{0} (2i+1) = (0+1)^2$.
-\end{alertblock}
-\begin{alertblock}{Induktionsvoraussetzung (IV)}
-    Ang. Aussage gilt für (ein beliebiges aber festes) $n \in\mathbb{N}$.
-\end{alertblock}
-\begin{alertblock}{Induktionsschritt (IS)}
-    Zeige Aussage gilt für alle $n+1$ unter Nutzung der (IV):\par
-    $\displaystyle\sum_{i = 0}^{\alert{n+1}} (2i+1) \overset{!}{=} (\alert{(n+1)}+1)^2$
-\end{alertblock}
+    Zeigen Sie $\displaystyle\sum_{i = 0}^{n} (2i+1) = (n+1)^2,\quad\forall n \in\mathbb{N}$.
+    \begin{alertblock}{Induktionsanfang (IA)}
+        Aussage gilt für $n\defeq0$, da $\displaystyle\sum_{i = 0}^{0} (2i+1) = (0+1)^2$.
+    \end{alertblock}
+    \begin{alertblock}{Induktionsvoraussetzung (IV)}
+        Ang. Aussage gilt für (ein beliebiges aber festes) $n \in\mathbb{N}$.
+    \end{alertblock}
+    \begin{alertblock}{Induktionsschritt (IS)}
+        Zeige Aussage gilt für alle $n+1$ unter Nutzung der (IV):\par
+        $\displaystyle\sum_{i = 0}^{\alert{n+1}} (2i+1) \overset{!}{=} (\alert{(n+1)}+1)^2$
+    \end{alertblock}
 \end{frame}
 
 \begin{frame}[fragile]{Beispiel}
-\small\begin{alertblock}{Induktionsschritt}
-    Zeige Aussage gilt für alle $n+1$ unter Nutzung der IV:\@
-    \begin{align*}
-        \onslide<1->{&\sum_{i = 0}^{n+1} (2i+1)& &\overset{!}{=}& &((n+1)+1)^2&}\\
-        \onslide<2->{\iffspace &\sum_{i = 0}^{\alert<2>{n}} (2i+1) + \sum_{i = \alert<2>{n+1}}^{n+1} (2i+1)& &\overset{!}{=}& &(n+2)^2&}\\
-        \onslide<3->{\iffspace &\sum_{i = 0}^{n} (2i+1) + ( 2(n+1)+1 )& &\overset{!}{=}& &n^2 + 2 \cdot 2n + 2^2&}\\
-        \onslide<4->{\overset{\alert<4>{IV}}\iffspace &\alert<4>{(n+1)^2} + ( 2(n+1)+1 )& &\overset{!}{=}& &n^2+4n+4&}\\
-        \onslide<5->{\iffspace &n^2+2n+1^2+2n+2+1& &\overset{!}{=}& &n^2+4n+4&}\\
-        \onslide<6>{\iffspace &n^2+4n+4& &\alert<6>{=}& &n^2+4n+4&}
-    \end{align*}
-\end{alertblock}
+    \small\begin{alertblock}{Induktionsschritt}
+        Zeige Aussage gilt für alle $n+1$ unter Nutzung der IV:\@
+        \begin{align*}
+            \onslide<1->{                                 & \sum_{i = 0}^{n+1} (2i+1)                                                   &  & \overset{!}{=} &  & ((n+1)+1)^2            & } \\
+            \onslide<2->{\iffspace                        & \sum_{i = 0}^{\alert<2>{n}} (2i+1) + \sum_{i = \alert<2>{n+1}}^{n+1} (2i+1) &  & \overset{!}{=} &  & (n+2)^2                & } \\
+            \onslide<3->{\iffspace                        & \sum_{i = 0}^{n} (2i+1) + ( 2(n+1)+1 )                                      &  & \overset{!}{=} &  & n^2 + 2 \cdot 2n + 2^2 & } \\
+            \onslide<4->{\overset{\alert<4>{IV}}\iffspace & \alert<4>{(n+1)^2} + ( 2(n+1)+1 )                                           &  & \overset{!}{=} &  & n^2+4n+4               & } \\
+            \onslide<5->{\iffspace                        & n^2+2n+1^2+2n+2+1                                                           &  & \overset{!}{=} &  & n^2+4n+4               & } \\
+            \onslide<6>{\iffspace                         & n^2+4n+4                                                                    &  & \alert<6>{=}   &  & n^2+4n+4               & }
+        \end{align*}
+    \end{alertblock}
 \end{frame}
 
 \begin{frame}[fragile]{Beispiel}
-Zeigen Sie $\displaystyle\sum_{i = 0}^{n} (2i+1) = (n+1)^2, \quad\forall n \in\mathbb{N}$.
-\begin{alertblock}{Induktionsanfang (IA)}
-    Aussage gilt für $n\defeq0$, da $\displaystyle\sum_{i = 0}^{0} (2i+1) = 1^2$.
-\end{alertblock}
-\begin{alertblock}{Induktionsvoraussetzung (IV)}
-    Ang. Aussage gilt für (ein beliebiges aber festes) $n \in\mathbb{N}$.
-\end{alertblock}
-\begin{alertblock}{Induktionsschritt (IS)}
-    Aussage gilt für alle $n+1$ unter Nutzung der IV, da\par
-    $\displaystyle\sum_{i = 0}^{n+1} (2i+1) = ((n+1)+1)^2$
-\end{alertblock}
-\alert{$\leadsto$ Aussage gilt für alle n.}\qed
+    Zeigen Sie $\displaystyle\sum_{i = 0}^{n} (2i+1) = (n+1)^2, \quad\forall n \in\mathbb{N}$.
+    \begin{alertblock}{Induktionsanfang (IA)}
+        Aussage gilt für $n\defeq0$, da $\displaystyle\sum_{i = 0}^{0} (2i+1) = 1^2$.
+    \end{alertblock}
+    \begin{alertblock}{Induktionsvoraussetzung (IV)}
+        Ang. Aussage gilt für (ein beliebiges aber festes) $n \in\mathbb{N}$.
+    \end{alertblock}
+    \begin{alertblock}{Induktionsschritt (IS)}
+        Aussage gilt für alle $n+1$ unter Nutzung der IV, da\par
+        $\displaystyle\sum_{i = 0}^{n+1} (2i+1) = ((n+1)+1)^2$
+    \end{alertblock}
+    \alert{$\leadsto$ Aussage gilt für alle n.}\qed
 \end{frame}
 
 
 {\setbeamercolor{palette primary}{bg=ExColor}
 \begin{frame}[fragile]{Denkpause}
     \begin{alertblock}{Aufgaben}
-    Versuche dich an den folgenden Induktionsbeweisen.
+        Versuche dich an den folgenden Induktionsbeweisen.
     \end{alertblock}
 
     \metroset{block=fill}
@@ -157,17 +156,17 @@ Zeigen Sie $\displaystyle\sum_{i = 0}^{n} (2i+1) = (n+1)^2, \quad\forall n \in\m
 
 
 \begin{frame}<handout:0>[fragile]{Lösungen: normale Aufgabe}
-\small\begin{alertblock}{Induktionsschritt}
-    Zeige Aussage gilt für $n+1$ unter Nutzung der I.V.:
-    \begin{align*}
-        \onslide<1->{&\displaystyle\sum_{i=0}^{\alert<1>{n+1}} i& &\overset{!}{=}& &\frac{(\alert<1>{n+1})\left((\alert<1>{n+1})+1\right)}{2}&}\\
-        \onslide<2->{\iffspace &\left(\displaystyle\sum_{i=0}^{n} i\right)+(n+1)& &\overset{!}{=}& &\frac{(n+1)(n+2)}{2}&}\\
-        \onslide<3->{\iffspace &\left(\displaystyle\sum_{i=0}^{n} i\right)+(n+1)& &\overset{!}{=}& &\frac{n^2+3n+2}{2}&}\\
-        \onslide<4->{\overset{\alert<4>{IV}}\iffspace &\alert<4>{\frac{n(n+1)}{2}}+(n+1)& &\overset{!}{=}& &\frac{n^2+3n+2}{2}&}\\
-        \onslide<5->{\iffspace &\frac{n^2+n}{2}+\frac{2n+2}{2}& &\overset{!}{=}& &\frac{n^2+3n+2}{2}&}\\
-        \onslide<6->{\iffspace &\frac{n^2+3n+2}{2}& &\alert{=}& &\frac{n^2+3n+2}{2}&}\\
-    \end{align*}
-\end{alertblock}
+    \small\begin{alertblock}{Induktionsschritt}
+        Zeige Aussage gilt für $n+1$ unter Nutzung der I.V.:
+        \begin{align*}
+            \onslide<1->{                                 & \displaystyle\sum_{i=0}^{\alert<1>{n+1}} i       &  & \overset{!}{=} &  & \frac{(\alert<1>{n+1})\left((\alert<1>{n+1})+1\right)}{2} & } \\
+            \onslide<2->{\iffspace                        & \left(\displaystyle\sum_{i=0}^{n} i\right)+(n+1) &  & \overset{!}{=} &  & \frac{(n+1)(n+2)}{2}                                      & } \\
+            \onslide<3->{\iffspace                        & \left(\displaystyle\sum_{i=0}^{n} i\right)+(n+1) &  & \overset{!}{=} &  & \frac{n^2+3n+2}{2}                                        & } \\
+            \onslide<4->{\overset{\alert<4>{IV}}\iffspace & \alert<4>{\frac{n(n+1)}{2}}+(n+1)                &  & \overset{!}{=} &  & \frac{n^2+3n+2}{2}                                        & } \\
+            \onslide<5->{\iffspace                        & \frac{n^2+n}{2}+\frac{2n+2}{2}                   &  & \overset{!}{=} &  & \frac{n^2+3n+2}{2}                                        & } \\
+            \onslide<6->{\iffspace                        & \frac{n^2+3n+2}{2}                               &  & \alert{=}      &  & \frac{n^2+3n+2}{2}                                        & } \\
+        \end{align*}
+    \end{alertblock}
 \end{frame}
 
 
@@ -208,23 +207,23 @@ Zeigen Sie $\displaystyle\sum_{i = 0}^{n} (2i+1) = (n+1)^2, \quad\forall n \in\m
 \end{frame}
 
 \begin{frame}<handout:0>[fragile]{Lösungen: schwerere Aufgabe}
-\small\begin{alertblock}{Induktionsschritt}
-    Zeige Aussage gilt für $n+1$ unter Nutzung der I.V.:
-    \begin{align*}
-        \onslide<1->{&\displaystyle\prod_{i=1}^{\alert<1>{n+1}} 4^i& &\overset{!}{=}& &2^{(\alert<1>{n+1})((\alert<1>{n+1})+1)}&}\\
-        \onslide<2->{\iffspace &\left(\displaystyle\prod_{i=1}^{n} 4^i\right) \cdot 4^{(n+1)}& &\overset{!}{=}& &2^{(n+1)(n+2)}&}\\
-        \onslide<3->{\overset{\alert<3>{IV}}\iffspace &\alert<3>{\left(2^{n(n+1)}\right)} \cdot 4^{(n+1)}& &\overset{!}{=}& &2^{n^2+3n+2}&}\\
-        \onslide<4->{\iffspace &2^{n^2+n} \cdot 2^{2(n+1)}& &\overset{!}{=}& &2^{n^2+3n+2}&}\\
-        \onslide<5->{\iffspace &2^{n^2+n} \cdot 2^{2n+2}& &\overset{!}{=}& &2^{n^2+3n+2}&}\\
-        \onslide<6->{\iffspace &2^{(n^2+n)+(2n+2)}& &\overset{!}{=}& &2^{n^2+3n+2}&}\\
-        \onslide<7->{\iffspace &2^{n^2+3n+2}& &\alert{=}& &2^{n^2+3n+2}&}
-    \end{align*}
-\end{alertblock}
+    \small\begin{alertblock}{Induktionsschritt}
+        Zeige Aussage gilt für $n+1$ unter Nutzung der I.V.:
+        \begin{align*}
+            \onslide<1->{                                 & \displaystyle\prod_{i=1}^{\alert<1>{n+1}} 4^i                 &  & \overset{!}{=} &  & 2^{(\alert<1>{n+1})((\alert<1>{n+1})+1)} & } \\
+            \onslide<2->{\iffspace                        & \left(\displaystyle\prod_{i=1}^{n} 4^i\right) \cdot 4^{(n+1)} &  & \overset{!}{=} &  & 2^{(n+1)(n+2)}                           & } \\
+            \onslide<3->{\overset{\alert<3>{IV}}\iffspace & \alert<3>{\left(2^{n(n+1)}\right)} \cdot 4^{(n+1)}            &  & \overset{!}{=} &  & 2^{n^2+3n+2}                             & } \\
+            \onslide<4->{\iffspace                        & 2^{n^2+n} \cdot 2^{2(n+1)}                                    &  & \overset{!}{=} &  & 2^{n^2+3n+2}                             & } \\
+            \onslide<5->{\iffspace                        & 2^{n^2+n} \cdot 2^{2n+2}                                      &  & \overset{!}{=} &  & 2^{n^2+3n+2}                             & } \\
+            \onslide<6->{\iffspace                        & 2^{(n^2+n)+(2n+2)}                                            &  & \overset{!}{=} &  & 2^{n^2+3n+2}                             & } \\
+            \onslide<7->{\iffspace                        & 2^{n^2+3n+2}                                                  &  & \alert{=}      &  & 2^{n^2+3n+2}                             & }
+        \end{align*}
+    \end{alertblock}
 \end{frame}
 
 
 \begin{frame}<handout:0>[fragile]{Lösungen: schwerere Aufgabe}
-     Zu zeigen: $\displaystyle\prod_{i=1}^{n} 4^i = 2^{n(n+1)}$ gilt für alle $n \in \mathbb{N}\setminus \{0\}$.
+    Zu zeigen: $\displaystyle\prod_{i=1}^{n} 4^i = 2^{n(n+1)}$ gilt für alle $n \in \mathbb{N}\setminus \{0\}$.
     \begin{alertblock}{Induktionsanfang (IA)}
         Aussage gilt für $n\defeq 1$, da $\displaystyle\prod_{i=1}^{1} 4^i = 4^1 = 4 = 2^2 = 2^{1(1+1)}$.
     \end{alertblock}
