@@ -83,17 +83,56 @@ $$
         \metroset{block=fill}
         \begin{block}{Normal}
             \begin{itemize}
-                \item $(P_1(x,y) \implies P_2(x)) \implies P_3(y)$
-                \item $(P_1(x,y) \implies P_2(y)) \implies P_3(x)$
+                \item $P_1(x,y) \Leftrightarrow P_2(y,x)$
+                \item $(P_1(x,y) \wedge \overline{P_2(y)}) \implies P_3(y)$
             \end{itemize}
         \end{block}
         \begin{block}{Etwas Schwerer}
             \begin{itemize}
-                \item $(P_1(x,y) \wedge P_2(y)) \implies P_3(y)$
+                \item $(P_1(x,y) \wedge P_2(y)) \implies P_3(x)$
             \end{itemize}
         \end{block}
+        \alert{Hinweis:} In dem Spiel Among Us gibt es viele Gründe etwas zu tun oder nicht zu tun.
+        Verschwendet nicht zu viel Zeit die Aktionen zu überdenken. Wenn ihr argumentieren könnt warum jemand agiert wird es schon passen.
+\end{frame}
+
+\begin{frame}{Lösung}
+    $$(P_1(x,y) \wedge \overline{P_2(y)}) \implies P_3(y)$$
+        \begin{align*}
+            I(P_1) &= P_{seen}\\
+            I(P_2) &= P_{seen}\\
+            I(x) &= \sus{blue}\\
+            I(y) &= \sus{yellow}
+        \end{align*}
+        Wir haben \sus{red} und \sus{green} zusammen gesehen und \sus{green} ist tot. Dann muss \sus{red} ein Imposter sein.
+\end{frame}
+
+\begin{frame}{Lösung}
+    $$(P_1(x,y) \wedge \overline{P_2(y)}) \implies P_3(y)$$
+        \begin{align*}
+            I(P_1) &= P_{seen}\\
+            I(P_2) &= P_{alive}\\
+            I(P_3) &= P_{crew}\\
+            I(x) &= \sus{red}\\
+            I(y) &= \sus{green}
+        \end{align*}
+        Wir haben \sus{red} und \sus{green} zusammen gesehen und \sus{green} ist tot. Dann muss \sus{red} ein Imposter sein.
+\end{frame}
+
+\begin{frame}{Lösung}
+    $$(P_1(x,y) \wedge P_2(y)) \implies P_3(x)$$
+        \begin{align*}
+            I(P_1) &= P_{sus}\\
+            I(P_2) &= P_{alive}\\
+            I(P_3) &= P_{crew}\\
+            I(x) &= \sus{white}\\
+            I(y) &= \sus{magenta}
+        \end{align*}
+        \sus{white} verdächtigt \sus{magenta}, und \sus{white} ist noch am Leben. Also ist \sus{magenta} kein Imposter.
 \end{frame}
 }
+
+
 
 \begin{frame}{Quantoren und Funktionen}
     \begin{itemize}
@@ -106,7 +145,7 @@ $$
         \item $U = \mathbb Z$
         \item Prädikate:
         \begin{itemize}
-            \item $P_{even}(x)$: $x$ is even
+            \item $P_{ood}(x)$: $x$ is ood
             \item $P_{prim}(x)$: $x$ is prim
             \item $P_{+}(x)$: $x$ is positive
             \item $P_>(x,y): x>y$ 
@@ -125,7 +164,7 @@ $$
         \metroset{block=fill}
         \begin{block}{Normal}
             \begin{itemize}
-                \item $\exists x,y : P_1(x) \wedge P_1(y) \implies \overline{P_1(f_1(x,y))}$
+                \item $\forall x,y : P_1(x) \wedge P_1(y) \implies \overline{P_1(f_1(x,y))}$
                 \item $\forall x\exists y: P_1(f_1(x,y),x)$
                 \item $\forall x\exists y: P_1(f_1(x,y),y)$
             \end{itemize}
@@ -135,5 +174,32 @@ $$
                 \item TODO
             \end{itemize}
         \end{block}
+\end{frame}
+
+\begin{frame}{Lösung}
+    $$\forall x,y : P_1(x) \wedge P_1(y) \implies \overline{P_1(f_1(x,y))}$$
+        \begin{align*}
+            I(P_1) &= P_{ood}\\
+            I(f_1) &= +
+        \end{align*}
+        Für alle $x,y \in \mathbb N$ gilt: wenn $x$ und $x$ ungerade sind, dann ist $x+y$ ungerade
+\end{frame}
+
+\begin{frame}{Lösung}
+    $$\forall x\exists y: P_1(f_1(x,y),x)$$
+        \begin{align*}
+            I(P_1) &= P_{=}\\
+            I(f_1) &= +
+        \end{align*}
+        Für alle $x \in \mathbb N$ existiert ein $y$ so dass $x+y = x$. (Dieses $y$ ist $0$).
+\end{frame}
+
+\begin{frame}{Lösung}
+    $$\forall x\exists y: P_1(f_1(x,y),y)$$
+        \begin{align*}
+            I(P_1) &= P_{=}\\
+            I(f_1) &= \cdot
+        \end{align*}
+        Für alle $x \in \mathbb N$ existiert ein $y$ so dass $x\cdot y = y$. (Dieses $y$ ist $0$).
 \end{frame}
 }
