@@ -68,10 +68,23 @@ $$
             \item $P_{sus}(x,y)$: $x$ verdächtigt $y$
             \item $P_{kill}(x,y)$: $x$ tötet $y$
             \item $P_{seen}(x,y)$: $x$ und $y$ wurden zusammen gesehen
-            \item $P_{alive}(x)$: $x$ lebt (noch)
+            \item $P_{alive}(x)$: $x$ lebt
             \item $P_{crew}(x)$: $x$ ist ein echtes Crewmitglied
         \end{itemize}
     \end{itemize}
+\end{frame}
+
+\begin{frame}{Beispiel}
+    $$P_1(x,y) \implies \overline{P_2(x)}$$
+    \pause    
+    \begin{align*}
+            I(P_1) &= P_{kills}\\
+            I(f_2) &= P_{crew}\\
+            I(x) &= \sus{red}\\
+            I(y) &= \sus{white}
+        \end{align*}
+        \pause
+        \sus{red} tötet \sus{white}. Dann muss \sus{red} ein Imposter sein!
 \end{frame}
 
 {\setbeamercolor{palette primary}{bg=ExColor}
@@ -134,10 +147,28 @@ $$
 
 
 
-\begin{frame}{Quantoren und Funktionen}
+\begin{frame}[fragile]{Reminder: Quantoren}
+    Mithilfe von \textbf{Quantoren} vereinfachen wir uns die Schreibweise dieser Aussagen.\\
+    \vspace{0.5cm}
+    Quantor \alert{$\forall$}: Die Aussage gilt für alle Elemente.\\
+    \metroset{block=fill}
+    \begin{exampleblock}{Beispiel}
+        $A_1$: $\forall k \in \mathbb{N}:$ $2k$ ist gerade
+    \end{exampleblock}
+    Quantor \alert{$\exists$}: Die Aussage gilt für mindestens ein Element.\\
+    \metroset{block=fill}
+    \begin{exampleblock}{Beispiel}
+        $A_2$: $\exists k \in \mathbb{N}:$ $k$ ist Primzahl
+    \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Funktionen}
     \begin{itemize}
-        \item TODO : Quantoren und Funktionen erklären, dann auf Mathematische Beispiele wechseln (funktionen +, - , * , / und U = N...)
+        \item Funktionen erlauben die \alert{Transformation von Elementen} zu beschreiben
+        \item<2-> Sie wandelnt Elemente aus $U$ in ein Element aus $U$ um.
+        \item<3-> Funktionssymbole werden normal durch Kleinbuchstaben representiert 
     \end{itemize}
+    
 \end{frame}
 
 \begin{frame}{Ein weiteres Beispiel}
@@ -145,14 +176,26 @@ $$
         \item $U = \mathbb Z$
         \item Prädikate:
         \begin{itemize}
-            \item $P_{ood}(x)$: $x$ is ood
-            \item $P_{prim}(x)$: $x$ is prim
-            \item $P_{+}(x)$: $x$ is positive
+            \item $P_{ood}(x)$: $x$ ist ungerade
+            \item $P_{prim}(x)$: $x$ ist eine Primzahl
+            \item $P_{+}(x)$: $x$ ist positiv
             \item $P_>(x,y): x>y$ 
             \item $P_=(x,y): x=y$ 
         \end{itemize}
         \item Funktionen: $+, -, \cdot$ 
     \end{itemize}
+\end{frame}
+
+\begin{frame}{Ein weiteres Beispiel}
+    $$\exists x: P_1(f_1(x,x),x)$$
+    \pause
+        \begin{align*}
+            I(P_1) &= P_{=}\\
+            I(f_1) &= P_{+}\\
+        \end{align*}
+        \pause
+        Es existiert ein $x \in \mathbb N$ so dass $x\cdot x = x$
+        (Das wäre dann die $1$ oder die $0$) 
 \end{frame}
 
 {\setbeamercolor{palette primary}{bg=ExColor}
@@ -171,7 +214,7 @@ $$
         \end{block}
         \begin{block}{Etwas Schwerer}
             \begin{itemize}
-                \item TODO
+                \item $\exists x,y: P_1(x,y) \wedge P_2(f_1(x,y),x) \wedge \overline{P_2(f_1(y,x),x)}$
             \end{itemize}
         \end{block}
 \end{frame}
@@ -182,7 +225,7 @@ $$
             I(P_1) &= P_{ood}\\
             I(f_1) &= +
         \end{align*}
-        Für alle $x,y \in \mathbb N$ gilt: wenn $x$ und $x$ ungerade sind, dann ist $x+y$ ungerade
+        Für alle $x,y \in \mathbb Z$ gilt: wenn $x$ und $x$ ungerade sind, dann ist $x+y$ ungerade
 \end{frame}
 
 \begin{frame}{Lösung}
@@ -191,7 +234,7 @@ $$
             I(P_1) &= P_{=}\\
             I(f_1) &= +
         \end{align*}
-        Für alle $x \in \mathbb N$ existiert ein $y$ so dass $x+y = x$. (Dieses $y$ ist $0$).
+        Für alle $x \in \mathbb Z$ existiert ein $y$ so dass $x+y = x$. (Dieses $y$ ist $0$).
 \end{frame}
 
 \begin{frame}{Lösung}
@@ -200,6 +243,22 @@ $$
             I(P_1) &= P_{=}\\
             I(f_1) &= \cdot
         \end{align*}
-        Für alle $x \in \mathbb N$ existiert ein $y$ so dass $x\cdot y = y$. (Dieses $y$ ist $0$).
+        Für alle $x \in \mathbb Z$ existiert ein $y$ so dass $x\cdot y = y$. (Dieses $y$ ist $0$).
+\end{frame}
+
+\begin{frame}{Lösung}
+    $$\exists x,y: P_1(x,y) \wedge P_2(f_1(x,y),x) \wedge \overline{P_2(f_1(y,x),x)}$$
+
+    \begin{align*}
+            I(P_1) &= P_{>}\\
+            I(P_2) &= P_{=}\\
+            I(f_1) &= -
+    \end{align*}
+
+    Es exsitieren zwei Zahlen $x,y \in \mathbb Z$ so dass $x$ größer ist als $y$ und $x-y=x$ aber $y-x\neq x$
+    
 \end{frame}
 }
+
+
+
