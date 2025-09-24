@@ -16,10 +16,13 @@
 % along with theo-vorkurs-folien.  If not, see <https://www.gnu.org/licenses/>.
 
 \begin{frame}[fragile]{Wie sprechen wir das?}
-$L_2 = \{a^n \alert{\mid} n \in \mathbb{N}\}$ \\
+$M = \{2n \alert{\mid} n \in \mathbb{N}\}$ \\
 
-\emph{Die Sprache $L_2$ enthält alle Wörter $a^n$, \alert{für die gilt}: n stammt aus der Menge der natürlichen Zahlen.}
+\emph{Die Menge $M$ enthält alle Elemente $2n$, \alert{für die gilt}: n stammt aus der Menge der natürlichen Zahlen.}
 \vspace{5pt}
+$$
+\{0, 2, 4, 6, 8, 10, 12, \dots \}
+$$
 
 \metroset{block=fill}
 \begin{alertblock}{Achtung}
@@ -28,39 +31,22 @@ $L_2 = \{a^n \alert{\mid} n \in \mathbb{N}\}$ \\
 
 \end{frame}
 
-\begin{frame}[fragile]{Wie schreiben wir das?}
-    \begin{itemize}
-        \item
-        Viele Zeichen hintereinander (konkateniert) können auch einfacher geschrieben werden.
-        \begin{align*}
-            a^0 &= \emptyWord\\
-            a^1 &= a\\
-            a^2 &= a \cdot a = aa\\
-            a^3 &= a \cdot a \cdot a = aaa\\
-            &\vdots\\
-            a^n &= \underbrace{a \cdot a \cdot ... \cdot a}_{\text{n-mal}}
-        \end{align*}
-        
-        \end{itemize}
-\end{frame}
 
 \begin{frame}[fragile]{Wie schreiben wir das?}
     \begin{itemize}[<+- | alert@+>]
-        \item $L_1 = \{0,2,4,6,8,\dots\} = \{x \mid \text{x ist gerade}\}$\\
+        \item Mengenbeschreibungen können auch Sätze enthalten:
+        $M_1 = \{0,2,4,6,8,\dots\} = \{x \mid \text{x ist gerade}\}$\\
         \hspace{4.5mm}$= \{x \mid$ Es gibt eine Zahl $k \in \mathbb{N} : 2k = x\}$\\
         
-        \item $L_2 = \{a^n \mid n \in \mathbb{N}\} = \{\emptyWord, a,aa,aaa,aaaa, \dots\}$
+        \item Mengenbeschreibungen können Formeln sein:
+        $M_2 = \{n^2+3 \mid n \in \mathbb{N}\} = \{3, 5, 7, 11, \dots\}$
         
-        \item $L_3 = \{a^nb^n \mid n \in \mathbb{N}\} = \{\emptyWord, ab ,aabb,aaabbb,aaaabbbb, \dots\}$
+        \item Auch im Beschribungteil können Formeln stehen:
+        $M_3 = \{x \mid x = n^2 \text{ und } x\in \mathbb{N}\} = \{2, 4, 8, 16, \dots\}$
         
-        \item $L_4 = \{a^nw \mid n \in \mathbb{N}, w = bccb\} = \{bccb, abccb, aabccb, \dots\}$\\
-        $L_4$ endet nach einer beliebigen Anzahl von a's immer mit bccb
-        
-        \item $L_5 = \{w \mid |w| = 2, w\in \{a,b\}^{*}\} = \{aa,bb,ab,ba\}$\\
-        Wörter der Länge 2 aus $\{a,b\}^{*}$
-        
-        \item $L_6 = \{w \mid |w|_a = 2, w\in \{a,b\}^{*}\}$\\
-        Wörter mit \alert{genau} 2 a's und beliebig vielen b's aus $\{a,b\}^{*}$
+        \item Es können mehrere Beschreibungen gleichzeitig verwendet werden:
+        $M_4 = \{n \mid n \in \mathbb{N}, n > 15, n < 20\} = \{16, 17, 18, 19\}$\\
+    
     \end{itemize}
 \end{frame}
 
@@ -68,22 +54,22 @@ $L_2 = \{a^n \alert{\mid} n \in \mathbb{N}\}$ \\
 \begin{frame}[fragile]{Denkpause}
     \footnotesize
         \begin{alertblock}{Aufgaben}
-            Findet Wörter aus den folgenden Sprachen
+            Findet Elemente aus den folgenden Mengen
         \end{alertblock}
         \metroset{block=fill}
         \begin{block}{Normal}
             \begin{itemize}
                 \item $L_1 = \{a\}$
-                \item $L_2 = \{uv \mid u\in\{a,b\}^\ast,\;v\in\{c,d\}\}$
-                \item $L_3 = \{w \mid |w| = 3, w\in \{a,b,c\}^{*}\}$
+                \item $L_2 = \{u+v \mid u\in\{1,2\},\;v\in\{7,9\}\}$
+                \item $L_3 = \{w \mid |w| = 3\}$
+                \item $L_4 = \{2x \mid x\in \mathbb N\}$
             \end{itemize}
         \end{block}
         \begin{block}{Etwas Schwerer}
             \begin{itemize}
-                \item $L_4 = \{a^n \mid n \equiv 1 \pmod 3, n\in\mathbb{N}\}$
-                \item $L_5 = \{w \mid |w|_a = 3, |w|_b = 1, w\in \{a,b,c\}^{*}\}$
-                \item $L_6 = \{uv \mid u\in\{\text{\Rewind, \MoveUp, \Forward, \MoveDown}\}^\ast,\;v\in\{\text{\Stopsign}\}\}$
-                \item $L_7 = \{w \mid |w| = 2, w\in \{a,b\}\}$
+                \item $L_5 = \{3^n \mid n \equiv 1 \pmod 3, n\in\mathbb{N}\}$
+                \item $L_6 = \{x \mid |x^2| = x^2\}$
+                \item $L_7 = \{w \mid w \text{ ist prim}, w > 50\}$
             \end{itemize}
         \end{block}
         \emph{Anmerkung:} $x \equiv y \pmod n \iff n$ teilt $(x-y)$ ohne Rest $\iff x = m \cdot n + y$ mit $x,y,n,m \in \mathbb{Z}$
@@ -94,23 +80,21 @@ $L_2 = \{a^n \alert{\mid} n \in \mathbb{N}\}$ \\
 \begin{frame}<handout:0>{Lösungen}
   \begin{itemize}[<+- | alert@+>]
         \item 
-            $L_1$: Enthält \textbf{nur} das einzelne Wort a!
+            $L_1$: Enthält \textbf{nur} das einzelne Wort $a$!
         \item
-            $L_2$: z.B. $c$, $d$, $ac$, $bc$, $aaac$, $abababad$, \dots\\
-            Wort besteht aus zwei Teilen: u z.B. $\emptyWord$, $a$, $b$, $ababa$, ...\\ v ist entweder $c$ oder $d$!
+            $L_2 = \{8, 10, 9, 11\}$\\
+            Wort besteht aus zwei Teilen, die addiert werden:\\ $u$ ist entweder $1$ oder $2$, $v$ ist entweder $7$ oder $9$!
         \item
-            $L_3$: enthält alle Wörter der Länge 3, deren Buchstaben nur $a$, $b$ oder $c$ sind.\\
-            $\rightarrow$ $aaa$, $aab$, $aba$, $abb$, $abc$, $acb$, $acc$, $baa$, $bab$, $cbb$, ...
+            $L_3 = \{3, -3\}$\\
+            Enthält alle Zahlen mit dem Betrag $3$.
+        \item $L_4 = \{0, 2, 4, 6, 8, \dots \}$
+        \item $L_5 = \{3, 3^4, 3^7, \dots\}$\\
+            Enthält Zahlen $3^n$, wobei n durch 3 geteilt den Rest 1 ergibt.
         \item
-            $L_4 = \{a, aaaa, aaaaaaa, \dots\}$\\
-            Wörter deren Länge durch 3 geteilt den Rest 1 ergeben.
+            $L_6 = \mathbb{R}$\\
+            $x^2$ ist immer positiv, also macht der Betrag hier keinen Unterschied.
         \item
-            $L_5 = \{caaba, cccbaaa, abaca, aaab, \dots\}$\\
-            genau 3 $a$'s, genau 1 $b$, beliebig viele $c$'s, keine Sortierung
-        \item
-            $L_6$ = \{\Stopsign, \Rewind \Stopsign, \MoveUp \Stopsign,\dots\;, \MoveDown \Rewind \MoveDown \Stopsign,\dots\}
-        \item $L_7 = \emptyset$\\
-            $L_7$ enthält \textbf{gar kein} Wort!
+            $L_7 = \{53, 59, 61, 67, \dots\}$
     \end{itemize}
 \end{frame}
 }

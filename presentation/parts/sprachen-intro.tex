@@ -35,7 +35,7 @@
                 
                 \begin{exampleblock}{Beispiel}
                     $\mathbb{N} = \{0, 1, 2, 3, \dots \}$ = Menge der Natürlichen Zahlen\\
-                    Studierende = \{Julian, Joel, Fabian, Noah, $\dots$\}\\
+                    Studierende = \{Georg, Tim, Triin, Seb, Babett, $\dots$\}\\
                     $\{1,2\} = \{2,1\} = \{1,1,2,1,1,1\}$\\
                     $\emptyset = \{\} =$ leere Menge
                 \end{exampleblock}}
@@ -52,8 +52,8 @@
                 $\mathbf{1}$ ist ein Element der \textbf{Natürlichen Zahlen}\\
                 $\mathbf{1} \in \mathbb{N}$\\
                 \vspace*{0.5cm}
-                \textbf{Julian} ist ein Element aus der Menge der \textbf{Studierenden}\\
-                \textbf{Julian} $\in$ \textbf{Studierende}\\
+                \textbf{Tim} ist ein Element aus der Menge der \textbf{Studierenden}\\
+                \textbf{Tim} $\in$ \textbf{Studierende}\\
                 \vspace*{0.5cm}
                 $\mathbf{a}$ ist in der Menge $\mathbf{\{u, v, w\}}$ nicht enthalten\\
                 $\mathbf{a} \notin \mathbf{\{u, v, w\}}$
@@ -82,71 +82,57 @@
 	\item Note Natürliche Zahlen: 0 ist \textbf{in Theo} Teil von $\mathbb{N}$, also auch hier im Vorkurs (in Mathe nicht)
 }
 
-\begin{frame}{Mengen - Mal anders}
-    \begin{alertblock}{Ein paar Definitionen}
-    Eine nichtleere Menge einstelliger Symbole nennen wir \alert{Alphabet}.
-    Es wird oft dargestellt durch den Bezeichner $\Sigma$.\\
-    \end{alertblock}
-    \metroset{block=fill}
-    \begin{exampleblock}{Beispiele}
+\begin{frame}{Echte Teilmengen}
     \begin{itemize}
-        \item $\Sigma = \{a,b\}$
-        \item $\Sigma = \{0,1\}$
-        \item $\Sigma = \{\text{Rechts, Links, Vorwärts, Rückwärts, Start, Stopp, Pause}\}$
+        \item ist $\{A,B\}$ eine Teilmenge von $\{A,B\}$?
+        \pause
+        \item \alert{Ja!}
+        \pause
+        \item Aber keine \alert{echte} Teilmenge
     \end{itemize}
+    \pause
+    \metroset{block=fill}
+    \begin{exampleblock}{Beispiel}
+                $N \subseteq M$: $N$ ist eine Teilmenge von $M$ aber darf auch $M$ sein.\\
+                $N \subset M$: $N$ ist eine Teilmenge von $M$ und muss mindestens 1 Element weniger enthalten.
+                $N \subsetneq M$ bedeutet das selbe wie $N \subset M$, aber ist etwas expliziter.
     \end{exampleblock}
 \end{frame}
 
-\begin{frame}[fragile]{Mengen - Mal anders}
-    \begin{alertblock}{Ein paar Definitionen}
-    Auf einem Alphabet können wir die Operation $\cdot$\;, genannt \alert{Konkatenation}, ausüben.\\
-    $\rightarrow$ zum Beispiel ist dann $a \cdot b = ab$\\
-    Eine beliebig lange Kette an Symbolen aus dem Alphabet nennen wir ein \alert{Wort}.
+{\setbeamercolor{palette primary}{bg=ExColor}
+\begin{frame}[fragile]{Denkpause}
+    \begin{alertblock}{Aufgaben}
+    Nenne jeweils 5 Elemente der folgenden Mengen:
     \end{alertblock}
-    \metroset{block=fill}
-    \begin{exampleblock}{Beispiele}
-    \begin{itemize}
-        \item $abba$ ist ein \emph{Wort} über dem \emph{Alphabet} $\Sigma = \{a,b\}$
-        \item $10011101$ ist ein \emph{Wort} über dem \emph{Alphabet} $\Sigma = \{0,1\}$
-        \item StartVorwärtsRechtsVorwärtsStopp ist ein Wort über $\Sigma = \{\text{Rechts, Links, Vorwärts, Rückwärts, Start, Stopp, Pause}\}$
-    \end{itemize}
     
-    \end{exampleblock}
+    \metroset{block=fill}
+    \begin{block}{Normal}
+        \begin{itemize}
+            \item $\{a, b, c, d, e, f, g, h, i\}$
+            \item $\{0, 2, 4, 8, 16, 32, 64, 128, 256, 512\}$
+            \item $\mathbb N$
+        \end{itemize}
+    \end{block}
+    Nenne 5 Submengen die keine gegenseitigen Submengen sind
+    \metroset{block=fill}
+    \begin{block}{Etwas schwerer}
+        \begin{itemize}
+            \item $\Sigma$ = \{\WashCotton, \NoWash, \IroningII, \Tumbler, \SpecialForty \}
+            \item $\Sigma$ = \{Lisa, Tobi, Fabian, Linus\}
+        \end{itemize}
+    \end{block}
 \end{frame}
+}
 
-\begin{frame}{Wortlängen}
-    \begin{alertblock}{Wortlänge und das leere Wort}
-        Eine endlich lange Kette an Symbolen aus dem Alphabet nennen wir ein Wort.
-    \end{alertblock}
-    \begin{itemize}
-        \item Wort der Länge 3: z.B. $aaa, aba, 110, \text{RechtsPauseStopp} \dots$
-        \item Wort der Länge 2: z.B. $aa, ab, 00, \text{StartVorw"arts} \dots$
-        \item Wort der Länge 1: z.B. $a, b, 1, \text{Links} \dots$
-        \item Wort der Länge \alert<3|handout:0>{0}: \alert<3|handout:0>{$\emptyWord$}
+{\setbeamercolor{palette primary}{bg=ExColor}
+\begin{frame}<handout:0>{Lösungen}
+    Mögliche Lösungen sind \dots
+  \begin{itemize}[<+- | alert@+>]
+        \item $a, b, c, d, e \in \{a, b, c, d, e, f, g, h, i\}$
+        \item $0, 2, 4, 8, 16,\in \{0, 2, 4, 8, 16, 32, 64, 128, 256, 512\}$
+        \item $0,1,2,3,4 \in \mathbb N$
+        \item \{\WashCotton\}, \{\NoWash\}, \{\IroningII\}, \{\Tumbler\}, \{\SpecialForty \}
+        \item \{Lisa, Tobi\}, \{Lisa, Fabian\}, \{Lisa, Linus\}, \{Tobi, Fabian\}, \{Linus, Tobi\}
     \end{itemize}
-    \only<1-2>{Wir schreiben \alert<1>{$\absval{w}$} um \alert<1>{Länge des Wortes $w$} abzukürzen.\\}
-    \only<2>{Um \alert<2|handout:0>{nur ein Symbol} (z.B. $a$) zu zählen verwenden wir \alert<2|handout:0>{$|w|_a$}.\\}
-    \only<3->{$\emptyWord$ \emph{(\glqq Epsilon\grqq)} nennen wir das \glqq leere Wort\grqq.}
-    \onslide<3->{\begin{itemize}
-        \item \alert{Vergleich:} Es ist vergleichbar mit einem leerem String,\\ \qquad\qquad \,\, also: $\dq\dq=\emptyWord$
-        \item \alert{Achtung:} Das leere Wort kann kein Teil eines Alphabets sein,\\\qquad\qquad da es nicht einstellig ist. Es hat die Wortl"ange $|\varepsilon|=0$
-    \end{itemize}}
 \end{frame}
-
-\begin{frame}{Neutrales Element der Konkatenation}
-    \begin{alertblock}{Achtung}
-        Wir können bei der Konkatenation auch das leere Wort anhängen. Es verhält sich hierbei als das \alert<1>{neutrale Element}.\\
-        d.h. für ein beliebiges Wort $w$, ist $w \cdot \emptyWord = \emptyWord \cdot w = w$
-        \begin{exampleblock}{Vergleich}
-            \begin{itemize}
-                \item Bei der Addition von Zahlen ist die 0 das neutrale Element\\
-                $n + 0 = 0 + n = n$
-                \item Bei der Multiplikation von Zahlen ist die 1 das neutrale Element\\
-                $x * 1 = 1 * x = x$
-            \end{itemize}
-        \end{exampleblock}
-    \end{alertblock}
-	\begin{alertblock}{Was heißt das?}
-		Bei der Konkatenation $a \cdot a \cdot \emptyWord \cdot a$ entsteht das Wort $aaa$ mit $|aaa| = 3$.
-	\end{alertblock}
-\end{frame}
+}
