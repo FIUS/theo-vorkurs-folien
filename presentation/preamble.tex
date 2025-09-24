@@ -17,7 +17,7 @@
 
 \documentclass[aspectratio=43,10pt]{beamer}
 
-\usetheme[progressbar=frametitle]{metropolis}
+\usetheme[progressbar=frametitle,subsectionpage=progressbar]{metropolis}
 \usepackage{appendixnumberbeamer}
 \usepackage[ngerman]{babel}
 \usepackage[utf8]{inputenc}
@@ -38,7 +38,7 @@
 }{}
 \makeatother
 \usepackage{tikz}
-\usetikzlibrary{arrows,automata,positioning,shapes,arrows.meta, through}
+\usetikzlibrary{arrows,automata,positioning,shapes,arrows.meta,shapes.geometric, through}
 \usepackage{pgfplots}
 \usepgfplotslibrary{dateplot}
 
@@ -68,6 +68,7 @@
 \usepackage{tikz-among-us}
 \usepackage{multicol}
 \usepackage{outlines}
+
 
 \newcommand\daynr{0}
 
@@ -100,8 +101,14 @@
   \end{frame}
 }
 
-% Fix section pages in appendix
+% Make subsections in toc small
+\makeatletter
+\setbeamertemplate{subsection in toc}{\small\leftskip=2em\inserttocsubsection\par}
+\makeatother
+
 \AtBeginDocument{%
+
+  % Fix section pages in appendix
   \apptocmd{\appendix}{%
     \setbeamertemplate{section page}[simple]%
   }{}{}
