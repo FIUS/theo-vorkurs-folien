@@ -1,0 +1,102 @@
+\pgfkeys{
+    /sevenseg/.is family, /sevenseg,
+    shrink/.estore in     = \sevensegShrink,    % avoids overlapping of segments
+    oncolor/.estore in    = \sevensegOncolor,   % color of an ON segment
+    offcolor/.estore in   = \sevensegOffcolor,  % color of an OFF segment
+    size/.estore in       = \sevensegSize,      % height
+}
+
+\pgfkeys{
+    /sevenseg,
+    default/.style = {shrink = 0.1, size = 1em, oncolor = red, offcolor = blue!70!black}
+}
+
+\newcommand{\sevenseg}[2][]% options values
+{%
+    \pgfkeys{/sevenseg, default, #1}%
+    \def\sevensegarray{#2}%
+    \begin{tikzpicture}[x=\sevensegSize,y=\sevensegSize]%
+        % unten li
+        \path (0,0) ++(0,0) coordinate (P1);
+        % unten re
+        \path (0,0) ++(0.5,0) coordinate (P2);
+        % mitte li
+        \path (0,0) ++(90:0.5) coordinate (P3);
+        % mitte re
+        \path (P2)  ++(90:0.5) coordinate (P4);
+        % oben li
+        \path (P3)  ++(90:0.5) coordinate (P5);
+        % oben re
+        \path (P4)  ++(90:0.5) coordinate (P6);
+        % then step through the 1/0 values in the segment array
+        \foreach \i in {0,...,6}%
+        {
+        \pgfmathparse{\sevensegarray[\i]}
+        \ifthenelse{\equal{\pgfmathresult}{1}}%
+        {\let\mycolor=\sevensegOncolor}%  segment is on
+        {\let\mycolor=\sevensegOffcolor}% segment is off
+        \tikzstyle{segstyle} = [draw=\mycolor, line width = 0.15em,
+        line cap = butt]
+        % Horizontal oben
+        \ifthenelse{\equal{\i}{0}}{\path[segstyle]
+            (${1-\sevensegShrink}*(P5)+\sevensegShrink*(P6)$)
+            -- ($\sevensegShrink*(P5)+{1-\sevensegShrink}*(P6)$);}{} % a
+
+        % Vertikal rechts oben
+        \ifthenelse{\equal{\i}{1}}{\path[segstyle]
+            (${1-\sevensegShrink}*(P6)+\sevensegShrink*(P4)$)
+            -- ($\sevensegShrink*(P6)+{1-\sevensegShrink}*(P4)$);}{} % b
+
+        % Vertikal rechts unten
+        \ifthenelse{\equal{\i}{2}}{\path[segstyle]
+            (${1-\sevensegShrink}*(P4)+\sevensegShrink*(P2)$)
+            -- ($\sevensegShrink*(P4)+{1-\sevensegShrink}*(P2)$);}{} % c
+
+        % Horizontal unten
+        \ifthenelse{\equal{\i}{3}}{\path[segstyle]
+            (${1-\sevensegShrink}*(P1)+\sevensegShrink*(P2)$)
+            -- ($\sevensegShrink*(P1)+{1-\sevensegShrink}*(P2)$);}{} % d
+
+        % Vertikal links unten
+        \ifthenelse{\equal{\i}{4}}{\path[segstyle]
+            (${1-\sevensegShrink}*(P1)+\sevensegShrink*(P3)$)
+            -- ($\sevensegShrink*(P1)+{1-\sevensegShrink}*(P3)$);}{} % e
+
+        % Vertikal links oben
+        \ifthenelse{\equal{\i}{5}}{\path[segstyle]
+            (${1-\sevensegShrink}*(P3)+\sevensegShrink*(P5)$)
+            -- ($\sevensegShrink*(P3)+{1-\sevensegShrink}*(P5)$);}{} % f
+
+
+        % Horizontal Mitte
+        \ifthenelse{\equal{\i}{6}}{\path[segstyle]
+            (${1-\sevensegShrink}*(P3)+\sevensegShrink*(P4)$)
+            -- ($\sevensegShrink*(P3)+{1-\sevensegShrink}*(P4)$);}{} % g
+        }
+    \end{tikzpicture}%
+}
+
+\newcommand{\sevensegnum}[2][]%
+{%                                          
+    \ifthenelse{\equal{#2}{0}}{\sevenseg[#1]{{1,1,1,1,1,1,0,}}}{%
+        \ifthenelse{\equal{#2}{1}}{\sevenseg[#1]{{0,1,1,0,0,0,0,}}}{%
+            \ifthenelse{\equal{#2}{2}}{\sevenseg[#1]{{1,1,0,1,1,0,1,}}}{%
+                \ifthenelse{\equal{#2}{3}}{\sevenseg[#1]{{1,1,1,1,0,0,1,}}}{%
+                    \ifthenelse{\equal{#2}{4}}{\sevenseg[#1]{{0,1,1,0,0,1,1,}}}{%
+                        \ifthenelse{\equal{#2}{5}}{\sevenseg[#1]{{1,0,1,1,0,1,1,}}}{%
+                            \ifthenelse{\equal{#2}{6}}{\sevenseg[#1]{{1,0,1,1,1,1,1,}}}{%
+                                \ifthenelse{\equal{#2}{7}}{\sevenseg[#1]{{1,1,1,0,0,0,0,}}}{%
+                                    \ifthenelse{\equal{#2}{8}}{\sevenseg[#1]{{1,1,1,1,1,1,1,}}}{%
+                                        \ifthenelse{\equal{#2}{9}}{\sevenseg[#1]{{1,1,1,1,0,1,1,}}}{%
+                                            {\sevenseg[#1]{{0,0,0,0,0,0,0,}}}
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }%
+}
