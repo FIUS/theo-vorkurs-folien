@@ -1,0 +1,264 @@
+\subsection{Motivierendes Beispiel}
+\begin{frame}[fragile]{Prädikatenlogik among us}
+    \begin{itemize}
+        \item<1-> Ihr seid auf einem Raumschiff
+        \item<2-> Mit eurer Crew 
+        $$
+        U = \{\sus{red}, \sus{green}, \sus{blue}, \sus{white}, \sus{yellow}, \sus{magenta}\}
+        $$
+        \item<3-> Aber manche von euch sind Imposter
+        
+    \end{itemize}
+    \only<2>{\hspace{3cm}\includegraphics[width=4.5cm]{../figures/amongus_crew.png}} 
+    \only<3>{\hspace{3cm}\includegraphics[width=4.5cm]{../figures/amongus_imposter.jpg}} 
+\end{frame}
+
+\begin{frame}[fragile]{Prädikatenlogik among us}
+    \begin{itemize}
+        \item<1-> Wir brauchen eine Funktion um Imposter zu erkennen
+        $$C: U \to \{wahr, falsch\}$$
+        \item<2-> Und eine Funktion um zu beschreiben ob ein Crewmitglied noch lebt
+        $$A: U \to \{wahr, falsch\}$$
+        \item<3-> Und eine Funktion um zu beschreiben was ein Imposter macht wenn er ein Crewmitglied findet
+        $$K: U\times U \to \{wahr, falsch\}$$
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]{Eine kurze Geschichte}
+$$
+\overline{C(\sus{red})}\wedge C(\sus{white})\wedge K(\sus{red},\sus{white})\implies \overline{A(\sus{white})}
+$$
+\end{frame}
+
+\begin{frame}[fragile]{Aber wer ist den Imposter?}
+\begin{itemize}
+    \item<1-> \alert{Problem:} Wer ist den Imposter?
+    \item<2-> Wir wissen nicht welche Crewmitglieder wir für was einsetzen können 
+    \item<3-> Also müssen wir allgemeiner werden:
+    $$
+    \exists x,z \in U: \overline{C(x)}\wedge C(y)\wedge K(x,y)\implies \overline{A(y)}
+    $$
+\end{itemize}
+\begin{center}
+\only<4>{Das ist eine prädikatenlogische Formel}
+\end{center}
+\end{frame}
+
+\subsection{Definitionen}
+
+\begin{frame}{Prädikatenlogik erster Ordnung}
+\begin{itemize}
+    \item<1-> \alert{Variablen} sind wie ihr sie aus der Aussagenlogik bereits kennt.
+    \item<2-> $U$ ist unser \alert{Universum}. Es enthält alle Elemente die wir in unsere Variablen einsetzen dürfen 
+    \item<3-> \alert{Prädikatensymbole} sind Mappings von Elementen aus $U$ auf $wahr$ oder $falsch$.
+    Sie werden normal groß geschrieben.
+    \item<4-> \alert{Funktionssymbole} sind Mappings von Elementen aus $U$ auf andere Elemente aus $U$.
+    Sie werden normal klein geschrieben.
+    \item<5> Eine \alert{Interpretation} $I$ ist ein Lösungsvorschlag für die prädikatenlogische Formel.
+    Es ist ein Mapping von Variablen auf Elemente des Universums, der Prädikatensymbole auf Prädikate und der Funktionsformeln auf Funktionen.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Unser Beispiel}
+    \begin{itemize}
+        \item $U = \{\sus{red}, \sus{green}, \sus{blue}, \sus{white}, \sus{yellow}, \sus{magenta}\}$
+        \item Prädikate:
+        \begin{itemize}
+            \item $P_{sus}(x,y)$: $x$ verdächtigt $y$
+            \item $P_{kill}(x,y)$: $x$ tötet $y$
+            \item $P_{seen}(x,y)$: $x$ und $y$ wurden zusammen gesehen
+            \item $P_{alive}(x)$: $x$ lebt
+            \item $P_{crew}(x)$: $x$ ist ein echtes Crewmitglied
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Beispiel}
+    $$P_1(x,y) \implies \overline{P_2(x)}$$
+    \pause    
+    \begin{align*}
+            I(P_1) &= P_{kills}\\
+            I(f_2) &= P_{crew}\\
+            I(x) &= \sus{red}\\
+            I(y) &= \sus{white}
+        \end{align*}
+        \pause
+        \sus{red} tötet \sus{white}. Dann muss \sus{red} ein Imposter sein!
+\end{frame}
+
+{\setbeamercolor{palette primary}{bg=ExColor}
+\begin{frame}[fragile]{Denkpause}
+    \footnotesize
+        \begin{alertblock}{Aufgaben}
+            Findet Interpreatationen für die folgenden Prädikatenlogischen Formeln in unserem Beispiel:
+        \end{alertblock}
+        \metroset{block=fill}
+        \begin{block}{Normal}
+            \begin{itemize}
+                \item $P_1(x,y) \Leftrightarrow P_2(y,x)$
+                \item $(P_1(x,y) \wedge \overline{P_2(y)}) \implies P_3(y)$
+            \end{itemize}
+        \end{block}
+        \begin{block}{Etwas Schwerer}
+            \begin{itemize}
+                \item $(P_1(x,y) \wedge P_2(y)) \implies P_3(x)$
+            \end{itemize}
+        \end{block}
+        \alert{Hinweis:} In dem Spiel Among Us gibt es viele Gründe etwas zu tun oder nicht zu tun.
+        Verschwendet nicht zu viel Zeit die Aktionen zu überdenken. Wenn ihr argumentieren könnt warum jemand agiert wird es schon passen.
+\end{frame}
+
+\begin{frame}{Lösung}
+    $$(P_1(x,y) \wedge \overline{P_2(y)}) \implies P_3(y)$$
+        \begin{align*}
+            I(P_1) &= P_{seen}\\
+            I(P_2) &= P_{seen}\\
+            I(x) &= \sus{blue}\\
+            I(y) &= \sus{yellow}
+        \end{align*}
+        Wir haben \sus{red} und \sus{green} zusammen gesehen und \sus{green} ist tot. Dann muss \sus{red} ein Imposter sein.
+\end{frame}
+
+\begin{frame}{Lösung}
+    $$(P_1(x,y) \wedge \overline{P_2(y)}) \implies P_3(y)$$
+        \begin{align*}
+            I(P_1) &= P_{seen}\\
+            I(P_2) &= P_{alive}\\
+            I(P_3) &= P_{crew}\\
+            I(x) &= \sus{red}\\
+            I(y) &= \sus{green}
+        \end{align*}
+        Wir haben \sus{red} und \sus{green} zusammen gesehen und \sus{green} ist tot. Dann muss \sus{red} ein Imposter sein.
+\end{frame}
+
+\begin{frame}{Lösung}
+    $$(P_1(x,y) \wedge P_2(y)) \implies P_3(x)$$
+        \begin{align*}
+            I(P_1) &= P_{sus}\\
+            I(P_2) &= P_{alive}\\
+            I(P_3) &= P_{crew}\\
+            I(x) &= \sus{white}\\
+            I(y) &= \sus{magenta}
+        \end{align*}
+        \sus{white} verdächtigt \sus{magenta}, und \sus{white} ist noch am Leben. Also ist \sus{magenta} kein Imposter.
+\end{frame}
+}
+
+
+
+\begin{frame}[fragile]{Reminder: Quantoren}
+    Mithilfe von \textbf{Quantoren} vereinfachen wir uns die Schreibweise dieser Aussagen.\\
+    \vspace{0.5cm}
+    Quantor \alert{$\forall$}: Die Aussage gilt für alle Elemente.\\
+    \metroset{block=fill}
+    \begin{exampleblock}{Beispiel}
+        $A_1$: $\forall k \in \mathbb{N}:$ $2k$ ist gerade
+    \end{exampleblock}
+    Quantor \alert{$\exists$}: Die Aussage gilt für mindestens ein Element.\\
+    \metroset{block=fill}
+    \begin{exampleblock}{Beispiel}
+        $A_2$: $\exists k \in \mathbb{N}:$ $k$ ist Primzahl
+    \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Funktionen}
+    \begin{itemize}
+        \item Funktionen erlauben die \alert{Transformation von Elementen} zu beschreiben
+        \item<2-> Sie wandelnt Elemente aus $U$ in ein Element aus $U$ um.
+        \item<3-> Funktionssymbole werden normal durch Kleinbuchstaben representiert 
+    \end{itemize}
+    
+\end{frame}
+
+\begin{frame}{Ein weiteres Beispiel}
+    \begin{itemize}
+        \item $U = \mathbb Z$
+        \item Prädikate:
+        \begin{itemize}
+            \item $P_{ood}(x)$: $x$ ist ungerade
+            \item $P_{prim}(x)$: $x$ ist eine Primzahl
+            \item $P_{+}(x)$: $x$ ist positiv
+            \item $P_>(x,y): x>y$ 
+            \item $P_=(x,y): x=y$ 
+        \end{itemize}
+        \item Funktionen: $+, -, \cdot$ 
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Ein weiteres Beispiel}
+    $$\exists x: P_1(f_1(x,x),x)$$
+    \pause
+        \begin{align*}
+            I(P_1) &= P_{=}\\
+            I(f_1) &= P_{+}\\
+        \end{align*}
+        \pause
+        Es existiert ein $x \in \mathbb N$ so dass $x\cdot x = x$
+        (Das wäre dann die $1$ oder die $0$) 
+\end{frame}
+
+{\setbeamercolor{palette primary}{bg=ExColor}
+\begin{frame}[fragile]{Denkpause}
+    \footnotesize
+        \begin{alertblock}{Aufgaben}
+            Findet Interpreatationen für die folgenden Prädikatenlogischen Formeln in unserem Beispiel:
+        \end{alertblock}
+        \metroset{block=fill}
+        \begin{block}{Normal}
+            \begin{itemize}
+                \item $\forall x,y : P_1(x) \wedge P_1(y) \implies \overline{P_1(f_1(x,y))}$
+                \item $\forall x\exists y: P_1(f_1(x,y),x)$
+                \item $\forall x\exists y: P_1(f_1(x,y),y)$
+            \end{itemize}
+        \end{block}
+        \begin{block}{Etwas Schwerer}
+            \begin{itemize}
+                \item $\exists x,y: P_1(x,y) \wedge P_2(f_1(x,y),x) \wedge \overline{P_2(f_1(y,x),x)}$
+            \end{itemize}
+        \end{block}
+\end{frame}
+
+\begin{frame}{Lösung}
+    $$\forall x,y : P_1(x) \wedge P_1(y) \implies \overline{P_1(f_1(x,y))}$$
+        \begin{align*}
+            I(P_1) &= P_{ood}\\
+            I(f_1) &= +
+        \end{align*}
+        Für alle $x,y \in \mathbb Z$ gilt: wenn $x$ und $x$ ungerade sind, dann ist $x+y$ ungerade
+\end{frame}
+
+\begin{frame}{Lösung}
+    $$\forall x\exists y: P_1(f_1(x,y),x)$$
+        \begin{align*}
+            I(P_1) &= P_{=}\\
+            I(f_1) &= +
+        \end{align*}
+        Für alle $x \in \mathbb Z$ existiert ein $y$ so dass $x+y = x$. (Dieses $y$ ist $0$).
+\end{frame}
+
+\begin{frame}{Lösung}
+    $$\forall x\exists y: P_1(f_1(x,y),y)$$
+        \begin{align*}
+            I(P_1) &= P_{=}\\
+            I(f_1) &= \cdot
+        \end{align*}
+        Für alle $x \in \mathbb Z$ existiert ein $y$ so dass $x\cdot y = y$. (Dieses $y$ ist $0$).
+\end{frame}
+
+\begin{frame}{Lösung}
+    $$\exists x,y: P_1(x,y) \wedge P_2(f_1(x,y),x) \wedge \overline{P_2(f_1(y,x),x)}$$
+
+    \begin{align*}
+            I(P_1) &= P_{>}\\
+            I(P_2) &= P_{=}\\
+            I(f_1) &= -
+    \end{align*}
+
+    Es exsitieren zwei Zahlen $x,y \in \mathbb Z$ so dass $x$ größer ist als $y$ und $x-y=x$ aber $y-x\neq x$
+    
+\end{frame}
+}
+
+
+

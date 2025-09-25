@@ -38,7 +38,7 @@
 }{}
 \makeatother
 \usepackage{tikz}
-\usetikzlibrary{arrows,automata,positioning,shapes,arrows.meta,shapes.geometric}
+\usetikzlibrary{arrows,automata,positioning,shapes,arrows.meta,shapes.geometric, through}
 \usepackage{pgfplots}
 \usepgfplotslibrary{dateplot}
 
@@ -65,6 +65,9 @@
 \usepackage{qrcode}
 \usepackage{advdate}
 \usepackage{ifthen}
+\usepackage{tikz-among-us}
+\usepackage{multicol}
+\usepackage{outlines}
 
 
 \newcommand\daynr{0}
@@ -84,6 +87,10 @@
 \newcommand{\rationals}{\ensuremath{\mathbb{Q}}}
 \newcommand{\reals}{\ensuremath{\mathbb{R}}}
 \newcommand{\iffspace}{\ensuremath{\iff\ }}
+
+\newcommand{\sus}[1]{%
+  \tikz{\node[scale=0.05] at (0,0) {\amongUsOriginal{#1}{cyan}}}
+}
 
 \setbeamertemplate{footline}[text line]
 {\parbox{\linewidth}{Fachgruppe Informatik\hfill\insertpagenumber\hfill Vorkurs Theoretische Informatik\vspace{0.2in}}}
