@@ -1,42 +1,56 @@
-\begin{frame}[fragile]{Beispiel}
-	7-Segment-Anzeigen:
+\begin{frame}[fragile]{7-Segment Anzeigen}
 	\metroset{block=fill}
-	\begin{block}{Kann Zahlen zeigen}
+	\begin{block}{Können Zahlen zeigen}
 		\begin{center}
-			\sevensegnum[size=15mm]{2}
+			\sevensegnum[size=15mm]{2}%
 			\hspace{1em}
-			\sevensegnum[size=15mm]{0}
+			\sevensegnum[size=15mm]{0}%
 			\hspace{1em}
-			\sevensegnum[size=15mm]{2}
+			\sevensegnum[size=15mm]{2}%
 			\hspace{1em}
-			\sevensegnum[size=15mm]{5}
+			\sevensegnum[size=15mm]{5}%
 		\end{center}
 	\end{block}
-	\begin{block}{Zeigt manchmal wirres Zeugs}
+	\pause
+	\begin{block}{Zeigen manchmal wirres Zeugs}
 		\begin{center}
-			\sevenseg[size=15mm]{{0,0,0,1,0,0,0,}}
+			\sevenseg[size=15mm]{{0,0,0,1,0,0,0,}}%
 			\hspace{1em}
-			\sevenseg[size=15mm]{{0,1,0,0,1,0,0,}}
+			\sevenseg[size=15mm]{{0,1,0,0,1,0,0,}}%
 			\hspace{1em}
-			\sevenseg[size=15mm]{{1,1,0,1,1,1,1,}}
+			\sevenseg[size=15mm]{{1,1,0,1,1,1,1,}}%
 			\hspace{1em}
-			\sevenseg[size=15mm]{{1,0,1,1,0,0,0,}}
+			\sevenseg[size=15mm]{{1,0,1,1,0,0,0,}}%
 		\end{center}
 	\end{block}
 \end{frame}
 
-\begin{frame}{Beispiel}
+\begin{frame}{\only<2->{\xout}{Der Checker} \only<2->{Das Prädikat}}
 	Wir brauchen einen \textit{Checker}:
 	\Huge
 	\begin{center}
-		$$
-			\only<1>{P_{\text{Zahl}}\left(\sevensegnum{6}\right)}
-			\only<2->{P_{\text{Zahl}}\left(\sevenseg{{1,0,1,1,0,0,0,}}\right)}
-		$$
+		$
+			\only<1,2>{P_{\text{Zahl}}\left(\sevensegnum{6}\right)}
+			\only<3->{P_{\text{Zahl}}\left(\sevenseg{{1,0,1,1,0,0,0,}}\right)}
+		$
 	\end{center}
 	\normalsize
 	% todo
-	Wenn wir in diesen \textit{Checker} eine Anzeige einsetzen, haben wir eine logische Aussage
+	\only<1>{Wenn wir in diesen \textit{Checker} (genannt Prädikat) eine Anzeige einsetzen, haben wir eine logische Aussage}
+	\only<2-3>{
+		\begin{tikzpicture}[overlay]
+			\node[] at (5,.8) (base) {};
+			\node[] at (2, -.4) (wahr) {
+				\only<2>{\alert}{Wahr}, wenn eine Zahl zu sehen ist
+				};
+			\draw[->] (base) to (wahr);
+			\only<3>{\node[] at (8, -.4) (wahr) {
+				\alert{Falsch}, wenn keine Zahl zu sehen ist
+				};
+			\draw[->] (base) to (wahr);
+			}
+		\end{tikzpicture}
+	}
 \end{frame}
 
 {\setbeamercolor{palette primary}{bg=ExColor}
@@ -45,7 +59,10 @@
 	\metroset{block=fill}
 	\begin{block}{Normal}
 		\begin{itemize}
-			\item $A_1$: $P_{\text{Zahl}}\left(\right)$
+			\item $A_1$: $P_{\text{Zahl}}\left(\sevensegnum[]{7}\right)$ \only<2->{\hspace{1cm}wahr}
+			\item $A_2$: $P_{\text{Zahl}}\left(\sevenseg[]{{0,1,0,0,1,0,1}}\right)$ \only<3->{\hspace{1cm}falsch}
+			\item $A_3$: $P_{\text{Zahl}}\left(\sevensegnum[]{4}\right)$ \only<4->{\hspace{1cm}wahr}
+			\item $A_4$: $P_{\text{Zahl}}\left(\sevenseg[]{{1,0,1,0,1,0,1}}\right)$ \only<5>{\hspace{1cm}falsch}
 		\end{itemize}
 	\end{block}
 \end{frame}
