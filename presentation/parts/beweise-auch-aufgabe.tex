@@ -23,19 +23,19 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 {\setbeamercolor{palette primary}{bg=ExColor}
-	\begin{frame}[fragile]{Denkpause}
-		\begin{alertblock}{Aufgaben}
+\begin{frame}[fragile]{Denkpause}
+	\begin{alertblock}{Aufgaben}
 		\small{
 			\metroset{block=fill}
 			\begin{block}{Hier wird $3=0$ gefolgert. Was ist schief gelaufen?}
 				$\text{Sei }x\text{ aus }\mathbb{R}$
 				\begin{align*}
-					\alert{x^2 + x + 1} &\alert{= 0} \tag{es muss $x\neq0$}\\
-					x(x^2 + x + 1) &= x \cdot 0 \tag{$\cdot x$}\\
-					x^3 + x^2 + x &= 0\\
-					x^3 + \alert{x^2 + x + 1} &= 0 + 1\tag{$+ 1$}\\
-					x^3 &= 1\tag{$\sqrt[3]{\phantom{x}}$}\\
-					x &= 1
+					\alert{x^2 + x + 1}       & \alert{= 0} \tag{es muss $x\neq0$} \\
+					x(x^2 + x + 1)            & = x \cdot 0 \tag{$\cdot x$}        \\
+					x^3 + x^2 + x             & = 0                                \\
+					x^3 + \alert{x^2 + x + 1} & = 0 + 1\tag{$+ 1$}                 \\
+					x^3                       & = 1\tag{$\sqrt[3]{\phantom{x}}$}   \\
+					x                         & = 1
 				\end{align*}
 				Wir setzen unser Ergebnis oben ein und erhalten
 				\begin{align*}
@@ -43,18 +43,18 @@
 				\end{align*}
 			\end{block}
 		}
-		\end{alertblock}
-	\end{frame}
+	\end{alertblock}
+\end{frame}
 }
 
 {\setbeamercolor{palette primary}{bg=ExColor}
-	\begin{frame}<handout:0>[fragile]{Lösungen}
-		\begin{alertblock}{Aufgaben}
+\begin{frame}<handout:0>[fragile]{Lösungen}
+	\begin{alertblock}{Aufgaben}
 		\small{
 			\metroset{block=fill}
 			\begin{block}{Hier wird $3=0$ gefolgert. Was ist schief gelaufen?}
 				Das Polynom $x^2 + x + 1 = 0$ hat keine Nullstellen in den reellen Zahlen.
-				
+
 				Aus der falschen Annahme, dass $x^2 + x + 1 = 0$ kann also nichts Aussagekräftiges mehr folgen.
 			\end{block}
 			\metroset{block=fill}
@@ -63,17 +63,17 @@
 				\begin{table}
 					\begin{tabular}{ccc}
 						\toprule
-						A & B & A $\implies$ B \\
+						A         & B         & A $\implies$ B \\
 						\midrule
-						w & w & w \\
-						w & f & f \\
-						\alert{f} & \alert{w} & \alert{w} \\
-						\alert{f} & \alert{f} & \alert{w} \\
+						1         & 1         & 1              \\
+						1         & 0         & 0              \\
+						\alert{0} & \alert{1} & \alert{1}      \\
+						\alert{0} & \alert{0} & \alert{1}      \\
 						\bottomrule
 					\end{tabular}
 				\end{table}
 			\end{alertblock}
 		}
-		\end{alertblock}
-	\end{frame}
+	\end{alertblock}
+\end{frame}
 }
