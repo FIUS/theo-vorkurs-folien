@@ -120,11 +120,22 @@
 
 {\setbeamercolor{palette primary}{bg=ExColor}
 \begin{frame}{Denkpause}
-	Sind die folgenden Aussagen wahr oder falsch
+	Finde Anzeigen $x, y$, für die die Aussage stimmt
 	\metroset{block=fill}
 	\begin{block}{Normal}
 		\begin{itemize}
-			\item $A_1$: $P_{\text{Zahl}}\left(\right)$
+			\item $P_{\text{Zahl}}\left(f_{\text{On}}\left(\sevenseg{{0,0,0,0,0,0,0,}}, x_1\right)\right)$
+			\item $P_{\text{Zahl}}\left(f_{\text{Off}}\left(x_2, y_2\right)\right)$
+			\item $P_{\text{Zahl}}\left(f_{\text{Off}}\left(x_3, \sevenseg{{0,1,1,0,0,0,0,0,}}\right)\right) \land P_{\text{Zahl}}\left(f_{\text{On}}\left(x_3, \sevenseg{{1,0,0,1,0,0,0,}}\right)\right)$
+			\item $\lnot P_{\text{Zahl}}\left(f_{\text{On}}\left(f_{\text{On}}\left(\sevenseg{{0,0,0,0,0,0,0,}}, x_4\right), \sevenseg{{1,1,1,1,0,0,1,}}\right)\right)$
+		\end{itemize}
+	\end{block}
+	Beweise ob die folgenden Aussagen wahr oder falsch sind
+	\metroset{block=fill}
+	\begin{block}{Etwas schwerer}
+		\begin{itemize}
+			\item $A_5$: $\forall x : P_{\text{Zahl}}\left(f_{\text{On}}\left(x, \sevenseg{{1,1,1,1,1,1,1,1,}}\right)\right)$
+			\item $A_6$: $\forall x : P_{\text{Zahl}}\left(f_{\text{On}}\left(\right)\right)$
 		\end{itemize}
 	\end{block}
 \end{frame}
