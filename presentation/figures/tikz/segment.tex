@@ -8,14 +8,14 @@
 
 \pgfkeys{
     /sevenseg,
-    default/.style = {shrink = 0.1, size = 1em, oncolor = red, offcolor = blue!70!black}
+    default/.style = {shrink = 0.1, size = 1em, oncolor = red, offcolor = blue!70!black!70}
 }
 
 \newcommand{\sevenseg}[2][]% options values
 {%
     \pgfkeys{/sevenseg, default, #1}%
     \def\sevensegarray{#2}%
-    \begin{tikzpicture}[x=\sevensegSize,y=\sevensegSize]%
+    \begin{tikzpicture}[x=\sevensegSize,y=\sevensegSize,baseline=1]%
         % unten li
         \path (0,0) ++(0,0) coordinate (P1);
         % unten re
@@ -35,7 +35,7 @@
         \ifthenelse{\equal{\pgfmathresult}{1}}%
         {\let\mycolor=\sevensegOncolor}%  segment is on
         {\let\mycolor=\sevensegOffcolor}% segment is off
-        \tikzstyle{segstyle} = [draw=\mycolor, line width = 0.15em,
+        \tikzstyle{segstyle} = [draw=\mycolor, line width = 2,
         line cap = butt]
         % Horizontal oben
         \ifthenelse{\equal{\i}{0}}{\path[segstyle]

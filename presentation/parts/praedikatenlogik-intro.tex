@@ -1,9 +1,131 @@
-\begin{frame}[fragile]{Prädikatenlogik among us}
-
+\begin{frame}[fragile]{Beispiel}
+	7-Segment-Anzeigen:
+	\metroset{block=fill}
+	\begin{block}{Kann Zahlen zeigen}
+		\begin{center}
+			\sevensegnum[size=15mm]{2}
+			\hspace{1em}
+			\sevensegnum[size=15mm]{0}
+			\hspace{1em}
+			\sevensegnum[size=15mm]{2}
+			\hspace{1em}
+			\sevensegnum[size=15mm]{5}
+		\end{center}
+	\end{block}
+	\begin{block}{Zeigt manchmal wirres Zeugs}
+		\begin{center}
+			\sevenseg[size=15mm]{{0,0,0,1,0,0,0,}}
+			\hspace{1em}
+			\sevenseg[size=15mm]{{0,1,0,0,1,0,0,}}
+			\hspace{1em}
+			\sevenseg[size=15mm]{{1,1,0,1,1,1,1,}}
+			\hspace{1em}
+			\sevenseg[size=15mm]{{1,0,1,1,0,0,0,}}
+		\end{center}
+	\end{block}
 \end{frame}
 
-\begin{frame}{Lösung}
-
+\begin{frame}{Beispiel}
+	Wir brauchen einen \textit{Checker}:
+	\Huge
+	\begin{center}
+		$$
+			\only<1>{P_{\text{Zahl}}\left(\sevensegnum{6}\right)}
+			\only<2->{P_{\text{Zahl}}\left(\sevenseg{{1,0,1,1,0,0,0,}}\right)}
+		$$
+	\end{center}
+	\normalsize
+	% todo
+	Wenn wir in diesen \textit{Checker} eine Anzeige einsetzen, haben wir eine logische Aussage
 \end{frame}
 
+{\setbeamercolor{palette primary}{bg=ExColor}
+\begin{frame}{Denkpause}
+	Sind die folgenden Aussagen wahr oder falsch
+	\metroset{block=fill}
+	\begin{block}{Normal}
+		\begin{itemize}
+			\item $A_1$: $P_{\text{Zahl}}\left(\right)$
+		\end{itemize}
+	\end{block}
+\end{frame}
+}
 
+\begin{frame}{Beispiel}
+	Wie reparieren wir die Anzeige?
+	\begin{center}
+		\sevenseg[size=15mm]{{0,0,0,1,0,0,0,}}
+		\hspace{1em}
+		\sevenseg[size=15mm]{{0,1,0,0,1,0,0,}}
+		\hspace{1em}
+		\sevenseg[size=15mm]{{1,1,0,1,1,1,1,}}
+		\hspace{1em}
+		\sevenseg[size=15mm]{{1,0,1,1,0,0,0,}}
+	\end{center}
+\end{frame}
+
+\begin{frame}{Beispiel}
+	Wir brauchen eine Funktion, die Segmente einschaltet
+	\Large
+	\begin{center}
+		$
+			f_{\text{On}}\left(
+			\sevenseg[size=10mm]{{1,0,0,1,0,0,1,}},
+			\sevenseg[size=10mm]{{0,1,1,0,1,1,0,}}
+			\right) =
+			\sevenseg[size=10mm]{{1,1,1,1,1,1,1,}}
+		$
+	\end{center}
+	\normalsize
+	\only<3->{Wir brauchen eine weitere Funktion:
+		\Large
+		\begin{center}
+			$
+				f_{\text{On}}\left(
+				\sevenseg[size=10mm]{{1,0,0,1,0,0,1,}},
+				\sevenseg[size=10mm]{{0,1,1,0,1,1,0,}}
+				\right) =
+				\sevenseg[size=10mm]{{1,1,1,1,1,1,1,}}
+			$
+		\end{center}
+		\normalsize
+	}
+	Reicht das?
+	\begin{itemize}
+		\item<2-> $f_{\text{On}}\left(\sevenseg{{0,0,0,1,0,0,0,}}, \sevenseg{{0,1,1,0,1,1,0,}}\right) = \sevensegnum{2}$
+		\item<2-> $f_{\text{On}}\left(\sevenseg{{0,1,0,0,1,0,0,}}, \sevenseg{{0,1,1,0,1,1,0,}}\right) = \sevensegnum{2}$
+		\item<2-> $f_{\text{On}}\left(\sevenseg{{1,1,0,1,1,1,1,}}, \sevenseg{{0,1,1,0,1,1,0,}}\right) = \sevensegnum{2}$
+		\item<2-> $f_{\text{On}}\left(\sevenseg{{1,0,1,1,0,0,0,}}, \sevenseg{{0,1,1,0,1,1,0,}}\right) = \sevensegnum{2}$
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Beispiel}
+	Kombiniert mit unserem \textit{Checker}
+	\Large
+	\begin{center}
+		$
+			P_{\text{Zahl}}\left(f_{\text{On}}\left(
+			\sevenseg[size=10mm]{{1,0,0,0,0,0,0,}},
+			\sevenseg[size=10mm]{{0,1,1,0,0,0,0,}}
+			\right)\right)
+		$
+	\end{center}
+	\normalsize
+	\pause
+	Diese Aussage ist wahr
+	\par
+	\pause
+	Allgemeiner:
+\end{frame}
+
+{\setbeamercolor{palette primary}{bg=ExColor}
+\begin{frame}{Denkpause}
+	Sind die folgenden Aussagen wahr oder falsch
+	\metroset{block=fill}
+	\begin{block}{Normal}
+		\begin{itemize}
+			\item $A_1$: $P_{\text{Zahl}}\left(\right)$
+		\end{itemize}
+	\end{block}
+\end{frame}
+}
