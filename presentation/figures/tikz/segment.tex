@@ -4,11 +4,20 @@
     oncolor/.estore in    = \sevensegOncolor,   % color of an ON segment
     offcolor/.estore in   = \sevensegOffcolor,  % color of an OFF segment
     size/.estore in       = \sevensegSize,      % height
+    onSize/.estore in     = \sevensegOnsize,     % line width if ON
+    offSize/.estore in    = \sevensegOffsize    % line width if OFF
 }
 
 \pgfkeys{
     /sevenseg,
-    default/.style = {shrink = 0.1, size = 1em, oncolor = red, offcolor = blue!70!black!70}
+    default/.style = {
+        shrink = 0.1, 
+        size = 1em, 
+        oncolor = red, 
+        offcolor = blue!70!black!40,
+        onSize = 2,
+        offSize =1.5
+        }
 }
 
 \newcommand{\sevenseg}[2][]% options values
@@ -33,9 +42,15 @@
         {
         \pgfmathparse{\sevensegarray[\i]}
         \ifthenelse{\equal{\pgfmathresult}{1}}%
-        {\let\mycolor=\sevensegOncolor}%  segment is on
-        {\let\mycolor=\sevensegOffcolor}% segment is off
-        \tikzstyle{segstyle} = [draw=\mycolor, line width = 2,
+        {
+            \let\mycolor=\sevensegOncolor
+            \let\mysize=\sevensegOnsize
+        }%  segment is on
+        {
+            \let\mycolor=\sevensegOffcolor
+            \let\mysize=\sevensegOffsize
+        }% segment is off
+        \tikzstyle{segstyle} = [draw=\mycolor, line width = \mysize,
         line cap = butt]
         % Horizontal oben
         \ifthenelse{\equal{\i}{0}}{\path[segstyle]
