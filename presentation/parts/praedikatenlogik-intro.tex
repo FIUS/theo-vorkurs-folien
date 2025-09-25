@@ -42,12 +42,12 @@
 			\node[] at (5,.8) (base) {};
 			\node[] at (2, -.4) (wahr) {
 				\only<2>{\alert}{Wahr}, wenn eine Zahl zu sehen ist
-				};
+			};
 			\draw[->] (base) to (wahr);
 			\only<3>{\node[] at (8, -.4) (wahr) {
-				\alert{Falsch}, wenn keine Zahl zu sehen ist
+					\alert{Falsch}, wenn keine Zahl zu sehen ist
 				};
-			\draw[->] (base) to (wahr);
+				\draw[->] (base) to (wahr);
 			}
 		\end{tikzpicture}
 	}
@@ -143,7 +143,7 @@
 		\begin{itemize}
 			\item $P_{\text{Zahl}}\left(f_{\text{On}}\left(\sevenseg{{0,0,0,0,0,0,0,}}, x_1\right)\right)$
 			\item $P_{\text{Zahl}}\left(f_{\text{Off}}\left(x_2, y_2\right)\right)$
-			\item $P_{\text{Zahl}}\left(f_{\text{Off}}\left(x_3, \sevenseg{{0,1,1,0,0,0,0,0,}}\right)\right) \land P_{\text{Zahl}}\left(f_{\text{On}}\left(x_3, \sevenseg{{1,0,0,1,0,0,0,}}\right)\right)$
+			\item $P_{\text{Zahl}}\left(f_{\text{Off}}\left(x_3, \sevenseg{{0,0,0,0,1,1,0,0,}}\right)\right) \land P_{\text{Zahl}}\left(f_{\text{On}}\left(x_3, \sevenseg{{1,0,0,1,0,0,0,}}\right)\right)$
 			\item $\lnot P_{\text{Zahl}}\left(f_{\text{On}}\left(f_{\text{On}}\left(\sevenseg{{0,0,0,0,0,0,0,}}, x_4\right), \sevenseg{{1,1,1,1,0,0,1,}}\right)\right)$
 		\end{itemize}
 	\end{block}
@@ -152,8 +152,25 @@
 	\begin{block}{Etwas schwerer}
 		\begin{itemize}
 			\item $A_5$: $\forall x : P_{\text{Zahl}}\left(f_{\text{On}}\left(x, \sevenseg{{1,1,1,1,1,1,1,1,}}\right)\right)$
-			\item $A_6$: $\forall x : P_{\text{Zahl}}\left(f_{\text{On}}\left(\right)\right)$
+			\item $A_6$: $\forall x \exists y : P_{\text{Zahl}}\left(x\right) \implies \lnot P_{\text{Zahl}}\left(f_{\text{On}}\left(x,y\right)\right)$
 		\end{itemize}
 	\end{block}
+\end{frame}
+}
+
+{\setbeamercolor{palette primary}{bg=ExColor}
+\begin{frame}<handout:0>{Lösungen}
+	\textit{Für 1-4 je Beispiele, es gibt weitere Lösungen}
+	\begin{itemize}[<+- | alert@+>]
+		\item $x_1 \in \left\{\sevensegnum{0},\sevensegnum{1},\sevensegnum{2},\dots\right\}$
+		\item $x_2 = \sevensegnum{8}, y_2 = \sevenseg{{0,0,0,0,0,0,1,}}$ oder $x_2 = \sevensegnum{4}, y_2 = \sevenseg{{1,0,0,1,1,1,0,0,}}$
+		\item $x_3 = \sevenseg{{0,1,1,0,1,1,0,}}$
+		\item $x_4 = \sevenseg{{0,0,0,0,1,0,0,}}$
+		\item \textit{wahr}\\
+		      Beweis: Zu einer beliebigen Anzeige alle Segmente einzuschalten sorgt dafür, dass alle Segmente eingeschaltet sind,\\
+		      Alle Segmente eingeschaltet ist eine gültige Zahl ($8$)
+		\item \textit{falsch}\\
+		      Gegenbeispiel: $\sevensegnum{8}$ (Beweis wie oben)
+	\end{itemize}
 \end{frame}
 }
