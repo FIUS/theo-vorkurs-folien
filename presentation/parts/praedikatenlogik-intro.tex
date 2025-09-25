@@ -68,7 +68,7 @@
 \end{frame}
 }
 
-\begin{frame}{Beispiel}
+\begin{frame}{Zurück zu unserem Beispiel}
 	Wie reparieren wir die Anzeige?
 	\begin{center}
 		\sevenseg[size=15mm]{{0,0,0,1,0,0,0,}}
@@ -81,7 +81,7 @@
 	\end{center}
 \end{frame}
 
-\begin{frame}{Beispiel}
+\begin{frame}{Funktionen}
 	Wir brauchen eine Funktion, die Segmente einschaltet
 	\Large
 	\begin{center}
@@ -93,31 +93,36 @@
 			\sevenseg[size=10mm]{{1,1,1,1,1,1,1,}}
 		$
 	\end{center}
-	\normalsize
-	\only<3->{Wir brauchen eine weitere Funktion:
-		\Large
-		\begin{center}
-			$
-				f_{\text{On}}\left(
-				\sevenseg[size=10mm]{{1,0,0,1,0,0,1,}},
-				\sevenseg[size=10mm]{{0,1,1,0,1,1,0,}}
-				\right) =
-				\sevenseg[size=10mm]{{1,1,1,1,1,1,1,}}
-			$
-		\end{center}
-		\normalsize
-	}
-	Reicht das?
+	\end{frame}
+
+
+\begin{frame}{Reicht das?}
 	\begin{itemize}
-		\item<2-> $f_{\text{On}}\left(\sevenseg{{0,0,0,1,0,0,0,}}, \sevenseg{{0,1,1,0,1,1,0,}}\right) = \sevensegnum{2}$
-		\item<2-> $f_{\text{On}}\left(\sevenseg{{0,1,0,0,1,0,0,}}, \sevenseg{{0,1,1,0,1,1,0,}}\right) = \sevensegnum{2}$
-		\item<2-> $f_{\text{On}}\left(\sevenseg{{1,1,0,1,1,1,1,}}, \sevenseg{{0,1,1,0,1,1,0,}}\right) = \sevensegnum{2}$
-		\item<2-> $f_{\text{On}}\left(\sevenseg{{1,0,1,1,0,0,0,}}, \sevenseg{{0,1,1,0,1,1,0,}}\right) = \sevensegnum{2}$
+		\item<1-> $f_{\text{On}}\left(\sevenseg{{0,0,0,1,0,0,0,}}, \only<1>{\hspace{1em}}\only{\sevenseg{{1,1,0,0,1,0,1,}}}<2->\right) = \sevensegnum{2}$
+		\item<3-> $f_{\text{On}}\left(\sevenseg{{0,1,0,0,1,0,0,}}, \only<3>{\hspace{1em}}\only{\sevenseg{{1,0,1,1,0,1,0,}}}<4->\right) = \sevensegnum{0}$
+		\item<5-> $f_{\text{On}}\left(\sevenseg{{1,1,0,1,1,1,1,}}, \only<5>{\hspace{1em}}\only{\textcolor{red}{X }}<6->\right) = \sevensegnum{2}$
+		\item<7-> $f_{\text{On}}\left(\sevenseg{{1,0,1,1,0,0,0,}}, \only<7>{\hspace{1em}}\only{\sevenseg{{0,0,0,0,0,1,1,}}}<8->\right) = \sevensegnum{5}$
 	\end{itemize}
 \end{frame}
 
+
+	\begin{frame}{Mehr Funktionen}
+		\Large
+		\begin{center}
+			$
+				f_{\text{Off}}\left(
+				\sevenseg[size=10mm]{{1,1,1,1,1,1,1,}},
+				\sevenseg[size=10mm]{{0,1,1,1,1,1,0,}}
+				\right) =
+				\sevenseg[size=10mm]{{0,0,0,0,0,0,1,}}
+			$
+		\end{center}
+		\normalsize
+	\end{frame}
+	
+
 \begin{frame}{Beispiel}
-	Kombiniert mit unserem \textit{Checker}
+	Kombiniert mit unserem \alert{Prädikt}
 	\Large
 	\begin{center}
 		$
@@ -133,6 +138,10 @@
 	\par
 	\pause
 	Allgemeiner:
+	$U =\left\{\sevensegnum[]{0},\sevenseg{{0,1,1,0,1,1,1,}},\sevensegnum[]{2},\sevenseg{{0,1,1,0,0,0,0,}},\sevensegnum[]{4},\sevenseg{{0,0,0,0,0,0,0,}},\sevenseg{{0,1,1,1,1,1,0,}},\sevensegnum[]{7},\sevensegnum[]{8},\sevenseg{{0,0,1,0,1,1,1,}}, \dots \right\}$
+$$
+\forall X\in U:\exists Y \in U: P_{Zahl}(f_{On}(X,Y))
+$$
 \end{frame}
 
 {\setbeamercolor{palette primary}{bg=ExColor}
