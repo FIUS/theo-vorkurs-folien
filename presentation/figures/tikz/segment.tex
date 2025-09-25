@@ -24,7 +24,7 @@
 {%
     \pgfkeys{/sevenseg, default, #1}%
     \def\sevensegarray{#2}%
-    \begin{tikzpicture}[x=\sevensegSize,y=\sevensegSize,baseline=1]%
+    \begin{tikzpicture}[x=\sevensegSize,y=\sevensegSize,baseline=.25*\sevensegSize]%
         % unten li
         \path (0,0) ++(0,0) coordinate (P1);
         % unten re
