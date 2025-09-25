@@ -61,81 +61,81 @@
     \metroset{block=fill}
     \begin{exampleblock}{Beispiel}
         $x$,$y$ $\in$ Menschen\\
-        \textbf{$A_1$: $\forall x \exists y:$ $x$ spricht mit $y$\\
-        $A_2$: $\exists x \forall y:$ $x$ spricht mit $y$\\ }
+        \textbf{$A_1$: $\forall x \exists y:$ $x$ kennt $y$\\
+            $A_2$: $\exists x \forall y:$ $x$ kennt $y$\\ }
         Was ist der Unterschied zwischen beiden Aussagen?
     \end{exampleblock}
 \end{frame}
 
 \begin{frame}{Quantoren}
     \begin{alertblock}{Aufgabe}
-      Wir formulieren folgende Aussage mithilfe von Quantoren und den Symbolen der Aussagenlogik (Junktoren).
+        Wir formulieren folgende Aussage mithilfe von Quantoren und den Symbolen der Aussagenlogik (Junktoren).
     \end{alertblock}
     \metroset{block=fill}
     \begin{block}{Beispiel}
-    \begin{itemize}
-        \item $A_1$: Eine ganze Zahl ist eine natürliche Zahl, wenn sie positiv oder null ist.
-    \end{itemize}
+        \begin{itemize}
+            \item $A_1$: Eine ganze Zahl ist eine natürliche Zahl, wenn sie positiv oder null ist.
+        \end{itemize}
     \end{block}
     \begin{block}{Hinführung}
-    \begin{itemize}
-        \item $A_1$: Für alle ganzen Zahlen $x$ gilt: Wenn $x$ positiv oder null ist, ist $x$ eine natürliche Zahl.
-    \end{itemize}
+        \begin{itemize}
+            \item $A_1$: Für alle ganzen Zahlen $x$ gilt: Wenn $x$ positiv oder null ist, ist $x$ eine natürliche Zahl.
+        \end{itemize}
     \end{block}
     \begin{block}{\alert{Lösung}}
-    \begin{itemize}
-        \item $A_1$: $\forall x \in \mathbb{Z}: x \geq 0 \implies x \in \mathbb{N}$
-    \end{itemize}
+        \begin{itemize}
+            \item $A_1$: $\forall x \in \mathbb{Z}: x \geq 0 \implies x \in \mathbb{N}$
+        \end{itemize}
     \end{block}
 \end{frame}
 
 {\setbeamercolor{palette primary}{bg=ExColor}
 \begin{frame}{Denkpause}
     \begin{alertblock}{Aufgaben}
-      Formuliere folgende Aussagen mithilfe von Quantoren und den Symbolen der Aussagenlogik (Junktoren). 
+        Formuliere folgende Aussagen mithilfe von Quantoren und den Symbolen der Aussagenlogik (Junktoren).
     \end{alertblock}
     \metroset{block=fill}
     \begin{block}{Normal}
-    \begin{itemize}
-        \item $A_1$: Die Differenz zweier ganzer Zahlen ist wieder eine ganze Zahl.
-    \end{itemize}
+        \begin{itemize}
+            \item $A_1$: Die Differenz zweier ganzer Zahlen ist wieder eine ganze Zahl.
+        \end{itemize}
     \end{block}
     \begin{block}{Schwer}
-    \begin{itemize}
-        \item $A_2$: Jede natürliche Zahl lässt sich als Summe von vier Quadratzahlen darstellen.
-    \end{itemize}
+        \begin{itemize}
+            \item $A_2$: Jede natürliche Zahl lässt sich als Summe von vier Quadratzahlen darstellen.
+        \end{itemize}
     \end{block}
     \begin{block}{Da haben selbst wir keinen Bock drauf}
-    \begin{itemize}
-        \item $A_3$: Eine natürliche Zahl, die von einer von ihr verschiedenen natürlichen Zahl größer als 1 geteilt wird, ist nicht prim.
-    \end{itemize}
+        \begin{itemize}
+            \item $A_3$: Eine natürliche Zahl, die von einer von ihr verschiedenen natürlichen Zahl größer als 1 geteilt wird, ist nicht prim.
+        \end{itemize}
     \end{block}
 \end{frame}
 }
 
 {\setbeamercolor{palette primary}{bg=ExColor}
 \begin{frame}<handout:0>{Lösungen}
-  \begin{itemize}[<+- | alert@+>]
-        \item 
-            $A_1$: $\forall x,y \in \mathbb{Z}: x-y \in \mathbb{Z}$
+    \begin{itemize}[<+- | alert@+>]
         \item
-            $A_2$: $\forall x \in \mathbb{N}\ \exists a, b, c, d \in \mathbb{N}: x = a^2 + b^2 + c^2 + d^2$
+              $A_1$: $\forall x,y \in \mathbb{Z}: x-y \in \mathbb{Z}$
         \item
-            $A_3$: $\forall x \in \mathbb{N}: \left(\exists y \in \mathbb{N}: (y>1) \wedge (y \neq x) \wedge (y \mid x)\right) \implies x\ \text{ist keine Primzahl}$.
+              $A_2$: $\forall x \in \mathbb{N}\ \exists a, b, c, d \in \mathbb{N}: x = a^2 + b^2 + c^2 + d^2$
+        \item
+              $A_3$: $\forall x \in \mathbb{N}: \left(\exists y \in \mathbb{N}: (y>1) \wedge (y \neq x) \wedge (y \mid x)\right) \implies x\ \text{ist keine Primzahl}$.
     \end{itemize}
 \end{frame}
 }
 
 \begin{frame}[fragile]{Äquivalente Schreibweisen von Mengenoperationen}
-	Oft benötigen wir eine Aussagenlogische Äquivalente Bedingung von Mengenoperationen. \emph{Dafür nehmen wir mal die Obermenge $\SigmaStern$}
-	\metroset{block=fill}
-	\begin{block}{Operationen}
-		\begin{itemize}
-			\item<1-> \textbf{Teilmenge}: $A$ \alert<1|handout:0>{$\subseteq$} $B$ $\leadsto$ $\forall x \in \SigmaStern : x \in A \implies x \in B$\\
-			\item<2-> \textbf{Vereinigung}: $A$ \alert<2|handout:0>{$\cup$} $B$ $\leadsto$ $\forall x \in \SigmaStern : x \in A \alert<2|handout:0>{\cup} B \iff x \in A \vee x \in B$\\
-			\item<3-> \textbf{Schnitt}: $A$ \alert<3|handout:0>{$\cap$} $B$ $\leadsto$ $\forall x \in \SigmaStern : x \in A \alert<3|handout:0>{\cap} B \iff x \in A \wedge x \in B$\\
-			\item<4-> \textbf{Komplement}: \alert<4|handout:0>{$\overline{A}$} $\leadsto$ $\forall x \in \SigmaStern : x \in \overline{A} \iff x \notin A$
-		\end{itemize}
-	\end{block}
-	
+    Oft benötigen wir eine Aussagenlogische Äquivalente Bedingung von Mengenoperationen. \emph{Dafür nehmen wir mal die Obermenge $\mathbb{N}$}
+    \metroset{block=fill}
+    \begin{block}{Operationen}
+        \begin{itemize}
+            \item<1-> \textbf{Teilmenge}: $A$ \alert<1|handout:0>{$\subseteq$} $B$ $\leadsto$ $\forall x \in \mathbb{N} : x \in A \implies x \in B$\\
+            \item<2-> \textbf{Vereinigung}: $A$ \alert<2|handout:0>{$\cup$} $B$ $\leadsto$ $\forall x \in \mathbb{N} : x \in A \alert<2|handout:0>{\cup} B \iff x \in A \vee x \in B$\\
+            \item<3-> \textbf{Schnitt}: $A$ \alert<3|handout:0>{$\cap$} $B$ $\leadsto$ $\forall x \in \mathbb{N} : x \in A \alert<3|handout:0>{\cap} B \iff x \in A \wedge x \in B$\\
+            \item<4-> \textbf{Komplement}: \alert<4|handout:0>{$\overline{A}$} $\leadsto$ $\forall x \in \mathbb{N} : x \in \overline{A} \iff x \notin A$
+        \end{itemize}
+    \end{block}
+
 \end{frame}
