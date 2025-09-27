@@ -20,10 +20,9 @@
         }
 }
 
-\newcommand{\sevenseg}[2][]% options values
+\newcommand{\sevenseg}[2][]% options, values
 {%
-    \pgfkeys{/sevenseg, default, #1}%
-    \def\sevensegarray{#2}%
+  \pgfkeys{/sevenseg, default, #1}%
     \begin{tikzpicture}[x=\sevensegSize,y=\sevensegSize,baseline=.25*\sevensegSize]%
         % unten li
         \path (0,0) ++(0,0) coordinate (P1);
@@ -38,72 +37,38 @@
         % oben re
         \path (P4)  ++(90:0.5) coordinate (P6);
         % then step through the 1/0 values in the segment array
-        \foreach \i in {0,...,6}%
-        {
-        \pgfmathparse{\sevensegarray[\i]}
-        \ifthenelse{\equal{\pgfmathresult}{1}}%
-        {
-            \let\mycolor=\sevensegOncolor
-            \let\mysize=\sevensegOnsize
-        }%  segment is on
-        {
-            \let\mycolor=\sevensegOffcolor
-            \let\mysize=\sevensegOffsize
-        }% segment is off
-        \tikzstyle{segstyle} = [draw=\mycolor, line width = \mysize,
-        line cap = butt]
-        % Horizontal oben
-        \ifthenelse{\equal{\i}{0}}{\path[segstyle]
-            (${1-\sevensegShrink}*(P5)+\sevensegShrink*(P6)$)
-            -- ($\sevensegShrink*(P5)+{1-\sevensegShrink}*(P6)$);}{} % a
-
-        % Vertikal rechts oben
-        \ifthenelse{\equal{\i}{1}}{\path[segstyle]
-            (${1-\sevensegShrink}*(P6)+\sevensegShrink*(P4)$)
-            -- ($\sevensegShrink*(P6)+{1-\sevensegShrink}*(P4)$);}{} % b
-
-        % Vertikal rechts unten
-        \ifthenelse{\equal{\i}{2}}{\path[segstyle]
-            (${1-\sevensegShrink}*(P4)+\sevensegShrink*(P2)$)
-            -- ($\sevensegShrink*(P4)+{1-\sevensegShrink}*(P2)$);}{} % c
-
-        % Horizontal unten
-        \ifthenelse{\equal{\i}{3}}{\path[segstyle]
-            (${1-\sevensegShrink}*(P1)+\sevensegShrink*(P2)$)
-            -- ($\sevensegShrink*(P1)+{1-\sevensegShrink}*(P2)$);}{} % d
-
-        % Vertikal links unten
-        \ifthenelse{\equal{\i}{4}}{\path[segstyle]
-            (${1-\sevensegShrink}*(P1)+\sevensegShrink*(P3)$)
-            -- ($\sevensegShrink*(P1)+{1-\sevensegShrink}*(P3)$);}{} % e
-
-        % Vertikal links oben
-        \ifthenelse{\equal{\i}{5}}{\path[segstyle]
-            (${1-\sevensegShrink}*(P3)+\sevensegShrink*(P5)$)
-            -- ($\sevensegShrink*(P3)+{1-\sevensegShrink}*(P5)$);}{} % f
 
 
-        % Horizontal Mitte
-        \ifthenelse{\equal{\i}{6}}{\path[segstyle]
-            (${1-\sevensegShrink}*(P3)+\sevensegShrink*(P4)$)
-            -- ($\sevensegShrink*(P3)+{1-\sevensegShrink}*(P4)$);}{} % g
-        }
-    \end{tikzpicture}%
+    \foreach \val [count=\i from 0] in {#2} {%
+      \ifthenelse{\equal{\val}{1}}%
+        {\let\mycolor=\sevensegOncolor \let\mysize=\sevensegOnsize}%
+        {\let\mycolor=\sevensegOffcolor \let\mysize=\sevensegOffsize}%
+
+      % then draw segment depending on \i
+      \ifthenelse{\equal{\i}{0}}{\path[draw=\mycolor, line width=\mysize] (P5) -- (P6);}{}%
+      \ifthenelse{\equal{\i}{1}}{\path[draw=\mycolor, line width=\mysize] (P6) -- (P4);}{}%
+      \ifthenelse{\equal{\i}{2}}{\path[draw=\mycolor, line width=\mysize] (P4) -- (P2);}{}%
+      \ifthenelse{\equal{\i}{3}}{\path[draw=\mycolor, line width=\mysize] (P1) -- (P2);}{}%
+      \ifthenelse{\equal{\i}{4}}{\path[draw=\mycolor, line width=\mysize] (P1) -- (P3);}{}%
+      \ifthenelse{\equal{\i}{5}}{\path[draw=\mycolor, line width=\mysize] (P3) -- (P5);}{}%
+      \ifthenelse{\equal{\i}{6}}{\path[draw=\mycolor, line width=\mysize] (P3) -- (P4);}{}%
+    }
+  \end{tikzpicture}%
 }
 
 \newcommand{\sevensegnum}[2][]%
 {%                                          
-    \ifthenelse{\equal{#2}{0}}{\sevenseg[#1]{{1,1,1,1,1,1,0,}}}{%
-        \ifthenelse{\equal{#2}{1}}{\sevenseg[#1]{{0,1,1,0,0,0,0,}}}{%
-            \ifthenelse{\equal{#2}{2}}{\sevenseg[#1]{{1,1,0,1,1,0,1,}}}{%
-                \ifthenelse{\equal{#2}{3}}{\sevenseg[#1]{{1,1,1,1,0,0,1,}}}{%
-                    \ifthenelse{\equal{#2}{4}}{\sevenseg[#1]{{0,1,1,0,0,1,1,}}}{%
-                        \ifthenelse{\equal{#2}{5}}{\sevenseg[#1]{{1,0,1,1,0,1,1,}}}{%
-                            \ifthenelse{\equal{#2}{6}}{\sevenseg[#1]{{1,0,1,1,1,1,1,}}}{%
-                                \ifthenelse{\equal{#2}{7}}{\sevenseg[#1]{{1,1,1,0,0,0,0,}}}{%
-                                    \ifthenelse{\equal{#2}{8}}{\sevenseg[#1]{{1,1,1,1,1,1,1,}}}{%
-                                        \ifthenelse{\equal{#2}{9}}{\sevenseg[#1]{{1,1,1,1,0,1,1,}}}{%
-                                            {\sevenseg[#1]{{0,0,0,0,0,0,0,}}}
+    \ifthenelse{\equal{#2}{0}}{\sevenseg[#1]{1,1,1,1,1,1,0,}}{%
+        \ifthenelse{\equal{#2}{1}}{\sevenseg[#1]{0,1,1,0,0,0,0,}}{%
+            \ifthenelse{\equal{#2}{2}}{\sevenseg[#1]{1,1,0,1,1,0,1,}}{%
+                \ifthenelse{\equal{#2}{3}}{\sevenseg[#1]{1,1,1,1,0,0,1,}}{%
+                    \ifthenelse{\equal{#2}{4}}{\sevenseg[#1]{0,1,1,0,0,1,1,}}{%
+                        \ifthenelse{\equal{#2}{5}}{\sevenseg[#1]{1,0,1,1,0,1,1,}}{%
+                            \ifthenelse{\equal{#2}{6}}{\sevenseg[#1]{1,0,1,1,1,1,1,}}{%
+                                \ifthenelse{\equal{#2}{7}}{\sevenseg[#1]{1,1,1,0,0,0,0,}}{%
+                                    \ifthenelse{\equal{#2}{8}}{\sevenseg[#1]{1,1,1,1,1,1,1,}}{%
+                                        \ifthenelse{\equal{#2}{9}}{\sevenseg[#1]{1,1,1,1,0,1,1,}}{%
+                                            {\sevenseg[#1]{0,0,0,0,0,0,0,}}
                                         }
                                     }
                                 }
@@ -116,7 +81,7 @@
     }%
 }
 
-% Choose the right primitive across engines
+% Choose engine primitive
 \makeatletter
 \@ifundefined{pdfuniformdeviate}{%
   \let\RandDeviate\uniformdeviate   % XeLaTeX / LuaLaTeX
@@ -125,7 +90,15 @@
 }
 \makeatother
 
-\DeclareRobustCommand{\randbit}{\number\numexpr\RandDeviate 2\relax}
-\newcommand{\randsevenseg}{
-    \sevenseg[]{\randbit,\randbit,\randbit,\randbit,\randbit,\randbit,\randbit}
+% Fully expandable random bit (0 or 1)
+\newcommand{\randbit}{\the\numexpr\RandDeviate 2\relax}
+
+% Convert one random draw to a clean literal 0/1
+\newcommand{\randbitZ}{%
+  \ifnum\numexpr\RandDeviate 2\relax>0 1\else 0\fi
+}
+
+% Use it to build the seven-seg list
+\newcommand{\randsevenseg}{%
+  \sevenseg[]{\randbitZ,\randbitZ,\randbitZ,\randbitZ,\randbitZ,\randbitZ,\randbitZ}%
 }

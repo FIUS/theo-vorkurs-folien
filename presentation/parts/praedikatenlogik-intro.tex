@@ -14,13 +14,13 @@
 	\pause
 	\begin{block}{Zeigen manchmal wirres Zeugs}
 		\begin{center}
-			\sevenseg[size=15mm]{{0,0,0,1,0,0,0,}}%
+			\sevenseg[size=15mm]{0,0,0,1,0,0,0,}%
 			\hspace{1em}
-			\sevenseg[size=15mm]{{0,1,0,0,1,0,0,}}%
+			\sevenseg[size=15mm]{0,1,0,0,1,0,0,}%
 			\hspace{1em}
-			\sevenseg[size=15mm]{{1,1,0,1,1,1,1,}}%
+			\sevenseg[size=15mm]{1,1,0,1,1,1,1,}%
 			\hspace{1em}
-			\sevenseg[size=15mm]{{1,0,1,1,0,0,0,}}%
+			\sevenseg[size=15mm]{1,0,1,1,0,0,0,}%
 		\end{center}
 	\end{block}
 \end{frame}
@@ -75,9 +75,9 @@
 	\begin{block}{Normal}
 		\begin{itemize}
 			\item $A_1$: $P_{\text{Zahl}}\left(\sevensegnum[]{7}\right)$ \only<2->{\hspace{1cm}wahr}
-			\item $A_2$: $P_{\text{Zahl}}\left(\sevenseg[]{{0,1,0,0,1,0,1}}\right)$ \only<3->{\hspace{1cm}falsch}
+			\item $A_2$: $P_{\text{Zahl}}\left(\sevenseg[]{0,1,0,0,1,0,1}\right)$ \only<3->{\hspace{1cm}falsch}
 			\item $A_3$: $P_{\text{Zahl}}\left(\sevensegnum[]{4}\right)$ \only<4->{\hspace{1cm}wahr}
-			\item $A_4$: $P_{\text{Zahl}}\left(\sevenseg[]{{1,0,1,0,1,0,1}}\right)$ \only<5>{\hspace{1cm}falsch}
+			\item $A_4$: $P_{\text{Zahl}}\left(\sevenseg[]{1,0,1,0,1,0,1}\right)$ \only<5>{\hspace{1cm}falsch}
 		\end{itemize}
 	\end{block}
 \end{frame}
@@ -86,13 +86,13 @@
 \begin{frame}{Zurück zu unserem Beispiel}
 	Wie reparieren wir die Anzeige?
 	\begin{center}
-		\sevenseg[size=15mm]{{0,0,0,1,0,0,0,}}
+		\sevenseg[size=15mm]{0,0,0,1,0,0,0,}
 		\hspace{1em}
-		\sevenseg[size=15mm]{{0,1,0,0,1,0,0,}}
+		\sevenseg[size=15mm]{0,1,0,0,1,0,0,}
 		\hspace{1em}
-		\sevenseg[size=15mm]{{1,1,0,1,1,1,1,}}
+		\sevenseg[size=15mm]{1,1,0,1,1,1,1,}
 		\hspace{1em}
-		\sevenseg[size=15mm]{{1,0,1,1,0,0,0,}}
+		\sevenseg[size=15mm]{1,0,1,1,0,0,0,}
 	\end{center}
 \end{frame}
 
@@ -102,10 +102,10 @@
 	\begin{center}
 		$
 			f_{\text{On}}\left(
-			\sevenseg[size=10mm]{{1,0,0,1,0,0,1,}},
-			\sevenseg[size=10mm]{{0,1,1,0,1,1,0,}}
+			\sevenseg[size=10mm]{1,0,0,1,0,0,1,},
+			\sevenseg[size=10mm]{0,1,1,0,1,1,0,}
 			\right) =
-			\sevenseg[size=10mm]{{1,1,1,1,1,1,1,}}
+			\sevenseg[size=10mm]{1,1,1,1,1,1,1,}
 		$
 	\end{center}
 	\end{frame}
@@ -126,10 +126,10 @@
 		\begin{center}
 			$
 				f_{\text{Off}}\left(
-				\sevenseg[size=10mm]{{1,1,1,1,1,1,1,}},
-				\sevenseg[size=10mm]{{1,1,1,1,1,1,0,}}
+				\sevenseg[size=10mm]{1,1,1,1,1,1,1,},
+				\sevenseg[size=10mm]{1,1,1,1,1,1,0,}
 				\right) =
-				\sevenseg[size=10mm]{{0,0,0,0,0,0,1,}}
+				\sevenseg[size=10mm]{0,0,0,0,0,0,1,}
 			$
 		\end{center}
 		\normalsize
@@ -142,8 +142,8 @@
 	\begin{center}
 		$
 			P_{\text{Zahl}}\left(f_{\text{On}}\left(
-			\sevenseg[size=10mm]{{1,0,0,0,0,0,0,}},
-			\sevenseg[size=10mm]{{0,1,1,0,0,0,0,}}
+			\sevenseg[size=10mm]{1,0,0,0,0,0,0,},
+			\sevenseg[size=10mm]{0,1,1,0,0,0,0,}
 			\right)\right)
 		$
 	\end{center}
@@ -153,7 +153,7 @@
 	\par
 	\pause
 	Allgemeiner:
-	$U =\left\{\sevensegnum[]{0},\sevenseg{{0,1,1,0,1,1,1,}},\sevensegnum[]{2},\sevenseg{{0,1,1,0,0,0,0,}},\sevensegnum[]{4},\sevenseg{{0,0,0,0,0,0,0,}},\sevenseg{{0,1,1,1,1,1,0,}},\sevensegnum[]{7},\sevensegnum[]{8},\sevenseg{{0,0,1,0,1,1,1,}}, \dots \right\}$
+	$U =\left\{\randsevenseg,\randsevenseg,\randsevenseg,\randsevenseg,\randsevenseg,\randsevenseg,\randsevenseg,\randsevenseg, \dots \right\}$
 $$
 \forall X\in U:\exists Y \in U: P_{Zahl}(f_{On}(X,Y))
 $$
@@ -238,7 +238,7 @@ $$P(x) = P_{<7}$$
 		\end{itemize}
 	\end{block}
 	\begin{block}{Das Universum}
-		$U =\left\{\sevensegnum[]{0},\sevenseg{{0,1,1,0,1,1,1,}},\sevensegnum[]{2},\sevenseg{{0,1,1,0,0,0,0,}},\sevensegnum[]{4},\sevenseg{{0,0,0,0,0,0,0,}},\sevenseg{{0,1,1,1,1,1,0,}},\sevensegnum[]{7},\sevensegnum[]{8},\sevenseg{{0,0,1,0,1,1,1,}}, \dots \right\}$
+		$U =\left\{\randsevenseg,\randsevenseg,\randsevenseg,\randsevenseg,\randsevenseg,\randsevenseg,\randsevenseg,\randsevenseg, \dots \right\}$
 	\end{block}
 \end{frame}
 
@@ -307,5 +307,6 @@ $$P(x) = P_{<7}$$
 	\begin{itemize}[<+- | alert@+>]
 		\item TODO
 	\end{itemize}
+	
 \end{frame}
 }
