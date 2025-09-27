@@ -49,8 +49,23 @@
 				};
 				\draw[->] (base) to (wahr);
 			}
+			\only<4>{
+			\vspace{2cm}
+				\node[] at (5,-1){Eigentlich ist es die Lückentext-Aussage:}; 
+				
+				\node[] at (5,-1.4){In der Anzeige \underline{~~~} kann man eine Zahl sehen.};
+			}
 		\end{tikzpicture}
 	}
+\end{frame}
+
+\begin{frame}{Prädikate sind keine Aussagen!}
+	\alert{Achtung:}
+	\begin{itemize}[<+- | alert@+>]
+		\item Ein Prädikat kann weder Wahr noch Falsch sein!
+		\item Ein Prädikat wird zu einer Aussage wenn die Variable(n) eingesetzt werden
+		\item Diese Aussage ist dann Wahr oder Falsch
+	\end{itemize}
 \end{frame}
 
 {\setbeamercolor{palette primary}{bg=ExColor}
@@ -122,7 +137,7 @@
 	
 
 \begin{frame}{Beides Zusammen}
-	Kombiniert mit unserem \alert{Prädikt}
+	Kombiniert mit unserem \alert{Prädikt}:
 	\Large
 	\begin{center}
 		$
@@ -142,6 +157,7 @@
 $$
 \forall X\in U:\exists Y \in U: P_{Zahl}(f_{On}(X,Y))
 $$
+Das \alert{Universum} ist die Menge aller Werte, die in unsere Formel eingesetzt werden können.
 \end{frame}
 
 {\setbeamercolor{palette primary}{bg=ExColor}
@@ -180,6 +196,116 @@ $$
 		      Alle Segmente eingeschaltet ist eine gültige Zahl ($8$)
 		\item \textit{falsch}\\
 		      Gegenbeispiel: $\sevensegnum{8}$ (Beweis wie oben)
+	\end{itemize}
+\end{frame}
+}
+
+\begin{frame}{Rätselaufgabe}
+Fällt euch ein Prädikat $P$ ein, für das die folgende Aussage wahr ist:
+\Large
+$$\forall x \in U \setminus \{\sevensegnum[]{8}\}: P(x)$$
+\pause
+$$P(x) = P_{<7}$$
+\begin{center}
+	\alert{In der Anzeige \underline{~~~} sind weniger als 7 Segmente an}
+\end{center} 
+\end{frame}
+
+\begin{frame}{Prädikatssymbole}
+	\begin{itemize}[<+- | alert@+>]
+		\item Prädikatenlogische Formeln haben ihre Preädikate und Funktionen nicht unbedingt festgelegt
+		\item Sie können auch aus Prädikatenymbolen und Formelsymbolen bestehen
+		\item Unsere Aufgabe ist dann sie zu interpretieren
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\metroset{block=fill}
+	\begin{block}{Prädikate}
+		\begin{itemize}
+			\item $P_=(X,Y):$ Die Anzeigen $X$ und $Y$ sind gleich.
+			\item $P_{Zahl}(X):$ Die Anzeige $X$ zeigt eine Zahl.
+			\item $P_<7(X):$ Die Anzeige $X$ hat maximal 6 leuchtende Segmente.
+			\item $P_>(X,Y):$ Die Anzeige $X$ hat mehr leuchtende Segmente als die Anzeige $Y$.
+		\end{itemize}
+	\end{block}
+	\begin{block}{Funktionen}
+		\begin{itemize}
+			\item $f_{ON}(X,Y):$ Schalte alle Segmente an, welche in $X$ oder $Y$ an sind.
+			\item $f_{OFF}(X,Y):$ Scahlte alle Segmente an, welche in $X$ and sind aber nicht in $Y$.
+			\item $f_{INV}(X):$ Schalte alle Segmente an, welche in $X$ aus sind.
+			\item $f_{COUNT}(X,Y):$ Zeige die Zahl an, die angibt wie viele Segmente in $X$ an sind.
+		\end{itemize}
+	\end{block}
+	\begin{block}{Das Universum}
+		$U =\left\{\sevensegnum[]{0},\sevenseg{{0,1,1,0,1,1,1,}},\sevensegnum[]{2},\sevenseg{{0,1,1,0,0,0,0,}},\sevensegnum[]{4},\sevenseg{{0,0,0,0,0,0,0,}},\sevenseg{{0,1,1,1,1,1,0,}},\sevensegnum[]{7},\sevensegnum[]{8},\sevenseg{{0,0,1,0,1,1,1,}}, \dots \right\}$
+	\end{block}
+\end{frame}
+
+\begin{frame}{Eine Interpretation erstellen}
+	Nun wollen wir für die folgende Prädikantelogoische Formel eine Interpretation erstellen:
+	$$
+	\forall X\exists Y: P_0(f_0(X),f_1(Y))
+	$$
+	\pause
+	\begin{columns}
+		\begin{column}{.45\textwidth}
+		\begin{itemize}[<+- | alert@+>]
+			\item $I(P_0) = P_=$
+			\item $I(f_0) = f_{ZAHL}$
+			\item $I(f_1) = f_{INV}$
+		\end{itemize}
+		\end{column}
+		\begin{column}{.45\textwidth}
+		\only<5>{
+		\begin{itemize}
+			\item $I(P_0) = P_=$
+			\item $I(f_0) = f_{ZAHL}$
+			\item $I(f_1) = f_{ZAHL}$
+		\end{itemize}
+		}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+{\setbeamercolor{palette primary}{bg=ExColor}
+\begin{frame}{Denkpause}
+	Finde Interpretationen, für die die Aussagen stimmen
+	\metroset{block=fill}
+	\begin{block}{Normal}
+		\begin{itemize}
+			\item TODO
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}<handout:0>{Lösungen}
+	\textit{Für 1-4 je Beispiele, es gibt weitere Lösungen}
+	\begin{itemize}[<+- | alert@+>]
+		\item TODO
+	\end{itemize}
+\end{frame}
+}
+
+\begin{frame}{Zurück zu den Zahlen}
+	Definiere ein paar Prädikate in N und co
+\end{frame}
+
+{\setbeamercolor{palette primary}{bg=ExColor}
+\begin{frame}{Denkpause}
+	Finde Interpretationen, für die die Aussagen stimmen
+	\metroset{block=fill}
+	\begin{block}{Normal}
+		\begin{itemize}
+			\item TODO
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}<handout:0>{Lösungen}
+	\textit{Für 1-4 je Beispiele, es gibt weitere Lösungen}
+	\begin{itemize}[<+- | alert@+>]
+		\item TODO
 	\end{itemize}
 \end{frame}
 }

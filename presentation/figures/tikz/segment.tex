@@ -115,3 +115,17 @@
         }
     }%
 }
+
+% Choose the right primitive across engines
+\makeatletter
+\@ifundefined{pdfuniformdeviate}{%
+  \let\RandDeviate\uniformdeviate   % XeLaTeX / LuaLaTeX
+}{%
+  \let\RandDeviate\pdfuniformdeviate % pdfLaTeX
+}
+\makeatother
+
+\DeclareRobustCommand{\randbit}{\number\numexpr\RandDeviate 2\relax}
+\newcommand{\randsevenseg}{
+    \sevenseg[]{\randbit,\randbit,\randbit,\randbit,\randbit,\randbit,\randbit}
+}
