@@ -49,23 +49,8 @@
 				};
 				\draw[->] (base) to (wahr);
 			}
-			\only<4>{
-			\vspace{2cm}
-				\node[] at (5,-1){Eigentlich ist es die Lückentext-Aussage:}; 
-				
-				\node[] at (5,-1.4){In der Anzeige \underline{~~~} kann man eine Zahl sehen.};
-			}
 		\end{tikzpicture}
 	}
-\end{frame}
-
-\begin{frame}{Prädikate sind keine Aussagen!}
-	\alert{Achtung:}
-	\begin{itemize}[<+- | alert@+>]
-		\item Ein Prädikat kann weder Wahr noch Falsch sein!
-		\item Ein Prädikat wird zu einer Aussage wenn die Variable(n) eingesetzt werden
-		\item Diese Aussage ist dann Wahr oder Falsch
-	\end{itemize}
 \end{frame}
 
 {\setbeamercolor{palette primary}{bg=ExColor}
@@ -108,7 +93,7 @@
 			\sevenseg[size=10mm]{1,1,1,1,1,1,1,}
 		$
 	\end{center}
-	\end{frame}
+\end{frame}
 
 
 \begin{frame}{Reicht das?}
@@ -121,20 +106,34 @@
 \end{frame}
 
 
-	\begin{frame}{Mehr Funktionen}
-		\Large
-		\begin{center}
-			$
-				f_{\text{Off}}\left(
-				\sevenseg[size=10mm]{1,1,1,1,1,1,1,},
-				\sevenseg[size=10mm]{1,1,1,1,1,1,0,}
-				\right) =
-				\sevenseg[size=10mm]{0,0,0,0,0,0,1,}
-			$
-		\end{center}
-		\normalsize
-	\end{frame}
-	
+\begin{frame}{Mehr Funktionen}
+	\Large
+	\begin{center}
+		$
+			f_{\text{Off}}\left(
+			\sevenseg[size=10mm]{{1,1,1,1,1,1,1,}},
+			\sevenseg[size=10mm]{{0,1,1,1,1,1,0,}}
+			\right) =
+			\sevenseg[size=10mm]{{1,0,0,0,0,0,1,}}
+		$
+	\end{center}
+	\normalsize
+\end{frame}
+
+\begin{frame}{Mehr Funktionen}
+	\Large
+	\begin{center}
+		$
+			f_{\text{Off}}\left(
+			\sevenseg[size=10mm]{1,1,1,1,1,1,1,},
+			\sevenseg[size=10mm]{1,1,1,1,1,1,0,}
+			\right) =
+			\sevenseg[size=10mm]{0,0,0,0,0,0,1,}
+		$
+	\end{center}
+	\normalsize
+\end{frame}
+
 
 \begin{frame}{Beides Zusammen}
 	Kombiniert mit unserem \alert{Prädikt}:
@@ -153,11 +152,15 @@
 	\par
 	\pause
 	Allgemeiner:
+	$U =\left\{\sevensegnum[]{0},\sevenseg{{0,1,1,0,1,1,1,}},\sevensegnum[]{2},\sevenseg{{0,1,1,0,0,0,0,}},\sevensegnum[]{4},\sevenseg{{0,0,0,0,0,0,0,}},\sevenseg{{0,1,1,1,1,1,0,}},\sevensegnum[]{7},\sevensegnum[]{8},\sevenseg{{0,0,1,0,1,1,1,}}, \dots \right\}$
+	$$
+		\forall X\in U:\exists Y \in U: P_{Zahl}(f_{On}(X,Y))
+	$$
 	$U =\left\{\randsevenseg,\randsevenseg,\randsevenseg,\randsevenseg,\randsevenseg,\randsevenseg,\randsevenseg,\randsevenseg, \dots \right\}$
-$$
-\forall X\in U:\exists Y \in U: P_{Zahl}(f_{On}(X,Y))
-$$
-Das \alert{Universum} ist die Menge aller Werte, die in unsere Formel eingesetzt werden können.
+	$$
+		\forall X\in U:\exists Y \in U: P_{Zahl}(f_{On}(X,Y))
+	$$
+	Das \alert{Universum} ist die Menge aller Werte, die in unsere Formel eingesetzt werden können.
 \end{frame}
 
 {\setbeamercolor{palette primary}{bg=ExColor}
@@ -201,14 +204,30 @@ Das \alert{Universum} ist die Menge aller Werte, die in unsere Formel eingesetzt
 }
 
 \begin{frame}{Rätselaufgabe}
-Fällt euch ein Prädikat $P$ ein, für das die folgende Aussage wahr ist:
-\Large
-$$\forall x \in U \setminus \{\sevensegnum[]{8}\}: P(x)$$
-\pause
-$$P(x) = P_{<7}$$
-\begin{center}
-	\alert{In der Anzeige \underline{~~~} sind weniger als 7 Segmente an}
-\end{center} 
+	Fällt euch ein Prädikat $P_{?}$ ein, für das die folgende Aussage wahr ist:
+	\Large
+	$$\forall x \in U \setminus \{\sevensegnum[]{8},\sevensegnum[]{0}\}: P_{\only<1>{?}\only<2->{\alert{\leq 6}}}(x)$$
+	\pause
+	\normalsize
+	Passende Prädikate:
+	\begin{itemize}
+		\item $P_{\leq 6}$ : wahr, wenn mindestens 6 Segmente eingeschaltet sind
+		      \pause
+		\item $P_{\text{rahmen-an}}$ : wahr, wenn alle äußeren Segmente eingeschaltet sind
+		\item $P_{\text{wahr}}$ immer wahr
+		\item ...
+	\end{itemize}
+	\pause
+	Nicht passsende Prädikate:
+	\begin{itemize}
+		\item $P_{\text{mitte-an}}$ : wahr, wenn das horizontale mittlere Segment eingeschaltet is
+		\item $P_{\text{falsch}}$ : nie wahr
+		\item ...
+	\end{itemize}
+	$$P(x) = P_{<7}$$
+	\begin{center}
+		\alert{In der Anzeige \underline{~~~} sind weniger als 7 Segmente an}
+	\end{center}
 \end{frame}
 
 \begin{frame}{Prädikatssymbole}
@@ -219,7 +238,7 @@ $$P(x) = P_{<7}$$
 	\end{itemize}
 \end{frame}
 
-\begin{frame}
+\begin{frame}{Definitionen}
 	\metroset{block=fill}
 	\begin{block}{Prädikate}
 		\begin{itemize}
@@ -245,25 +264,25 @@ $$P(x) = P_{<7}$$
 \begin{frame}{Eine Interpretation erstellen}
 	Nun wollen wir für die folgende Prädikantelogoische Formel eine Interpretation erstellen:
 	$$
-	\forall X\exists Y: P_0(f_0(X),f_1(Y))
+		\forall X\exists Y: P_0(f_0(X),f_1(Y))
 	$$
 	\pause
 	\begin{columns}
 		\begin{column}{.45\textwidth}
-		\begin{itemize}[<+- | alert@+>]
-			\item $I(P_0) = P_=$
-			\item $I(f_0) = f_{ZAHL}$
-			\item $I(f_1) = f_{INV}$
-		\end{itemize}
+			\begin{itemize}[<+- | alert@+>]
+				\item $I(P_0) = P_=$
+				\item $I(f_0) = f_{ZAHL}$
+				\item $I(f_1) = f_{INV}$
+			\end{itemize}
 		\end{column}
 		\begin{column}{.45\textwidth}
-		\only<5>{
-		\begin{itemize}
-			\item $I(P_0) = P_=$
-			\item $I(f_0) = f_{ZAHL}$
-			\item $I(f_1) = f_{ZAHL}$
-		\end{itemize}
-		}
+			\only<5>{
+				\begin{itemize}
+					\item $I(P_0) = P_=$
+					\item $I(f_0) = f_{ZAHL}$
+					\item $I(f_1) = f_{ZAHL}$
+				\end{itemize}
+			}
 		\end{column}
 	\end{columns}
 \end{frame}
@@ -298,7 +317,7 @@ $$P(x) = P_{<7}$$
 \begin{frame}{Beispiel}
 	\begin{center}
 		\begin{tikzpicture}[overlay]
-			
+
 			\only<3,6, 11>{
 				\node[] (a) at (-2cm, 0){\textcolor{green}{JA}};
 				\draw[->] (a) to (-2.4cm, -1cm);
@@ -327,47 +346,47 @@ $$P(x) = P_{<7}$$
 			}
 		\end{tikzpicture}
 	\end{center}
-	
+
 	$$
-	(\forall X \exists Y: P(X,Y)) \wedge (\forall X: \overline{P(X,X)}) \wedge (\exists X \overline{P(Y,X)})
+		(\forall X \exists Y: P(X,Y)) \wedge (\forall X: \overline{P(X,X)}) \wedge (\exists X \overline{P(Y,X)})
 	$$
-	
+
 	\begin{center}
 		\begin{tikzpicture}[
-		base/.style={draw, circle, minimum size = .3cm}
-	]
-		\only<4->{\node[base] (n0) at (0,0){0};}
-		\only<6>{\draw[thick,->] (n0.90) arc (0:270:3mm);}
+				base/.style={draw, circle, minimum size = .3cm}
+			]
+			\only<4->{\node[base] (n0) at (0,0){0};}
+			\only<6>{\draw[thick,->] (n0.90) arc (0:270:3mm);}
 
-		\only<7->{\node[base, below left = of n0] (n1) {1};}
+			\only<7->{\node[base, below left = of n0] (n1) {1};}
 
-		\only<9->{\node[base, below right = of n0] (n2) {2};}
-		
+			\only<9->{\node[base, below right = of n0] (n2) {2};}
 
-		\only<8,10,11>{\draw[thick,->] (n0) to (n1);}
-		\only<10,11>{\draw[thick,->, bend right] (n1) to (n0);}
-		\only<11>{\draw[thick,->, bend right] (n2) to (n0);}
-	\end{tikzpicture}
 
-	%
-	
-	\only<1-3>{Können wir die Formel mit dem Universum $U= \emptyset$ erfüllen?}
-	\only<4-6>{Was ist mit dem Universum, das ein Element hat. Nennen wir das Element mal $0$}
-	\only<7-8>{Lasst es uns mal mit $U= \{0,1\}$ probieren}
-	\only<9->{Lasst es uns mal mit $U= \{0,1,2\}$ probieren}
+			\only<8,10,11>{\draw[thick,->] (n0) to (n1);}
+			\only<10,11>{\draw[thick,->, bend right] (n1) to (n0);}
+			\only<11>{\draw[thick,->, bend right] (n2) to (n0);}
+		\end{tikzpicture}
+
+		%
+
+		\only<1-3>{Können wir die Formel mit dem Universum $U= \emptyset$ erfüllen?}
+		\only<4-6>{Was ist mit dem Universum, das ein Element hat. Nennen wir das Element mal $0$}
+		\only<7-8>{Lasst es uns mal mit $U= \{0,1\}$ probieren}
+		\only<9->{Lasst es uns mal mit $U= \{0,1,2\}$ probieren}
 	\end{center}
-	
+
 \end{frame}
 
 \begin{frame}{Formal aufschreiben}
 	\alert{Achtung:} Man muss das Ergebnis formal aufschreiben!
 
 	\begin{align*}
-		U &= \{0,1,2\}\\
-		I(P) &= \{(0,1), (1,0), (2,1)\}\\ 
-		\only<3>{I(f) &= \{0\mapsto1, 1\mapsto2, 2\mapsto0\}}
+		U             & = \{0,1,2\}                            \\
+		I(P)          & = \{(0,1), (1,0), (2,1)\}              \\
+		\only<3>{I(f) & = \{0\mapsto1, 1\mapsto2, 2\mapsto0\}}
 	\end{align*}
-	
+
 	\begin{tikzpicture}[overlay]
 		\only<2>{
 			\node[] (a) at (7cm,3cm) {Das Universum};
@@ -380,7 +399,7 @@ $$P(x) = P_{<7}$$
 			\draw[->] (b) to (5.3cm, .8cm);
 		}<3>
 	\end{tikzpicture}
-	
+
 
 \end{frame}
 
@@ -400,6 +419,6 @@ $$P(x) = P_{<7}$$
 	\begin{itemize}[<+- | alert@+>]
 		\item TODO
 	\end{itemize}
-	
+
 \end{frame}
 }
