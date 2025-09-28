@@ -245,7 +245,7 @@
 	\begin{block}{Funktionen}
 		\begin{itemize}
 			\item $f_{ON}(X,Y):$ Schalte alle Segmente an, welche in $X$ oder $Y$ an sind.
-			\item $f_{OFF}(X,Y):$ Scahlte alle Segmente an, welche in $X$ and sind aber nicht in $Y$.
+			\item $f_{OFF}(X,Y):$ Schalte alle Segmente an, welche in $X$ and sind aber nicht in $Y$.
 			\item $f_{INV}(X):$ Schalte alle Segmente an, welche in $X$ aus sind.
 			\item $f_{COUNT}(X):$ Zeige die Zahl an, die angibt wie viele Segmente in $X$ an sind.
 		\end{itemize}
@@ -301,23 +301,36 @@
 	\metroset{block=fill}
 	\begin{block}{Etwas schwerer}
 		\begin{itemize}
-			\item $A_5$: $\forall X \exists Y: P_0(f_0(X), f_0(Y)) \implies P_0(Y)$
-			\item
+			\item $A_5$: $\forall X \exists Y: P_0(f_0(X), f_0(Y)) \implies P_1(Y)$
+			\item $A_6$: $\forall X, Y: P_0(f_0(X), Y) \implies P_1(Y)$
+			\item $A_7$: $\left(\forall X : P_0(X,X) \lor P_0(X,f_0(a))\right) \land \left(\forall Y : \lnot P_0(X,f_0(a)) \land P_1(X,X) \right)$
 		\end{itemize}
 	\end{block}
 \end{frame}
 
 \begin{frame}<handout:0>{Lösungen}
 	\textit{Jeweils Beispiele, es kann weitere Lösungen geben}
-	\begin{itemize}[<+- | alert@+>]
-		\item $A_1$: $P_0(X) = P_{>}(X)$, $f_0(X) = f_{OFF}$, $f_1(X) = f_{ON}$, $a=\sevensegnum{8}$, $b=\randsevenseg$
-		\item $A_2$: $P_0(X) = P_{>}(X)$, $f_0(X) = f_{OFF}$, $f_1(X) = f_{ON}$\\
-		      Beweisidee: Wähle für bel. $X$ $Y=X$, dadurch hat $f_0(X,Y) = f_{OFF}(X,Y)=f_{OFF}(X,X) = \sevenseg{0,0,0,0,0,0,0,}$ weniger oder gleich viele Segmente eingeschaltet wie $f_1(Y,X)=f_{ON}(X,X)=X$
-		\item $A_3$: $P_0(X) = P_=(X)$, $f_0(X,Y) = f_{ON}$, $a = \sevenseg{0,0,0,0,0,0,0,}$\\
-		      Beweisidee: Von einer bel. Anzeige $X$ keine weiteren Segmente einzuschalten ergibt die gleiche Anzeige
-		\item $A_4$: $P_0(X) = P_=(X)$\\
-		      Beweisidee: Unser $P_=$ ist kommutativ, wenn also Anzeige $X$ gleich Anzeige $Y$ ist, ist auch $Y$ gleich $X$
-	\end{itemize}
+	\only<1-4>{
+		\begin{itemize}[<+- | alert@+>]
+			\item $A_1$: $I(P_0) = P_{>},\ I(f_0) = f_{OFF},\ I(f_1) = f_{ON},\ I(a)=\sevensegnum{8},\ I(b)=\randsevenseg$
+			\item $A_2$: $I(P_0) = P_{>},\ I(f_0) = f_{OFF},\ I(f_1) = f_{ON}$\\
+			      Beweisidee: Wähle für bel. $X$ $Y=X$, dadurch hat $f_0(X,Y) = f_{OFF}(X,Y)=f_{OFF}(X,X) = \sevenseg{0,0,0,0,0,0,0,}$ weniger oder gleich viele Segmente eingeschaltet wie $f_1(Y,X)=f_{ON}(X,X)=X$
+			\item $A_3$: $I(P_0) = P_=,\ I(f_0) = f_{ON},\ I(a) = \sevenseg{0,0,0,0,0,0,0,}$\\
+			      Beweisidee: Von einer bel. Anzeige $X$ keine weiteren Segmente einzuschalten ergibt die gleiche Anzeige
+			\item $A_4$: $I(P_0) = P_=$\\
+			      Beweisidee: Unser $P_=$ ist kommutativ, wenn also Anzeige $X$ gleich Anzeige $Y$ ist, ist auch $Y$ gleich $X$
+		\end{itemize}
+	}
+	\only<5->{
+		\begin{itemize}[<+- | alert@+>]
+			\item $A_5$: $I(P_0) = P_=,\ I(P_1) = P_{< 7},\ I(f_0) = f_{INV}$ \\
+			      Beweisidee: Wähle für eine bel. Anzeige $X$ die Anzeige $X=f_{INV}(X)$, damit sind $X$ und $Y$ sicher ungleich und damit auch $f_{INV}(X)$ und $f_{INV}(Y)$.
+			\item $A_6$: $I(P_0) = P_=,\ I(P_1) = P_{ZAHL},\ I(f_0) = f_{COUNT}$ \\
+			      Beweisidee: Wenn Anzeige $Y$ die Anzahl der eingeschalteten Segmente in $X$ anzeigt, muss $Y$ zwangsläufig eine Zahl sein.\\
+			      Wenn nicht, ist die linke Seite der Implikation falsch
+			\item $A_7$: Nicht lösbar, da logischer Widerspruch. Es kann nicht gleichzeitig eine Aussage und die Negation der Aussgae wahr sein.
+		\end{itemize}
+	}
 \end{frame}
 }
 
