@@ -165,22 +165,22 @@
 
 {\setbeamercolor{palette primary}{bg=ExColor}
 \begin{frame}{Denkpause}
-	Finde Anzeigen $x, y$, für die die Aussage stimmt
+	Finde Anzeigen für die Variablen $X, Y$, für die die Aussage stimmt
 	\metroset{block=fill}
 	\begin{block}{Normal}
 		\begin{itemize}
-			\item $P_{\text{Zahl}}\left(f_{\text{On}}\left(\sevenseg{{0,0,0,0,0,0,0,}}, x_1\right)\right)$
-			\item $P_{\text{Zahl}}\left(f_{\text{Off}}\left(x_2, y_2\right)\right)$
-			\item $P_{\text{Zahl}}\left(f_{\text{Off}}\left(x_3, \sevenseg{{0,0,0,0,1,1,0,0,}}\right)\right) \land P_{\text{Zahl}}\left(f_{\text{On}}\left(x_3, \sevenseg{{1,0,0,1,0,0,0,}}\right)\right)$
-			\item $\lnot P_{\text{Zahl}}\left(f_{\text{On}}\left(f_{\text{On}}\left(\sevenseg{{0,0,0,0,0,0,0,}}, x_4\right), \sevenseg{{1,1,1,1,0,0,1,}}\right)\right)$
+			\item $P_{\text{Zahl}}\left(f_{\text{On}}\left(\sevenseg{{0,0,0,0,0,0,0,}}, X_1\right)\right)$
+			\item $P_{\text{Zahl}}\left(f_{\text{Off}}\left(X_2, Y_2\right)\right)$
+			\item $P_{\text{Zahl}}\left(f_{\text{Off}}\left(X_3, \sevenseg{{0,0,0,0,1,1,0,0,}}\right)\right) \land P_{\text{Zahl}}\left(f_{\text{On}}\left(X_3, \sevenseg{{1,0,0,1,0,0,0,}}\right)\right)$
+			\item $\lnot P_{\text{Zahl}}\left(f_{\text{On}}\left(f_{\text{On}}\left(\sevenseg{{0,0,0,0,0,0,0,}}, X_4\right), \sevenseg{{1,1,1,1,0,0,1,}}\right)\right)$
 		\end{itemize}
 	\end{block}
 	Beweise ob die folgenden Aussagen wahr oder falsch sind
 	\metroset{block=fill}
 	\begin{block}{Etwas schwerer}
 		\begin{itemize}
-			\item $A_5$: $\forall x : P_{\text{Zahl}}\left(f_{\text{On}}\left(x, \sevenseg{{1,1,1,1,1,1,1,1,}}\right)\right)$
-			\item $A_6$: $\forall x \exists y : P_{\text{Zahl}}\left(x\right) \implies \lnot P_{\text{Zahl}}\left(f_{\text{On}}\left(x,y\right)\right)$
+			\item $A_5$: $\forall X : P_{\text{Zahl}}\left(f_{\text{On}}\left(X, \sevenseg{{1,1,1,1,1,1,1,1,}}\right)\right)$
+			\item $A_6$: $\forall X \exists Y : P_{\text{Zahl}}\left(X\right) \implies \lnot P_{\text{Zahl}}\left(f_{\text{On}}\left(X,Y\right)\right)$
 		\end{itemize}
 	\end{block}
 \end{frame}
@@ -190,10 +190,10 @@
 \begin{frame}<handout:0>{Lösungen}
 	\textit{Für 1-4 je Beispiele, es gibt weitere Lösungen}
 	\begin{itemize}[<+- | alert@+>]
-		\item $x_1 \in \left\{\sevensegnum{0},\sevensegnum{1},\sevensegnum{2},\dots\right\}$
-		\item $x_2 = \sevensegnum{8}, y_2 = \sevenseg{{0,0,0,0,0,0,1,}}$ oder $x_2 = \sevensegnum{4}, y_2 = \sevenseg{{1,0,0,1,1,1,0,0,}}$
-		\item $x_3 = \sevenseg{{0,1,1,0,1,1,0,}}$
-		\item $x_4 = \sevenseg{{0,0,0,0,1,0,0,}}$
+		\item $X_1 \in \left\{\sevensegnum{0},\sevensegnum{1},\sevensegnum{2},\dots\right\}$
+		\item $X_2 = \sevensegnum{8}, y_2 = \sevenseg{{0,0,0,0,0,0,1,}}$ oder $X_2 = \sevensegnum{4}, y_2 = \sevenseg{{1,0,0,1,1,1,0,0,}}$
+		\item $X_3 = \sevenseg{{0,1,1,0,1,1,0,}}$
+		\item $X_4 = \sevenseg{{0,0,0,0,1,0,0,}}$
 		\item \textit{wahr}\\
 		      Beweis: Zu einer beliebigen Anzeige alle Segmente einzuschalten sorgt dafür, dass alle Segmente eingeschaltet sind,\\
 		      Alle Segmente eingeschaltet ist eine gültige Zahl ($8$)
@@ -206,7 +206,7 @@
 \begin{frame}{Rätselaufgabe}
 	Fällt euch ein Prädikat $P_{?}$ ein, für das die folgende Aussage wahr ist:
 	\Large
-	$$\forall x \in U \setminus \{\sevensegnum[]{8},\sevensegnum[]{0}\}: P_{\only<1>{?}\only<2->{\alert{\leq 6}}}(x)$$
+	$$\forall X \in U \setminus \{\sevensegnum[]{8},\sevensegnum[]{0}\}: P_{\only<1>{?}\only<2->{\alert{\leq 6}}}(X)$$
 	\pause
 	\normalsize
 	Passende Prädikate:
@@ -224,10 +224,6 @@
 		\item $P_{\text{falsch}}$ : nie wahr
 		\item ...
 	\end{itemize}
-	$$P(x) = P_{<7}$$
-	\begin{center}
-		\alert{In der Anzeige \underline{~~~} sind weniger als 7 Segmente an}
-	\end{center}
 \end{frame}
 
 \begin{frame}{Prädikatssymbole}
@@ -242,9 +238,10 @@
 	\metroset{block=fill}
 	\begin{block}{Prädikate}
 		\begin{itemize}
-			\item $P_=(X,Y):$ Die Anzeigen $X$ und $Y$ sind gleich.
 			\item $P_{Zahl}(X):$ Die Anzeige $X$ zeigt eine Zahl.
 			\item $P_<7(X):$ Die Anzeige $X$ hat maximal 6 leuchtende Segmente.
+			      \pause
+			\item $P_=(X,Y):$ Die Anzeigen $X$ und $Y$ sind gleich.
 			\item $P_>(X,Y):$ Die Anzeige $X$ hat mehr leuchtende Segmente als die Anzeige $Y$.
 		\end{itemize}
 	\end{block}
