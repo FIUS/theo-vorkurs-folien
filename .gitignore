@@ -284,3 +284,7 @@ TSWLatexianTemp*
 
 # feedback survey sty
 paperandpencil.sty
+
+
+# igore intellij
+.idea
