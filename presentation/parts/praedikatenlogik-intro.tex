@@ -30,10 +30,11 @@
 	\Huge
 	\begin{center}
 		$
-			\only<1,2>{P_{\text{ZAHL}}\left(\sevensegnum{6}\right)}
-			\only<3->{P_{\text{ZAHL}}\left(\sevenseg{{1,0,1,1,0,0,0,}}\right)}
+			\only<1,2>{P_{\text{Zahl}}\left(\sevensegnum{6}\right)}
+			\only<3->{P_{\text{Zahl}}\left(\sevenseg{1,0,1,1,0,0,0,}\right)}
 		$
 	\end{center}
+	\note{Achtet darauf das Prädikat nie eine Funktion zu nennen}
 	\normalsize
 	% todo
 	\only<1>{Wenn wir in diesen \textit{Checker} (genannt Prädikat) eine Anzeige einsetzen, haben wir eine logische Aussage}
@@ -49,7 +50,14 @@
 				};
 				\draw[->] (base) to (wahr);
 			}
+			\only<4>{
+			\vspace{2cm}
+				\node[] at (5,-1){Eigentlich ist es die Lückentext-Aussage:}; 
+				
+				\node[] at (5,-1.4){In der Anzeige \underline{~~~} kann man eine Zahl sehen.};
+			}
 		\end{tikzpicture}
+		\note{Das Verständnis was ein Prädikat wirklich ist ist wichtig!!!}
 	}
 \end{frame}
 
@@ -83,6 +91,7 @@
 
 \begin{frame}{Funktionen}
 	Wir brauchen eine Funktion, die Segmente einschaltet
+	\note{Setzt hier die Storyline fort. Sorgt dafür dass die Erstis am Ball bleiben. Prädikatenlogik wird noch ein langes Thema}
 	\Large
 	\begin{center}
 		$
@@ -93,16 +102,23 @@
 			\sevenseg[size=10mm]{1,1,1,1,1,1,1,}
 		$
 	\end{center}
+	\note{Schaut dass die Erstis hier den Unterschied zwischen Funktionen und Prädikaten ist:
+	\begin{itemize}
+		\item Prädikate: Templates für Aussagen
+		\item Funktionen: Verwandelt ein Element des Universums in ein Anders. (Das Wort Universum kennen die Erstis noch nicht)
+	\end{itemize}
+	}
 \end{frame}
 
 
 \begin{frame}{Reicht das?}
 	\begin{itemize}
-		\item<1-> $f_{\text{ON}}\left(\sevenseg{{0,0,0,1,0,0,0,}}, \only<1>{\hspace{1em}}\only{\sevenseg{{1,1,0,0,1,0,1,}}}<2->\right) = \sevensegnum{2}$
-		\item<3-> $f_{\text{ON}}\left(\sevenseg{{0,1,0,0,1,0,0,}}, \only<3>{\hspace{1em}}\only{\sevenseg{{1,0,1,1,0,1,0,}}}<4->\right) = \sevensegnum{0}$
-		\item<5-> $f_{\text{ON}}\left(\sevenseg{{1,1,0,1,1,1,1,}}, \only<5>{\hspace{1em}}\only{\textcolor{red}{X }}<6->\right) = \sevensegnum{2}$
-		\item<7-> $f_{\text{ON}}\left(\sevenseg{{1,0,1,1,0,0,0,}}, \only<7>{\hspace{1em}}\only{\sevenseg{{0,0,0,0,0,1,1,}}}<8->\right) = \sevensegnum{5}$
+		\item<1-> $f_{\text{ON}}\left(\sevenseg{0,0,0,1,0,0,0,}, \only<1>{\hspace{1em}}\only{\sevenseg{1,1,0,0,1,0,1,}}<2->\right) = \sevensegnum{2}$
+		\item<3-> $f_{\text{ON}}\left(\sevenseg{0,1,0,0,1,0,0,}, \only<3>{\hspace{1em}}\only{\sevenseg{1,0,1,1,0,1,0,}}<4->\right) = \sevensegnum{0}$
+		\item<5-> $f_{\text{ON}}\left(\sevenseg{1,1,0,1,1,1,1,}, \only<5>{\hspace{1em}}\only{\textcolor{red}{X }}<6->\right) = \sevensegnum{2}$
+		\item<7-> $f_{\text{ON}}\left(\sevenseg{1,0,1,1,0,0,0,}, \only<7>{\hspace{1em}}\only{\sevenseg{0,0,0,0,0,1,1,}}<8->\right) = \sevensegnum{5}$
 	\end{itemize}
+	\note{Nein, es reicht nicht}
 \end{frame}
 
 
@@ -110,30 +126,15 @@
 	\Large
 	\begin{center}
 		$
-			f_{\text{ON}}\left(
-			\sevenseg[size=10mm]{{1,1,1,1,1,1,1,}},
-			\sevenseg[size=10mm]{{0,1,1,1,1,1,0,}}
-			\right) =
-			\sevenseg[size=10mm]{{1,0,0,0,0,0,1,}}
-		$
-	\end{center}
-	\normalsize
-\end{frame}
-
-\begin{frame}{Mehr Funktionen}
-	\Large
-	\begin{center}
-		$
-			f_{\text{ON}}\left(
+			f_{\text{Off}}\left(
 			\sevenseg[size=10mm]{1,1,1,1,1,1,1,},
-			\sevenseg[size=10mm]{1,1,1,1,1,1,0,}
+			\sevenseg[size=10mm]{0,1,1,1,1,1,0,}
 			\right) =
-			\sevenseg[size=10mm]{0,0,0,0,0,0,1,}
+			\sevenseg[size=10mm]{1,0,0,0,0,0,1,}
 		$
 	\end{center}
 	\normalsize
 \end{frame}
-
 
 \begin{frame}{Beides Zusammen}
 	Kombiniert mit unserem \alert{Prädikt}:
@@ -152,15 +153,12 @@
 	\par
 	\pause
 	Allgemeiner:
-	$U =\left\{\sevensegnum[]{0},\sevenseg{{0,1,1,0,1,1,1,}},\sevensegnum[]{2},\sevenseg{{0,1,1,0,0,0,0,}},\sevensegnum[]{4},\sevenseg{{0,0,0,0,0,0,0,}},\sevenseg{{0,1,1,1,1,1,0,}},\sevensegnum[]{7},\sevensegnum[]{8},\sevenseg{{0,0,1,0,1,1,1,}}, \dots \right\}$
-	$$
-		\forall X\in U:\exists Y \in U: P_{ZAHL}(f_{ON}(X,Y))
-	$$
+
 	$U =\left\{\randsevenseg,\randsevenseg,\randsevenseg,\randsevenseg,\randsevenseg,\randsevenseg,\randsevenseg,\randsevenseg, \dots \right\}$
 	$$
 		\forall X\in U:\exists Y \in U: P_{ZAHL}(f_{ON}(X,Y))
 	$$
-	Das \alert{Universum} ist die Menge aller Werte, die in unsere Formel eingesetzt werden können.
+	Das \alert{Universum} $U$ ist die Menge aller Werte, die in unsere Formel eingesetzt werden können.
 \end{frame}
 
 {\setbeamercolor{palette primary}{bg=ExColor}
@@ -169,18 +167,18 @@
 	\metroset{block=fill}
 	\begin{block}{Normal}
 		\begin{itemize}
-			\item $P_{\text{ZAHL}}\left(f_{\text{ON}}\left(\sevenseg{{0,0,0,0,0,0,0,}}, X_1\right)\right)$
-			\item $P_{\text{ZAHL}}\left(f_{\text{ON}}\left(X_2, Y_2\right)\right)$
-			\item $P_{\text{ZAHL}}\left(f_{\text{ON}}\left(X_3, \sevenseg{{0,0,0,0,1,1,0,0,}}\right)\right) \land P_{\text{ZAHL}}\left(f_{\text{ON}}\left(X_3, \sevenseg{{1,0,0,1,0,0,0,}}\right)\right)$
-			\item $\lnot P_{\text{ZAHL}}\left(f_{\text{ON}}\left(f_{\text{ON}}\left(\sevenseg{{0,0,0,0,0,0,0,}}, X_4\right), \sevenseg{{1,1,1,1,0,0,1,}}\right)\right)$
+			\item $P_{\text{ZAHL}}\left(f_{\text{ON}}\left(\sevenseg{0,0,0,0,0,0,0,}, x_1\right)\right)$
+			\item $P_{\text{ZAHL}}\left(f_{\text{OFF}}\left(x_2, y_2\right)\right)$
+			\item $P_{\text{ZAHL}}\left(f_{\text{OFF}}\left(x_3, \sevenseg{0,0,0,0,1,1,0,0,}\right)\right) \land P_{\text{Zahl}}\left(f_{\text{ON}}\left(x_3, \sevenseg{1,0,0,1,0,0,0,}\right)\right)$
+			\item $\lnot P_{\text{ZAHL}}\left(f_{\text{ON}}\left(f_{\text{ON}}\left(\sevenseg{0,0,0,0,0,0,0,}, x_4\right), \sevenseg{1,1,1,1,0,0,1,}\right)\right)$
 		\end{itemize}
 	\end{block}
 	Beweise ob die folgenden Aussagen wahr oder falsch sind
 	\metroset{block=fill}
 	\begin{block}{Etwas schwerer}
 		\begin{itemize}
-			\item $A_5$: $\forall X : P_{\text{ZAHL}}\left(f_{\text{ON}}\left(X, \sevenseg{{1,1,1,1,1,1,1,1,}}\right)\right)$
-			\item $A_6$: $\forall X \exists Y : P_{\text{ZAHL}}\left(X\right) \implies \lnot P_{\text{ZAHL}}\left(f_{\text{ON}}\left(X,Y\right)\right)$
+			\item $A_5$: $\forall x : P_{\text{ZAHL}}\left(f_{\text{ON}}\left(x, \sevenseg{1,1,1,1,1,1,1,1,}\right)\right)$
+			\item $A_6$: $\forall x \exists y : P_{\text{ZAHL}}\left(x\right) \implies \lnot P_{\text{ZAHL}}\left(f_{\text{ON}}\left(x,y\right)\right)$
 		\end{itemize}
 	\end{block}
 \end{frame}
@@ -190,10 +188,10 @@
 \begin{frame}<handout:0>{Lösungen}
 	\textit{Für 1-4 je Beispiele, es gibt weitere Lösungen}
 	\begin{itemize}[<+- | alert@+>]
-		\item $X_1 \in \left\{\sevensegnum{0},\sevensegnum{1},\sevensegnum{2},\dots\right\}$
-		\item $X_2 = \sevensegnum{8}, y_2 = \sevenseg{{0,0,0,0,0,0,1,}}$ oder $X_2 = \sevensegnum{4}, y_2 = \sevenseg{{1,0,0,1,1,1,0,0,}}$
-		\item $X_3 = \sevenseg{{0,1,1,0,1,1,0,}}$
-		\item $X_4 = \sevenseg{{0,0,0,0,1,0,0,}}$
+		\item $x_1 \in \left\{\sevensegnum{0},\sevensegnum{1},\sevensegnum{2},\dots\right\}$
+		\item $x_2 = \sevensegnum{8}, y_2 = \sevenseg{0,0,0,0,0,0,1,}$ oder $x_2 = \sevensegnum{4}, y_2 = \sevenseg{1,0,0,1,1,1,0,0,}$
+		\item $x_3 = \sevenseg{0,1,1,0,1,1,0,}$
+		\item $x_4 = \sevenseg{0,0,0,0,1,0,0,}$
 		\item \textit{wahr}\\
 		      Beweis: Zu einer beliebigen Anzeige alle Segmente einzuschalten sorgt dafür, dass alle Segmente eingeschaltet sind,\\
 		      Alle Segmente eingeschaltet ist eine gültige Zahl ($8$)
@@ -332,8 +330,14 @@
 \end{frame}
 
 \begin{frame}{Beispiel}
+	\note{Dieses Beispiel erweitert das Universum immer um ein Element und geht ein paar Möglichkeiten durch das Prädikat anzuwenden.
+	Dieses Beispiel wurde aus der Ergänzung für Theo II 2018 von Carlos Carmino geklaut
+	https://fmi.uni-stuttgart.de/ti/teaching/s18/eti2/ (Termin 1)
+	}
 	\begin{center}
 		\begin{tikzpicture}[overlay]
+			\only<1>{\node[] at (0cm,-5cm){\tiny Dieses Beispiel wurde aus der Ergänzung für Theo II 2018 von Carlos Carmino geklaut
+	\url{https://fmi.uni-stuttgart.de/ti/teaching/s18/eti2/}}};
 
 			\only<3,6, 11>{
 				\node[] (a) at (-2cm, 0){\textcolor{green}{JA}};
@@ -344,11 +348,11 @@
 				\draw[->] (a) to (-2.4cm, -1cm);
 			}
 
-			\only<5,7,8,10,11>{
+			\only<3,5,7,8,10,11>{
 				\node[] (b) at (0,0) {\textcolor{green}{JA}};
 				\draw[->] (b) to (0, -1cm);
 			}
-			\only<3,6>{
+			\only<6>{
 				\node[] (b) at (0,0) {\textcolor{red}{NEIN}};
 				\draw[->] (b) to (0, -1cm);
 			}
@@ -365,7 +369,7 @@
 	\end{center}
 
 	$$
-		(\forall X \exists Y: P(X,Y)) \wedge (\forall X: \overline{P(X,X)}) \wedge (\exists X \overline{P(Y,X)})
+		(\forall X \exists Y: P(X,Y)) \wedge (\forall X: \overline{P(X,X)}) \wedge (\exists X\forall Y:\overline{P(Y,X)})
 	$$
 
 	\begin{center}
