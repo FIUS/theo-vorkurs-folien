@@ -72,33 +72,52 @@
 	\end{alertblock}
 \end{frame}
 
-
-\begin{frame}{Überblick: Mengenoperationen}
-
-	Auf \alert{Mengen} $A$, $B$ lassen sich verschiedene Mengenoperationen ausführen.
-
-	\metroset{block=fill}
-	\begin{exampleblock}{Mengenoperationen}
-		\begin{itemize}
-			\item Schnitt: $A \cap B$
-			\item Vereinigung: $A \cup B$
-			\item Komplement: $\overline{A}$
-		\end{itemize}
-	\end{exampleblock}
+\begin{frame}{Wahrheitstabellen}
+	Der Wahrheitswert einer Aussage kann in Abhängigkeit der Teilaussagen in einer Tabelle dargestellt werden:
+	\par\begin{center}
+		\begin{tabular}{c | c | c | c | c}
+			$A$        & $B$ & $A\land B$ & $A\lor B$ & $\lnot A$ \\ \hline
+			0 (falsch) & 0   & 0          & 0         & 1         \\
+			0          & 1   & 0          & 1         & 1         \\
+			1 (wahr)   & 0   & 0          & 1         & 0         \\
+			1          & 1   & 1          & 1         & 0         \\
+		\end{tabular}
+	\end{center}
 \end{frame}
 
-\begin{frame}{Überblick: Logische Operationen}
+\begin{frame}{Überblick: Mengenoperationen und logische Operatoren}
 
-	Auf \alert{Aussagen} $A$, $B$ lassen sich verschiedene logische Operationen ausführen.
+	{
+		\addtobeamertemplate{block example begin}{%
+			\setlength{\textwidth}{0.5\textwidth}%
+		}{}
+		\begin{multicols}{2}
 
-	\metroset{block=fill}
-	\begin{exampleblock}{Logische Operationen}
-		\begin{itemize}
-			\item Logisches Und: $A \wedge B$
-			\item Logisches Oder: $A \vee B$
-			\item Logisches Nicht: $\neg A$
-		\end{itemize}
-	\end{exampleblock}
+			Auf \alert{Mengen} $A$, $B$ lassen sich verschiedene Mengenoperationen ausführen.
+			\metroset{block=fill}
+			\begin{exampleblock}{Mengenoperationen}
+				\begin{itemize}
+					\item<2-|alert@2> Schnitt: $M_A \cap M_B$
+					\item<3-|alert@3> Vereinigung: $M_A \cup M_B$
+					\item<4-|alert@4> Komplement: $\overline{M_A}$
+				\end{itemize}
+			\end{exampleblock}
+			\vfill
+			Auf \alert{Aussagen} $A_1$, $A_2$ lassen sich verschiedene logische Operationen ausführen.
+			\metroset{block=fill}
+			\begin{exampleblock}{Logische Operationen}
+				\begin{itemize}
+					\item<2-|alert@2> Logisches Und: $A_1 \wedge A_2$
+					\item<3-|alert@3> Logisches Oder: $A_1 \vee A_2$
+					\item<4-|alert@4> Logisches Nicht: $\neg A_1$
+				\end{itemize}
+			\end{exampleblock}
+		\end{multicols}
+	}
+
+	\only<5->{
+		\alert{ACHTUNG:} Eine Mengenoperation kann \textbf{nicht} auf Aussagen angewandt werden und logische Operatoren \textbf{nicht} auf Mengen.
+	}
 \end{frame}
 
 {\setbeamercolor{palette primary}{bg=ExColor}
@@ -110,7 +129,6 @@
 			$C$: \{$n \in \mathbb{Z} \mid |n|=2$ \} \  & $D$: \{a,b,c,x,y\} \\
 		\end{tabular}
 	\end{table}
-	\metroset{block=fill}
 	\metroset{block=fill}
 	\begin{block}{Welche dieser Verknüpfungen sind zulässig?}
 		\begin{enumerate}
@@ -133,8 +151,6 @@
 	\end{enumerate}
 \end{frame}
 }
-
-
 
 \begin{frame}{Logische Operationen: Implikation}
 	\begin{alertblock}{$A\implies B$}
