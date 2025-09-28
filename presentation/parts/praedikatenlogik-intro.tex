@@ -274,7 +274,7 @@ $$P(x) = P_{<7}$$
 	\metroset{block=fill}
 	\begin{block}{Normal}
 		\begin{itemize}
-			\item TODO
+			\item $\overline{P_0(f_0(X,Y), f_1(Y,X))}$
 		\end{itemize}
 	\end{block}
 \end{frame}
@@ -287,8 +287,101 @@ $$P(x) = P_{<7}$$
 \end{frame}
 }
 
-\begin{frame}{Zurück zu den Zahlen}
-	Definiere ein paar Prädikate in N und co
+\begin{frame}{Ganz Generisch}
+	\begin{itemize}[<+->]
+		\item Eigentlich haben wir kein Universum, keine  Prädikate und keine Funktionen vorgegeben
+		\item Gegeben ist nur eine Prädikatenlogische Formel
+		\item Wir müssen bestimmen ob diese irgendwie erfüllbar ist
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Beispiel}
+	\begin{center}
+		\begin{tikzpicture}[overlay]
+			
+			\only<3,6, 11>{
+				\node[] (a) at (-2cm, 0){\textcolor{green}{JA}};
+				\draw[->] (a) to (-2.4cm, -1cm);
+			}
+			\only<5,7,8, 10>{
+				\node[] (a) at (-2cm, 0){\textcolor{red}{NEIN}};
+				\draw[->] (a) to (-2.4cm, -1cm);
+			}
+
+			\only<5,7,8,10,11>{
+				\node[] (b) at (0,0) {\textcolor{green}{JA}};
+				\draw[->] (b) to (0, -1cm);
+			}
+			\only<3,6>{
+				\node[] (b) at (0,0) {\textcolor{red}{NEIN}};
+				\draw[->] (b) to (0, -1cm);
+			}
+
+			\only<5,7,8,10,11>{
+				\node[] (c) at (2cm, 0) {\textcolor{green}{JA}};
+				\draw[->] (c) to (2.4cm, -1cm);
+			}
+			\only<3,6>{
+				\node[] (c) at (2cm, 0) {\textcolor{red}{NEIN}};
+				\draw[->] (c) to (2.4cm, -1cm);
+			}
+		\end{tikzpicture}
+	\end{center}
+	
+	$$
+	(\forall X \exists Y: P(X,Y)) \wedge (\forall X: \overline{P(X,X)}) \wedge (\exists X \overline{P(Y,X)})
+	$$
+	
+	\begin{center}
+		\begin{tikzpicture}[
+		base/.style={draw, circle, minimum size = .3cm}
+	]
+		\only<4->{\node[base] (n0) at (0,0){0};}
+		\only<6>{\draw[thick,->] (n0.90) arc (0:270:3mm);}
+
+		\only<7->{\node[base, below left = of n0] (n1) {1};}
+
+		\only<9->{\node[base, below right = of n0] (n2) {2};}
+		
+
+		\only<8,10,11>{\draw[thick,->] (n0) to (n1);}
+		\only<10,11>{\draw[thick,->, bend right] (n1) to (n0);}
+		\only<11>{\draw[thick,->, bend right] (n2) to (n0);}
+	\end{tikzpicture}
+
+	%
+	
+	\only<1-3>{Können wir die Formel mit dem Universum $U= \emptyset$ erfüllen?}
+	\only<4-6>{Was ist mit dem Universum, das ein Element hat. Nennen wir das Element mal $0$}
+	\only<7-8>{Lasst es uns mal mit $U= \{0,1\}$ probieren}
+	\only<9->{Lasst es uns mal mit $U= \{0,1,2\}$ probieren}
+	\end{center}
+	
+\end{frame}
+
+\begin{frame}{Formal aufschreiben}
+	\alert{Achtung:} Man muss das Ergebnis formal aufschreiben!
+
+	\begin{align*}
+		U &= \{0,1,2\}\\
+		I(P) &= \{(0,1), (1,0), (2,1)\}\\ 
+		\only<3>{I(f) &= \{0\mapsto1, 1\mapsto2, 2\mapsto0\}}
+	\end{align*}
+	
+	\begin{tikzpicture}[overlay]
+		\only<2>{
+			\node[] (a) at (7cm,3cm) {Das Universum};
+			\node[] (b) at (5,.6) {alle Kombinationen für die das Prädikat zu einer wahren Aussage wird};
+			\draw[->] (a) to (5.62cm, 2.4cm);
+			\draw[->] (b) to (5.3cm, 1.5cm);
+		}
+		\only{
+			\node[] (b) at (5,-.4) {Wenn man eine Funktion hat, wird diese so angegeben};
+			\draw[->] (b) to (5.3cm, .8cm);
+		}<3>
+	\end{tikzpicture}
+	
+
 \end{frame}
 
 {\setbeamercolor{palette primary}{bg=ExColor}
