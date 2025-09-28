@@ -30,8 +30,8 @@
 	\Huge
 	\begin{center}
 		$
-			\only<1,2>{P_{\text{Zahl}}\left(\sevensegnum{6}\right)}
-			\only<3->{P_{\text{Zahl}}\left(\sevenseg{{1,0,1,1,0,0,0,}}\right)}
+			\only<1,2>{P_{\text{ZAHL}}\left(\sevensegnum{6}\right)}
+			\only<3->{P_{\text{ZAHL}}\left(\sevenseg{{1,0,1,1,0,0,0,}}\right)}
 		$
 	\end{center}
 	\normalsize
@@ -59,10 +59,10 @@
 	\metroset{block=fill}
 	\begin{block}{Normal}
 		\begin{itemize}
-			\item $A_1$: $P_{\text{Zahl}}\left(\sevensegnum[]{7}\right)$ \only<2->{\hspace{1cm}wahr}
-			\item $A_2$: $P_{\text{Zahl}}\left(\sevenseg[]{0,1,0,0,1,0,1}\right)$ \only<3->{\hspace{1cm}falsch}
-			\item $A_3$: $P_{\text{Zahl}}\left(\sevensegnum[]{4}\right)$ \only<4->{\hspace{1cm}wahr}
-			\item $A_4$: $P_{\text{Zahl}}\left(\sevenseg[]{1,0,1,0,1,0,1}\right)$ \only<5>{\hspace{1cm}falsch}
+			\item $A_1$: $P_{\text{ZAHL}}\left(\sevensegnum[]{7}\right)$ \only<2->{\hspace{1cm}wahr}
+			\item $A_2$: $P_{\text{ZAHL}}\left(\sevenseg[]{0,1,0,0,1,0,1}\right)$ \only<3->{\hspace{1cm}falsch}
+			\item $A_3$: $P_{\text{ZAHL}}\left(\sevensegnum[]{4}\right)$ \only<4->{\hspace{1cm}wahr}
+			\item $A_4$: $P_{\text{ZAHL}}\left(\sevenseg[]{1,0,1,0,1,0,1}\right)$ \only<5>{\hspace{1cm}falsch}
 		\end{itemize}
 	\end{block}
 \end{frame}
@@ -86,7 +86,7 @@
 	\Large
 	\begin{center}
 		$
-			f_{\text{On}}\left(
+			f_{\text{ON}}\left(
 			\sevenseg[size=10mm]{1,0,0,1,0,0,1,},
 			\sevenseg[size=10mm]{0,1,1,0,1,1,0,}
 			\right) =
@@ -98,10 +98,10 @@
 
 \begin{frame}{Reicht das?}
 	\begin{itemize}
-		\item<1-> $f_{\text{On}}\left(\sevenseg{{0,0,0,1,0,0,0,}}, \only<1>{\hspace{1em}}\only{\sevenseg{{1,1,0,0,1,0,1,}}}<2->\right) = \sevensegnum{2}$
-		\item<3-> $f_{\text{On}}\left(\sevenseg{{0,1,0,0,1,0,0,}}, \only<3>{\hspace{1em}}\only{\sevenseg{{1,0,1,1,0,1,0,}}}<4->\right) = \sevensegnum{0}$
-		\item<5-> $f_{\text{On}}\left(\sevenseg{{1,1,0,1,1,1,1,}}, \only<5>{\hspace{1em}}\only{\textcolor{red}{X }}<6->\right) = \sevensegnum{2}$
-		\item<7-> $f_{\text{On}}\left(\sevenseg{{1,0,1,1,0,0,0,}}, \only<7>{\hspace{1em}}\only{\sevenseg{{0,0,0,0,0,1,1,}}}<8->\right) = \sevensegnum{5}$
+		\item<1-> $f_{\text{ON}}\left(\sevenseg{{0,0,0,1,0,0,0,}}, \only<1>{\hspace{1em}}\only{\sevenseg{{1,1,0,0,1,0,1,}}}<2->\right) = \sevensegnum{2}$
+		\item<3-> $f_{\text{ON}}\left(\sevenseg{{0,1,0,0,1,0,0,}}, \only<3>{\hspace{1em}}\only{\sevenseg{{1,0,1,1,0,1,0,}}}<4->\right) = \sevensegnum{0}$
+		\item<5-> $f_{\text{ON}}\left(\sevenseg{{1,1,0,1,1,1,1,}}, \only<5>{\hspace{1em}}\only{\textcolor{red}{X }}<6->\right) = \sevensegnum{2}$
+		\item<7-> $f_{\text{ON}}\left(\sevenseg{{1,0,1,1,0,0,0,}}, \only<7>{\hspace{1em}}\only{\sevenseg{{0,0,0,0,0,1,1,}}}<8->\right) = \sevensegnum{5}$
 	\end{itemize}
 \end{frame}
 
@@ -110,7 +110,7 @@
 	\Large
 	\begin{center}
 		$
-			f_{\text{Off}}\left(
+			f_{\text{ON}}\left(
 			\sevenseg[size=10mm]{{1,1,1,1,1,1,1,}},
 			\sevenseg[size=10mm]{{0,1,1,1,1,1,0,}}
 			\right) =
@@ -124,7 +124,7 @@
 	\Large
 	\begin{center}
 		$
-			f_{\text{Off}}\left(
+			f_{\text{ON}}\left(
 			\sevenseg[size=10mm]{1,1,1,1,1,1,1,},
 			\sevenseg[size=10mm]{1,1,1,1,1,1,0,}
 			\right) =
@@ -140,7 +140,7 @@
 	\Large
 	\begin{center}
 		$
-			P_{\text{Zahl}}\left(f_{\text{On}}\left(
+			P_{\text{ZAHL}}\left(f_{\text{ON}}\left(
 			\sevenseg[size=10mm]{1,0,0,0,0,0,0,},
 			\sevenseg[size=10mm]{0,1,1,0,0,0,0,}
 			\right)\right)
@@ -154,11 +154,11 @@
 	Allgemeiner:
 	$U =\left\{\sevensegnum[]{0},\sevenseg{{0,1,1,0,1,1,1,}},\sevensegnum[]{2},\sevenseg{{0,1,1,0,0,0,0,}},\sevensegnum[]{4},\sevenseg{{0,0,0,0,0,0,0,}},\sevenseg{{0,1,1,1,1,1,0,}},\sevensegnum[]{7},\sevensegnum[]{8},\sevenseg{{0,0,1,0,1,1,1,}}, \dots \right\}$
 	$$
-		\forall X\in U:\exists Y \in U: P_{Zahl}(f_{On}(X,Y))
+		\forall X\in U:\exists Y \in U: P_{ZAHL}(f_{ON}(X,Y))
 	$$
 	$U =\left\{\randsevenseg,\randsevenseg,\randsevenseg,\randsevenseg,\randsevenseg,\randsevenseg,\randsevenseg,\randsevenseg, \dots \right\}$
 	$$
-		\forall X\in U:\exists Y \in U: P_{Zahl}(f_{On}(X,Y))
+		\forall X\in U:\exists Y \in U: P_{ZAHL}(f_{ON}(X,Y))
 	$$
 	Das \alert{Universum} ist die Menge aller Werte, die in unsere Formel eingesetzt werden können.
 \end{frame}
@@ -169,18 +169,18 @@
 	\metroset{block=fill}
 	\begin{block}{Normal}
 		\begin{itemize}
-			\item $P_{\text{Zahl}}\left(f_{\text{On}}\left(\sevenseg{{0,0,0,0,0,0,0,}}, X_1\right)\right)$
-			\item $P_{\text{Zahl}}\left(f_{\text{Off}}\left(X_2, Y_2\right)\right)$
-			\item $P_{\text{Zahl}}\left(f_{\text{Off}}\left(X_3, \sevenseg{{0,0,0,0,1,1,0,0,}}\right)\right) \land P_{\text{Zahl}}\left(f_{\text{On}}\left(X_3, \sevenseg{{1,0,0,1,0,0,0,}}\right)\right)$
-			\item $\lnot P_{\text{Zahl}}\left(f_{\text{On}}\left(f_{\text{On}}\left(\sevenseg{{0,0,0,0,0,0,0,}}, X_4\right), \sevenseg{{1,1,1,1,0,0,1,}}\right)\right)$
+			\item $P_{\text{ZAHL}}\left(f_{\text{ON}}\left(\sevenseg{{0,0,0,0,0,0,0,}}, X_1\right)\right)$
+			\item $P_{\text{ZAHL}}\left(f_{\text{ON}}\left(X_2, Y_2\right)\right)$
+			\item $P_{\text{ZAHL}}\left(f_{\text{ON}}\left(X_3, \sevenseg{{0,0,0,0,1,1,0,0,}}\right)\right) \land P_{\text{ZAHL}}\left(f_{\text{ON}}\left(X_3, \sevenseg{{1,0,0,1,0,0,0,}}\right)\right)$
+			\item $\lnot P_{\text{ZAHL}}\left(f_{\text{ON}}\left(f_{\text{ON}}\left(\sevenseg{{0,0,0,0,0,0,0,}}, X_4\right), \sevenseg{{1,1,1,1,0,0,1,}}\right)\right)$
 		\end{itemize}
 	\end{block}
 	Beweise ob die folgenden Aussagen wahr oder falsch sind
 	\metroset{block=fill}
 	\begin{block}{Etwas schwerer}
 		\begin{itemize}
-			\item $A_5$: $\forall X : P_{\text{Zahl}}\left(f_{\text{On}}\left(X, \sevenseg{{1,1,1,1,1,1,1,1,}}\right)\right)$
-			\item $A_6$: $\forall X \exists Y : P_{\text{Zahl}}\left(X\right) \implies \lnot P_{\text{Zahl}}\left(f_{\text{On}}\left(X,Y\right)\right)$
+			\item $A_5$: $\forall X : P_{\text{ZAHL}}\left(f_{\text{ON}}\left(X, \sevenseg{{1,1,1,1,1,1,1,1,}}\right)\right)$
+			\item $A_6$: $\forall X \exists Y : P_{\text{ZAHL}}\left(X\right) \implies \lnot P_{\text{ZAHL}}\left(f_{\text{ON}}\left(X,Y\right)\right)$
 		\end{itemize}
 	\end{block}
 \end{frame}
@@ -238,11 +238,10 @@
 	\metroset{block=fill}
 	\begin{block}{Prädikate}
 		\begin{itemize}
-			\item $P_{Zahl}(X):$ Die Anzeige $X$ zeigt eine Zahl.
+			\item $P_{ZAHL}(X):$ Die Anzeige $X$ zeigt eine Zahl.
 			\item $P_<7(X):$ Die Anzeige $X$ hat maximal 6 leuchtende Segmente.
-			      \pause
-			\item $P_=(X,Y):$ Die Anzeigen $X$ und $Y$ sind gleich.
-			\item $P_>(X,Y):$ Die Anzeige $X$ hat mehr leuchtende Segmente als die Anzeige $Y$.
+			\item<2-> $P_=(X,Y):$ Die Anzeigen $X$ und $Y$ sind gleich.
+			\item<2-> $P_>(X,Y):$ Die Anzeige $X$ hat mehr leuchtende Segmente als die Anzeige $Y$.
 		\end{itemize}
 	\end{block}
 	\begin{block}{Funktionen}
@@ -250,7 +249,7 @@
 			\item $f_{ON}(X,Y):$ Schalte alle Segmente an, welche in $X$ oder $Y$ an sind.
 			\item $f_{OFF}(X,Y):$ Scahlte alle Segmente an, welche in $X$ and sind aber nicht in $Y$.
 			\item $f_{INV}(X):$ Schalte alle Segmente an, welche in $X$ aus sind.
-			\item $f_{COUNT}(X,Y):$ Zeige die Zahl an, die angibt wie viele Segmente in $X$ an sind.
+			\item $f_{COUNT}(X):$ Zeige die Zahl an, die angibt wie viele Segmente in $X$ an sind.
 		\end{itemize}
 	\end{block}
 	\begin{block}{Das Universum}
@@ -261,29 +260,29 @@
 \begin{frame}{Eine Interpretation erstellen}
 	Nun wollen wir für die folgende Prädikantelogoische Formel eine Interpretation erstellen:
 	$$
-	\forall X\exists Y: P_0(f_0(X),f_1(Y)) \wedge P_1(a)
+		\forall X\exists Y: P_0(f_0(X),f_1(Y)) \wedge P_1(a)
 	$$
 	\pause
 	\begin{columns}
 		\begin{column}{.45\textwidth}
-		\begin{itemize}[<+- | alert@+>]
-			\item $I(P_0) = P_=$
-			\item $I(f_0) = f_{COUNT}$
-			\item $I(f_1) = f_{INV}$
-			\item $I(P_1) = P_{ZAHL}$
-			\item $I(a) = \sevensegnum[]{4}$
-		\end{itemize}
+			\begin{itemize}[<+- | alert@+>]
+				\item $I(P_0) = P_=$
+				\item $I(f_0) = f_{COUNT}$
+				\item $I(f_1) = f_{INV}$
+				\item $I(P_1) = P_{ZAHL}$
+				\item $I(a) = \sevensegnum[]{4}$
+			\end{itemize}
 		\end{column}
 		\begin{column}{.45\textwidth}
-		\only<7>{
-		\begin{itemize}
-			\item $I(P_0) = P_=$
-			\item $I(f_0) = f_{COUNT}$
-			\item $I(f_1) = f_{COUNT}$
-			\item $I(P_1) = P_{<7}$
-			\item $I(a) = \sevensegnum[]{6}$
-		\end{itemize}
-		}
+			\only<7>{
+				\begin{itemize}
+					\item $I(P_0) = P_=$
+					\item $I(f_0) = f_{COUNT}$
+					\item $I(f_1) = f_{COUNT}$
+					\item $I(P_1) = P_{<7}$
+					\item $I(a) = \sevensegnum[]{6}$
+				\end{itemize}
+			}
 		\end{column}
 	\end{columns}
 \end{frame}
@@ -294,26 +293,32 @@
 	\metroset{block=fill}
 	\begin{block}{Normal}
 		\begin{itemize}
-			\item $\overline{P_0(f_0(a,b), f_1(b,a))}$
-			\item $\forall X \exists Y: \overline{P_0(f_0(X,Y), f_1(Y,X))}$
-			\item $\forall X: P_0(f_0(X,y),X)$
-			\item $\forall X,Y> P(X,Y) \implies P(Y,X)$
+			\item $A_1$: $\lnot P_0(f_0(a,b), f_1(b,a))$
+			\item $A_2$: $\forall X \exists Y: \lnot P_0(f_0(X,Y), f_1(Y,X))$
+			\item $A_3$: $\forall X: P_0(f_0(X,a),X)$
+			\item $A_4$: $\forall X,Y> P_0(X,Y) \implies P_0(Y,X)$
 		\end{itemize}
 	\end{block}
 
 	\metroset{block=fill}
 	\begin{block}{Etwas schwerer}
 		\begin{itemize}
-			\item $\forall X \exists Y: P_0(f_0(X), f_0(Y)) \implies P_0(Y)$
-			\item 
+			\item $A_5$: $\forall X \exists Y: P_0(f_0(X), f_0(Y)) \implies P_0(Y)$
+			\item
 		\end{itemize}
 	\end{block}
 \end{frame}
 
 \begin{frame}<handout:0>{Lösungen}
-	\textit{Für 1-4 je Beispiele, es gibt weitere Lösungen}
+	\textit{Jeweils Beispiele, es kann weitere Lösungen geben}
 	\begin{itemize}[<+- | alert@+>]
-		\item TODO
+		\item $A_1$: $P_0(X) = P_{>}(X)$, $f_0(X) = f_{OFF}$, $f_1(X) = f_{ON}$, $a=\sevensegnum{8}$, $b=\randsevenseg$
+		\item $A_2$: $P_0(X) = P_{>}(X)$, $f_0(X) = f_{OFF}$, $f_1(X) = f_{ON}$\\
+		      Beweisidee: Wähle für bel. $X$ $Y=X$, dadurch hat $f_0(X,Y) = f_{OFF}(X,Y)=f_{OFF}(X,X) = \sevenseg{0,0,0,0,0,0,0,}$ weniger oder gleich viele Segmente eingeschaltet wie $f_1(Y,X)=f_{ON}(X,X)=X$
+		\item $A_3$: $P_0(X) = P_=(X)$, $f_0(X,Y) = f_{ON}$, $a = \sevenseg{0,0,0,0,0,0,0,}$\\
+		      Beweisidee: Von einer bel. Anzeige $X$ keine weiteren Segmente einzuschalten ergibt die gleiche Anzeige
+		\item $A_4$: $P_0(X) = P_=(X)$\\
+		      Beweisidee: Unser $P_=$ ist kommutativ, wenn also Anzeige $X$ gleich Anzeige $Y$ ist, ist auch $Y$ gleich $X$
 	\end{itemize}
 \end{frame}
 }
@@ -394,10 +399,10 @@
 	\alert{Achtung:} Man muss das Ergebnis formal aufschreiben!
 
 	\begin{align*}
-		U &= \{0,1,2\}\\
-		I(P) &= \{(0,1), (1,0), (2,1)\}\\ 
-		\only<3->{I(f) &= \{0\mapsto1, 1\mapsto2, 2\mapsto0\}\\}
-		\only<4>{I(a) &= 0}
+		U              & = \{0,1,2\}                                                    \\
+		I(P)           & = \{(0,1), (1,0), (2,1)\}                                      \\
+		\only<3->{I(f) & = \{0\mapsto1, 1\mapsto2, 2\mapsto0\}\\}
+		\only<4>{I(a)  & = 0}
 	\end{align*}
 
 	\begin{tikzpicture}[overlay]
@@ -447,16 +452,16 @@
 	\begin{block}{}
 		\begin{multicols}{2}
 			\begin{itemize}
-			\item $F_1 = \forall X \exists Y: P_0(X,Y)$
-			\item $F_2 = \forall X: \overline{P_0(X,X)}$
-			\item $F_3 = \exists Y \forall X: \overline{P_0(X,Y)}$
-			\item $F_4 = \forall X: \overline{P_0(X,f(x))}$
-			\item {\scriptsize$F_5 = \forall X \forall Y: (P_0(X,f(Y)) \implies P_0(Y,X))$}
-			\item $F_6 = P(a, f(f(a)))$
-			\item $F_7 = \forall X (\exists Y: P_0(Y,X)\implies P_1(X))$
-			\item $F_8 = \overline{P_1(f(f(b)))}$
-			\item $F_9 = P(f(c),c)$
-		\end{itemize}
+				\item $F_1 = \forall X \exists Y: P_0(X,Y)$
+				\item $F_2 = \forall X: \overline{P_0(X,X)}$
+				\item $F_3 = \exists Y \forall X: \overline{P_0(X,Y)}$
+				\item $F_4 = \forall X: \overline{P_0(X,f(x))}$
+				\item {\scriptsize$F_5 = \forall X \forall Y: (P_0(X,f(Y)) \implies P_0(Y,X))$}
+				\item $F_6 = P(a, f(f(a)))$
+				\item $F_7 = \forall X (\exists Y: P_0(Y,X)\implies P_1(X))$
+				\item $F_8 = \overline{P_1(f(f(b)))}$
+				\item $F_9 = P(f(c),c)$
+			\end{itemize}
 		\end{multicols}
 		Gib eine Interpretation für $F = \bigwedge_{i=1}^9$ an
 	\end{block}
