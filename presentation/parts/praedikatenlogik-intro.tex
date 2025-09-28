@@ -264,25 +264,29 @@
 \begin{frame}{Eine Interpretation erstellen}
 	Nun wollen wir für die folgende Prädikantelogoische Formel eine Interpretation erstellen:
 	$$
-		\forall X\exists Y: P_0(f_0(X),f_1(Y))
+	\forall X\exists Y: P_0(f_0(X),f_1(Y)) \wedge P_1(a)
 	$$
 	\pause
 	\begin{columns}
 		\begin{column}{.45\textwidth}
-			\begin{itemize}[<+- | alert@+>]
-				\item $I(P_0) = P_=$
-				\item $I(f_0) = f_{ZAHL}$
-				\item $I(f_1) = f_{INV}$
-			\end{itemize}
+		\begin{itemize}[<+- | alert@+>]
+			\item $I(P_0) = P_=$
+			\item $I(f_0) = f_{COUNT}$
+			\item $I(f_1) = f_{INV}$
+			\item $I(P_1) = P_{ZAHL}$
+			\item $I(a) = \sevensegnum[]{4}$
+		\end{itemize}
 		\end{column}
 		\begin{column}{.45\textwidth}
-			\only<5>{
-				\begin{itemize}
-					\item $I(P_0) = P_=$
-					\item $I(f_0) = f_{ZAHL}$
-					\item $I(f_1) = f_{ZAHL}$
-				\end{itemize}
-			}
+		\only<7>{
+		\begin{itemize}
+			\item $I(P_0) = P_=$
+			\item $I(f_0) = f_{COUNT}$
+			\item $I(f_1) = f_{COUNT}$
+			\item $I(P_1) = P_{<7}$
+			\item $I(a) = \sevensegnum[]{6}$
+		\end{itemize}
+		}
 		\end{column}
 	\end{columns}
 \end{frame}
@@ -293,7 +297,18 @@
 	\metroset{block=fill}
 	\begin{block}{Normal}
 		\begin{itemize}
-			\item $\overline{P_0(f_0(X,Y), f_1(Y,X))}$
+			\item $\overline{P_0(f_0(a,b), f_1(b,a))}$
+			\item $\forall X \exists Y: \overline{P_0(f_0(X,Y), f_1(Y,X))}$
+			\item $\forall X: P_0(f_0(X,y),X)$
+			\item $\forall X,Y> P(X,Y) \implies P(Y,X)$
+		\end{itemize}
+	\end{block}
+
+	\metroset{block=fill}
+	\begin{block}{Etwas schwerer}
+		\begin{itemize}
+			\item $\forall X \exists Y: P_0(f_0(X), f_0(Y)) \implies P_0(Y)$
+			\item 
 		\end{itemize}
 	\end{block}
 \end{frame}
@@ -382,9 +397,10 @@
 	\alert{Achtung:} Man muss das Ergebnis formal aufschreiben!
 
 	\begin{align*}
-		U             & = \{0,1,2\}                            \\
-		I(P)          & = \{(0,1), (1,0), (2,1)\}              \\
-		\only<3>{I(f) & = \{0\mapsto1, 1\mapsto2, 2\mapsto0\}}
+		U &= \{0,1,2\}\\
+		I(P) &= \{(0,1), (1,0), (2,1)\}\\ 
+		\only<3->{I(f) &= \{0\mapsto1, 1\mapsto2, 2\mapsto0\}\\}
+		\only<4>{I(a) &= 0}
 	\end{align*}
 
 	\begin{tikzpicture}[overlay]
@@ -396,8 +412,14 @@
 		}
 		\only{
 			\node[] (b) at (5,-.4) {Wenn man eine Funktion hat, wird diese so angegeben};
-			\draw[->] (b) to (5.3cm, .8cm);
+			\node[] at (5,-.9) {(Haben wir im Beispiel nicht)};
+			\draw[->] (b) to (5.3cm, 1.5cm);
 		}<3>
+		\only{
+			\node[] (b) at (5,-.4) {Wenn man eine Konstante hat, wird sie so angegeben};
+			\node[] at (5,-.9) {(Haben wir im Beispiel nicht)};
+			\draw[->] (b) to (4.3cm, .8cm);
+		}<4>
 	\end{tikzpicture}
 
 
@@ -409,7 +431,7 @@
 	\metroset{block=fill}
 	\begin{block}{Normal}
 		\begin{itemize}
-			\item TODO
+			\item $\forall X: {P_0(X,f(x))}$
 		\end{itemize}
 	\end{block}
 \end{frame}
@@ -420,5 +442,26 @@
 		\item TODO
 	\end{itemize}
 
+\end{frame}
+
+\begin{frame}{Zum Knobeln}
+	\small
+	\metroset{block=fill}
+	\begin{block}{}
+		\begin{multicols}{2}
+			\begin{itemize}
+			\item $F_1 = \forall X \exists Y: P_0(X,Y)$
+			\item $F_2 = \forall X: \overline{P_0(X,X)}$
+			\item $F_3 = \exists Y \forall X: \overline{P_0(X,Y)}$
+			\item $F_4 = \forall X: \overline{P_0(X,f(x))}$
+			\item {\scriptsize$F_5 = \forall X \forall Y: (P_0(X,f(Y)) \implies P_0(Y,X))$}
+			\item $F_6 = P(a, f(f(a)))$
+			\item $F_7 = \forall X (\exists Y: P_0(Y,X)\implies P_1(X))$
+			\item $F_8 = \overline{P_1(f(f(b)))}$
+			\item $F_9 = P(f(c),c)$
+		\end{itemize}
+		\end{multicols}
+		Gib eine Interpretation für $F = \bigwedge_{i=1}^9$ an
+	\end{block}
 \end{frame}
 }
