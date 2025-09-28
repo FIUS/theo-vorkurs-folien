@@ -51,9 +51,9 @@
 				\draw[->] (base) to (wahr);
 			}
 			\only<4>{
-			\vspace{2cm}
-				\node[] at (5,-1){Eigentlich ist es die Lückentext-Aussage:}; 
-				
+				\vspace{2cm}
+				\node[] at (5,-1){Eigentlich ist es die Lückentext-Aussage:};
+
 				\node[] at (5,-1.4){In der Anzeige \underline{~~~} kann man eine Zahl sehen.};
 			}
 		\end{tikzpicture}
@@ -103,10 +103,10 @@
 		$
 	\end{center}
 	\note{Schaut dass die Erstis hier den Unterschied zwischen Funktionen und Prädikaten ist:
-	\begin{itemize}
-		\item Prädikate: Templates für Aussagen
-		\item Funktionen: Verwandelt ein Element des Universums in ein Anders. (Das Wort Universum kennen die Erstis noch nicht)
-	\end{itemize}
+		\begin{itemize}
+			\item Prädikate: Templates für Aussagen
+			\item Funktionen: Verwandelt ein Element des Universums in ein Anders. (Das Wort Universum kennen die Erstis noch nicht)
+		\end{itemize}
 	}
 \end{frame}
 
@@ -344,13 +344,15 @@
 
 \begin{frame}{Beispiel}
 	\note{Dieses Beispiel erweitert das Universum immer um ein Element und geht ein paar Möglichkeiten durch das Prädikat anzuwenden.
-	Dieses Beispiel wurde aus der Ergänzung für Theo II 2018 von Carlos Carmino geklaut
-	https://fmi.uni-stuttgart.de/ti/teaching/s18/eti2/ (Termin 1)
+		Ein Pfeil von Knoten $X$ auf $Y$ im Graphen bedeutet, dass das $P(X, Y)$ wahr ist, ein fehlender Pfeil, dasss es falsch ist.
+		\par
+		Dieses Beispiel wurde aus der Ergänzung für Theo II 2018 von Carlos Carmino geklaut
+		https://fmi.uni-stuttgart.de/ti/teaching/s18/eti2/ (Termin 1)
 	}
 	\begin{center}
 		\begin{tikzpicture}[overlay]
 			\only<1>{\node[] at (0cm,-5cm){\tiny Dieses Beispiel wurde aus der Ergänzung für Theo II 2018 von Carlos Carmino geklaut
-	\url{https://fmi.uni-stuttgart.de/ti/teaching/s18/eti2/}}};
+					\url{https://fmi.uni-stuttgart.de/ti/teaching/s18/eti2/}}};
 
 			\only<3,6, 11>{
 				\node[] (a) at (-2cm, 0){\textcolor{green}{JA}};
@@ -382,7 +384,7 @@
 	\end{center}
 
 	$$
-		(\forall X \exists Y: P(X,Y)) \wedge (\forall X: \overline{P(X,X)}) \wedge (\exists X\forall Y:\overline{P(Y,X)})
+		(\forall X \exists Y: P(X,Y)) \wedge (\forall X: \lnot P(X,X)) \wedge (\exists X \forall Y : \lnot P(Y,X))
 	$$
 
 	\begin{center}
@@ -416,10 +418,10 @@
 	\alert{Achtung:} Man muss das Ergebnis formal aufschreiben!
 
 	\begin{align*}
-		U              & = \{0,1,2\}                                                    \\
-		I(P)           & = \{(0,1), (1,0), (2,1)\}                                      \\
-		\only<3->{I(f) & = \{0\mapsto1, 1\mapsto2, 2\mapsto0\}\\}
-		\only<4>{I(a)  & = 0}
+		U                               & = \{0,1,2\}                                                     \\
+		I(P)                            & = \{(0,1), (1,0), (2,1)\}                                       \\
+		\textcolor{gray}{\only<3->{I(f) & = \{0\mapsto1, 1\mapsto2, 2\mapsto0\}\\}}
+		\only<4>{I(a)                   & = 0}
 	\end{align*}
 
 	\begin{tikzpicture}[overlay]
