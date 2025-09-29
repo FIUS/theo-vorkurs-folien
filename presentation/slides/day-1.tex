@@ -28,8 +28,10 @@
 
 \maketitle
 
-\section{Allgemeines}
 
+\metroset{sectionpage=progressbar,subsectionpage=none}
+
+\section{Allgemeines}
 \input{../parts/intro-allgemein.tex}
 
 \begin{frame}[fragile]{Übersicht}
@@ -41,30 +43,27 @@
 
 \input{../parts/intro-theo.tex}
 
+\metroset{sectionpage=none,subsectionpage=progressbar}
+
 \section{Mengen}
 \subsection{Grundlagen}
-
 \input{../parts/mengen-intro.tex}
 
-\section{Mengenschreibweise}
-
+\subsection{Mengenschreibweise}
 \input{../parts/mengen-mengenschreibweise.tex}
 
 \subsection{Mengenoperationen}
-
-
 \input{../parts/mengen-operationen.tex}
 
-\section{Aussagenlogik}
+\metroset{sectionpage=progressbar,subsectionpage=none}
 
+\section{Aussagenlogik}
 \input{../parts/logik.tex}
 
 \section{Quantoren}
-
 \input{../parts/logik-quantoren.tex}
 
 \section{Beweisen}
-
 \input{../parts/beweise-intro.tex}
 
 \section{Wiederholung}
@@ -78,14 +77,14 @@
 \end{frame}
 
 \input{../parts/wdh_slides/mengen.tex}
-
 \input{../parts/wdh_slides/aussagenlogik.tex}
-
 \input{../parts/wdh_slides/quantoren.tex}
+\input{../parts/wdh_slides/beweise-intro.tex}
 
 \Center{Noch Fragen?}
 
-\input{../parts/glossar/1-Mengen.tex}
+\input{../parts/glossar/mengen.tex}
+\input{../parts/glossar/aussagen.tex}
 
 \appendix
 \input{../parts/license-notice.tex}
