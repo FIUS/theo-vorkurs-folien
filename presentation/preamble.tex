@@ -33,8 +33,8 @@
 \usepackage{pgf}
 \makeatletter
 \@ifclasswith{beamer}{notes}{
-  \usepackage{pgfpages}
-  \setbeameroption{show notes on second screen}
+    \usepackage{pgfpages}
+    \setbeameroption{show notes on second screen}
 }{}
 \makeatother
 \usepackage{tikz}
@@ -89,16 +89,16 @@
 \newcommand{\iffspace}{\ensuremath{\iff\ }}
 
 \newcommand{\sus}[1]{%
-  \tikz{\node[scale=0.05] at (0,0) {\amongUsOriginal{#1}{cyan}}}
+    \tikz{\node[scale=0.05] at (0,0) {\amongUsOriginal{#1}{cyan}}}
 }
 
 \setbeamertemplate{footline}[text line]
 {\parbox{\linewidth}{Fachgruppe Informatik\hfill\insertpagenumber\hfill Vorkurs Theoretische Informatik\vspace{0.2in}}}
 
 \newcommand{\Center}[1]{
-  \begin{frame}<handout:0>[standout]
-    #1
-  \end{frame}
+    \begin{frame}<handout:0>[standout]
+        #1
+    \end{frame}
 }
 
 % Make subsections in toc small
@@ -108,10 +108,10 @@
 
 \AtBeginDocument{%
 
-  % Fix section pages in appendix
-  \apptocmd{\appendix}{%
-    \setbeamertemplate{section page}[simple]%
-  }{}{}
+    % Fix section pages in appendix
+    \apptocmd{\appendix}{%
+        \setbeamertemplate{section page}[simple]%
+    }{}{}
 }
 
 \addtobeamertemplate{block begin}{}{\vskip 0em}
@@ -120,9 +120,9 @@
 
 \newsavebox\tikzBox
 \newenvironment{includetikzpicture}[1]{%
-  \def\sizeArgument{#1}\begin{lrbox}{\tikzBox}\begin{tikzpicture}
-      }{%
-    \end{tikzpicture}\end{lrbox}\resizebox{\sizeArgument}{!}{\usebox\tikzBox}%
+    \def\sizeArgument{#1}\begin{lrbox}{\tikzBox}\begin{tikzpicture}
+            }{%
+        \end{tikzpicture}\end{lrbox}\resizebox{\sizeArgument}{!}{\usebox\tikzBox}%
 }
 
 \input{../config.tex}
