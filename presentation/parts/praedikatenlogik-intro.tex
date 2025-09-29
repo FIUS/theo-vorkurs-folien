@@ -20,9 +20,9 @@
 			\hspace{1em}
 			\sevenseg[size=15mm]{0,1,0,0,1,0,0,}%
 			\hspace{1em}
-			\sevenseg[size=15mm]{1,1,0,1,1,1,1,}%
+			\sevenseg[size=15mm]{1,0,0,1,0,1,0,}%
 			\hspace{1em}
-			\sevenseg[size=15mm]{1,0,1,1,0,0,0,}%
+			\sevenseg[size=15mm]{1,1,1,1,0,1,1,}%
 		\end{center}
 	\end{block}
 \end{frame}
@@ -40,19 +40,19 @@
 	\normalsize
 	% todo
 	\only<1>{Wenn wir in diesen \textit{Checker} (genannt Prädikat) eine Anzeige einsetzen, haben wir eine logische Aussage}
-	\only<2-3>{
+	\only<2->{
 		\begin{tikzpicture}[overlay]
 			\node[] at (5,.8) (base) {};
 			\node[] at (2, -.4) (wahr) {
 				\only<2>{\alert}{Wahr}, wenn eine Zahl zu sehen ist
 			};
 			\draw[->] (base) to (wahr);
-			\only<3>{\node[] at (8, -.4) (wahr) {
+			\only<3->{\node[] at (8, -.4) (wahr) {
 					\alert{Falsch}, wenn keine Zahl zu sehen ist
 				};
 				\draw[->] (base) to (wahr);
 			}
-			\only<4>{
+			\only<4->{
 				\vspace{2cm}
 				\node[] at (5,-1){Eigentlich ist es die Lückentext-Aussage:};
 
@@ -65,7 +65,7 @@
 
 {\setbeamercolor{palette primary}{bg=ExColor}
 \begin{frame}{Denkpause}
-	Sind die folgenden Aussagen wahr oder falsch
+	Sind die folgenden Aussagen wahr oder falsch?
 	\metroset{block=fill}
 	\begin{block}{Normal}
 		\begin{itemize}
@@ -85,9 +85,9 @@
 		\hspace{1em}
 		\sevenseg[size=15mm]{0,1,0,0,1,0,0,}
 		\hspace{1em}
-		\sevenseg[size=15mm]{1,1,0,1,1,1,1,}
+		\sevenseg[size=15mm]{1,0,0,1,0,1,0,}
 		\hspace{1em}
-		\sevenseg[size=15mm]{1,0,1,1,0,0,0,}
+		\sevenseg[size=15mm]{1,1,1,1,0,1,1,}
 	\end{center}
 \end{frame}
 
@@ -117,8 +117,8 @@
 	\begin{itemize}
 		\item<1-> $f_{\text{ON}}\left(\sevenseg{0,0,0,1,0,0,0,}, \only<1>{\hspace{1em}}\only{\sevenseg{1,1,0,0,1,0,1,}}<2->\right) = \sevensegnum{2}$
 		\item<3-> $f_{\text{ON}}\left(\sevenseg{0,1,0,0,1,0,0,}, \only<3>{\hspace{1em}}\only{\sevenseg{1,0,1,1,0,1,0,}}<4->\right) = \sevensegnum{0}$
-		\item<5-> $f_{\text{ON}}\left(\sevenseg{1,1,0,1,1,1,1,}, \only<5>{\hspace{1em}}\only{\textcolor{red}{X }}<6->\right) = \sevensegnum{2}$
-		\item<7-> $f_{\text{ON}}\left(\sevenseg{1,0,1,1,0,0,0,}, \only<7>{\hspace{1em}}\only{\sevenseg{0,0,0,0,0,1,1,}}<8->\right) = \sevensegnum{5}$
+		\item<5-> $f_{\text{ON}}\left(\sevenseg{1,0,0,1,0,1,0,}, \only<5>{\hspace{1em}}\only{\sevenseg{0,0,0,0,0,1,1,}}<6->\right) = \sevensegnum{2}$
+		\item<7-> $f_{\text{ON}}\left(\sevenseg{1,1,1,1,0,1,1,}, \only<7>{\hspace{1em}}\only{\textcolor{red}{X }}<8->\right) = \sevensegnum{5}$
 	\end{itemize}
 	\note{Nein, es reicht nicht}
 \end{frame}
@@ -139,7 +139,7 @@
 \end{frame}
 
 \begin{frame}{Beides Zusammen}
-	Kombiniert mit unserem \alert{Prädikt}:
+	Kombiniert mit unserem \alert{Prädikat}:
 	\Large
 	\begin{center}
 		$
@@ -169,18 +169,18 @@
 	\metroset{block=fill}
 	\begin{block}{Normal}
 		\begin{itemize}
-			\item $P_{\text{ZAHL}}\left(f_{\text{ON}}\left(\sevenseg{0,0,0,0,0,0,0,}, x_1\right)\right)$
-			\item $P_{\text{ZAHL}}\left(f_{\text{OFF}}\left(x_2, y_2\right)\right)$
-			\item $P_{\text{ZAHL}}\left(f_{\text{OFF}}\left(x_3, \sevenseg{0,0,0,0,1,1,0,0,}\right)\right) \land P_{\text{Zahl}}\left(f_{\text{ON}}\left(x_3, \sevenseg{1,0,0,1,0,0,0,}\right)\right)$
-			\item $\lnot P_{\text{ZAHL}}\left(f_{\text{ON}}\left(f_{\text{ON}}\left(\sevenseg{0,0,0,0,0,0,0,}, x_4\right), \sevenseg{1,1,1,1,0,0,1,}\right)\right)$
+			\item $P_{\text{ZAHL}}\left(f_{\text{ON}}\left(\sevenseg{0,0,0,0,0,0,0,}, X_1\right)\right)$
+			\item $P_{\text{ZAHL}}\left(f_{\text{OFF}}\left(X_2, Y_2\right)\right)$
+			\item $P_{\text{ZAHL}}\left(f_{\text{OFF}}\left(X_3, \sevenseg{0,0,0,0,1,1,0,0,}\right)\right) \land P_{\text{Zahl}}\left(f_{\text{ON}}\left(X_3, \sevenseg{1,0,0,1,0,0,0,}\right)\right)$
+			\item $\lnot P_{\text{ZAHL}}\left(f_{\text{ON}}\left(f_{\text{ON}}\left(\sevenseg{0,0,0,0,0,0,0,}, X_4\right), \sevenseg{1,1,1,1,0,0,1,}\right)\right)$
 		\end{itemize}
 	\end{block}
-	Beweise ob die folgenden Aussagen wahr oder falsch sind
+	Beweise, ob die folgenden Aussagen wahr oder falsch sind
 	\metroset{block=fill}
 	\begin{block}{Etwas schwerer}
 		\begin{itemize}
-			\item $A_5$: $\forall x : P_{\text{ZAHL}}\left(f_{\text{ON}}\left(x, \sevenseg{1,1,1,1,1,1,1,1,}\right)\right)$
-			\item $A_6$: $\forall x \exists y : P_{\text{ZAHL}}\left(x\right) \implies \lnot P_{\text{ZAHL}}\left(f_{\text{ON}}\left(x,y\right)\right)$
+			\item $A_5$: $\forall X : P_{\text{ZAHL}}\left(f_{\text{ON}}\left(X, \sevenseg{1,1,1,1,1,1,1,1,}\right)\right)$
+			\item $A_6$: $\forall X \exists y : P_{\text{ZAHL}}\left(X\right) \implies \lnot P_{\text{ZAHL}}\left(f_{\text{ON}}\left(X,Y\right)\right)$
 		\end{itemize}
 	\end{block}
 \end{frame}
@@ -205,16 +205,18 @@
 
 \begin{frame}{Rätselaufgabe}
 	Fällt euch ein Prädikat $P_{?}$ ein, für das die folgende Aussage wahr ist:
+
+	Mit $U_{80}=\left\{\sevensegnum{8},\sevensegnum{0}\right\} \subseteq U$
 	\Large
-	$$\forall X \in U \setminus \{\sevensegnum[]{8},\sevensegnum[]{0}\}: P_{\only<1>{?}\only<2->{\alert{\leq 6}}}(X)$$
+	$$\forall X \in U_{80}: P_{\only<1>{?}\only<2->{\alert{\geq 6}}}(X)$$
 	\pause
 	\normalsize
 	Passende Prädikate:
 	\begin{itemize}
-		\item $P_{\leq 6}$ : wahr, wenn mindestens 6 Segmente eingeschaltet sind
+		\item $P_{\geq 6}$ : wahr, wenn mindestens 6 Segmente eingeschaltet sind
 		      \pause
 		\item $P_{\text{rahmen-an}}$ : wahr, wenn alle äußeren Segmente eingeschaltet sind
-		\item $P_{\text{wahr}}$ immer wahr
+		\item $P_{\text{wahr}}$ :  immer wahr
 		\item ...
 	\end{itemize}
 	\pause
@@ -228,8 +230,8 @@
 
 \begin{frame}{Prädikatssymbole}
 	\begin{itemize}[<+- | alert@+>]
-		\item Prädikatenlogische Formeln haben ihre Preädikate und Funktionen nicht unbedingt festgelegt
-		\item Sie können auch aus Prädikatenymbolen und Formelsymbolen bestehen
+		\item Prädikatenlogische Formeln haben ihre Prädikate und Funktionen nicht unbedingt festgelegt
+		\item Sie können auch aus Prädikatymbolen und Funkionssymbole bestehen
 		\item Unsere Aufgabe ist dann sie zu interpretieren
 	\end{itemize}
 \end{frame}
@@ -248,8 +250,8 @@
 		\begin{itemize}
 			\item $f_{ON}(X,Y):$ Schalte alle Segmente an, welche in $X$ oder $Y$ an sind.
 			\item $f_{OFF}(X,Y):$ Schalte alle Segmente an, welche in $X$ and sind aber nicht in $Y$.
-			\item $f_{INV}(X):$ Schalte alle Segmente an, welche in $X$ aus sind.
-			\item $f_{COUNT}(X):$ Zeige die Zahl an, die angibt wie viele Segmente in $X$ an sind.
+			\item<3-> $f_{INV}(X):$ Schalte alle Segmente an, welche in $X$ aus sind.
+			\item<3-> $f_{COUNT}(X):$ Zeige die Zahl an, die angibt wie viele Segmente in $X$ an sind.
 		\end{itemize}
 	\end{block}
 	\begin{block}{Das Universum}
@@ -296,7 +298,7 @@
 			\item $A_1$: $\lnot P_0(f_0(a,b), f_1(b,a))$
 			\item $A_2$: $\forall X \exists Y: \lnot P_0(f_0(X,Y), f_1(Y,X))$
 			\item $A_3$: $\forall X: P_0(f_0(X,a),X)$
-			\item $A_4$: $\forall X,Y> P_0(X,Y) \implies P_0(Y,X)$
+			\item $A_4$: $\forall X,Y: P_0(X,Y) \implies P_0(Y,X)$
 		\end{itemize}
 	\end{block}
 
@@ -305,7 +307,7 @@
 		\begin{itemize}
 			\item $A_5$: $\forall X \exists Y: P_0(f_0(X), f_0(Y)) \implies P_1(Y)$
 			\item $A_6$: $\forall X, Y: P_0(f_0(X), Y) \implies P_1(Y)$
-			\item $A_7$: $\left(\forall X : P_0(X,X) \lor P_0(X,f_0(a))\right) \land \left(\forall Y : \lnot P_0(X,f_0(a)) \land P_1(X,X) \right)$
+			\item $A_7$: $\left(\forall X : P_0(X,X) \lor P_0(X,f_0(a))\right) \land \left(\forall Y : \lnot P_0(X,f_0(a)) \land \lnot P_1(X,X) \right)$
 		\end{itemize}
 	\end{block}
 \end{frame}
