@@ -22,7 +22,18 @@
 \usepackage[ngerman]{babel}
 \usepackage[utf8]{inputenc}
 %\usepackage{t1enc}
-\usepackage[T1]{fontenc}
+\usepackage{iftex}
+
+\ifLuaTeX
+    \usepackage{fontspec}
+\else
+    \ifxetex
+        \usepackage{fontspec}
+    \else
+        \usepackage[T1]{fontenc}
+    \fi
+\fi
+
 \usepackage[sfdefault,scaled=.85,lf]{FiraSans}
 \usepackage{newtxsf}
 
@@ -69,10 +80,12 @@
 \usepackage{multicol}
 \usepackage{outlines}
 
+\input{../parts/theme-2025-preamble.tex}
 
 \newcommand\daynr{0}
 
 \definecolor{ExColor}{HTML}{17819b}
+\definecolor{Bluecreen}{HTML}{0873aa}
 
 \newcommand{\emptyWord}{\varepsilon}
 \let \emptyset\varnothing

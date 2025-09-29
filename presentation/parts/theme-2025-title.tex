@@ -1,0 +1,62 @@
+\setbeamertemplate{title page}{
+    \begin{minipage}[b][\paperheight]{\textwidth}
+        \vspace{2em}
+        \fontspec{Segoe UI}
+        {
+            \makeatletter
+            \color{white}
+            {\fontsize{40}{50}\selectfont
+                :)
+            }
+            \par
+            \vspace{1em}
+            Your Studiengang ran into a problem and needs to be restructured.
+            We're working on a \textbf{\inserttitle} for you.
+            \par
+            \vspace{.5em}
+            \the\day .\the\month .\the\year\% complete
+            % \ifx\inserttitle\@empty
+            % \else\usebeamertemplate*{title}
+            % \fi
+            % \ifx\insertsubtitle\@empty
+            % \else\usebeamertemplate*{subtitle}
+            % \fi
+            % \usebeamertemplate*{title separator}
+            % \ifx\beamer@shortauthor\@empty
+            % \else\usebeamertemplate*{author}
+            % \fi
+            % \ifx\insertdate\@empty
+            % \else\usebeamertemplate*{date}
+            % \fi
+            % \ifx\insertinstitute\@empty
+            % \else\usebeamertemplate*{institute}
+            % \fi
+            \par
+            \vspace{2.5cm}
+            \insertsubtitle
+            \vfill
+            \footnotesize
+            \insertauthor\ \textemdash\ \insertinstitute
+            \vspace{2em}
+            \makeatother
+        }
+        \ifx\inserttitlegraphic\@empty
+            \else{%
+                \begin{tikzpicture}[remember picture,overlay]
+                    \node[xshift=-10.5cm,yshift=-5cm] at (current page.north east){%
+                        \colorbox{white}{
+                            \only<1|handout:0>{
+                                \qrcode[height=4em,padding]{\handouturl{\daynr}}
+                            }
+                        }};
+                    \node[xshift=-8cm,yshift=-4.2cm] at (current page.north east){%
+                        \small
+                        \color{white}
+                        Aktuelle Folien
+                    };
+                \end{tikzpicture}
+
+            }
+        \fi
+    \end{minipage}
+}
