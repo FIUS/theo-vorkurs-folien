@@ -1,7 +1,7 @@
 \setbeamertemplate{title page}{
     \begin{minipage}[b][\paperheight]{\textwidth}
         \vspace{2em}
-        \fontspec{Segoe UI}
+        \IfFontExistsTF{Segoe UI}{\fontspec{Segoe UI}}{}
         {
             \makeatletter
             \color{white}
