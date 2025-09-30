@@ -15,6 +15,20 @@
 % You should have received a copy of the GNU General Public License
 % along with theo-vorkurs-folien.  If not, see <https://www.gnu.org/licenses/>.
 
+\begin{frame}[fragile]{Reminder: Äquivalente Schreibweisen von Mengenoperationen}
+    Oft benötigen wir eine Aussagenlogische Äquivalente Bedingung von Mengenoperationen. \emph{Dafür nehmen wir mal die Obermenge $\mathbb{N}$}
+    \metroset{block=fill}
+    \begin{block}{Operationen}
+        \begin{itemize}
+            \item\textbf{Teilmenge}: $A$ $\subseteq$ $B$ $\leadsto$ $\forall x \in \mathbb{N} : x \in A \implies x \in B$\\
+            \item \textbf{Vereinigung}: $A$ $\cup$ $B$ $\leadsto$ $\forall x \in \mathbb{N} : x \in A \cup B \iff x \in A \vee x \in B$\\
+            \item \textbf{Schnitt}: $A$ $\cap$ $B$ $\leadsto$ $\forall x \in \mathbb{N} : x \in A \cap B \iff x \in A \wedge x \in B$\\
+            \item \textbf{Komplement}: $\overline{A}$ $\leadsto$ $\forall x \in \mathbb{N} : x \in \overline{A} \iff x \notin A$
+        \end{itemize}
+    \end{block}
+
+\end{frame}
+
 \begin{frame}{Einfacher Einstieg}
     \onslide
     Zu zeigen: Schnitt ist kommutativ, d.h. $A \cap B = B \cap A$
