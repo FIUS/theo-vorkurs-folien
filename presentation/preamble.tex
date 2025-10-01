@@ -115,6 +115,14 @@
     \end{frame}
 }
 
+\newcommand{\cleft}[2][.]{%
+    \begingroup\colorlet{savedleftcolor}{.}%
+    \color{#1}\left#2\color{savedleftcolor}%
+}
+\newcommand{\cright}[2][.]{%
+    \color{#1}\right#2\endgroup
+}
+
 % Make subsections in toc small
 \makeatletter
 \setbeamertemplate{subsection in toc}{\small\leftskip=2em\inserttocsubsection\par}
