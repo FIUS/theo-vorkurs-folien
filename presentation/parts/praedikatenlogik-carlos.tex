@@ -118,25 +118,74 @@
     \metroset{block=fill}
     \begin{block}{Normal}
         \begin{itemize}
-            \item $\forall x: {P_0(x,f(x))}$
-            \item $\forall x\ \forall y : P_1(x,y)\land \forall x : \lnot P_1(a_2,x)$ mit $a_2$ Konstante
-            \item $\forall x : \left(P_2(x,f(x))\land P_3(f(x),x)\right)$ mit $U=\mathbb{N}$ %Lösung: f: Nachfolge, P: <, Q: >
-            \item $\forall x\ \forall y\ \forall z : \left(\left(P_4(x,y) \land P_4(y,z)\right)\implies P_4(x,z)\right) \land \forall x\ \forall y : \left(\lnot P_4(x,y) \lor \lnot P_4(y,x)\right) \land \forall y\ P_4(a_4, y)$ mit $a_4$ Konstante
+            \item $\forall x: {P_1(x,f_1(x))}$
+            \item $\forall x\ \forall y : P_2(x,y)\land \forall x : \lnot P_2(a_2,x)$ mit $a_2$ Konstante
+            \item $\forall x : \left(P_{3a}(x,f_3(x))\land P_{3b}(f_3(x),x)\right)$ mit $U=\mathbb{N}$ %Lösung: f: Nachfolge, P: <, Q: >
         \end{itemize}
     \end{block}
     \begin{block}{Schwer}
         \begin{itemize}
-            \item $\left(\forall X\ \exists\ Y \forall\ Z \in U\setminus\{y\} : P_5(X,Y)\land\lnot P_5(X,Y)\right) \land \left(\forall X,Y\ \exists Z_0,\dots,Z_n : P_5(X,Z_0) \land \left(\bigwedge_{i=0}^{n-1} P_5(Z_i,Z_{i+1})\right) \land P_5(Z_n,Y)\right)$
+            \item $\left( \forall x\ \forall y\ \forall z : \left(P_4(x,y) \land P_4(y,z)\right)\implies P_4(x,z)\right) \land
+                      \left( \forall x\ \forall y : P_4(x,y) \implies P_4(y,x) \right) \land
+                      \left( \forall x : \lnot P_4(a_4, y) \land \lnot P_4(y, a_4) \right)$
+                  mit $a_4$ Konstante
+            \item $\left(\forall x\ \exists\ y \forall\ z \in U\setminus\{y\} : P_5(x,y)\land\lnot P_5(x,z)\right) \land
+                      \left(\forall x,y\ \exists z_0,\dots,z_n : P_5(x,z_0) \land \left(\bigwedge_{i=0}^{n-1} P_5(z_i,z_{i+1})\right) \land P_5(z_n,y)\right)$
         \end{itemize}
     \end{block}
 \end{frame}
 
 \begin{frame}<handout:0>{Lösungen}
-    \textit{Für 1-4 je Beispiele, es gibt weitere Lösungen}
+    \textit{Je Beispiele, es gibt weitere Lösungen}
     \begin{itemize}[<+- | alert@+>]
-        \item TODO
+        \item $U=\{0\}$ \only<1>{\\}\only<2->{; }
+              $I_1(P_1) = \{(0,0)\}$ \only<1>{\\}
+              $I_2(f_1) = \{0\mapsto 0\}$
+        \item Es gibt keine Interpretation, die die Aussage erfüllt, da $P_2$ für jede $x,y$ Kombination wahr sein soll aber trotzdem Kombinationen mit einem $a_2$ geben soll für die $P_2$ falsch ist.
+        \item $U=\mathbb{N}$ (geg.) \only<3>{\\}\only<4->{; }
+              $I_3(P_{3a}) = \{(a,b)\mid a < b\}$ \only<3>{\\}\only<4->{; }
+              $I_3(P_{3b}) = \{(a,b)\mid a > b\}$ \only<3>{\\}\only<4->{; }
+              $I_3(f_3) = \{n\mapsto n+1 \mid n\in \mathbb{N}\}$
+        \item $U=\text{Menge aller Aussagen}$ \only<4>{\\}\only<5->{; }
+              $I(P_4)=\{(a,b)\mid a \land b ist wahr\}$ \only<4>{\\}\only<5->{; }
+              $I(a_4): \text{falsch}$
     \end{itemize}
 
+\end{frame}
+
+\begin{frame}<handout:0>{Lösungen}
+    \textit{Je Beispiele, es gibt weitere Lösungen}
+    \par
+    \begin{tikzpicture}[
+            base/.style={draw, circle, minimum size = .3cm}
+        ]
+        \node[base] (n0) at (0,0){0};
+        \node[base, right = of n0] (n1) {1};
+        \only<1>{
+            \draw[thick,->,bend right] (n0) to (n1);
+            \draw[thick,->,bend right] (n1) to (n0);
+        }
+
+        \only<2>{
+            \node[base, below = of n1] (n2) {2};
+            \node[base, below = of n0] (n3) {3};
+
+
+            \draw[thick,->] (n0) to (n1);
+            \draw[thick,->] (n1) to (n2);
+            \draw[thick,->] (n2) to (n3);
+            \draw[thick,->] (n3) to (n0);
+        }
+    \end{tikzpicture}
+    \par
+    \only<1>{
+        $U=\{0,1\}$\\
+        $I_3(P_5) = \{(0,1),(1,0)\}$
+    }
+    \only<2>{
+        $U=\{0,1,2,3\}$\\
+        $I_3(P_5) = \{(0,1),(1,2),(2,3),(3,0)\}$
+    }
 \end{frame}
 
 \begin{frame}{Zum Knobeln}
