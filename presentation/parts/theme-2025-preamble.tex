@@ -1,0 +1,94 @@
+% \IfFontExistsTF{Segoe UI}{%
+%     \usefonttheme{professionalfonts}
+%     \defaultfontfeatures{Scale = MatchLowercase}
+%     \setsansfont{Consolas}[
+%         Scale = 1.0,
+%         BoldFont = Consolas ,
+%         BoldItalicFont = Consolas ]
+%     \ifLuaTeX
+% }{
+% }
+% \else
+% \ifxelatex
+%     \IfFontExistsTF{Segoe UI}{%
+%         \usefonttheme{professionalfonts}
+%         \defaultfontfeatures{Scale = MatchLowercase}
+%         \setsansfont{Consolas}[
+%             Scale = 1.0,
+%             BoldFont = Segoe UI Semibold ,
+%             BoldItalicFont = Segoe UI Semibold Italic ]
+%     }{
+%     }
+% \fi
+
+\definecolor{Bluecreen}{HTML}{0873aa}
+
+\makeatletter
+\setlength{\metropolis@progressonsectionpage@linewidth}{1.1em}
+\setlength{\metropolis@titleseparator@linewidth}{1.1em}
+\setlength{\metropolis@progressinheadfoot@linewidth}{2pt}
+\makeatother
+
+\setbeamercolor{progress bar}{%
+    fg=Bluecreen,
+    bg=Bluecreen!70!black!45
+}
+
+\makeatletter
+
+\newlength{\metropolis@progressonsblocky@blockwidth}%
+\newlength{\metropolis@progressonsblocky@blockborder}%
+\newlength{\metropolis@progressonsblocky}%
+\newlength{\metropolis@progressonsblocky@linewidth}%
+\newlength{\metropolis@progressonsblocky@textwidth}%
+\setlength{\metropolis@progressonsblocky@textwidth}{\textwidth}%
+\setlength{\metropolis@progressonsblocky@blockborder}{1pt}%
+
+\newcommand{\metropolis@progressonsblocky@render}[1]{%
+    \setlength{\metropolis@progressonsblocky}{%
+        \metropolis@progressonsblocky@textwidth * \ratio{\insertframenumber pt}{\inserttotalframenumber pt}%
+    }%
+    \setlength{\metropolis@progressonsblocky@blockwidth}{%
+        0.05\metropolis@progressonsblocky@textwidth - 0.05\metropolis@progressonsblocky@blockborder%
+    }%
+    \begin{tikzpicture}
+        \fill[bg] (0,-\metropolis@progressonsblocky@blockborder) rectangle (\metropolis@progressonsblocky@textwidth, \metropolis@progressonsblocky@linewidth + \metropolis@progressonsblocky@blockborder);
+        %\fill[fg] (0,0) rectangle (\metropolis@progressonsblocky, \metropolis@progressonsblocky@linewidth);
+
+        \foreach \i in {1,...,20} {%
+                \pgfmathparse{\insertframenumber*100/\inserttotalframenumber >= \i*100/20 ? 1 : 0}
+                \ifthenelse {\pgfmathresult>0}
+                {%
+                    \pgfmathparse{\i*0.05-0.005}
+                    \fill[fg] (\i*\metropolis@progressonsblocky@blockwidth, 0) rectangle ++ (-\metropolis@progressonsblocky@blockwidth + \metropolis@progressonsblocky@blockborder, \metropolis@progressonsblocky@linewidth);
+                }
+                {}% otherwise do nothing
+            }
+
+        %\ifthenelse{\equal{#1}{1}}{%
+        \node[color=white] at (0.5\metropolis@progressonsblocky@textwidth, 0.5\metropolis@progressonsblocky@linewidth) {\textnormal{%
+                \fontsize{0.85\metropolis@progressonsblocky@linewidth}{\metropolis@progressonsblocky@linewidth}\selectfont%
+                reloading
+                \pgfmathparse{\insertframenumber*100/\inserttotalframenumber}%
+                \pgfmathprintnumber[fixed,precision=2]{\pgfmathresult}\,\% complete...%
+            }%
+        };%
+        %}{} %
+
+    \end{tikzpicture}%
+}
+
+% Custom blocky progress bar on section pages
+\setbeamertemplate{progress bar in section page}{%
+    \setlength{\metropolis@progressonsblocky@linewidth}{\metropolis@progressonsectionpage@linewidth}%
+    \setlength{\metropolis@progressonsblocky@textwidth}{\textwidth}%
+    \vspace{0.5\metropolis@progressonsblocky@linewidth}%
+    \metropolis@progressonsblocky@render{1}%
+}
+
+\setbeamertemplate{title separator}{%
+    \setlength{\metropolis@progressonsblocky@linewidth}{\metropolis@titleseparator@linewidth}%
+    \setlength{\metropolis@progressonsblocky@textwidth}{\textwidth}%
+    \metropolis@progressonsblocky@render{1}%
+}
+\makeatother

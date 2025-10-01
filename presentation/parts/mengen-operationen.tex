@@ -16,56 +16,56 @@
 % along with theo-vorkurs-folien.  If not, see <https://www.gnu.org/licenses/>.
 
 \begin{frame}{Mengenoperationen - Schnitt}
-\begin{columns}
-\column{0.5\textwidth}
-    \begin{alertblock}{Schnitt - $A\cap B$}
-    Gegeben zwei Mengen A und B.\\
-    In der Schnittmenge liegt alles, das in Menge A \textbf{und} in Menge B ist.
-    \end{alertblock}
-\column{0.5\textwidth}
-\begin{figure}
-    \centering
-    \includegraphics[width=0.7\textwidth]{../figures/AundB.png}
-    \caption{Veranschaulichung der Schnittmenge}
-    \label{fig:my_label}
-\end{figure}
-\end{columns}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{alertblock}{Schnitt - $A\cap B$}
+            Gegeben zwei Mengen A und B.\\
+            In der Schnittmenge liegt alles, das in Menge A \textbf{und} in Menge B ist.
+        \end{alertblock}
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=0.7\textwidth]{../figures/AundB.png}
+            \caption{Veranschaulichung der Schnittmenge}
+            \label{fig:my_label}
+        \end{figure}
+    \end{columns}
 \end{frame}
 
 \begin{frame}{Mengenoperationen - Vereinigung}
-\begin{columns}
-\column{0.5\textwidth}
-    \begin{alertblock}{Vereinigung - $A\cup B$}
-    Gegeben zwei Mengen A und B.\\
-    In der Vereinigung liegt alles, das nur in A, nur in B \textbf{oder} in beiden Mengen liegt.
-    \end{alertblock}
-\column{0.5\textwidth}
-\begin{figure}
-    \centering
-    \includegraphics[width=0.7\textwidth]{../figures/AoderB.png}
-    \caption{Veranschaulichung der Vereinigung}
-    \label{fig:my_label}
-\end{figure}
-\end{columns}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{alertblock}{Vereinigung - $A\cup B$}
+            Gegeben zwei Mengen A und B.\\
+            In der Vereinigung liegt alles, das nur in A, nur in B \textbf{oder} in beiden Mengen liegt.
+        \end{alertblock}
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=0.7\textwidth]{../figures/AoderB.png}
+            \caption{Veranschaulichung der Vereinigung}
+            \label{fig:my_label}
+        \end{figure}
+    \end{columns}
 \end{frame}
 
 \begin{frame}{Mengenoperationen - Komplement}
     \begin{columns}
-\column{0.5\textwidth}
-    \begin{alertblock}{Komplement - $\overline{A}$}
-    Gegeben sei eine Menge A.\\
-    Im Komplement der Menge A liegen alle Elemente, die in der Obermenge (z.B. $\mathbb{N}$), aber nicht in der Menge A selbst liegen.
-    \end{alertblock}
-\column{0.5\textwidth}
-\begin{figure}
-    \centering
-    \input{../figures/tikz/Komplement.tex}
-    \caption{Veranschaulichung des Komplements}
-    \label{fig:komplement}
-\end{figure}
-\end{columns}
-\onslide<2>{\alert{\emph{Anmerkung:}} Kann auch geschrieben werden als $\mathbb{N}\setminus A$. \\
-\hspace{2cm}(gesprochen $\mathbb{N}$ \emph{\glqq ohne\grqq} $A$)}
+        \column{0.5\textwidth}
+        \begin{alertblock}{Komplement - $\overline{A}$}
+            Gegeben sei eine Menge A.\\
+            Im Komplement der Menge A liegen alle Elemente, die in der Obermenge (z.B. $\mathbb{N}$), aber nicht in der Menge A selbst liegen.
+        \end{alertblock}
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \input{../figures/tikz/Komplement.tex}
+            \caption{Veranschaulichung des Komplements}
+            \label{fig:komplement}
+        \end{figure}
+    \end{columns}
+    \onslide<2>{\alert{\emph{Anmerkung:}} Kann auch geschrieben werden als $\mathbb{N}\setminus A$. \\
+        \hspace{2cm}(gesprochen $\mathbb{N}$ \emph{\glqq ohne\grqq} $A$)}
 \end{frame}
 
 {\setbeamercolor{palette primary}{bg=ExColor}
@@ -77,10 +77,10 @@
             \item $M_1 = \{1\}\cup \{2\}$
             \item $M_2 = \{\} \cap \{-1, 0, 1\}$
             \item $M_3 = \mathbb{N} \cup \mathbb{Z}$
-            \item $M_4 = \overline{\{3^{n}\mid n \ \text{ist gerade}\} }$
+            \item $M_4 = \overline{\{3^{n}\mid n \ \text{ist gerade}\} }$ über $\{3^{n}\mid n \in \mathbb{N}\}$
         \end{itemize}
     \end{alertblock}
-        \begin{alertblock}{Schwer bis sehr schwer}
+    \begin{alertblock}{Schwer bis sehr schwer}
         \begin{itemize}
             \item $M_5 = \{1, 2, 3\} \cap  \{1, \{2, 3\}\}$
             \item $M_6 = \{u \mid |u| \equiv 0 \pmod 2, u \in \mathbb{N}\}$\\\hspace{0.65cm}$\cup$ $\{v \mid |v| \equiv 0 \pmod 4, v \in \mathbb{N}\}$
@@ -90,22 +90,22 @@
 \end{frame}
 
 \begin{frame}<handout:0>{Lösungen}
-  \begin{itemize}[<+- | alert@+>]
-        \item 
-            $M_1 = \{1, 2\}$
+    \begin{itemize}[<+- | alert@+>]
         \item
-            $M_2 = \emptyset$
+              $M_1 = \{1, 2\}$
         \item
-            $M_3 = \mathbb{Z}$
+              $M_2 = \emptyset$
         \item
-            $M_4 = \{3^{n} \mid$ n ist ungerade$\}$ 
+              $M_3 = \mathbb{Z}$
         \item
-            $M_5 = \{1\}$
+              $M_4 = \{3^{n} \mid$ n ist ungerade$\}$
         \item
-            $M_6 = \{u \mid |u| \equiv 0 \pmod 2, u \in \mathbb{N}\}$
+              $M_5 = \{1\}$
         \item
-            $M_7 = \mathbb{N} \setminus \{9^n, 16^n \mid n \in \mathbb N\}$\\
-            \hspace{0.44cm}$ = \mathbb{N} \setminus \{3^{2n}, 4^{2n} \mid n \in \mathbb N\}$
+              $M_6 = \{u \mid |u| \equiv 0 \pmod 2, u \in \mathbb{N}\}$
+        \item
+              $M_7 = \mathbb{N} \setminus \{9^n, 16^n \mid n \in \mathbb N\}$\\
+              \hspace{0.44cm}$ = \mathbb{N} \setminus \{3^{2n}, 4^{2n} \mid n \in \mathbb N\}$
     \end{itemize}
 \end{frame}
 }

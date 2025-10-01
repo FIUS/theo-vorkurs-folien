@@ -19,11 +19,16 @@
     Ein weiterer Mengenbeweis...
     \metroset{block=fill}
     \begin{block}{\alert{Aufgabe}}
-    $L_1=\{w^{n} \mid n \in \mathbb{N}, w \in \{aaaa\}\}$\\
-    $L_2=\{w \mid |w| \equiv 0 \pmod 4, w \in \{a\}^*\}$\\
-    Zu zeigen:
-    $L_1 = L_2$\\
-    d.h. $(\forall x: x \in L_1 \implies x \in L_2) \wedge (\forall x: x \in L_2 \implies x \in L_1)$
+
+        $M_1=\{6m \mid m \in \mathbb{N}\}$\\
+        $M_2=\{2n \mid n \in \mathbb{N}\}$\\
+        Zu zeigen:\\
+        $M_1 \subsetneq M_2$\\
+        d.h. $(\forall x: x \in M_1 \implies x \in M_2) \wedge (\exists x: x \in M_2 \land x \notin M_1)$
+
+
+
+
     \end{block}
 
 \end{frame}
@@ -31,121 +36,101 @@
 \begin{frame}{Weiterer Mengenbeweis}
     \metroset{block=fill}
     \only<1|handout:1>{
-    \begin{block}{\alert{$\forall x: x \in L_1 \implies x \in L_2$}}
-    Sei $x$ beliebig.\\
-    Angenommen, $x \in L_1$.\\
-    Es gilt: $w \in \{aaaa\}$. Damit gilt $|w|=4$. Es folgt $|x| = |w^{n}| = |w| \cdot n = 4 \cdot n$ mit $n \in \mathbb{N}$. Daraus folgt $|x| \equiv 0 \pmod 4$. Weiterhin gilt $(aaaa)^n \in \{a\}^*$.\\
-    $\leadsto x \in L_2$
-    \end{block}
+        \begin{block}{\alert{$\forall x: x \in M_1 \implies x \in M_2$}}
+            Sei $x$ beliebig.\\
+            Angenommen, $x \in M_1$.\\
+            Es gilt: $x = 6m = 2 \cdot 3 \cdot m = 2 \cdot (3m)$\\
+            Da $m \in \mathbb{N}$, setze $n=3m$\\
+            Daraus folgt: $x = 2n$\\
+            $\leadsto x \in M_2$
+        \end{block}
     }
     \only<2|handout:1>{
-    \begin{block}{\alert{$\forall x: x \in L_2 \implies x \in L_1$}}
-    Sei $x$ beliebig.\\
-    Angenommen, $x \in L_2$.\\
-    Es gilt: $|x| \equiv 0 \pmod 4$. \\ Damit gilt $|x| = 4 \cdot n = |w| \cdot n = |w^n|$ mit $w \in\{aaaa\}$ und $n \in \mathbb{N}$. \\ Weiterhin gilt $w \in \{a\}^*$. \\
-    $\leadsto x \in L_1$
-    \end{block}
+        \begin{block}{\alert{$\exists x: x \in M_2 \land x \notin M_1$}}
+            Beweis durch Angabe eines Gegenbeispiels: $x=2$\\
+            $x \in M_2$, für $n=1$, da $x=2 \cdot 1 \in M_2$,\\
+            \vspace{0.3cm}
+            aber $6m=2$ mit $m=\frac{2}{6}=\frac{1}{3} \notin \mathbb{N}$\\
+            $\leadsto x \notin M_1$
+        \end{block}
     }
     \only<3|handout:2>{
-    Da gezeigt wurde:\\
-    \vspace{0.3cm}
-    $\forall x: x \in L_1 \implies x \in L_2$\\
-    \alert{und}\\
-    $\forall x: x \in L_2 \implies x \in L_1$\\
-    \vspace{0.3cm}
-    \textbf{gilt $L_1 = L_2$.}
+        Da gezeigt wurde:\\
+        \vspace{0.3cm}
+        $\forall x: x \in M_1 \implies x \in M_2$\\
+        \alert{und}\\
+        $\exists x: x \in M_2 \land x \notin M_1$\\
+        \vspace{0.3cm}
+        \textbf{gilt $M_1 \subsetneq M_2$.}
     }
 \end{frame}
 
 {\setbeamercolor{palette primary}{bg=ExColor}
 \begin{frame}[fragile]{Denkpause}
-    \begin{alertblock}{Aufgaben}
-    Versuche dich an folgenden Mengenbeweisen.
+    \begin{alertblock}{Aufgabe}
+        Versuche dich an folgendem Mengenbeweis.
     \end{alertblock}
-    
+
     \metroset{block=fill}
     \begin{block}{Etwas Schwerer}
-        $L_1=\{a^{n}b^{m} \mid n<m \; \text{mit} \; n,m\in \mathbb{N}\}$\\
-    $L_2=\{w \mid |w|_a < |w|_b, w \in \{a,b\}^*\}$\\
+        $M_1=\{l \in \mathbb{Z}\mid$ l ist gerade\}\\
+        $M_2=\{n \in \mathbb{Z}\mid$ n ist durch 3 teilbar\}\\
+        $M_3=\{m \in \mathbb{Z}\mid$ m ist durch 6 teilbar\}\\
+        Zu zeigen: $M_1 \cap M_2 = M_3$\\
+        d.h. $(\forall x: x \in M_1 \cap M_2 \Rightarrow x \in M_3) \land (\forall x: x \in M_3 \Rightarrow x \in M_1 \cap M_2)$
+    \end{block}
+
+\end{frame}
+}
+
+{\setbeamercolor{palette primary}{bg=ExColor}
+\begin{frame}<handout:0>[fragile]{Lösung}
+    \begin{alertblock}{Aufgaben}
+        Schritt 1: Zu zeigen: $\forall x: x \in M_1 \cap M_2 \Rightarrow x \in M_3$
+    \end{alertblock}
+
+    Sei x beliebig.\\
+    Angenommen, $x \in M_1 \cap M_2$\\
+    Dann ist x gerade $\Rightarrow$ $x= 2k$ für $k \in \mathbb{Z}$\\
+    Außerdem durch 3 teilbar $\Rightarrow$ $x= 3m$ für $m \in \mathbb{Z}$\\
+    $\Rightarrow$ da x ein Vielfaches von 2 und 3 ist folgt: $\exists l \in \mathbb{Z}$, sodass $x=2\cdot 3 \cdot l = 6l$\\
+    $\leadsto x \in M_3$
+
+
+
+\end{frame}
+}
+{\setbeamercolor{palette primary}{bg=ExColor}
+\begin{frame}<handout:0>[fragile]{Lösung}
+    \begin{alertblock}{Aufgaben}
+        Schritt 2: Zu zeigen: $\forall x: x \in M_3 \Rightarrow x \in M_1 \cap M_2$\\
+    \end{alertblock}
+
+    Sei x beliebig.\\
+    Angenommen, $x \in M_3$\\
+    Dann ist $x = 6k$ für $k \in \mathbb{Z}$\\
+    Da $x = 2 \cdot (3k)$, ist x gerade\\
+    Da $x= 3 \cdot (2k)$, ist x durch 3 teilbar\\
+    $\leadsto x \in M_1 \cap M_2$
+
+
+
+\end{frame}
+}
+
+{\setbeamercolor{palette primary}{bg=ExColor}
+\begin{frame}<handout:0>[fragile]{Lösung}
+
+
+    Da gezeigt wurde:\\
     \vspace{0.3cm}
-    Zu zeigen: $L_1 \subsetneq L_2$
-    \end{block}
-    \metroset{block=fill}
-    \begin{block}{Schwer}
-        $L_1 = \{a^nb^n \mid n \in \mathbb{N}\}$\\
-        $L_2 = \{w \in \{a, b\}^* \mid |w|_a = |w|_b\}$\\
-        $L_3 = \{a^kb^l \mid k,l \in \mathbb{N}\}$\\
-        \vspace{0.3cm}
-        Zu zeigen: $L_1 = L_2 \cap L_3$
-    \end{block}
+    $\forall x: x \in M_1 \cap M_2 \Rightarrow x \in M_3$\\
+    \alert{und}\\
+    $\forall x: x \in M_3 \Rightarrow x \in M_1 \cap M_2$\\
+    \vspace{0.3cm}
+    \textbf{gilt $M_1 \cap M_2 = M_3$.}
+
+
 \end{frame}
 }
 
-{\setbeamercolor{palette primary}{bg=ExColor}
-\begin{frame}<handout:0>[fragile]{Lösung}
-    \begin{alertblock}{Aufgaben}
-    Z.z. $L_1 \subsetneq L_2$\\
-    d.h. $(\forall x: x \in L_1 \implies x \in L_2) \wedge (L_1 \neq L_2)$
-    \end{alertblock}
-    
-    \begin{columns}
-    \column{0.6\textwidth}
-    \metroset{block=fill}
-    \begin{alertblock}{$\forall x: x \in L_1 \implies x \in L_2$}
-        Sei x beliebig. Ang. $x \in L_1$.\\
-        Es gilt: $x=a^{n}b^{m}$ mit $n,m\in\mathbb{N}$.\\
-        Damit gilt $|x|_a=n$ und $|x|_b=m$ mit $n<m$.\\
-        Also auch $|x|_a < |x|_b$.\\
-        $\leadsto x \in L_2$.
-    \end{alertblock}
-    
-    \column{0.4\textwidth}
-    \metroset{block=fill}
-    \begin{alertblock}{$L_1 \neq L_2$}
-        Beweis durch Angabe eines Gegenbeispiels:\\
-        $bba \in L_2$, aber $bba \notin L_1$\\
-        Also sind $L_1$ und $L_2$ nicht gleich.
-    \end{alertblock}
-    \end{columns}
-    \qed
-\end{frame}
-}
-
-{\setbeamercolor{palette primary}{bg=ExColor}
-\begin{frame}<handout:0>[fragile]{Lösung}
-    \begin{alertblock}{Aufgaben}
-        Z.z. $L_1 = L_2 \cap L_3$\\
-        d.h. $\forall w \in \{a,b\}^*: w \in L_1 \iff w \in L_2 \wedge w \in L_3$
-    \end{alertblock}
-    \only<1-4>{
-        \metroset{block=fill}
-        \begin{alertblock}{\glqq$\implies$\grqq}
-            \begin{enumerate}
-                \item<1-4> Sei $w \in L_1$ beliebig.
-                \item<2-4> Dann existiert ein $n \in \mathbb{N}$ so, dass $w = a^nb^n$
-                \item<3-4> Insbesondere gilt:
-                \begin{enumerate}
-                    \item[i)] $|w|_a = |w|_b$
-                    \item[ii)] $w = a^kb^l$ mit $k := n =: l$
-                \end{enumerate}
-                \item<4> Folglich ist also $w \in L_2$ und $w \in L_3$.
-            \end{enumerate}
-        \end{alertblock}
-    }
-    \only<5->{
-        \metroset{block=fill}
-        \begin{alertblock}{\glqq$\impliedby$\grqq}
-            \begin{enumerate}
-                \item<5-> Sei $w \in L_2 \cap L_3$ beliebig.
-                \item<6->  Dann gilt:
-                \begin{enumerate}
-                    \item[i)] $n := |w|_a = |w|_b$
-                    \item[ii)] $w = a^kb^l$ für $k, l \in \mathbb{N}$
-                \end{enumerate}
-                \item<7->  Und somit $w = a^{|w|_a}b^{|w|_b} = a^nb^n$.
-                \item<8->  Folglich ist $w \in L_1$
-            \end{enumerate}
-        \end{alertblock}
-    }
-\end{frame}
-}

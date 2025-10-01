@@ -72,33 +72,52 @@
 	\end{alertblock}
 \end{frame}
 
-
-\begin{frame}{Überblick: Mengenoperationen}
-
-	Auf \alert{Mengen} $A$, $B$ lassen sich verschiedene Mengenoperationen ausführen.
-
-	\metroset{block=fill}
-	\begin{exampleblock}{Mengenoperationen}
-		\begin{itemize}
-			\item Schnitt: $A \cap B$
-			\item Vereinigung: $A \cup B$
-			\item Komplement: $\overline{A}$
-		\end{itemize}
-	\end{exampleblock}
+\begin{frame}{Wahrheitstabellen}
+	Der Wahrheitswert einer Aussage kann in Abhängigkeit der Teilaussagen in einer Tabelle dargestellt werden:
+	\par\begin{center}
+		\begin{tabular}{c | c | c | c | c}
+			$A$        & $B$ & $A\land B$ & $A\lor B$ & $\lnot A$ \\ \hline
+			0 (falsch) & 0   & 0          & 0         & 1         \\
+			0          & 1   & 0          & 1         & 1         \\
+			1 (wahr)   & 0   & 0          & 1         & 0         \\
+			1          & 1   & 1          & 1         & 0         \\
+		\end{tabular}
+	\end{center}
 \end{frame}
 
-\begin{frame}{Überblick: Logische Operationen}
+\begin{frame}{Überblick: Mengenoperationen und logische Operatoren}
 
-	Auf \alert{Aussagen} $A$, $B$ lassen sich verschiedene logische Operationen ausführen.
+	{
+		\addtobeamertemplate{block example begin}{%
+			\setlength{\textwidth}{0.5\textwidth}%
+		}{}
+		\begin{multicols}{2}
 
-	\metroset{block=fill}
-	\begin{exampleblock}{Logische Operationen}
-		\begin{itemize}
-			\item Logisches Und: $A \wedge B$
-			\item Logisches Oder: $A \vee B$
-			\item Logisches Nicht: $\neg A$
-		\end{itemize}
-	\end{exampleblock}
+			Auf \alert{Mengen} $M_1$, $M_2$ lassen sich verschiedene Mengenoperationen ausführen.
+			\metroset{block=fill}
+			\begin{exampleblock}{Mengenoperationen}
+				\begin{itemize}
+					\item<2-|alert@2> Schnitt: $M_1 \cap M_2$
+					\item<3-|alert@3> Vereinigung: $M_1 \cup M_2$
+					\item<4-|alert@4> Komplement: $\overline{M_1}$
+				\end{itemize}
+			\end{exampleblock}
+			\vfill
+			Auf \alert{Aussagen} $A_1$, $A_2$ lassen sich verschiedene logische Operationen ausführen.
+			\metroset{block=fill}
+			\begin{exampleblock}{Logische Operationen}
+				\begin{itemize}
+					\item<2-|alert@2> Logisches Und: $A_1 \wedge A_2$
+					\item<3-|alert@3> Logisches Oder: $A_1 \vee A_2$
+					\item<4-|alert@4> Logisches Nicht: $\neg A_1$
+				\end{itemize}
+			\end{exampleblock}
+		\end{multicols}
+	}
+
+	\only<5->{
+		\alert{ACHTUNG:} Eine Mengenoperation kann \textbf{nicht} auf Aussagen angewandt werden und logische Operatoren \textbf{nicht} auf Mengen.
+	}
 \end{frame}
 
 {\setbeamercolor{palette primary}{bg=ExColor}
@@ -110,7 +129,6 @@
 			$C$: \{$n \in \mathbb{Z} \mid |n|=2$ \} \  & $D$: \{a,b,c,x,y\} \\
 		\end{tabular}
 	\end{table}
-	\metroset{block=fill}
 	\metroset{block=fill}
 	\begin{block}{Welche dieser Verknüpfungen sind zulässig?}
 		\begin{enumerate}
@@ -134,9 +152,8 @@
 \end{frame}
 }
 
-
-
 \begin{frame}{Logische Operationen: Implikation}
+	\note{Ggf. hilfreich Wahrheitstabelle für Kontraposition an die Tafel zu malen}
 	\begin{alertblock}{$A\implies B$}
 		\begin{itemize}
 			\item \glqq Wenn $A$ wahr ist, dann muss auch $B$ wahr sein.\grqq
@@ -246,8 +263,8 @@
 	\end{block}
 	\begin{block}{Etwas Schwerer}
 		\begin{itemize}
-			\item $A_4$: $(\emptyset=\emptyset^{*}) \implies (a \in \emptyset)$
-			\item $A_5$: $(a \notin \emptyset) \implies (\emptyset = \emptyset^{*})$
+			\item $A_4$: $(\emptyset\neq \{\}) \implies (a \in \emptyset)$
+			\item $A_5$: $(a \notin \emptyset) \implies (\emptyset = \{0\})$
 			\item $A_6$: $A_4 \iff A_5$
 			\item $A_7$: $(7 \in \{1, 2, 7, 9\}) \cap (2 = 7-5)$
 			\item $A_8$: Wenn Hamster Paule eine Nuss sieht,\\
@@ -323,7 +340,7 @@
 			\item<2-> Wir nehmen an, dass die linke Aussage wahr ist\dots
 			\item<3-> \dots und zeigen, dass dann die rechte Aussage gilt.
 			\item<4-> $(3 = x - 2) \implies (3 + 2 = x) \implies (5 = x) \implies (x = 5)$
-			\item<5-> Also folgt die rechte Aussage aus der Linken.
+			\item<5-> Also folgt die rechte Aussage aus der linken.
 			\item<6-> Somit gilt die Implikation. \qed\;
 		\end{enumerate}
 	\end{exampleblock}

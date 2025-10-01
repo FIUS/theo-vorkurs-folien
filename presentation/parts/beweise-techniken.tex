@@ -86,12 +86,14 @@
 		\metroset{block=fill}
 		\begin{exampleblock}{Beispiel}
 			Z. z. $\sqrt{2}$ ist irrational.
+
+			\note{Es muss $q \in \mathbb{Z} \setminus \{0\}$ sein, weil wir in der Umformung mit $q^2$ multiplizieren; sonst würde mit $0$ multipliziert}
 			\begin{enumerate}
 				\item<1-|handout:1> \alert<1|handout:0>{Ang. $\sqrt{2}$ ist rational.}
-				\item<2-|handout:1> \alert<2|handout:0>{Dann $\exists p, q \in \mathbb{Z} : \sqrt{2} = \frac{p}{q}$} $\wedge$ \alert<3,11|handout:0>{$p, q$ sind teilerfremd}
+				\item<2-|handout:1> \alert<2|handout:0>{Dann $\exists p \in \mathbb{Z} \ q \in \mathbb{Z} \setminus \{0\} : \sqrt{2} = \frac{p}{q}$} $\wedge$ \alert<3,11|handout:0>{$p, q$ sind teilerfremd}
 				      \only<2,3|handout:0>{\alert<2>{{\\\emph{Anmerkung:}}} $r\in\mathbb{Q}\iff\exists p,q\in\mathbb{Z}:r=\frac{p}{q}$.}
 				      \only<2,3|handout:0>{\alert<3>{{\\\emph{Anmerkung:}}} $\frac{p}{q}$ kann man immer soweit kürzen, dass $p,q$ teilerfremd sind.}
-				\item<4-|handout:1> \only<4|handout:0>{Quadrieren und Umformen:\\}$\leadsto(\sqrt{2})^2 = (\frac{p}{q})^2 \iff 2 = \frac{p^2}{q^2} \iff \alert<5,8|handout:0>{2q^2=p^2}$
+				\item<4-|handout:1> \only<4|handout:0>{Quadrieren und Umformen:\\}$\leadsto(\sqrt{2})^2 = (\frac{p}{q})^2 \implies 2 = \frac{p^2}{q^2} \iff \alert<5,8|handout:0>{2q^2=p^2}$
 				\item<5-|handout:1> \alert<5|handout:0>{$\leadsto p^2$ ist gerade} \alert<6,10|handout:0>{$\leadsto p$ ist gerade}\only<5,6|handout:0>{\alert<5>{{\\\emph{Erinnerung:}}} $\forall n\in\mathbb{Z}:n$ gerade $\iff\exists k\in\mathbb{Z}:2k=n$.}\only<5,6|handout:0>{\alert<6>{{\\\emph{Erinnerung:}}} $\forall n\in\mathbb{N}$: $n^2$ gerade $\implies n$ gerade \\\qquad\qquad\quad(siehe Beispiel Kontraposition)}
 				\item<7-|handout:1> \alert<7|handout:0>{Also ist $p^2$ durch 4 teilbar} \alert<8|handout:0>{$\leadsto 2q^2$ ist durch 4 teilbar}\only<7|handout:0>{\\\alert<7|handout:0>{\emph{Herleitung:}} $p^2=p\cdot p\overset{\text{p gerade}}{=\joinrel=\joinrel=\joinrel=}(2k)\cdot(2k)=\alert<7>{4}k^2,$ mit $k\in\mathbb{Z}$}
 				\item<9-|handout:1> $\leadsto q^2$ ist gerade \alert<10|handout:0>{$\leadsto q$ ist gerade}
