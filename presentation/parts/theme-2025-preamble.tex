@@ -24,11 +24,48 @@
 \definecolor{Bluecreen}{HTML}{0873aa}
 
 \makeatletter
-\setlength{\metropolis@progressonsectionpage@linewidth}{5pt}
+\setlength{\metropolis@progressonsectionpage@linewidth}{1.1em}
 \setlength{\metropolis@progressinheadfoot@linewidth}{2pt}
 \makeatother
 
 \setbeamercolor{progress bar}{%
     fg=Bluecreen,
-    bg=Bluecreen!50!black!45
+    bg=Bluecreen!70!black!45
 }
+
+\makeatletter
+\newlength{\metropolis@progressonsectionpage@blockwidth}%
+\newlength{\metropolis@progressonsectionpage@blockborder}%
+\setlength{\metropolis@progressonsectionpage@blockborder}{1pt}%
+\setbeamertemplate{progress bar in section page}{
+    \vspace{0.5\metropolis@progressonsectionpage@linewidth}
+    \setlength{\metropolis@progressonsectionpage}{%
+        \textwidth * \ratio{\insertframenumber pt}{\inserttotalframenumber pt}%
+    }%
+    \setlength{\metropolis@progressonsectionpage@blockwidth}{%
+        0.05\textwidth - 0.05\metropolis@progressonsectionpage@blockborder
+    }%
+    \begin{tikzpicture}
+        \fill[bg] (0,-\metropolis@progressonsectionpage@blockborder) rectangle (\textwidth, \metropolis@progressonsectionpage@linewidth + \metropolis@progressonsectionpage@blockborder);
+        %\fill[fg] (0,0) rectangle (\metropolis@progressonsectionpage, \metropolis@progressonsectionpage@linewidth);
+
+        \foreach \i in {1,...,20} {%
+                \pgfmathparse{\insertframenumber*100/\inserttotalframenumber >= \i*100/20 ? 1 : 0}
+                \ifthenelse {\pgfmathresult>0}
+                {%
+                    \pgfmathparse{\i*0.05-0.005}
+                    \fill[fg] (\i*\metropolis@progressonsectionpage@blockwidth, 0) rectangle ++ (-\metropolis@progressonsectionpage@blockwidth + \metropolis@progressonsectionpage@blockborder, \metropolis@progressonsectionpage@linewidth);
+                }
+                {\node at (\i,0) {\i};}% otherwise do nothing
+            }
+
+        \node[color=white] at (0.5\textwidth, 0.5\metropolis@progressonsectionpage@linewidth) {\textnormal{%
+                \fontsize{0.85\metropolis@progressonsectionpage@linewidth}{\metropolis@progressonsectionpage@linewidth}\selectfont loading
+                \pgfmathparse{\insertframenumber*100/\inserttotalframenumber}%
+                \pgfmathprintnumber[fixed,precision=2]{\pgfmathresult}\,\% complete...%
+            }%
+        };
+
+    \end{tikzpicture}%
+}
+\makeatother
