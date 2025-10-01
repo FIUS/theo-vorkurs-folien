@@ -21,10 +21,10 @@
     \begin{block}{\alert{Aufgabe}}
 
         $M_1=\{6m \mid m \in \mathbb{N}\}$\\
-        $M_1=\{2n \mid n \in \mathbb{N}\}$\\
+        $M_2=\{2n \mid n \in \mathbb{N}\}$\\
         Zu zeigen:\\
-        $M_1 \subsetneq M_1$\\
-        d.h. $(\forall x: x \in M_1 \implies x \in M_1) \wedge (\exists x: x \in M_1 \land x \notin M_1)$
+        $M_1 \subsetneq M_2$\\
+        d.h. $(\forall x: x \in M_1 \implies x \in M_2) \wedge (\exists x: x \in M_1 \land x \notin M_2)$
 
 
 
@@ -42,13 +42,13 @@
             Es gilt: $x = 6m = 2 \cdot 3 \cdot m = 2 \cdot (3m)$\\
             Da $m \in \mathbb{N}$, setze $n=3m$\\
             Daraus folgt: $x = 2n$\\
-            $\leadsto x \in M_1$
+            $\leadsto x \in M_2$
         \end{block}
     }
     \only<2|handout:1>{
-        \begin{block}{\alert{$\exists x: x \in M_1 \land x \notin M_1$}}
+        \begin{block}{\alert{$\exists x: x \in M_2 \land x \notin M_1$}}
             Beweis durch Angabe eines Gegenbeispiels: $x=2$\\
-            $x \in M_1$, für $n=1$, da $x=2 \cdot 1 \in M_1$,\\
+            $x \in M21$, für $n=1$, da $x=2 \cdot 1 \in M_2$,\\
             \vspace{0.3cm}
             aber $6m=2$ mit $m=\frac{2}{6}=\frac{1}{3} \notin \mathbb{N}$\\
             $\leadsto x \notin M_1$
@@ -57,11 +57,11 @@
     \only<3|handout:2>{
         Da gezeigt wurde:\\
         \vspace{0.3cm}
-        $\forall x: x \in M_1 \implies x \in M_1$\\
+        $\forall x: x \in M_1 \implies x \in M_2$\\
         \alert{und}\\
-        $\exists x: x \in M_1 \land x \notin M_1$\\
+        $\exists x: x \in M_2 \land x \notin M_1$\\
         \vspace{0.3cm}
-        \textbf{gilt $M_1 \subsetneq M_1$.}
+        \textbf{gilt $M_1 \subsetneq M_2$.}
     }
 \end{frame}
 
@@ -74,10 +74,10 @@
     \metroset{block=fill}
     \begin{block}{Etwas Schwerer}
         $M_1=\{l \in \mathbb{Z}\mid$ l ist gerade\}\\
-        $M_1=\{n \in \mathbb{Z}\mid$ n ist durch 3 teilbar\}\\
+        $M_2=\{n \in \mathbb{Z}\mid$ n ist durch 3 teilbar\}\\
         $M_3=\{m \in \mathbb{Z}\mid$ m ist durch 6 teilbar\}\\
-        Zu zeigen: $M_1 \cap M_1 = M_3$\\
-        d.h. $(\forall x: x \in M_1 \cap M_1 \Rightarrow x \in M_3) \land (\forall x: x \in M_3 \Rightarrow x \in M_1 \cap M_1)$
+        Zu zeigen: $M_1 \cap M_2 = M_3$\\
+        d.h. $(\forall x: x \in M_1 \cap M_2 \Rightarrow x \in M_3) \land (\forall x: x \in M_3 \Rightarrow x \in M_1 \cap M_2)$
     \end{block}
 
 \end{frame}
@@ -86,11 +86,11 @@
 {\setbeamercolor{palette primary}{bg=ExColor}
 \begin{frame}<handout:0>[fragile]{Lösung}
     \begin{alertblock}{Aufgaben}
-        Schritt 1: Zu zeigen: $\forall x: x \in M_1 \cap M_1 \Rightarrow x \in M_3$
+        Schritt 1: Zu zeigen: $\forall x: x \in M_1 \cap M_2 \Rightarrow x \in M_3$
     \end{alertblock}
 
     Sei x beliebig.\\
-    Angenommen, $x \in M_1 \cap M_1$\\
+    Angenommen, $x \in M_1 \cap M_2$\\
     Dann ist x gerade $\Rightarrow$ $x= 2k$ für $k \in \mathbb{Z}$\\
     Außerdem durch 3 teilbar $\Rightarrow$ $x= 3m$ für $m \in \mathbb{Z}$\\
     $\Rightarrow$ da x ein Vielfaches von 2 und 3 ist folgt: $\exists l \in \mathbb{Z}$, sodass $x=2\cdot 3 \cdot l = 6l$\\
@@ -103,7 +103,7 @@
 {\setbeamercolor{palette primary}{bg=ExColor}
 \begin{frame}<handout:0>[fragile]{Lösung}
     \begin{alertblock}{Aufgaben}
-        Schritt 2: Zu zeigen: $\forall x: x \in M_3 \Rightarrow x \in M_1 \cap M_1$\\
+        Schritt 2: Zu zeigen: $\forall x: x \in M_3 \Rightarrow x \in M_1 \cap M_2$\\
     \end{alertblock}
 
     Sei x beliebig.\\
@@ -111,7 +111,7 @@
     Dann ist $x = 6k$ für $k \in \mathbb{Z}$\\
     Da $x = 2 \cdot (3k)$, ist x gerade\\
     Da $x= 3 \cdot (2k)$, ist x durch 3 teilbar\\
-    $\leadsto x \in M_1 \cap M_1$
+    $\leadsto x \in M_1 \cap M_2$
 
 
 
@@ -124,11 +124,11 @@
 
     Da gezeigt wurde:\\
     \vspace{0.3cm}
-    $\forall x: x \in M_1 \cap M_1 \Rightarrow x \in M_3$\\
+    $\forall x: x \in M_1 \cap M_2 \Rightarrow x \in M_3$\\
     \alert{und}\\
-    $\forall x: x \in M_3 \Rightarrow x \in M_1 \cap M_1$\\
+    $\forall x: x \in M_3 \Rightarrow x \in M_1 \cap M_2$\\
     \vspace{0.3cm}
-    \textbf{gilt $M_1 \cap M_1 = M_3$.}
+    \textbf{gilt $M_1 \cap M_2 = M_3$.}
 
 
 \end{frame}
