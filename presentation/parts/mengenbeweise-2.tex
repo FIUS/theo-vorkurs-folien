@@ -24,7 +24,7 @@
         $M_2=\{2n \mid n \in \mathbb{N}\}$\\
         Zu zeigen:\\
         $M_1 \subsetneq M_2$\\
-        d.h. $(\forall x: x \in M_1 \implies x \in M_2) \wedge (\exists x: x \in M_1 \land x \notin M_2)$
+        d.h. $(\forall x: x \in M_1 \implies x \in M_2) \wedge (\exists x: x \in M_2 \land x \notin M_1)$
 
 
 
@@ -36,7 +36,7 @@
 \begin{frame}{Weiterer Mengenbeweis}
     \metroset{block=fill}
     \only<1|handout:1>{
-        \begin{block}{\alert{$\forall x: x \in M_1 \implies x \in M_1$}}
+        \begin{block}{\alert{$\forall x: x \in M_1 \implies x \in M_2$}}
             Sei $x$ beliebig.\\
             Angenommen, $x \in M_1$.\\
             Es gilt: $x = 6m = 2 \cdot 3 \cdot m = 2 \cdot (3m)$\\
@@ -48,7 +48,7 @@
     \only<2|handout:1>{
         \begin{block}{\alert{$\exists x: x \in M_2 \land x \notin M_1$}}
             Beweis durch Angabe eines Gegenbeispiels: $x=2$\\
-            $x \in M21$, für $n=1$, da $x=2 \cdot 1 \in M_2$,\\
+            $x \in M_2$, für $n=1$, da $x=2 \cdot 1 \in M_2$,\\
             \vspace{0.3cm}
             aber $6m=2$ mit $m=\frac{2}{6}=\frac{1}{3} \notin \mathbb{N}$\\
             $\leadsto x \notin M_1$
