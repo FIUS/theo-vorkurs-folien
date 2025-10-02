@@ -10,7 +10,7 @@
 
 \begin{frame}{Beispiel}
 	\note{Dieses Beispiel erweitert das Universum immer um ein Element und geht ein paar Möglichkeiten durch das Prädikat anzuwenden.
-		Ein Pfeil von Knoten $X$ auf $Y$ im Graphen bedeutet, dass das $P(X, Y)$ wahr ist, ein fehlender Pfeil, dasss es falsch ist.
+		Ein Pfeil von Knoten $x$ auf $y$ im Graphen bedeutet, dass das $P(x, y)$ wahr ist, ein fehlender Pfeil, dasss es falsch ist.
 		\par
 		Dieses Beispiel wurde aus der Ergänzung für Theo II 2018 von Carlos Carmino übernommen
 		https://fmi.uni-stuttgart.de/ti/teaching/s18/eti2/ (Termin 1)
@@ -47,7 +47,7 @@
 	\end{center}
 
 	$$
-		(\forall X \exists Y: P(X,Y)) \wedge (\forall X: \lnot P(X,X)) \wedge (\exists X \forall Y : \lnot P(Y,X))
+		(\forall x \exists y: P(x,y)) \wedge (\forall x: \lnot P(x,x)) \wedge (\exists x \forall y : \lnot P(y,x))
 	$$
 
 	\begin{center}
@@ -117,7 +117,8 @@
 	\begin{block}{Normal}
 		\begin{itemize}
 			\item $\forall x: {P_1(x,f_1(x))}$
-			\item $\forall x\ \forall y : P_2(x,y)\land \forall x : \lnot P_2(a_2,x)$ mit $a_2$ Konstante
+			\item $\cleft[cyan](\forall x\ \forall y : P_2(x,y)\cright[cyan])
+				      \land \cleft[cyan](\forall x : \lnot P_2(a_2,x)\cright[cyan])$ mit $a_2$ Konstante
 			\item $\forall x : \left(P_{3a}(x,f_3(x))\land P_{3b}(f_3(x),x)\right)$ mit $U=\mathbb{N}$ %Lösung: f: Nachfolge, P: <, Q: >
 		\end{itemize}
 	\end{block}
@@ -144,13 +145,15 @@
 				      \cright[cyan])
 				      \land
 				      \cleft[cyan](
-				      \forall x,y\ \exists z_0,\dots,z_n : P_5(x,z_0) \land \cleft[green](
-				      \bigwedge_{i=0}^{n-1} P_5(z_i,z_{i+1})
+				      \forall x,y\ \exists n\in \mathbb{N} \exists z_0,\dots,z_{n-1} : P_5(x,z_0) \land
+				      \cleft[green](
+				      \bigwedge_{i=0}^{n-2} P_5(z_i,z_{i+1})
 				      \cright[green])
-				      \land P_5(z_n,y)
+				      \land P_5(z_{n-1},y)
 				      \cright[cyan])$
 		\end{itemize}
 	\end{block}
+	\alert{Anmerkung:} $\mathbb{N}^+ = \mathbb{N} \setminus \{0\}$
 \end{frame}
 
 \begin{frame}<handout:0>{Lösungen}
@@ -174,27 +177,46 @@
 \begin{frame}<handout:0>{Lösungen}
 	\textit{Je Beispiele, es gibt weitere Lösungen}
 	\par
-	\begin{tikzpicture}[
-			base/.style={draw, circle, minimum size = .3cm}
-		]
-		\node[base] (n0) at (0,0){0};
-		\node[base, right = of n0] (n1) {1};
-		\only<1>{
-			\draw[thick,->,bend right] (n0) to (n1);
-			\draw[thick,->,bend right] (n1) to (n0);
-		}
+	\only<1-2>{
+		\begin{tikzpicture}[
+				base/.style={draw, circle, minimum size = .3cm}
+			]
+			\node[base] (n0) at (0,0){0};
+			\node[base, right = of n0] (n1) {1};
+			\only<1>{
+				\draw[thick,->,bend right] (n0) to (n1);
+				\draw[thick,->,bend right] (n1) to (n0);
+			}
 
-		\only<2>{
-			\node[base, below = of n1] (n2) {2};
-			\node[base, below = of n0] (n3) {3};
+			\only<2>{
+				\node[base, below = of n1] (n2) {2};
+				\node[base, below = of n0] (n3) {3};
 
+
+				\draw[thick,->] (n0) to (n1);
+				\draw[thick,->] (n1) to (n2);
+				\draw[thick,->] (n2) to (n3);
+				\draw[thick,->] (n3) to (n0);
+			}
+		\end{tikzpicture}
+	}
+	\only<3>{
+		\begin{tikzpicture}[
+				base/.style={draw, circle, minimum size = .3cm}
+			]
+			\node[base] (n0) at (0,0){$x$};
+			\node[base, right = of n0] (n1) {$z_0$};
+			\node[right = of n1] (n2) {$\dots$};
+			\node[base, right = of n2] (n3) {$z_n$};
+			\node[base, right = of n3] (n4) {$y$};
 
 			\draw[thick,->] (n0) to (n1);
 			\draw[thick,->] (n1) to (n2);
 			\draw[thick,->] (n2) to (n3);
-			\draw[thick,->] (n3) to (n0);
-		}
-	\end{tikzpicture}
+			\draw[thick,->] (n3) to (n4);
+			\draw[thick,->,bend left] (n4) to (n0);
+		\end{tikzpicture}
+	}
 	\par
 	\only<1>{
 		$U=\{0,1\}$\\
@@ -204,6 +226,12 @@
 		$U=\{0,1,2,3\}$\\
 		$I_3(P_5) = \{(0,1),(1,2),(2,3),(3,0)\}$
 	}
+	\only<3>{
+		Allgemein:\\
+		Für ein $n\in\mathbb{N}$ mit $n\geq 2$\\
+		$U=\{0,\dots,n-1\}$\\
+		$I_3(P_5) = \{(x,x+1)\mid x\in \mathbb{N} \land x < n-1\} \cup \{(n-1,0)\}$
+	}
 \end{frame}
 
 \begin{frame}{Zum Knobeln}
@@ -212,14 +240,14 @@
 	\begin{block}{}
 		\begin{multicols}{2}
 			\begin{itemize}
-				\item $F_1 = \forall X \exists Y: P_0(X,Y)$
-				\item $F_2 = \forall X: \overline{P_0(X,X)}$
-				\item $F_3 = \exists Y \forall X: \overline{P_0(X,Y)}$
-				\item $F_4 = \forall X: \overline{P_0(X,f(x))}$
-				\item {\scriptsize$F_5 = \forall X \forall Y: (P_0(X,f(Y)) \implies P_0(Y,X))$}
+				\item $F_1 = \forall x \exists Y: P_0(x,y)$
+				\item $F_2 = \forall x: \lnot P_0(x,x)$
+				\item $F_3 = \exists y \forall x: \lnot P_0(x,y)$
+				\item $F_4 = \forall x: \lnot P_0(x,f(x))$
+				\item {\scriptsize$F_5 = \forall x \forall y: (P_0(x,f(y)) \implies P_0(y,x))$}
 				\item $F_6 = P(a, f(f(a)))$
-				\item $F_7 = \forall X (\exists Y: P_0(Y,X)\implies P_1(X))$
-				\item $F_8 = \overline{P_1(f(f(b)))}$
+				\item $F_7 = \forall x (\exists y: P_0(Y,X)\implies P_1(X))$
+				\item $F_8 = \lnot P_1(f(f(b)))$
 				\item $F_9 = P(f(c),c)$
 			\end{itemize}
 		\end{multicols}

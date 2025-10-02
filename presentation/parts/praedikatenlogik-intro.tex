@@ -160,7 +160,7 @@
 
 	$U =\left\{\randsevenseg,\randsevenseg,\randsevenseg,\randsevenseg,\randsevenseg,\randsevenseg,\randsevenseg,\randsevenseg, \dots \right\}$
 	$$
-		\forall X\in U:\exists Y \in U: P_{ZAHL}(f_{ON}(X,Y))
+		\forall x\in U:\exists y \in U: P_{ZAHL}(f_{ON}(x,y))
 	$$
 	Das \alert{Universum} $U$ ist die Menge aller Werte, die in unsere Formel eingesetzt werden können.
 	Es darf \textbf{nicht} leer sein!
@@ -172,18 +172,18 @@
 	\metroset{block=fill}
 	\begin{block}{Normal}
 		\begin{itemize}
-			\item $P_{\text{ZAHL}}\left(f_{\text{ON}}\left(\sevenseg{0,0,0,0,0,0,0,}, X_1\right)\right)$
-			\item $P_{\text{ZAHL}}\left(f_{\text{OFF}}\left(X_2, Y_2\right)\right)$
-			\item $P_{\text{ZAHL}}\left(f_{\text{OFF}}\left(X_3, \sevenseg{0,0,0,0,1,1,0,0,}\right)\right) \land P_{\text{Zahl}}\left(f_{\text{ON}}\left(X_3, \sevenseg{1,0,0,1,0,0,0,}\right)\right)$
-			\item $\lnot P_{\text{ZAHL}}\left(f_{\text{ON}}\left(f_{\text{ON}}\left(\sevenseg{0,0,0,0,0,0,0,}, X_4\right), \sevenseg{1,1,1,1,0,0,0,}\right)\right)$
+			\item $P_{\text{ZAHL}}\left(f_{\text{ON}}\left(\sevenseg{0,0,0,0,0,0,0,}, x_1\right)\right)$
+			\item $P_{\text{ZAHL}}\left(f_{\text{OFF}}\left(x_2, y_2\right)\right)$
+			\item $P_{\text{ZAHL}}\left(f_{\text{OFF}}\left(x_3, \sevenseg{0,0,0,0,1,1,0,0,}\right)\right) \land P_{\text{Zahl}}\left(f_{\text{ON}}\left(x_3, \sevenseg{1,0,0,1,0,0,0,}\right)\right)$
+			\item $\lnot P_{\text{ZAHL}}\left(f_{\text{ON}}\left(f_{\text{ON}}\left(\sevenseg{0,0,0,0,0,0,0,}, x_4\right), \sevenseg{1,1,1,1,0,0,0,}\right)\right)$
 		\end{itemize}
 	\end{block}
 	Beweise, ob die folgenden Aussagen wahr oder falsch sind
 	\metroset{block=fill}
 	\begin{block}{Etwas schwerer}
 		\begin{itemize}
-			\item $A_5$: $\forall X : P_{\text{ZAHL}}\left(f_{\text{ON}}\left(X, \sevenseg{1,1,1,1,1,1,1,1,}\right)\right)$
-			\item $A_6$: $\forall X \exists y : P_{\text{ZAHL}}\left(X\right) \implies \lnot P_{\text{ZAHL}}\left(f_{\text{ON}}\left(X,Y\right)\right)$
+			\item $A_5$: $\forall x : P_{\text{ZAHL}}\left(f_{\text{ON}}\left(x, \sevenseg{1,1,1,1,1,1,1,1,}\right)\right)$
+			\item $A_6$: $\forall x \exists y : P_{\text{ZAHL}}\left(X\right) \implies \lnot P_{\text{ZAHL}}\left(f_{\text{ON}}\left(x,y\right)\right)$
 		\end{itemize}
 	\end{block}
 \end{frame}
@@ -211,7 +211,7 @@
 
 	Mit $U_{80}=\left\{\sevensegnum{8},\sevensegnum{0}\right\} \subseteq U$
 	\Large
-	$$\forall X \in U_{80}: P_{\only<1>{?}\only<2-|handout:0>{\alert{\geq 6}}}(X)$$
+	$$\forall x \in U_{80}: P_{\only<1>{?}\only<2-|handout:0>{\alert{\geq 6}}}(x)$$
 	\only<1-|handout:0>{
 		\pause
 		\normalsize
@@ -245,18 +245,18 @@
 	\metroset{block=fill}
 	\begin{block}{Prädikate}
 		\begin{itemize}
-			\item $P_{ZAHL}(X):$ Die Anzeige $X$ zeigt eine Zahl.
-			\item $P_<7(X):$ Die Anzeige $X$ hat maximal 6 leuchtende Segmente.
-			\item<2-> $P_=(X,Y):$ Die Anzeigen $X$ und $Y$ sind gleich.
-			\item<2-> $P_>(X,Y):$ Die Anzeige $X$ hat mehr leuchtende Segmente als die Anzeige $Y$.
+			\item $P_{ZAHL}(x):$ Die Anzeige $x$ zeigt eine Zahl.
+			\item $P_<7(x):$ Die Anzeige $x$ hat maximal 6 leuchtende Segmente.
+			\item<2-> $P_=(x,y):$ Die Anzeigen $x$ und $y$ sind gleich.
+			\item<2-> $P_>(x,y):$ Die Anzeige $x$ hat mehr leuchtende Segmente als die Anzeige $y$.
 		\end{itemize}
 	\end{block}
 	\begin{block}{Funktionen}
 		\begin{itemize}
-			\item $f_{ON}(X,Y):$ Schalte alle Segmente an, welche in $X$ oder $Y$ an sind.
-			\item $f_{OFF}(X,Y):$ Schalte alle Segmente an, welche in $X$ and sind aber nicht in $Y$.
-			\item<3-> $f_{INV}(X):$ Schalte alle Segmente an, welche in $X$ aus sind.
-			\item<3-> $f_{COUNT}(X):$ Zeige die Zahl an, die angibt wie viele Segmente in $X$ an sind.
+			\item $f_{ON}(x,y):$ Schalte alle Segmente an, welche in $x$ oder $y$ an sind.
+			\item $f_{OFF}(x,y):$ Schalte alle Segmente an, welche in $x$ and sind aber nicht in $y$.
+			\item<3-> $f_{INV}(x):$ Schalte alle Segmente an, welche in $x$ aus sind.
+			\item<3-> $f_{COUNT}(x):$ Zeige die Zahl an, die angibt wie viele Segmente in $x$ an sind.
 		\end{itemize}
 	\end{block}
 	\begin{block}{Das Universum}
@@ -267,7 +267,7 @@
 \begin{frame}{Eine Interpretation erstellen}
 	Nun wollen wir für die folgende prädikantenlogische Formel eine Interpretation erstellen:
 	$$
-		\forall X\exists Y: P_0(f_0(X),f_1(Y)) \wedge P_1(a)
+		\forall x\exists y: P_0(f_0(x),f_1(y)) \wedge P_1(a)
 	$$
 	\pause
 	\begin{columns}
@@ -301,46 +301,46 @@
 	\begin{block}{Normal}
 		\begin{itemize}
 			\item $A_1$: $\lnot P_0(f_0(a,b), f_1(b,a))$
-			\item $A_2$: $\forall X \exists Y: \lnot P_0(f_0(X,Y), f_1(Y,X))$
-			\item $A_3$: $\forall X: P_0(f_0(X,a),X)$
-			\item $A_4$: $\forall X,Y: P_0(X,Y) \implies P_0(Y,X)$
+			\item $A_2$: $\forall x \exists y: \lnot P_0(f_0(x,y), f_1(y,x))$
+			\item $A_3$: $\forall x: P_0(f_0(x,a),x)$
+			\item $A_4$: $\forall x,y: P_0(x,y) \implies P_0(y,x)$
 		\end{itemize}
 	\end{block}
 
 	\metroset{block=fill}
 	\begin{block}{Etwas schwerer}
 		\begin{itemize}
-			\item $A_5$: $\forall X \exists Y: P_0(f_0(X), f_0(Y)) \implies P_1(Y)$
-			\item $A_6$: $\forall X, Y: P_0(f_0(X), Y) \implies P_1(Y)$
-			\item $A_7$: $\left(\forall X : P_0(X,X) \land P_0(X,f_0(a))\right) \land \left(\forall Y : \lnot P_0(Y,f_0(a)) \land \lnot P_0(Y,Y) \right)$
+			\item $A_5$: $\forall x \exists Y: P_0(f_0(x), f_0(y)) \implies P_1(y)$
+			\item $A_6$: $\forall x, y: P_0(f_0(X), y) \implies P_1(y)$
+			\item $A_7$: $\left(\forall x : P_0(x,x) \land P_0(x,f_0(a))\right) \land \left(\forall y : \lnot P_0(y,f_0(a)) \land \lnot P_0(y,y) \right)$
 		\end{itemize}
 	\end{block}
 \end{frame}
 
 \begin{frame}<handout:0>{Lösungen}
 	\textit{Jeweils Beispiele, es kann weitere Lösungen geben}
-		\begin{itemize}[<+- | alert@+>]
-			\item $A_1$: $I(P_0) = P_{>},\ I(f_0) = f_{OFF},\ I(f_1) = f_{ON},\ I(a)=\sevensegnum{8},\ I(b)=\randsevenseg$
-			\item $A_2$: $I(P_0) = P_{>},\ I(f_0) = f_{OFF},\ I(f_1) = f_{ON}$\\
-			      Beweisidee: Wähle für bel. $X$ $Y=X$, dadurch hat $f_0(X,Y) = f_{OFF}(X,Y)=f_{OFF}(X,X) = \sevenseg{0,0,0,0,0,0,0,}$ weniger oder gleich viele Segmente eingeschaltet wie $f_1(Y,X)=f_{ON}(X,X)=X$
-			\item $A_3$: $I(P_0) = P_=,\ I(f_0) = f_{ON},\ I(a) = \sevenseg{0,0,0,0,0,0,0,}$\\
-			      Beweisidee: Von einer bel. Anzeige $X$ keine weiteren Segmente einzuschalten ergibt die gleiche Anzeige
-			\item $A_4$: $I(P_0) = P_=$\\
-			      Beweisidee: Unser $P_=$ ist kommutativ, wenn also Anzeige $X$ gleich Anzeige $Y$ ist, ist auch $Y$ gleich $X$
-		\end{itemize}
-	\end{frame}
+	\begin{itemize}[<+- | alert@+>]
+		\item $A_1$: $I(P_0) = P_{>},\ I(f_0) = f_{OFF},\ I(f_1) = f_{ON},\ I(a)=\sevensegnum{8},\ I(b)=\randsevenseg$
+		\item $A_2$: $I(P_0) = P_{>},\ I(f_0) = f_{OFF},\ I(f_1) = f_{ON}$\\
+		      Beweisidee: Wähle für bel. $X$ $Y=X$, dadurch hat $f_0(x,y) = f_{OFF}(x,y)=f_{OFF}(x,x) = \sevenseg{0,0,0,0,0,0,0,}$ weniger oder gleich viele Segmente eingeschaltet wie $f_1(y,x)=f_{ON}(x,x)=x$
+		\item $A_3$: $I(P_0) = P_=,\ I(f_0) = f_{ON},\ I(a) = \sevenseg{0,0,0,0,0,0,0,}$\\
+		      Beweisidee: Von einer bel. Anzeige $x$ keine weiteren Segmente einzuschalten ergibt die gleiche Anzeige
+		\item $A_4$: $I(P_0) = P_=$\\
+		      Beweisidee: Unser $P_=$ ist kommutativ, wenn also Anzeige $x$ gleich Anzeige $y$ ist, ist auch $y$ gleich $x$
+	\end{itemize}
+\end{frame}
 
 \begin{frame}<handout:0>{Lösungen}
 	\textit{Jeweils Beispiele, es kann weitere Lösungen geben}
-		\begin{itemize}[<+- | alert@+>]
-			\item $A_5$: $I(P_0) = P_=,\ I(P_1) = P_{< 7},\ I(f_0) = f_{INV}$ \\
-			      Beweisidee: Wähle für eine bel. Anzeige $X$ die Anzeige $Y=f_{INV}(X)$, damit sind $X$ und $Y$ sicher ungleich und damit auch $f_{INV}(X)$ und $f_{INV}(Y)$.
+	\begin{itemize}[<+- | alert@+>]
+		\item $A_5$: $I(P_0) = P_=,\ I(P_1) = P_{< 7},\ I(f_0) = f_{INV}$ \\
+		      Beweisidee: Wähle für eine bel. Anzeige $x$ die Anzeige $Y=f_{INV}(x)$, damit sind $x$ und $y$ sicher ungleich und damit auch $f_{INV}(x)$ und $f_{INV}(y)$.
 
-				  Dann ist der Teil vor der Implikation Falsch und damit egal was danach passiert.
-			\item $A_6$: $I(P_0) = P_=,\ I(P_1) = P_{ZAHL},\ I(f_0) = f_{COUNT}$ \\
-			      Beweisidee: Wenn Anzeige $Y$ die Anzahl der eingeschalteten Segmente in $X$ anzeigt, muss $Y$ zwangsläufig eine Zahl sein.\\
-			      Wenn nicht, ist die linke Seite der Implikation falsch
-			\item $A_7$: Nicht lösbar, da logischer Widerspruch. Es kann nicht gleichzeitig eine Aussage und die Negation der Aussgae wahr sein.
-		\end{itemize}
+		      Dann ist der Teil vor der Implikation Falsch und damit egal was danach passiert.
+		\item $A_6$: $I(P_0) = P_=,\ I(P_1) = P_{ZAHL},\ I(f_0) = f_{COUNT}$ \\
+		      Beweisidee: Wenn Anzeige $y$ die Anzahl der eingeschalteten Segmente in $x$ anzeigt, muss $y$ zwangsläufig eine Zahl sein.\\
+		      Wenn nicht, ist die linke Seite der Implikation falsch
+		\item $A_7$: Nicht lösbar, da logischer Widerspruch. Es kann nicht gleichzeitig eine Aussage und die Negation der Aussgae wahr sein.
+	\end{itemize}
 \end{frame}
 }
