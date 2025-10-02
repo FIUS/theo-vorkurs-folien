@@ -41,16 +41,17 @@
 	% todo
 	\only<1>{Wenn wir in diesen \textit{Checker} (genannt Prädikat) eine Anzeige einsetzen, haben wir eine logische Aussage}
 	\only<2->{
+		\only<0|handout:1>{\hspace{-0.25\textwidth}}
 		\begin{tikzpicture}[overlay]
 			\node[] at (5,.8) (base) {};
 			\node[] at (2, -.4) (wahr) {
 				\only<2>{\alert}{Wahr}, wenn eine Zahl zu sehen ist
 			};
-			\draw[->] (base) to (wahr);
+			\only<1-|handout:0>{\draw[->] (base) to (wahr);}
 			\only<3->{\node[] at (8, -.4) (wahr) {
 					\alert{Falsch}, wenn keine Zahl zu sehen ist
 				};
-				\draw[->] (base) to (wahr);
+				\only<1-|handout:0>{\draw[->] (base) to (wahr);}
 			}
 			\only<4->{
 				\vspace{2cm}
@@ -61,6 +62,7 @@
 		\end{tikzpicture}
 		\note{Das Verständnis was ein Prädikat wirklich ist ist wichtig!!!}
 	}
+	\only<0|handout:1>{\vfill}
 \end{frame}
 
 {\setbeamercolor{palette primary}{bg=ExColor}
@@ -69,10 +71,10 @@
 	\metroset{block=fill}
 	\begin{block}{Normal}
 		\begin{itemize}
-			\item $A_1$: $P_{\text{ZAHL}}\left(\sevensegnum[]{7}\right)$ \only<2->{\hspace{1cm}wahr}
-			\item $A_2$: $P_{\text{ZAHL}}\left(\sevenseg[]{0,1,0,0,1,0,1}\right)$ \only<3->{\hspace{1cm}falsch}
-			\item $A_3$: $P_{\text{ZAHL}}\left(\sevensegnum[]{4}\right)$ \only<4->{\hspace{1cm}wahr}
-			\item $A_4$: $P_{\text{ZAHL}}\left(\sevenseg[]{1,0,1,0,1,0,1}\right)$ \only<5>{\hspace{1cm}falsch}
+			\item $A_1$: $P_{\text{ZAHL}}\left(\sevensegnum[]{7}\right)$ \only<2-|handout:0>{\hspace{1cm}\only<2>{\alert}{wahr}}
+			\item $A_2$: $P_{\text{ZAHL}}\left(\sevenseg[]{0,1,0,0,1,0,1}\right)$ \only<3-|handout:0>{\hspace{1cm}\only<2>{\alert}{falsch}}
+			\item $A_3$: $P_{\text{ZAHL}}\left(\sevensegnum[]{4}\right)$ \only<4-|handout:0>{\hspace{1cm}\only<2>{\alert}{wahr}}
+			\item $A_4$: $P_{\text{ZAHL}}\left(\sevenseg[]{1,0,1,0,1,0,1}\right)$ \only<5-|handout:0>{\hspace{1cm}\only<2>{\alert}{falsch}}
 		\end{itemize}
 	\end{block}
 \end{frame}
@@ -209,24 +211,26 @@
 
 	Mit $U_{80}=\left\{\sevensegnum{8},\sevensegnum{0}\right\} \subseteq U$
 	\Large
-	$$\forall X \in U_{80}: P_{\only<1>{?}\only<2->{\alert{\geq 6}}}(X)$$
-	\pause
-	\normalsize
-	Passende Prädikate:
-	\begin{itemize}
-		\item $P_{\geq 6}$ : wahr, wenn mindestens 6 Segmente eingeschaltet sind
-		      \pause
-		\item $P_{\text{rahmen-an}}$ : wahr, wenn alle äußeren Segmente eingeschaltet sind
-		\item $P_{\text{wahr}}$ :  immer wahr
-		\item ...
-	\end{itemize}
-	\pause
-	Nicht passsende Prädikate:
-	\begin{itemize}
-		\item $P_{\text{mitte-an}}$ : wahr, wenn das horizontale mittlere Segment eingeschaltet is
-		\item $P_{\text{falsch}}$ : nie wahr
-		\item ...
-	\end{itemize}
+	$$\forall X \in U_{80}: P_{\only<1>{?}\only<2-|handout:0>{\alert{\geq 6}}}(X)$$
+	\only<1-|handout:0>{
+		\pause
+		\normalsize
+		Passende Prädikate:
+		\begin{itemize}
+			\item $P_{\geq 6}$ : wahr, wenn mindestens 6 Segmente eingeschaltet sind
+			      \pause
+			\item $P_{\text{rahmen-an}}$ : wahr, wenn alle äußeren Segmente eingeschaltet sind
+			\item $P_{\text{wahr}}$ :  immer wahr
+			\item ...
+		\end{itemize}
+		\pause
+		Nicht passsende Prädikate:
+		\begin{itemize}
+			\item $P_{\text{mitte-an}}$ : wahr, wenn das horizontale mittlere Segment eingeschaltet is
+			\item $P_{\text{falsch}}$ : nie wahr
+			\item ...
+		\end{itemize}
+	}
 \end{frame}
 
 \begin{frame}{Prädikatssymbole}
