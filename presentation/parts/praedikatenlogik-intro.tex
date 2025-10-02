@@ -175,7 +175,7 @@
 			\item $P_{\text{ZAHL}}\left(f_{\text{ON}}\left(\sevenseg{0,0,0,0,0,0,0,}, X_1\right)\right)$
 			\item $P_{\text{ZAHL}}\left(f_{\text{OFF}}\left(X_2, Y_2\right)\right)$
 			\item $P_{\text{ZAHL}}\left(f_{\text{OFF}}\left(X_3, \sevenseg{0,0,0,0,1,1,0,0,}\right)\right) \land P_{\text{Zahl}}\left(f_{\text{ON}}\left(X_3, \sevenseg{1,0,0,1,0,0,0,}\right)\right)$
-			\item $\lnot P_{\text{ZAHL}}\left(f_{\text{ON}}\left(f_{\text{ON}}\left(\sevenseg{0,0,0,0,0,0,0,}, X_4\right), \sevenseg{1,1,1,1,0,0,1,}\right)\right)$
+			\item $\lnot P_{\text{ZAHL}}\left(f_{\text{ON}}\left(f_{\text{ON}}\left(\sevenseg{0,0,0,0,0,0,0,}, X_4\right), \sevenseg{1,1,1,1,0,0,0,}\right)\right)$
 		\end{itemize}
 	\end{block}
 	Beweise, ob die folgenden Aussagen wahr oder falsch sind
@@ -194,7 +194,7 @@
 	\textit{Für 1-4 je Beispiele, es gibt weitere Lösungen}
 	\begin{itemize}[<+- | alert@+>]
 		\item $x_1 \in \left\{\sevensegnum{0},\sevensegnum{1},\sevensegnum{2},\dots\right\}$
-		\item $x_2 = \sevensegnum{8}, y_2 = \sevenseg{0,0,0,0,0,0,1,}$ oder $x_2 = \sevensegnum{4}, y_2 = \sevenseg{1,0,0,1,1,1,0,0,}$
+		\item $x_2 = \sevensegnum{8}, y_2 = \sevenseg{0,0,0,0,0,0,1,}$ oder $x_2 = \sevensegnum{4}, y_2 = \sevenseg{1,0,0,1,1,1,0,1,}$
 		\item $x_3 = \sevenseg{0,1,1,0,1,1,0,}$
 		\item $x_4 = \sevenseg{0,0,0,0,1,0,0,}$
 		\item \textit{wahr}\\
@@ -312,14 +312,13 @@
 		\begin{itemize}
 			\item $A_5$: $\forall X \exists Y: P_0(f_0(X), f_0(Y)) \implies P_1(Y)$
 			\item $A_6$: $\forall X, Y: P_0(f_0(X), Y) \implies P_1(Y)$
-			\item $A_7$: $\left(\forall X : P_0(X,X) \lor P_0(X,f_0(a))\right) \land \left(\forall Y : \lnot P_0(X,f_0(a)) \land \lnot P_1(X,X) \right)$
+			\item $A_7$: $\left(\forall X : P_0(X,X) \land P_0(X,f_0(a))\right) \land \left(\forall Y : \lnot P_0(Y,f_0(a)) \land \lnot P_0(Y,Y) \right)$
 		\end{itemize}
 	\end{block}
 \end{frame}
 
 \begin{frame}<handout:0>{Lösungen}
 	\textit{Jeweils Beispiele, es kann weitere Lösungen geben}
-	\only<1-4>{
 		\begin{itemize}[<+- | alert@+>]
 			\item $A_1$: $I(P_0) = P_{>},\ I(f_0) = f_{OFF},\ I(f_1) = f_{ON},\ I(a)=\sevensegnum{8},\ I(b)=\randsevenseg$
 			\item $A_2$: $I(P_0) = P_{>},\ I(f_0) = f_{OFF},\ I(f_1) = f_{ON}$\\
@@ -329,16 +328,19 @@
 			\item $A_4$: $I(P_0) = P_=$\\
 			      Beweisidee: Unser $P_=$ ist kommutativ, wenn also Anzeige $X$ gleich Anzeige $Y$ ist, ist auch $Y$ gleich $X$
 		\end{itemize}
-	}
-	\only<5->{
+	\end{frame}
+
+\begin{frame}<handout:0>{Lösungen}
+	\textit{Jeweils Beispiele, es kann weitere Lösungen geben}
 		\begin{itemize}[<+- | alert@+>]
 			\item $A_5$: $I(P_0) = P_=,\ I(P_1) = P_{< 7},\ I(f_0) = f_{INV}$ \\
-			      Beweisidee: Wähle für eine bel. Anzeige $X$ die Anzeige $X=f_{INV}(X)$, damit sind $X$ und $Y$ sicher ungleich und damit auch $f_{INV}(X)$ und $f_{INV}(Y)$.
+			      Beweisidee: Wähle für eine bel. Anzeige $X$ die Anzeige $Y=f_{INV}(X)$, damit sind $X$ und $Y$ sicher ungleich und damit auch $f_{INV}(X)$ und $f_{INV}(Y)$.
+
+				  Dann ist der Teil vor der Implikation Falsch und damit egal was danach passiert.
 			\item $A_6$: $I(P_0) = P_=,\ I(P_1) = P_{ZAHL},\ I(f_0) = f_{COUNT}$ \\
 			      Beweisidee: Wenn Anzeige $Y$ die Anzahl der eingeschalteten Segmente in $X$ anzeigt, muss $Y$ zwangsläufig eine Zahl sein.\\
 			      Wenn nicht, ist die linke Seite der Implikation falsch
 			\item $A_7$: Nicht lösbar, da logischer Widerspruch. Es kann nicht gleichzeitig eine Aussage und die Negation der Aussgae wahr sein.
 		\end{itemize}
-	}
 \end{frame}
 }
