@@ -27,8 +27,24 @@
         $\emptyset$ & \{\}              & leere Menge                                                 \\
         $a|b$       & teilt             & $a$ ist Teiler von $b$, d.h. $a$ teilt $b$ ohne Rest        \\
         $:$         & sodass            & z.B. $\forall a,b\in\integers:$ $a|b$                       \\
-        $\bmod$     & modulo            & $a\equiv b \pmod n \iff n|(a-b)$,                           \\
-                    &                   & mit $a,b,n\in\integers$                                     \\
+        \bottomrule
+    \end{tabular}
+\end{frame}
+
+\begin{frame}[fragile]{Glossar \textemdash\ Mengenoperationen}
+    \small
+    \begin{tabular}{p{0.12\textwidth} p{0.23\textwidth} p{0.5\textwidth}}
+        \toprule
+        Abk.             & Bedeutung                                    & Was?!                                                                                         \\
+        \midrule
+        $A \subseteq B$  & Teilmenge                                    & Alle Elemente aus $A$ sind auch in $B$ enthalten. Dabei können die Mengen auch gleich sein.   \\
+        $A \subsetneq B$ & echte Teilmenge                              & $A\subseteq B$. Und zusätzlich enthält $B$ Elemente, die nicht in $A$ enthalten sind.         \\
+                         &                                              & $\implies$ Mengen sind nicht gleich!                                                          \\
+        $A \subset B$    & Teilmenge \emph{oder} echte Teilmenge        & Bei manchen Leuten $\subseteq$, bei manchen $\subsetneq$. Mehrdeutig, lieber nicht verwenden! \\
+        $A\cap B$        & Schnitt                                      & Enthält alle Elemente, die in $A$ \textit{und} in $B$ enthalten sind                          \\
+        $A\cup B$        & Vereinigung                                  & Enthält alle Elemente, die in $A$, $B$ oder beiden enthalten sind                             \\
+        $A\setminus B$   & Komplement, gespr. ''$A$ \textit{ohne} $B$'' & Enthält alle Elemente aus $A$, die \textit{nicht} in $B$ enthalten sind                       \\
+        $\overline{B}$   & $B$ Komplement                               & Enthält alle Elemente aus einer geg. Obermenge, die \textit{nicht} in $B$ enthalten sind      \\
         \bottomrule
     \end{tabular}
 \end{frame}
