@@ -30,43 +30,45 @@
 \pagestyle{plain}
 \begin{document}
 
+\providecommand{\docNum}{0}
 \newcounter{x}
-\forloop{x}{50}{\value{x} < 100}{%
+\setcounter{x}{\docNum}
+%\forloop{x}{0}{\value{x} < 50}{%
 \pagenumbering{arabic}
 \setcounter{page}{1}
 
 \AddToShipoutPictureBG*{
-	\put(0.5\paperwidth+5mm,7.5mm+5mm){\qrcode[height=15mm]{\arabic{x}S1}}
+  \put(0.5\paperwidth+5mm,7.5mm+5mm){\qrcode[height=15mm]{\arabic{x}S1}}
 }
 
 \AddToShipoutPictureBG{
-	\put(\paperwidth-15mm,10mm){\includegraphics[height=10mm]{./aruco_4x4-0.pdf}}
+  \put(\paperwidth-15mm,10mm){\includegraphics[height=10mm]{./aruco_4x4-0.pdf}}
 }
 
 \AddToShipoutPictureBG{
-	\put(\paperwidth-15mm,\paperheight-15mm){\includegraphics[height=10mm]{./aruco_4x4-1.pdf}}
+  \put(\paperwidth-15mm,\paperheight-15mm){\includegraphics[height=10mm]{./aruco_4x4-1.pdf}}
 }
 
 \AddToShipoutPictureBG{
-	\put(5mm,\paperheight-15mm){\includegraphics[height=10mm]{./aruco_4x4-2.pdf}}
+  \put(5mm,\paperheight-15mm){\includegraphics[height=10mm]{./aruco_4x4-2.pdf}}
 }
 
 \AddToShipoutPictureBG{
-	\put(5mm,10mm){\includegraphics[height=10mm]{./aruco_4x4-3.pdf}}
+  \put(5mm,10mm){\includegraphics[height=10mm]{./aruco_4x4-3.pdf}}
 }
 
 \begin{figure}[h]
   \centering
   % \includegraphics{school_logo.png} Optional -uncomment to use
 \end{figure}
-\section*{\LARGE Feedback - Vorkurs Theoretische Informatik 2024}
+\section*{\LARGE Feedback - Vorkurs Theoretische Informatik 2025}
 \vspace{1cm}
 
 \begin{tabular}{p{5.6cm}p{1.8cm}p{1.8cm}p{2.3cm}p{1.8cm}p{1.8cm}p{0.001cm}}
-  Ich war überwiegend in Hörsaal... & $\Box$ 38.01 & $\Box$ 38.02 & $\Box$ 38.04 & $\Box$ Online
+  Ich war überwiegend in Hörsaal... & $\Box$ 38.01 & $\Box$ 38.02 & $\Box$ 38.04
 \end{tabular}
 
-\question*{Warst du an manchen Tagen noch in anderen Räumen/Online, wenn ja wann in welchem?}
+\question*{Warst du an manchen Tagen noch in anderen Räumen, wenn ja wann in welchen?}
 \fbox{\parbox[c][1cm]{\textwidth}{\phantom{.}}}
 
 \question*{Welchen Studiengang und im wievielten Semester studierst du?}
@@ -79,10 +81,14 @@
 %\question{FRAGE}
 \subsection*{Andere Vorkurse}
 \begin{tabular}{p{9.5cm}C{2.1cm}C{2.1cm}p{0.001cm}}
-  & ja& nein\\
-  Ich war auch im Mathe-Vorkurs des MINT-Kolleg\\\ (23.09.-04.10.) & $\Box$  & $\Box$ \\
-  Ich war auch im Informatik-Vorkurs des MINT-Kolleg\\\ (09.09.-13.09. oder 16.09.-20.09.) &  $\Box$ &  $\Box$\\
-  Ich war auch im Java-Vorkurs von FIUS\\\ (30.09.-04.10.) & $\Box$ & $\Box$\\
+   & ja & nein                                       \\
+  Ich war auch im Mathe-Vorkurs des MINT-Kolleg      \\\ (22.09.-02.10.) & $\Box$  & $\Box$ \\
+  Ich war auch im Informatik-Vorkurs des MINT-Kolleg \\\ (08.09.-12.09. oder 15.09.-19.09.) &  $\Box$ &  $\Box$\\
+\end{tabular}
+\\
+\begin{tabular}{p{8.5cm}C{2.1cm}C{2.1cm}C{2.1cm}p{0.001cm}}
+                                                                             & besser & gleich gut & schlechter \\
+  Ich fand die Erklärungen der gleichen Themen ... als im MINT-Mathe-Vorkurs & $\Box$ & $\Box$     & $\Box$
 \end{tabular}
 
 \subsection*{Allgemein}
@@ -102,7 +108,7 @@
 }
 
 \AddToShipoutPictureBG*{
-	\put(0.5\paperwidth+5mm,7.5mm+5mm){\qrcode[height=15mm]{\arabic{x}S2}}
+  \put(0.5\paperwidth+5mm,7.5mm+5mm){\qrcode[height=15mm]{\arabic{x}S2}}
 }
 
 \subsection*{Übungsaufgaben}
@@ -136,7 +142,7 @@
 }
 
 \AddToShipoutPictureBG*{
-	\put(0.5\paperwidth+5mm,7.5mm+5mm){\qrcode[height=15mm]{\arabic{x}S3}}
+  \put(0.5\paperwidth+5mm,7.5mm+5mm){\qrcode[height=15mm]{\arabic{x}S3}}
 }
 
 \vspace{-1cm}
@@ -151,14 +157,12 @@
 
 \question*{Wie gut hast du folgende Themenfelder verstanden?}
 \vertikalblockfour{vollständig}{eher ja}{eher nein}{gar nicht}{
-  \blocktextfour{Formale Sprachen}
+  \blocktextfour{Mengen}
   \blocktextfour{Aussagenlogik}
   \blocktextfour{Beweistechniken}
-  \blocktextfour{Grammatiken}
-  \blocktextfour{Automaten}
-  \blocktextfour{Reguläre Ausdrücke}
+  \blocktextfour{Prädikatenlogik}
+  \blocktextfour{Modulare Arithmetik}
 }
-
 
 \question*{Für welche Themen hättest du dir mehr Erklärung/Zeit gewünscht und für welche weniger?}
 \fbox{\parbox[c][1cm]{\textwidth}{\phantom{.}}}
@@ -171,9 +175,6 @@
 %   \blocktextfour{Die geltenden Hygieneregeln wurden verständlich erklärt.}
 %   \blocktextfour{Für die Einhalung der Regeln wurde gesorgt.}
 % }
-
-\question*{	Warum hast du dich für die Variante in Präsenz entschieden?}
-\fbox{\parbox[c][2cm]{\textwidth}{\phantom{.}}}
 
 \question*{Was hat dir besonders gut gefallen?}
 \fbox{\parbox[c][3.5cm]{\textwidth}{\phantom{.}}}
@@ -188,11 +189,11 @@
 \fbox{\parbox[c][4cm]{\textwidth}{\phantom{.}}}
 
 \AddToShipoutPictureBG*{
-	\put(0.5\paperwidth+5mm,7.5mm+5mm){\qrcode[height=15mm]{\arabic{x}S4}}
+  \put(0.5\paperwidth+5mm,7.5mm+5mm){\qrcode[height=15mm]{\arabic{x}S4}}
 }
 
 \pagebreak
 
-}
+%}
 
 \end{document}
