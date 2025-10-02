@@ -20,7 +20,7 @@
 			\hspace{1em}
 			\sevenseg[size=15mm]{0,1,0,0,1,0,0,}%
 			\hspace{1em}
-			\sevenseg[size=15mm]{1,0,0,1,0,1,0,}%
+			\sevenseg[size=15mm]{1,0,0,1,1,0,0,}%
 			\hspace{1em}
 			\sevenseg[size=15mm]{1,1,1,1,0,1,1,}%
 		\end{center}
@@ -87,7 +87,7 @@
 		\hspace{1em}
 		\sevenseg[size=15mm]{0,1,0,0,1,0,0,}
 		\hspace{1em}
-		\sevenseg[size=15mm]{1,0,0,1,0,1,0,}
+		\sevenseg[size=15mm]{1,0,0,1,1,0,0,}
 		\hspace{1em}
 		\sevenseg[size=15mm]{1,1,1,1,0,1,1,}
 	\end{center}
@@ -119,7 +119,7 @@
 	\begin{itemize}
 		\item<1-> $f_{\text{ON}}\left(\sevenseg{0,0,0,1,0,0,0,}, \only<1>{\hspace{1em}}\only{\sevenseg{1,1,0,0,1,0,1,}}<2->\right) = \sevensegnum{2}$
 		\item<3-> $f_{\text{ON}}\left(\sevenseg{0,1,0,0,1,0,0,}, \only<3>{\hspace{1em}}\only{\sevenseg{1,0,1,1,0,1,0,}}<4->\right) = \sevensegnum{0}$
-		\item<5-> $f_{\text{ON}}\left(\sevenseg{1,0,0,1,0,1,0,}, \only<5>{\hspace{1em}}\only{\sevenseg{0,0,0,0,0,1,1,}}<6->\right) = \sevensegnum{2}$
+		\item<5-> $f_{\text{ON}}\left(\sevenseg{1,0,0,1,1,0,0,}, \only<5>{\hspace{1em}}\only{\sevenseg{0,1,0,0,0,0,1,}}<6->\right) = \sevensegnum{2}$
 		\item<7-> $f_{\text{ON}}\left(\sevenseg{1,1,1,1,0,1,1,}, \only<7>{\hspace{1em}}\only{\textcolor{red}{X }}<8->\right) = \sevensegnum{5}$
 	\end{itemize}
 	\note{Nein, es reicht nicht}
@@ -246,7 +246,7 @@
 	\begin{block}{Prädikate}
 		\begin{itemize}
 			\item $P_{ZAHL}(x):$ Die Anzeige $x$ zeigt eine Zahl.
-			\item $P_<7(x):$ Die Anzeige $x$ hat maximal 6 leuchtende Segmente.
+			\item $P_{<7}(x):$ Die Anzeige $x$ hat maximal 6 leuchtende Segmente.
 			\item<2-> $P_=(x,y):$ Die Anzeigen $x$ und $y$ sind gleich.
 			\item<2-> $P_>(x,y):$ Die Anzeige $x$ hat mehr leuchtende Segmente als die Anzeige $y$.
 		\end{itemize}
