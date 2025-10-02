@@ -27,8 +27,8 @@
 \maketitle
 
 \begin{frame}[fragile]{Übersicht}
-	\setbeamertemplate{section in toc}[sections numbered]
-	\tableofcontents%[hideallsubsections]
+    \setbeamertemplate{section in toc}[sections numbered]
+    \tableofcontents%[hideallsubsections]
 \end{frame}
 
 \section{Vollständige Induktion}
@@ -39,9 +39,14 @@
 
 \input{../parts/induktion-aufgaben.tex}
 
+
+\metroset{sectionpage=none,subsectionpage=progressbar}
+
 \section{Prädikatenlogik}
 \input{../parts/praedikatenlogik-intro.tex}
 \input{../parts/praedikatenlogik-carlos.tex}
+
+\metroset{sectionpage=progressbar,subsectionpage=none}
 
 \section{Modulare Arithmetik}
 \input{../parts/modulare-arithmetik.tex}
@@ -49,17 +54,25 @@
 \section{Wiederholung}
 \input{../parts/wdh_slides/induktion.tex}
 \input{../parts/wdh_slides/praedikatenlogik.tex}
-\input{../parts/wdh_slides/gruppentheorie.tex}
-
+\input{../parts/wdh_slides/modulare-arithmetik.tex}
 
 \Center{Noch Fragen?}
 
-\input{../parts/glossar/3-Teilmengen.tex}
+\section{Wiederholungsaufgaben}
+\input{../parts/wdh_aufgaben/mengen.tex}
+\input{../parts/wdh_aufgaben/logik.tex}
+
+\input{../parts/glossar/mengen.tex}
+\input{../parts/glossar/aussagen.tex}
+\input{../parts/glossar/quantoren.tex}
+\input{../parts/glossar/beweise.tex}
+\input{../parts/glossar/praedikatenlogik.tex}
+\input{../parts/glossar/modulare-arithmetik.tex}
 
 \appendix
 \input{../parts/license-notice.tex}
 \begin{frame}<handout:0>[fragile]{Online-Whiteboard}
-	\phantom{text}
+    \phantom{text}
 \end{frame}
 
 \end{document}

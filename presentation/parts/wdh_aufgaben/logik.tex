@@ -1,0 +1,75 @@
+% Copyright 2018-2022 FIUS
+%
+% This file is part of theo-vorkurs-folien.
+%
+% theo-vorkurs-folien is free software: you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation, either version 3 of the License, or
+% (at your option) any later version.
+%
+% theo-vorkurs-folien is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% GNU General Public License for more details.
+%
+% You should have received a copy of the GNU General Public License
+% along with theo-vorkurs-folien.  If not, see <https://www.gnu.org/licenses/>.
+
+% Aufgaben zu Aussagenlogik und Quantoren
+
+{\setbeamercolor{palette primary}{bg=ExColor}
+\begin{frame}[fragile]{Aufgaben zu Logik}
+    \begin{alertblock}{Aufgaben}
+        Bestimme den Wahrheitswert der folgenden Aussagen
+    \end{alertblock}
+    \metroset{block=fill}
+    \begin{block}{Normal}
+        \begin{itemize}
+            \item $\neg (42 = 11) \land (0\in \mathbb{N} \lor 0 = |\mathbb{N}|)$
+            \item $\forall x \in \mathbb{Q}\ \exists p,q \in \mathbb{Z}: \left(\left(x = \frac{p}{q} \land q = 1\right) \implies \frac{p}{q}\in \mathbb{Z}\right)$
+            \item $\exists n \in \mathbb{N}: (n \equiv 13 \pmod 2025 \implies n < 2025) \iff 14 \subset \mathbb{N}$
+            \item $(\exists n \in (\mathbb{N} \cap \emptyset): |n| \geq 0) \iff (A\cap B = B\cap A)$
+        \end{itemize}
+    \end{block}
+    \metroset{block=fill}
+    \begin{block}{Schwer}
+        \begin{itemize}
+            \item $\forall x \in \mathbb{Z}: x \equiv 0 \pmod{2} \vee x \equiv 1 \pmod{4}$
+        \end{itemize}
+    \end{block}
+\end{frame}
+}
+
+{\setbeamercolor{palette primary}{bg=ExColor}
+\begin{frame}<handout:0>[fragile]{Lösungen}
+    \only<1-4>{
+        \metroset{block=fill}
+        \begin{block}{Normal}
+            \begin{align*}
+                \only<1>{\neg (42 = 11) \land (0\in \mathbb{N} \lor 0 = |\mathbb{N}|)}
+                \only<2>{\forall x \in \mathbb{Q}\ \exists p,q \in \mathbb{Z}: \left(\left(x = \frac{p}{q} \land q = 1\right) \implies \frac{p}{q}\in \mathbb{Z}\right)}
+                \only<3>{\exists n \in \mathbb{N}: (n \equiv 13 \mod 2025 \implies n < 2025) \iff 14 \subset \mathbb{N}}
+                \only<4>{(\exists n \in (\mathbb{N} \cap \emptyset): |n| \geq 0) \iff (A\cap B = B\cap A)}
+            \end{align*}
+        \end{block}
+        \begin{itemize}[<+- | alert@+>]
+            \item wahr
+            \item wahr
+            \item nicht zulässig
+            \item falsch
+        \end{itemize}
+    }
+    \only<5>{
+        \metroset{block=fill}
+        \begin{block}{Schwer}
+            \begin{align*}
+                \only<5>{\forall x \in \mathbb{Z}: x \equiv 0 \pmod{2} \vee x \equiv 1 \pmod{4}}
+            \end{align*}
+        \end{block}
+        \only<5>{
+            Die Aussage ist falsch!\\
+            Gegenbeispiel $x = 3$, dann ist $x \equiv 1 \pmod{2}$ und $x \equiv 3 \pmod{4}$.
+        }
+    }
+\end{frame}
+}

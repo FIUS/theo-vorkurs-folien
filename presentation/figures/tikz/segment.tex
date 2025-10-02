@@ -1,0 +1,104 @@
+\pgfkeys{
+    /sevenseg/.is family, /sevenseg,
+    shrink/.estore in     = \sevensegShrink,    % avoids overlapping of segments
+    oncolor/.estore in    = \sevensegOncolor,   % color of an ON segment
+    offcolor/.estore in   = \sevensegOffcolor,  % color of an OFF segment
+    size/.estore in       = \sevensegSize,      % height
+    onSize/.estore in     = \sevensegOnsize,     % line width if ON
+    offSize/.estore in    = \sevensegOffsize    % line width if OFF
+}
+
+\pgfkeys{
+    /sevenseg,
+    default/.style = {
+        shrink = 0.1, 
+        size = 1em, 
+        oncolor = red, 
+        offcolor = blue!70!black!40,
+        onSize = 2,
+        offSize =1.5
+        }
+}
+
+\newcommand{\sevenseg}[2][]% options, values
+{%
+  \pgfkeys{/sevenseg, default, #1}%
+    \begin{tikzpicture}[x=\sevensegSize,y=\sevensegSize,baseline=.25*\sevensegSize]%
+        % unten li
+        \path (0,0) ++(0,0) coordinate (P1);
+        % unten re
+        \path (0,0) ++(0.5,0) coordinate (P2);
+        % mitte li
+        \path (0,0) ++(90:0.5) coordinate (P3);
+        % mitte re
+        \path (P2)  ++(90:0.5) coordinate (P4);
+        % oben li
+        \path (P3)  ++(90:0.5) coordinate (P5);
+        % oben re
+        \path (P4)  ++(90:0.5) coordinate (P6);
+        % then step through the 1/0 values in the segment array
+
+
+    \foreach \val [count=\i from 0] in {#2} {%
+      \ifthenelse{\equal{\val}{1}}%
+        {\let\mycolor=\sevensegOncolor \let\mysize=\sevensegOnsize}%
+        {\let\mycolor=\sevensegOffcolor \let\mysize=\sevensegOffsize}%
+
+      % then draw segment depending on \i
+      \ifthenelse{\equal{\i}{0}}{\path[draw=\mycolor, line width=\mysize] (P5) -- (P6);}{}%
+      \ifthenelse{\equal{\i}{1}}{\path[draw=\mycolor, line width=\mysize] (P6) -- (P4);}{}%
+      \ifthenelse{\equal{\i}{2}}{\path[draw=\mycolor, line width=\mysize] (P4) -- (P2);}{}%
+      \ifthenelse{\equal{\i}{3}}{\path[draw=\mycolor, line width=\mysize] (P1) -- (P2);}{}%
+      \ifthenelse{\equal{\i}{4}}{\path[draw=\mycolor, line width=\mysize] (P1) -- (P3);}{}%
+      \ifthenelse{\equal{\i}{5}}{\path[draw=\mycolor, line width=\mysize] (P3) -- (P5);}{}%
+      \ifthenelse{\equal{\i}{6}}{\path[draw=\mycolor, line width=\mysize] (P3) -- (P4);}{}%
+    }
+  \end{tikzpicture}%
+}
+
+\newcommand{\sevensegnum}[2][]%
+{%                                          
+    \ifthenelse{\equal{#2}{0}}{\sevenseg[#1]{1,1,1,1,1,1,0,}}{%
+        \ifthenelse{\equal{#2}{1}}{\sevenseg[#1]{0,1,1,0,0,0,0,}}{%
+            \ifthenelse{\equal{#2}{2}}{\sevenseg[#1]{1,1,0,1,1,0,1,}}{%
+                \ifthenelse{\equal{#2}{3}}{\sevenseg[#1]{1,1,1,1,0,0,1,}}{%
+                    \ifthenelse{\equal{#2}{4}}{\sevenseg[#1]{0,1,1,0,0,1,1,}}{%
+                        \ifthenelse{\equal{#2}{5}}{\sevenseg[#1]{1,0,1,1,0,1,1,}}{%
+                            \ifthenelse{\equal{#2}{6}}{\sevenseg[#1]{1,0,1,1,1,1,1,}}{%
+                                \ifthenelse{\equal{#2}{7}}{\sevenseg[#1]{1,1,1,0,0,0,0,}}{%
+                                    \ifthenelse{\equal{#2}{8}}{\sevenseg[#1]{1,1,1,1,1,1,1,}}{%
+                                        \ifthenelse{\equal{#2}{9}}{\sevenseg[#1]{1,1,1,1,0,1,1,}}{%
+                                            {\sevenseg[#1]{0,0,0,0,0,0,0,}}
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }%
+}
+
+% Choose engine primitive
+\makeatletter
+\@ifundefined{pdfuniformdeviate}{%
+  \let\RandDeviate\uniformdeviate   % XeLaTeX / LuaLaTeX
+}{%
+  \let\RandDeviate\pdfuniformdeviate % pdfLaTeX
+}
+\makeatother
+
+% Fully expandable random bit (0 or 1)
+\newcommand{\randbit}{\the\numexpr\RandDeviate 2\relax}
+
+% Convert one random draw to a clean literal 0/1
+\newcommand{\randbitZ}{%
+  \ifnum\numexpr\RandDeviate 2\relax>0 1\else 0\fi
+}
+
+% Use it to build the seven-seg list
+\newcommand{\randsevenseg}{%
+  \sevenseg[]{\randbitZ,\randbitZ,\randbitZ,\randbitZ,\randbitZ,\randbitZ,\randbitZ}%
+}

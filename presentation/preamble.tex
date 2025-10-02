@@ -49,7 +49,7 @@
 }{}
 \makeatother
 \usepackage{tikz}
-\usetikzlibrary{arrows,automata,positioning,shapes,arrows.meta,shapes.geometric, through}
+\usetikzlibrary{arrows,automata,positioning,shapes,arrows.meta,shapes.geometric, through, calc}
 \usepackage{pgfplots}
 \usepgfplotslibrary{dateplot}
 
@@ -79,10 +79,12 @@
 \usepackage{tikz-among-us}
 \usepackage{multicol}
 \usepackage{outlines}
+\usepackage{ulem}
 
 \input{../parts/theme-2025-preamble.tex}
 
 \newcommand\daynr{0}
+
 
 \definecolor{ExColor}{HTML}{17819b}
 
@@ -113,6 +115,14 @@
     \end{frame}
 }
 
+\newcommand{\cleft}[2][.]{%
+    \begingroup\colorlet{savedleftcolor}{.}%
+    \color{#1}\left#2\color{savedleftcolor}%
+}
+\newcommand{\cright}[2][.]{%
+    \color{#1}\right#2\endgroup
+}
+
 % Make subsections in toc small
 \makeatletter
 \setbeamertemplate{subsection in toc}{\small\leftskip=2em\inserttocsubsection\par}
@@ -136,5 +146,7 @@
             }{%
         \end{tikzpicture}\end{lrbox}\resizebox{\sizeArgument}{!}{\usebox\tikzBox}%
 }
+
+\input{../figures/tikz/segment.tex}
 
 \input{../config.tex}
